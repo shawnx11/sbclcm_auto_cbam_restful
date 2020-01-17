@@ -1,0 +1,27 @@
+# Directory and file locations.
+[ CA_default ]
+certs                  = /home/yact-user/shawnx/20.2/1579262790/sbclcm03/bulk_adm/csop_dir/../.cert_dir/certs
+crl_dir                = /home/yact-user/shawnx/20.2/1579262790/sbclcm03/bulk_adm/csop_dir/../.cert_dir/crl
+new_certs_dir          = /home/yact-user/shawnx/20.2/1579262790/sbclcm03/bulk_adm/csop_dir/../.cert_dir/newcerts
+database               = /home/yact-user/shawnx/20.2/1579262790/sbclcm03/bulk_adm/csop_dir/../.cert_dir/index.txt
+serial                 = /home/yact-user/shawnx/20.2/1579262790/sbclcm03/bulk_adm/csop_dir/../.cert_dir/serial
+RANDFILE               = /home/yact-user/shawnx/20.2/1579262790/sbclcm03/bulk_adm/csop_dir/../.cert_dir/.rnd 
+
+[ req ]
+default_bits           = 4096
+default_keyfile        = /home/yact-user/shawnx/20.2/1579262790/sbclcm03/bulk_adm/csop_dir/../.cert_dir/.priv.key.pem
+distinguished_name     = req_distinguished_name
+attributes             = req_attributes
+prompt                 = no
+output_password        =
+
+[ req_distinguished_name ]
+C                      = US
+ST                     = TX
+L                      = Austin
+O                      = Nokia
+OU                     = SBC
+CN                     = https://www.nokia.com
+
+[ req_attributes ]
+challengePassword      =

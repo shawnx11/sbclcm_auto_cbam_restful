@@ -1,0 +1,6 @@
+ne : media01
+soi : /tmp/soi-20401/media01.xml
+out : /home/test/DIF/CE/20200115103031/media01/vsphere
+platform : openstack
+image : nokia-mgw-rhel7.7-3.10.0-1062.4.1.an100053.x86_64.qcow2
+not vmware platform, skip

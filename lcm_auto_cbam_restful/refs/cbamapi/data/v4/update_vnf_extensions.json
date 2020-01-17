@@ -1,0 +1,246 @@
+{
+    "extensions": {
+        "media_params": {
+            "vnf_name": "v4406-mgw1",
+            "vnf_id": "10000",
+            "key_name": "media",
+            "vm_char": "vm",
+            "bgw_id": "1",
+            "platform": "OpenStack",
+            "boot_resource": "boot-from-image",
+
+            "vm_flavor": {
+                "10": "c02_r04_d8_s1",
+                "11": "c02_r04_d8_s1",
+                "19": "c03_r08_d8",
+                "20": "c03_r08_d8",
+                "17": "c03_r08_d8",
+                "18": "c03_r08_d8",
+                "15": "c03_r08_d8",
+                "16": "c03_r08_d8",
+                "1": "c04_r08_d8",
+                "2": "c04_r08_d8",
+                "3": "c04_r08_d8"
+            },
+
+            "vm_sw_image": {
+                "10": "sbc_media_jenkins",
+                "11": "sbc_media_jenkins",
+                "19": "sbc_media_jenkins",
+                "20": "sbc_media_jenkins",
+                "17": "sbc_media_jenkins",
+                "18": "sbc_media_jenkins",
+                "15": "sbc_media_jenkins",
+                "16": "sbc_media_jenkins",
+                "1": "sbc_media_jenkins",
+                "2": "sbc_media_jenkins",
+                "3": "sbc_media_jenkins"
+            },
+
+            "vm_compute_avail_zone": {
+                "10": "zone1",
+                "11": "zone2",
+                "19": "zone1",
+                "20": "zone2",
+                "17": "zone1",
+                "18": "zone2",
+                "15": "zone1",
+                "16": "zone2",
+                "1": "zone1",
+                "2": "zone2",
+                "3": "zone1"
+            },
+            "vm_block_storage_avail_zone": {
+                "10": "nova",
+                "11": "nova",
+                "19": "nova",
+                "20": "nova",
+                "17": "nova",
+                "18": "nova",
+                "15": "nova",
+                "16": "nova",
+                "1": "nova",
+                "2": "nova",
+                "3": "nova"
+            },
+            "vm_block_storage_size": {
+                "10": "50",
+                "11": "50",
+                "19": "10",
+                "20": "10",
+                "17": "10",
+                "18": "10",
+                "15": "10",
+                "16": "10",
+                "1": "10",
+                "2": "10",
+                "3": "10"
+            },
+            "storage_volume_type": {
+                "10": "",
+                "11": "",
+                "19": "",
+                "20": "",
+                "17": "",
+                "18": "",
+                "15": "",
+                "16": "",
+                "1": "",
+                "2": "",
+                "3": ""
+            },
+            "affinity_config": {
+                "SCM": "anti-affinity",
+                "MCM": "anti-affinity",
+                "PIM": "anti-affinity"
+            },
+
+            "name_map_slot": {
+                "v4406-mgw1vm010": "10",
+                "v4406-mgw1vm011": "11",
+                "v4406-mgw1vm019": "19",
+                "v4406-mgw1vm020": "20",
+                "v4406-mgw1vm017": "17",
+                "v4406-mgw1vm018": "18",
+                "v4406-mgw1vm015": "15",
+                "v4406-mgw1vm016": "16",
+                "v4406-mgw1vm001": "1",
+                "v4406-mgw1vm002": "2",
+                "v4406-mgw1vm003": "3"
+            },
+            "max_pim_groups_number": "3",
+            "pim_groups_number": "1",
+            "max_physical_mcm_number": "3",
+            "physical_mcm_number": "2",
+            "mcm_red_group_number": "1",
+
+
+            "tenant_networks": {
+                "tipc": "None",
+                "mate_tipc": "None",
+                "data_path": "None",
+                "mate_data_path": "None"
+            },
+            "provider_networks": {
+                "SCM": {
+                    "SIG": {
+                        "network": "SIG_CORE",
+                        "ipv4": {
+                            "subnet": "SIG_CORE_SUBNET",
+                            "fixed_ips": ["8.0.0.14", "8.0.0.15"],
+                            "vip_ip": [
+                                "8.0.0.16"
+                            ]
+                        },
+                        "allowed_address_pairs": [{
+                            "ip_address": "8.0.0.16"
+                        }]
+                    },
+                    "OAM": {
+                        "network": "OAM",
+                        "ipv4": {
+                            "subnet": "OAM_SUBNET",
+                            "fixed_ips": ["7.0.0.14", "7.0.0.15"],
+                            "cidr": "7.0.0.14/24",
+                            "gw": "7.0.0.1",
+                            "vip_ip": [
+                                "7.0.0.16"
+                            ]
+                        },
+                        "allowed_address_pairs": [{
+                            "ip_address": "7.0.0.16"
+                        }]
+                    }
+                },
+
+                "PIM1": [{
+                    "network": "MEDIA_UNTRUST",
+                    "ipv4": {
+                        "fixed_ips": ["12.0.0.5", "12.0.0.6"],
+                        "vip_ip": [
+                            "12.0.0.7"
+                        ],
+                        "subnet": "MEDIA_UNTRUST_SUBNET"
+                    },
+                    "allowed_address_pairs": [{
+                        "ip_address": "12.0.0.7"
+                    }]
+                }, {
+                    "network": "MEDIA_TRUST",
+                    "ipv4": {
+                        "fixed_ips": ["11.0.0.5", "11.0.0.6"],
+                        "vip_ip": [
+                            "11.0.0.7"
+                        ],
+                        "subnet": "MEDIA_TRUST_SUBNET"
+                    },
+                    "allowed_address_pairs": [{
+                        "ip_address": "11.0.0.7"
+                    }]
+                }],
+                "PIM2": [{
+                    "network": "MEDIA_UNTRUST",
+                    "ipv4": {
+                        "fixed_ips": ["12.0.0.8", "12.0.0.9"],
+                        "vip_ip": [
+                            "12.0.0.10"
+                        ],
+                        "subnet": "MEDIA_UNTRUST_SUBNET"
+                    },
+                    "allowed_address_pairs": [{
+                        "ip_address": "12.0.0.10"
+                    }]
+                }, {
+                    "network": "MEDIA_TRUST",
+                    "ipv4": {
+                        "fixed_ips": ["11.0.0.8", "11.0.0.9"],
+                        "vip_ip": [
+                            "11.0.0.10"
+                        ],
+                        "subnet": "MEDIA_TRUST_SUBNET"
+                    },
+                    "allowed_address_pairs": [{
+                        "ip_address": "11.0.0.10"
+                    }]
+                }],
+                "PIM3": [{
+                    "network": "MEDIA_UNTRUST",
+                    "ipv4": {
+                        "fixed_ips": ["12.0.0.11", "12.0.0.12"],
+                        "vip_ip": [
+                            "12.0.0.13"
+                        ],
+                        "subnet": "MEDIA_UNTRUST_SUBNET"
+                    },
+                    "allowed_address_pairs": [{
+                        "ip_address": "12.0.0.13"
+                    }]
+                }, {
+                    "network": "MEDIA_TRUST",
+                    "ipv4": {
+                        "fixed_ips": ["11.0.0.11", "11.0.0.12"],
+                        "vip_ip": [
+                            "11.0.0.13"
+                        ],
+                        "subnet": "MEDIA_TRUST_SUBNET"
+                    },
+                    "allowed_address_pairs": [{
+                        "ip_address": "11.0.0.13"
+                    }]
+                }]
+
+            }
+        },
+        "default_action": "install",
+        "vdus_backup": "none",
+        "resource_backup": "none",
+        "pim_scale_out_threshold": "70",
+        "pim_scale_in_threshold": "30",
+        "mcm_scale_out_threshold": "70",
+        "mcm_scale_in_threshold": "30",
+        "quiet_period": "900",
+        "minimum_configuration": [
+            "create ip if en.scm.1 7.0.0.16 255.255.255.0 oam network 0", "remove ip if 192.168.1.1 all", "create route default 7.0.0.1 1 strict 0", "define ip filtering disable force", "define ipv6 filtering state disable", "diag create snmp usm ioam ioamsnmpuser", "main create snmp vacm group 3 ioamsnmpuser public", "main create snmp vacm view all 1 0x80 included", "main create snmp vacm access public 3 authpriv all all all", "define snmp version disable disable enable", "save", "wait time 10000", "save", "wait time 10000", "reboot system"
+        ]
+    }
+}

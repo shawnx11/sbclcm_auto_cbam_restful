@@ -1,0 +1,5 @@
+{
+    "name": "wd-test-media",
+    "vnfdId": "Nokia-SBC-media-C190B01a-default",
+    "description": "My test vnf"
+}

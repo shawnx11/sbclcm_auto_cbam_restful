@@ -1,0 +1,2 @@
+Not using Datacook, skip
+rmdir: failed to remove ‘/home/test/DIF/CE/20200115103031/media01/openstack’: Directory not empty

@@ -1,0 +1,267 @@
+{
+    "computeResourceFlavours": [{
+            "vnfdVirtualComputeDescId": "scm10_compute",
+            "resourceId": "default",
+            "vimFlavourId": "scalable",
+            "vimConnectionId": "vim_connection_1"
+        },
+        {
+            "vnfdVirtualComputeDescId": "scm11_compute",
+            "resourceId": "default",
+            "vimFlavourId": "scalable",
+            "vimConnectionId": "vim_connection_1"
+        },
+        {
+            "vnfdVirtualComputeDescId": "pimA_compute",
+            "resourceId": "default",
+            "vimFlavourId": "scalable",
+            "vimConnectionId": "vim_connection_1"
+        },
+        {
+            "vnfdVirtualComputeDescId": "pimB_compute",
+            "resourceId": "default",
+            "vimFlavourId": "scalable",
+            "vimConnectionId": "vim_connection_1"
+        },
+        {
+            "vnfdVirtualComputeDescId": "mcm_compute",
+            "resourceId": "default",
+            "vimFlavourId": "scalable",
+            "vimConnectionId": "vim_connection_1"
+        }
+    ],
+    "additionalParams": {
+        "inject_well_known_temp_key": "yes",
+        "Scripturl": "http://10.75.168.53:10000/bulk.zip"
+    },
+    "zones": [{
+        "zoneId": "zoneId",
+        "resourceId": "default",
+        "id": "zoneId",
+        "vimConnectionId": "vim_connection_1"
+    }],
+    "softwareImages": [{
+        "vnfdSoftwareImageId": "image",
+        "vimSoftwareImageId": "sbc_media_jenkins",
+        "resourceId": "sbc_media_jenkins",
+        "vimConnectionId": "vim_connection_1"
+    }],
+    "grantlessMode": true,
+    "extManagedVirtualLinks": [],
+    "flavourId": "scalable",
+    "vimConnectionInfo": [{
+        "interfaceInfo": {
+            "endpoint": "https://10.75.225.36:13000/v2.0"
+        },
+        "accessInfo": {
+            "tenant": "v4406_SDP_SBC",
+            "username": "v4406_mblonski",
+            "password": "ChangeMe.RightCorner.801f",
+            "region": "regionOne"
+        },
+        "vimType": "OPENSTACK_V2",
+        "id": "vim_connection_1"
+    }],
+    "instantiationLevelId": "default",
+    "extVirtualLinks": [{
+        "id": "vim_ext_1",
+        "vimConnectionId": "vim_connection_1",
+        "resourceId": "vim_resource_1",
+        "extCps": [{
+            "cpdId": "pim_A_voice1_ipv4_ecp",
+            "cpConfig": [{
+                "cpProtocolData": [{
+                    "layerProtocol": "IP_OVER_ETHERNET",
+                    "ipOverEthernet": {
+                        "ipAddresses": [{
+                            "type": "IPV4",
+                            "fixedAddresses": [
+                                "12.0.0.5"
+                            ],
+                            "subnetId": "MEDIA_UNTRUST_SUBNET"
+                        }, {
+                            "type": "IPV4",
+                            "fixedAddresses": [
+                                "12.0.0.8"
+                            ],
+                            "subnetId": "MEDIA_UNTRUST_SUBNET"
+                        }, {
+                            "type": "IPV4",
+                            "fixedAddresses": [
+                                "12.0.0.11"
+                            ],
+                            "subnetId": "MEDIA_UNTRUST_SUBNET"
+                        }]
+                    }
+                }]
+            }]
+        }, {
+            "cpdId": "pim_B_voice1_ipv4_ecp",
+            "cpConfig": [{
+                "cpProtocolData": [{
+                    "layerProtocol": "IP_OVER_ETHERNET",
+                    "ipOverEthernet": {
+                        "ipAddresses": [{
+                            "type": "IPV4",
+                            "fixedAddresses": [
+                                "12.0.0.6"
+                            ],
+                            "subnetId": "MEDIA_UNTRUST_SUBNET"
+                        }, {
+                            "type": "IPV4",
+                            "fixedAddresses": [
+                                "12.0.0.9"
+                            ],
+                            "subnetId": "MEDIA_UNTRUST_SUBNET"
+                        }, {
+                            "type": "IPV4",
+                            "fixedAddresses": [
+                                "12.0.0.12"
+                            ],
+                            "subnetId": "MEDIA_UNTRUST_SUBNET"
+                        }]
+                    }
+                }]
+            }]
+        }],
+        "resourceId": "MEDIA_UNTRUST"
+    }, {
+        "id": "vim_ext_2",
+        "vimConnectionId": "vim_connection_1",
+        "resourceId": "vim_resource_2",
+        "extCps": [{
+            "cpdId": "pim_A_voice2_ipv4_ecp",
+            "cpConfig": [{
+                "cpProtocolData": [{
+                    "layerProtocol": "IP_OVER_ETHERNET",
+                    "ipOverEthernet": {
+                        "ipAddresses": [{
+                            "type": "IPV4",
+                            "fixedAddresses": [
+                                "11.0.0.5"
+                            ],
+                            "subnetId": "MEDIA_TRUST_SUBNET"
+                        }, {
+                            "type": "IPV4",
+                            "fixedAddresses": [
+                                "11.0.0.8"
+                            ],
+                            "subnetId": "MEDIA_TRUST_SUBNET"
+                        }, {
+                            "type": "IPV4",
+                            "fixedAddresses": [
+                                "11.0.0.11"
+                            ],
+                            "subnetId": "MEDIA_TRUST_SUBNET"
+                        }]
+                    }
+                }]
+            }]
+        }, {
+            "cpdId": "pim_B_voice2_ipv4_ecp",
+            "cpConfig": [{
+                "cpProtocolData": [{
+                    "layerProtocol": "IP_OVER_ETHERNET",
+                    "ipOverEthernet": {
+                        "ipAddresses": [{
+                            "type": "IPV4",
+                            "fixedAddresses": [
+                                "11.0.0.6"
+                            ],
+                            "subnetId": "MEDIA_TRUST_SUBNET"
+                        }, {
+                            "type": "IPV4",
+                            "fixedAddresses": [
+                                "11.0.0.9"
+                            ],
+                            "subnetId": "MEDIA_TRUST_SUBNET"
+                        }, {
+                            "type": "IPV4",
+                            "fixedAddresses": [
+                                "11.0.0.12"
+                            ],
+                            "subnetId": "MEDIA_TRUST_SUBNET"
+                        }]
+                    }
+                }]
+            }]
+        }],
+        "resourceId": "MEDIA_TRUST"
+    }, {
+        "id": "vim_ext_3",
+        "vimConnectionId": "vim_connection_1",
+        "resourceId": "vim_resource_3",
+        "extCps": [{
+            "cpdId": "scm_10_sig_ipv4_ecp",
+            "cpConfig": [{
+                "cpProtocolData": [{
+                    "layerProtocol": "IP_OVER_ETHERNET",
+                    "ipOverEthernet": {
+                        "ipAddresses": [{
+                            "type": "IPV4",
+                            "fixedAddresses": [
+                                "8.0.0.14"
+                            ],
+                            "subnetId": "SIG_CORE_SUBNET"
+                        }]
+                    }
+                }]
+            }]
+        }, {
+            "cpdId": "scm_11_sig_ipv4_ecp",
+            "cpConfig": [{
+                "cpProtocolData": [{
+                    "layerProtocol": "IP_OVER_ETHERNET",
+                    "ipOverEthernet": {
+                        "ipAddresses": [{
+                            "type": "IPV4",
+                            "fixedAddresses": [
+                                "8.0.0.15"
+                            ],
+                            "subnetId": "SIG_CORE_SUBNET"
+                        }]
+                    }
+                }]
+            }]
+        }],
+        "resourceId": "SIG_CORE"
+    }, {
+        "id": "vim_ext_4",
+        "vimConnectionId": "vim_connection_1",
+        "resourceId": "vim_resource_4",
+        "extCps": [{
+            "cpdId": "scm_10_oam_ipv4_ecp",
+            "cpConfig": [{
+                "cpProtocolData": [{
+                    "layerProtocol": "IP_OVER_ETHERNET",
+                    "ipOverEthernet": {
+                        "ipAddresses": [{
+                            "type": "IPV4",
+                            "fixedAddresses": [
+                                "7.0.0.14"
+                            ],
+                            "subnetId": "OAM_SUBNET"
+                        }]
+                    }
+                }]
+            }]
+        }, {
+            "cpdId": "scm_11_oam_ipv4_ecp",
+            "cpConfig": [{
+                "cpProtocolData": [{
+                    "layerProtocol": "IP_OVER_ETHERNET",
+                    "ipOverEthernet": {
+                        "ipAddresses": [{
+                            "type": "IPV4",
+                            "fixedAddresses": [
+                                "7.0.0.15"
+                            ],
+                            "subnetId": "OAM_SUBNET"
+                        }]
+                    }
+                }]
+            }]
+        }],
+        "resourceId": "OAM"
+    }]
+}

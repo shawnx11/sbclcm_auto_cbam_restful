@@ -1,0 +1,577 @@
+#!/usr/bin/python
+
+# Name: vnf_upgrade_pkg_gen
+#
+# Description: Tool used to generate upgrade package based on the contents
+#              of the current VNF package and the new VNF package.
+# For example current templates will be preserved.
+#
+
+import sys
+import os
+import shutil
+import argparse
+import hashlib
+import time
+import uuid
+import copy
+from subprocess import Popen, PIPE
+from gettext import gettext as _
+import argparse
+if (os.path.exists("/opt/LU3P/lib/python2.7/site-packages")):
+    sys.path.append("/opt/LU3P/lib/python2.7/site-packages")
+    sys.path.append("/opt/LU3P/lib64/python2.7/site-packages")
+import yaml
+
+CURR_PKG_DIR = ""
+NEW_PKG_DIR = ""
+VNF_NAME = ""
+CWDIR = ""
+CURR_STATIC_VDU_COUNT = 0
+USE_CURR_VNFD = False
+new_vnfd_dict = {}
+curr_vnfd_dict = {}
+
+TOSCA_1_0 = "tosca_simple_profile_for_nfv_1_0_0_nokia" #Initial CBAM GA release
+TOSCA_3_1 = "tosca_simple_profile_for_nfv_1_0_0_nokia_3_1_0"
+TOSCA_3_2 = "tosca_simple_profile_for_nfv_1_0_0_nokia_3_2_0"
+TOSCA_3_4 = "tosca_simple_profile_for_nfv_1_0_0_nokia_3_4_0" #Supports SOL003
+TOSCA_4_0 = "tosca_simple_yaml_1_2" #Supports SOL001, SOL002, SOL003, SOL004
+
+class attrdict(dict):
+    """A dict whose items can also be accessed as member variables."""
+    def __init__(self, *args, **kwargs):
+        dict.__init__(self, *args, **kwargs)
+        self.__dict__ = self
+
+# Define run_cmd
+def run_cmd(command):
+    """ Module to handle unix commands/scripts while tracking error streams. """
+    retCode = attrdict(
+        { "returncode": 0,
+          "std_err":"",
+          "std_out":"",
+          "cmd": ""
+        })
+
+    proc = Popen(command, shell = True, stdout = PIPE, stderr = PIPE)
+    retCode.std_out, retCode.std_err = proc.communicate()
+    retCode.returncode = proc.returncode
+    return retCode
+
+def get_base_parser():
+    usage_str = "\n'%(prog)s' tool will generate VNF package that can be used\n"
+    usage_str += "during the VNF upgrade as part of VNF Package Upgrade.\n"
+    usage_str += "The tool requires the current VNF package (can be downloaded from CBAM\n"
+    usage_str += "as well as the new package. New package must be generated based on the\n"
+    usage_str += "'to' vnf upgrade load.\n\n"
+
+    parser = argparse.ArgumentParser(add_help=True, description=usage_str)
+    parser.add_argument('-c', '--current-pkg', required=True, help=_('Current VNF package - can be downloaded from CBAM.'))
+    parser.add_argument('-n', '--new-pkg', required=True, help=_("New VNF package based on the 'to' VNF load."))
+    parser.add_argument('vnf_name', help=_('VNF name.'))
+    return (parser)
+
+def unzip_pkg_to_dir(pkg, unzip_dir):
+    if os.path.exists(unzip_dir) == True:
+        shutil.rmtree(unzip_dir)
+
+    ret = run_cmd("unzip " + pkg + " -d " + unzip_dir)
+    if ret.returncode != 0:
+        print "FAILED: '%s' std_err=%s:%s" % (ret.cmd, ret.returncode, ret.std_err)
+        cleanup()
+        sys.exit(1)
+
+def gen_descriptor_id():
+    uuid_key = str(uuid.uuid4())
+    return(uuid_key)
+
+def read_yaml_file(yaml_file):
+    if os.path.exists(yaml_file) == False:
+        print "ERROR: yaml file not found: ", yaml_file
+        cleanup()
+        sys.exit(1)
+
+    data_dict = {}
+    with open(yaml_file, "r") as f:
+        data_dict = yaml.load(f)
+
+    return (data_dict)
+
+def cleanup():
+    shutil.rmtree(CURR_PKG_DIR)
+    shutil.rmtree(NEW_PKG_DIR)
+
+def get_vnfd_fname_from_tosca(pkg_dir):
+    meta_dict = read_yaml_file(pkg_dir + "/TOSCA-Metadata/TOSCA.meta")
+    if "Entry-Definitions" not in meta_dict.keys():
+        print "ERROR - not able to ready VNFD file from TOSCA-Metadata/TOSCA.meta"
+        cleanup()
+        sys.exit(1)
+    return (pkg_dir + "/" + meta_dict["Entry-Definitions"])
+
+def get_vnfd_static_vdus_count(vnfd):
+    static_vdus = {}
+    policy_list = vnfd["topology_template"]["policies"]
+    for policy in policy_list:
+        for key, value in policy.iteritems():
+            if key == "heat_mapping":
+                static_vdus = value["properties"]["static"]["vdus"]
+                break
+        if static_vdus != {}:
+            break
+    return (len(static_vdus))
+
+def update_new_vnf_pkg_with_updates():
+    try:
+       import gen_vnf_pkg_manifest as manifest
+    except Exception as err:
+       import imp
+       manifest = imp.load_source("gen_vnf_pkg_manifest", "gen_vnf_pkg_manifest")
+
+    # Supported upgrade path from ... to []
+    global new_vnfd_dict
+    global curr_vnfd_dict
+    SUPPORTED_UPGRADES = {
+           TOSCA_1_0: [TOSCA_1_0],
+           TOSCA_3_1: [TOSCA_3_1, TOSCA_3_1],
+           TOSCA_3_2: [TOSCA_3_2],
+           #TOSCA_3_4: [TOSCA_3_4],
+           TOSCA_4_0: [TOSCA_4_0]
+       }
+    func_dispatch = {
+           TOSCA_1_0: HandleTosca_1_0,
+           TOSCA_3_1: HandleTosca_1_0,
+           TOSCA_3_2: HandleTosca_3_2,
+           TOSCA_4_0: HandleTosca_4_0,
+    }
+    new_vnfd_dict = read_yaml_file(get_vnfd_fname_from_tosca(NEW_PKG_DIR))
+    curr_vnfd_dict = read_yaml_file(get_vnfd_fname_from_tosca(CURR_PKG_DIR))
+
+    # Make sure upgrade path is supported
+    curr_tosca_ver = curr_vnfd_dict["tosca_definitions_version"]
+    new_tosca_ver = new_vnfd_dict["tosca_definitions_version"]
+    if (   (curr_tosca_ver not in SUPPORTED_UPGRADES.keys())
+        or (new_tosca_ver not in SUPPORTED_UPGRADES[curr_tosca_ver]) ):
+        print "ERROR: transition from '%s' to '%s' is NOT supported" % (curr_tosca_ver, new_tosca_ver)
+        cleanup()
+        sys.exit(1)
+
+    # Process Upgrade request
+    up_handler = func_dispatch[curr_tosca_ver](curr_tosca_ver, new_tosca_ver)
+    up_handler.process_package_upgrade()
+
+    # Preserve 'templates' in old/current VNF pkg
+    shutil.rmtree(NEW_PKG_DIR + "/templates")
+    run_cmd("cp -rf " + CURR_PKG_DIR + "/templates " + NEW_PKG_DIR)
+
+    # Create new VNF pkg zip file with updated manifest file
+    manifest.create_manifest_sha256(NEW_PKG_DIR)
+    new_vnf_pkg = VNF_NAME + "_Nokia_sig_SBC_upgrade-VNF_Package.zip"
+    cmd = "cd " + NEW_PKG_DIR + "; zip ../" + new_vnf_pkg + " -r * >/dev/null"
+    ret = run_cmd(cmd)
+    if ret.returncode != 0:
+        print "FAILED: '%s' std_err=%s:%s" % (ret.cmd, ret.returncode, ret.std_err)
+        cleanup()
+        sys.exit(1)
+
+class HandleTosca_4_0():
+    def __init__(self, c_tosca_ver, n_tosca_ver):
+        self.c_tosca_ver = c_tosca_ver
+        self.n_tosca_ver = n_tosca_ver
+
+    def get_vdu_list(self, ext_dict):
+        heat_mapping = ext_dict["vnfd_extensions"]["heat_mapping"]
+        vdu_list = []
+        if (("static" in heat_mapping.keys()) and ("vdus" in heat_mapping["static"].keys())):
+            vdu_list += heat_mapping["static"]["vdus"].keys()
+        # Get vdus from 'aspects'
+        for aspect, aspect_data in heat_mapping["aspects"].iteritems():
+            if ((isinstance(aspect_data, dict)) and ("vdus" in aspect_data.keys())):
+                vdu_list += aspect_data["vdus"].keys()
+        return (vdu_list)
+
+    def process_package_upgrade(self):
+        def get_ecp_list(vnfd_dict, vdu_list):
+            ecp_list = []
+            for temp_key, temp_data in vnfd_dict["topology_template"]["node_templates"].iteritems():
+                if temp_key in vdu_list:
+                    continue
+                if (temp_data["type"] != "tosca.nodes.nfv.VduCp"):
+                    continue
+                ecp_list.append(temp_key)
+            return (ecp_list)
+        
+        update_vnfd_dict = copy.deepcopy(new_vnfd_dict)
+
+        # Read "cbam-extensions/lcm.vnfd.extensions.yaml"
+        cbam_extensions = read_yaml_file(NEW_PKG_DIR + "/" + "cbam-extensions/lcm.vnfd.extensions.yaml")
+        vdu_list = self.get_vdu_list(cbam_extensions)
+
+        # Preserve requirements
+        updateEcp = False
+        for req_key, req_val in curr_vnfd_dict["topology_template"]["substitution_mappings"]["requirements"].iteritems():
+            if req_key not in curr_vnfd_dict["topology_template"]["substitution_mappings"]["requirements"].keys():
+                updateEcp = True
+                break
+        
+        if updateEcp == True:
+            del update_vnfd_dict["topology_template"]["substitution_mappings"]["requirements"]
+            update_vnfd_dict["topology_template"]["substitution_mappings"]["requirements"] = \
+                    curr_vnfd_dict["topology_template"]["substitution_mappings"]["requirements"]
+
+            for node_key, node_data in update_vnfd_dict["node_types"].iteritems():
+                del update_vnfd_dict["node_types"][node_key]["requirements"]
+                update_vnfd_dict["node_types"][node_key]["requirements"] = curr_vnfd_dict["node_types"][node_key]["requirements"]
+                break
+
+        # Validate VduCp
+        udateEcp = False
+        new_ecp_list = get_ecp_list(update_vnfd_dict, vdu_list)
+        curr_ecp_list = get_ecp_list(curr_vnfd_dict, vdu_list)
+        for ecp in curr_ecp_list:
+            if ecp not in new_ecp_list:
+                udateEcp = True
+                break
+        if udateEcp == True:
+            for ecp in new_ecp_list:
+                del update_vnfd_dict["topology_template"]["node_templates"][ecp]
+            for ecp in curr_ecp_list:
+                update_vnfd_dict["topology_template"]["node_templates"][ecp] = \
+                         copy.deepcopy(curr_vnfd_dict["topology_template"]["node_templates"][ecp])
+
+        # Save updated vnfd file
+        with open(NEW_PKG_DIR + "/lcm.vnfd.tosca.yaml", 'w') as f:
+            f.write(yaml.safe_dump(update_vnfd_dict, indent=2, default_flow_style=False))
+
+        # Now update "cbam-extensions/lcm.vnfd.extensions.yaml"
+        self.update_cbam_extensions()
+
+    def update_cbam_extensions(self):
+        new_cbam_extensions = read_yaml_file(NEW_PKG_DIR + "/" + "cbam-extensions/lcm.vnfd.extensions.yaml")
+        curr_cbam_extensions = read_yaml_file(CURR_PKG_DIR + "/" + "cbam-extensions/lcm.vnfd.extensions.yaml")
+
+        # Keep 'heat_mapping' unchanged
+        update_cbam_extensions = copy.deepcopy(curr_cbam_extensions)
+        del update_cbam_extensions["vnfd_extensions"]["operation_triggers"]
+        update_cbam_extensions["vnfd_extensions"]["operation_triggers"] = \
+                new_cbam_extensions["vnfd_extensions"]["operation_triggers"]
+
+        # Save updated vnfd file
+        with open(NEW_PKG_DIR + "/cbam-extensions/lcm.vnfd.extensions.yaml", 'w') as f:
+            f.write(yaml.safe_dump(update_cbam_extensions, indent=2, default_flow_style=False))
+
+class HandleTosca_3_2():
+    def __init__(self, c_tosca_ver, n_tosca_ver):
+        self.c_tosca_ver = c_tosca_ver
+        self.n_tosca_ver = n_tosca_ver
+
+    def process_package_upgrade(self):
+        global CURR_STATIC_VDU_COUNT
+        global USE_CURR_VNFD
+
+        #Get static vdu count from 'heat_mapping' section of the VNFD
+        new_static_vdu_count = get_vnfd_static_vdus_count(new_vnfd_dict)
+        CURR_STATIC_VDU_COUNT = get_vnfd_static_vdus_count(curr_vnfd_dict)
+        if new_static_vdu_count > CURR_STATIC_VDU_COUNT:
+            # Single VDU supported, same treatment as tosca 1.0/3.1
+            up_handler = HandleTosca_1_0(self.c_tosca_ver, self.n_tosca_ver)
+            up_handler.process_package_upgrade()
+            return
+
+        # Update VNFD
+        self.update_vnfd()
+
+
+    def update_vnfd(self):
+        # Preserve the following VNFD sections
+        # - policies.commissioning.properties.connection_points
+        # - policies.heat_mapping
+        update_vnfd_dict = new_vnfd_dict
+
+        del update_vnfd_dict["topology_template"]["policies"]
+        update_vnfd_dict["topology_template"]["policies"] = copy.deepcopy(curr_vnfd_dict["topology_template"]["policies"])
+
+        # Delete "externalConnectionPoints" from sc_Aspect
+        for idx in range(len(update_vnfd_dict["topology_template"]["policies"])):
+            if ("heat_mapping" in update_vnfd_dict["topology_template"]["policies"][idx].keys()):
+                if ("sc_Aspect" not in update_vnfd_dict["topology_template"]["policies"][idx]["heat_mapping"]["properties"]["aspects"].keys()):
+                    continue
+                sc_aspect = update_vnfd_dict["topology_template"]["policies"][idx]["heat_mapping"]["properties"]["aspects"]["sc_Aspect"]
+                for vdu, vdu_data in sc_aspect["vdus"].iteritems():
+                    for vdu_idx in range(len(vdu_data)):
+                        if ("externalConnectionPoints" in sc_aspect["vdus"][vdu][vdu_idx].keys()):
+                            del sc_aspect["vdus"][vdu][vdu_idx]["externalConnectionPoints"]
+            elif ("commissioning" in update_vnfd_dict["topology_template"]["policies"][idx].keys()):
+                # Keep old commissioning
+                for old_idx in range(len(curr_vnfd_dict["topology_template"]["policies"])):
+                    if ("commissioning" in curr_vnfd_dict["topology_template"]["policies"][old_idx].keys()):
+                        del update_vnfd_dict["topology_template"]["policies"][idx]["commissioning"]["properties"]["connection_points"]
+                        update_vnfd_dict["topology_template"]["policies"][idx]["commissioning"]["properties"]["connection_points"] = \
+                               copy.deepcopy(curr_vnfd_dict["topology_template"]["policies"][old_idx]["commissioning"]["properties"]["connection_points"])
+
+        # Keep 'sw_image' fields
+        del update_vnfd_dict["topology_template"]["node_templates"]
+        update_vnfd_dict["topology_template"]["node_templates"] = copy.deepcopy(curr_vnfd_dict["topology_template"]["node_templates"])
+
+        # Save updated vnfd file
+        update_vnfd_dict["topology_template"]["substitution_mappings"]["properties"]["descriptor_id"] = gen_descriptor_id()
+        with open(NEW_PKG_DIR + "/lcm.vnfd.tosca.yaml", 'w') as f:
+            f.write(yaml.safe_dump(update_vnfd_dict, indent=2, default_flow_style=False))
+
+class HandleTosca_1_0():
+    def __init__(self, c_tosca_ver, n_tosca_ver):
+        self.c_tosca_ver = c_tosca_ver
+        self.n_tosca_ver = n_tosca_ver
+
+    def process_package_upgrade(self):
+        self.update_vnfd_with_known_updates()
+
+    def update_health_playbook(self):
+        # Add retries for health playbook
+        health_file = NEW_PKG_DIR + "/LCM/playbooks/roles/health/tasks/main.yml"
+        health_dict = read_yaml_file(health_file)
+        if str(health_dict).find("retries") == -1:
+            data_str = ''
+            data_str += '---\n'
+            data_str += '# tasks file for health\n'
+
+            data_str += '\n- name: Confirm the health script exists\n'
+            data_str += '  command: test -f /opt/LSS/sbin/health\n'
+
+            data_str += '\n- name: Run health for field install\n'
+            data_str += '  become: yes\n'
+            data_str += '  environment:\n'
+            data_str += '    PATH: "{{ MI_path }}"\n'
+            data_str += '  command: "/opt/LSS/sbin/health --test field_install"\n'
+            data_str += '  register: health_results_fi\n'
+            data_str += '  until: health_results_fi.rc == 0\n'
+            data_str += '  retries: 2\n'
+            data_str += '  delay: 60\n'
+            data_str += '  ignore_errors: True\n'
+            data_str += '  when: (FIELD_INSTALL is defined) and (FIELD_INSTALL | bool)\n'
+
+            data_str += '\n- name: Run health\n'
+            data_str += '  become: yes\n'
+            data_str += '  environment:\n'
+            data_str += '    PATH: "{{ MI_path }}"\n'
+            data_str += '  command: /opt/LSS/sbin/health\n'
+            data_str += '  register: health_results\n'
+            data_str += '  ignore_errors: True\n'
+            data_str += '  when: (FIELD_INSTALL is undefined) or (not FIELD_INSTALL | bool)\n'
+
+            data_str += '\n- name: Display health error if failed\n'
+            data_str += '  lcp_health_chk:\n'
+            data_str += '    health_result: "{{ health_results_fi.stdout }}"\n'
+            data_str += '  when: health_results_fi.changed and health_results_fi.rc != 0\n'
+
+            data_str += '\n- name: Display health error if failed\n'
+            data_str += '  lcp_health_chk:\n'
+            data_str += '    health_result: "{{ health_results.stdout }}"\n'
+            data_str += '  when: health_results.changed and health_results.rc != 0\n'
+
+            with open(health_file, 'w') as f:
+                f.write(data_str)
+
+    def update_upgrade_workflows(self):
+        upgrade_file = NEW_PKG_DIR + "/LCM/workbooks/upgrade_1_apply_workbook.yaml"
+        data_str = ""
+        prev = ""
+        with open(upgrade_file, "r") as f:
+            for line in f:
+                if prev.strip() == 'retMap.updateStackSideB = "no";':
+                    if line.strip() != 'return retMap;':
+                        data_str += "              return retMap;\n"
+                elif line.strip() == "- finalize-on-error: <% task(get_installed_image_names).result.rc != 0 %>":
+                    data_str += "          - finalize-on-error: <% task(get_installed_image_names).result.rc = 1 %>\n"
+                    data_str += "          - finalize: <% task(get_installed_image_names).result.rc = 2 %>\n"
+                    prev = line
+                    continue
+                elif prev.strip() == "retMap.rc = 1;":
+                    if line.strip() == "}":
+                        data_str += "              return retMap;\n"
+                data_str += line
+                prev = line
+        with open(upgrade_file, 'w') as f:
+            f.write(data_str)
+
+        upgrade_file = NEW_PKG_DIR + "/LCM/workbooks/upgrade_2_activate_workbook.yaml"
+        data_str = ""
+        prev = ""
+        with open(upgrade_file, "r") as f:
+            for line in f:
+                if prev.strip() == 'retMap.err_msg = "Upgrade image not installed on side B: installed=" + installedImageNameSideB;':
+                    if line.strip() == "}":
+                        data_str += "              return retMap;\n"
+                elif prev.strip() == 'retMap.err_msg = "Upgrade image already installed on side A: installed=" + installedImageNameSideA;':
+                    if line.strip() == "}":
+                        data_str += "              return retMap;\n"
+                data_str += line
+                prev = line
+        with open(upgrade_file, 'w') as f:
+            f.write(data_str)
+
+        upgrade_file = NEW_PKG_DIR + "/LCM/workbooks/upgrade_3_commit_workbook.yaml"
+        data_str = ""
+        prev = ""
+        with open(upgrade_file, "r") as f:
+            for line in f:
+                if prev.strip() == 'retMap.updateStackSideA = "no";':
+                    if line.strip() == "}":
+                        data_str += "              return retMap;\n"
+    
+                data_str += line
+                prev = line
+        with open(upgrade_file, 'w') as f:
+            f.write(data_str)
+
+    def update_extra_vars(self):
+        # If twin vdus not supported, then update vdu name
+        # in 'prep_ansible_extra_vars.js"
+        if ( not ((CURR_STATIC_VDU_COUNT == 1) and (USE_CURR_VNFD == True))):
+            return
+
+        extra_vars_file = NEW_PKG_DIR + "/LCM/javascript/prep_ansible_extra_vars.js"
+        data_str = ""
+        with open(extra_vars_file, "r") as f:
+            for line in f:
+                #if line == '               vduId_vma = vm_group_tag + "_a";':
+                if line.strip() == 'vduId_vma = vm_group_tag + "_a";':
+                    data_str += "               vduId_vma = vm_group_tag;\n"
+                else:
+                    data_str += line
+        with open(extra_vars_file, 'w') as f:
+            f.write(data_str)
+
+    def update_vnfd_with_known_updates(self):
+        global CURR_STATIC_VDU_COUNT
+        global USE_CURR_VNFD
+
+        #Get static vdu count from 'heat_mapping' section of the VNFD
+        new_static_vdu_count = get_vnfd_static_vdus_count(new_vnfd_dict)
+        CURR_STATIC_VDU_COUNT = get_vnfd_static_vdus_count(curr_vnfd_dict)
+
+        # Select VNFD to use for upgrade
+        # TWIN vdu VNFD cannot be used if twin vdu not in current vnfd
+        update_vnfd_dict = new_vnfd_dict
+        if new_static_vdu_count > CURR_STATIC_VDU_COUNT:
+            # Twin vdus supporte in newer release. Update old vnfd
+            update_vnfd_dict = curr_vnfd_dict
+            USE_CURR_VNFD = True
+
+        # Now update VNFD
+        # Add needed extensions parameters
+        updated_extensions = copy.deepcopy(update_vnfd_dict["topology_template"]["substitution_mappings"]["capabilities"]["vnf"]["properties"]["modifiable_attributes"]["extensions"])
+        new_extensions = copy.deepcopy(new_vnfd_dict["topology_template"]["substitution_mappings"]["capabilities"]["vnf"]["properties"]["modifiable_attributes"]["extensions"])
+        extensions_updated = False
+        new_ext_keys = new_extensions.keys()
+        curr_ext_keys = updated_extensions.keys()
+        if (USE_CURR_VNFD == True):
+            new_key_list = ["backup_file1", "time_zone"]
+            for key in new_key_list:
+                if ((key in new_ext_keys) and (key not in curr_ext_keys)):
+                    if (key == "backup_file1"):
+                        if ("backup_file" in curr_ext_keys):
+                            del updated_extensions["backup_file"]
+                            updated_extensions["backup_file1"] = {"default":""}
+                            updated_extensions["backup_file2"] = {"default":""}
+                            extensions_updated = True
+                    else:
+                        updated_extensions[key] = {"default":""}
+                        extensions_updated = True
+
+            # Delete old fields
+            delete_ugrade_list = ["upgrade_sw_version", "upgrade_deft_key", "upgrade_deft_url"]
+            for key in delete_ugrade_list:
+                if ((key not in new_ext_keys) and (key in curr_ext_keys)):
+                    del updated_extensions[key]
+                    extensions_updated = True
+
+            if extensions_updated == True:
+                del update_vnfd_dict["topology_template"]["substitution_mappings"]["capabilities"]["vnf"]["properties"]["modifiable_attributes"]["extensions"]
+                update_vnfd_dict["topology_template"]["substitution_mappings"]["capabilities"]["vnf"]["properties"]["modifiable_attributes"]["extensions"] = updated_extensions
+
+            # Update instantiate/backup additional params
+            # Update work upgrade workflows
+            updated_interfaces = copy.deepcopy(update_vnfd_dict["topology_template"]["substitution_mappings"]["interfaces"])
+            new_interfaces = new_vnfd_dict["topology_template"]["substitution_mappings"]["interfaces"]
+
+            updated_custom_keys = updated_interfaces["Custom"].keys()
+            new_custom_keys = new_interfaces["Custom"].keys()
+            param_list = ["backup_server_credentials1", "upgrade", "upgrade_precheck",
+                          "upgrade_1_apply", "upgrade_2_activate", "upgrade_3_commit"]
+            for key in param_list:
+                if (key == "backup_server_credentials1"):
+                    new_additional_params = new_interfaces["Basic"]["instantiate"]["inputs"]["additional_parameters"]
+                    updated_additional_params = updated_interfaces["Basic"]["instantiate"]["inputs"]["additional_parameters"]
+                    if ((key in new_additional_params) and (key not in updated_additional_params)):
+                        updated_interfaces["Basic"]["instantiate"]["inputs"]["additional_parameters"] = new_additional_params
+                    new_additional_params = new_interfaces["Custom"]["backup"]["inputs"]["additional_parameters"]
+                    updated_additional_params = updated_interfaces["Custom"]["backup"]["inputs"]["additional_parameters"]
+                    if ((key in new_additional_params) and (key not in updated_additional_params)):
+                        updated_interfaces["Custom"]["backup"]["inputs"]["additional_parameters"] = new_additional_params
+                elif (key == "upgrade"):
+                    if ((key in updated_custom_keys) and (key not in new_custom_keys)):
+                        del updated_interfaces["Custom"]["upgrade"]
+                    continue
+                if ((key not in updated_custom_keys) and (key in new_custom_keys)):
+                    updated_interfaces["Custom"][key] = copy.deepcopy(new_interfaces["Custom"][key])
+            update_vnfd_dict["topology_template"]["substitution_mappings"]["interfaces"] = updated_interfaces
+
+        descriptor_version = update_vnfd_dict["topology_template"]["substitution_mappings"]["properties"]["descriptor_version"]
+        try:
+            float(descriptor_version)
+            descriptor_version = str(float(descriptor_version) + 1)
+        except ValueError:
+            descriptor_version += "_2"
+        update_vnfd_dict["topology_template"]["substitution_mappings"]["properties"]["descriptor_id"] = gen_descriptor_id()
+        update_vnfd_dict["topology_template"]["substitution_mappings"]["properties"]["descriptor_version"] = descriptor_version
+        update_vnfd_dict["topology_template"]["substitution_mappings"]["properties"]["software_version"] = VNF_NAME + "_" + descriptor_version
+
+        self.update_health_playbook()
+        self.update_extra_vars()
+
+        if ((self.c_tosca_ver == TOSCA_1_0) or (self.c_tosca_ver == TOSCA_3_1)):
+            self.update_upgrade_workflows()
+
+        # Save updated vnfd file
+        with open(NEW_PKG_DIR + "/lcm.vnfd.tosca.yaml", 'w') as f:
+            f.write(yaml.safe_dump(update_vnfd_dict, indent=2, default_flow_style=False))
+
+def main(argv):
+    global CURR_PKG_DIR
+    global NEW_PKG_DIR
+    global VNF_NAME
+    global CWDIR
+ 
+    parser = get_base_parser()
+    (options, args) = parser.parse_known_args(argv)
+    if not args and not argv:
+        parser.print_help()
+        sys.exit(1)
+    if ((options.current_pkg == None) or (options.new_pkg == None)):
+        parser.print_help()
+        sys.exit(1)
+
+    CWDIR = os.getcwd()
+    CURR_PKG_DIR = CWDIR + "/current_pkg"
+    NEW_PKG_DIR = CWDIR + "/new_pkg"
+    current_pkg = options.current_pkg
+    VNF_NAME = options.vnf_name
+    if os.path.exists(current_pkg) == False:
+        print "ERROR - unable to find current VNF package: ", current_pkg
+        sys.exit(1)
+
+    new_pkg = options.new_pkg
+    if os.path.exists(new_pkg) == False:
+        print "ERROR - unable to find new VNF package: ", new_pkg
+        sys.exit(1)
+
+    unzip_pkg_to_dir(current_pkg, CURR_PKG_DIR)
+    unzip_pkg_to_dir(new_pkg, NEW_PKG_DIR)
+
+    update_new_vnf_pkg_with_updates()
+    cleanup()
+
+if __name__ == '__main__':
+    sys.exit(main(sys.argv[1:]))

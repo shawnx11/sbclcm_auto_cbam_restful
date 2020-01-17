@@ -1,0 +1,2741 @@
+tosca_definitions_version: tosca_simple_yaml_1_2
+
+imports:
+  - file: TOSCA-Definitions/etsi_nfv_sol001_vnfd_2_5_1_types.yaml
+  - file: TOSCA-Definitions/etsi_nfv_sol001_vnfd_2_5_1_types__nokia_extensions_4_0_0.yaml
+
+metadata:
+  nokia_vnfd_extensions: cbam-extensions/lcm.vnfd.extensions.yaml
+  nokia_vnfd_implementation_version: 4.0.0
+
+dsl_definitions:
+  descriptor_id: &descriptor_id "d14d9c19-360f-47f5-a018-fb5ca424e80e"
+  provider: &provider "Nokia"
+  product_name: &product_name "SBC"
+  product_info_name: &product_info_name "SBC"
+  software_version: &software_version 'sbclcm03~37.34.06'
+  descriptor_version: &descriptor_version "sbclcm03~37.34.06"
+  flavour_id: &flavour_id "default"
+  flavour_description: &flavour_description "SBC scalable deployment"
+  vnfm: &vnfm "0:CBAM"
+
+  sw_image_data: &sw_image_data
+    name: SBC image
+    version: '1.0'
+    checksum: d41d8cd98f00b204e9800998ecf8427e
+    disk_format: qcow2
+    container_format: bare
+    min_disk: 21 GiB
+    min_ram: 1024 MiB
+    size: 4 GiB
+    operating_system: Linux
+    supported_virtualisation_environments:
+      - KVM
+  sw_image_file: &sw_image_file images/sbc_image.qcow2
+
+  customize_grant_request: &customize_grant_request
+    javascript: LCM/javascript/compute-affinity-rules.js
+  compute_grantless_response: &compute_grantless_response
+    javascript: LCM/javascript/compute-grantless.js
+  grant_actions: &grant_actions
+    customize_grant_request: *customize_grant_request
+    compute_grantless_response: *compute_grantless_response
+
+  virtual_link: &virtual_link
+    capability: tosca.capabilities.nfv.VirtualLinkable
+    occurrences: [ 0, 1 ]
+
+node_types:
+  nokia.nodes.nfv.Nokia.SBC:
+    derived_from: nokia.nodes.nfv.VNF
+    properties:
+      descriptor_id:
+        type: string
+        constraints: [ valid_values: [ *descriptor_id ] ]
+        default: *descriptor_id
+      provider:
+        type: string
+        constraints: [ valid_values: [ *provider ] ]
+        default: *provider
+      product_name:
+        type: string
+        constraints: [ valid_values: [ *product_name ] ]
+        default: *product_name
+      software_version:
+        type: string
+        constraints: [ valid_values: [ *software_version ] ]
+        default: *software_version
+      descriptor_version:
+        type: string
+        constraints: [ valid_values: [ *descriptor_version ] ]
+        default: *descriptor_version
+      product_info_name:
+        type: string
+        constraints: [ valid_values: [ *product_name ] ]
+        default: *product_name
+      product_info_description:
+        type: string
+        constraints: [ valid_values: [ *product_name ] ]
+        default: *product_name
+      flavour_id:
+        type: string
+        constraints: [ valid_values: [ *flavour_id ] ]
+        default: *flavour_id
+      flavour_description:
+        type: string
+        constraints: [ valid_values: [ *flavour_description ] ]
+        default: *flavour_description
+      vnfm_info:
+        type: list
+        entry_schema:
+          type: string
+        constraints: [ valid_values: [ [ *vnfm ] ] ]
+        default: [ *vnfm ]
+      configurable_properties:
+        type: nokia.datatypes.VnfConfigurableProperties
+        required: true
+      modifiable_attributes:
+        type: nokia.datatypes.VnfInfoModifiableAttributes
+        required: true
+    requirements:
+      - bgc_a_external1_ECP: *virtual_link
+      - bgc_b_external1_ECP: *virtual_link
+      - fw_a_external1_ECP: *virtual_link
+      - fw_a_external2_ECP: *virtual_link
+      - fw_b_external1_ECP: *virtual_link
+      - fw_b_external2_ECP: *virtual_link
+      - oam_a_external1_ECP: *virtual_link
+      - oam_b_external1_ECP: *virtual_link
+      - cfed_b_external2_ECP: *virtual_link
+      - cfed_a_external2_ECP: *virtual_link
+      - cfed_a_external1_ECP: *virtual_link
+      - cfed_b_external1_ECP: *virtual_link
+      - dfed_b_external1_ECP: *virtual_link
+      - dfed_a_external1_ECP: *virtual_link
+      - pfw_a_external1_ECP: *virtual_link
+      - pfw_b_external2_ECP: *virtual_link
+      - pfw_b_external1_ECP: *virtual_link
+      - pfw_a_external2_ECP: *virtual_link
+      - ccf_a_external1_ECP: *virtual_link
+      - ccf_b_external1_ECP: *virtual_link
+      
+    interfaces:
+      Vnflcm:
+        type: tosca.interfaces.nfv.Vnflcm
+        instantiate:
+          inputs:
+            extensions:
+              type: nokia.datatypes.nfv.vnflcm.operation.inputs.Extensions
+              required: true
+            additional_parameters:
+              type: nokia.datatypes.InstantiateAdditionalParameters
+              required: true
+        terminate:
+          inputs:
+            extensions:
+              type: nokia.datatypes.nfv.vnflcm.operation.inputs.Extensions
+              required: true
+        scale:
+        heal:
+          inputs:
+            extensions:
+              type: nokia.datatypes.nfv.vnflcm.operation.inputs.Extensions
+              required: true
+            additional_parameters:
+              type: nokia.datatypes.HealAdditionalParameters
+              required: true
+        backup:
+          inputs:
+            additional_parameters:
+              type: nokia.datatypes.BackupAdditionalParameters
+              required: true
+        DB_Restore:
+          inputs:
+            additional_parameters:
+              type: nokia.datatypes.DbRestoreAdditionalParameters
+              required: true
+        upgrade_archive:
+          inputs:
+            additional_parameters:
+              type: nokia.datatypes.UpgradeArchiveAdditionalParameters
+              required: true
+        upgrade_precheck:
+        upgrade_1_apply:
+          inputs:
+            extensions:
+              type: nokia.datatypes.nfv.vnflcm.operation.inputs.Extensions
+              required: true
+            additional_parameters:
+              type: nokia.datatypes.Upgrade1ApplyAdditionalParameters
+              required: true
+        upgrade_2_activate:
+        upgrade_3_commit:
+          inputs:
+            extensions:
+              type: nokia.datatypes.nfv.vnflcm.operation.inputs.Extensions
+              required: true
+        connect_SBC_Media_VNF:
+          inputs:
+            additional_parameters:
+              type: nokia.datatypes.ConnectSbcMediaVnfAdditionalParameters
+              required: true
+        disconnect_SBC_Media_VNF:
+          inputs:
+            additional_parameters:
+              type: nokia.datatypes.DisconnectSbcMediaVnfAdditionalParameters
+              required: true
+        ip_manage:
+          inputs:
+            additional_parameters:
+              type: nokia.datatypes.IpManageAdditionalParameters
+              required: true
+        add_subnet:
+          inputs:
+            additional_parameters:
+              type: nokia.datatypes.AddSubnetAdditionalParameters
+              required: true
+        del_subnet:
+          inputs:
+            additional_parameters:
+              type: nokia.datatypes.DelSubnetAdditionalParameters
+              required: true
+        update_known_subnets:
+          inputs:
+            extensions:
+              type: nokia.datatypes.nfv.vnflcm.operation.inputs.Extensions
+              required: true
+        ip_reserve:
+          inputs:
+            extensions:
+              type: nokia.datatypes.nfv.vnflcm.operation.inputs.Extensions
+              required: true
+
+data_types:
+  nokia.datatypes.VnfConfigurableProperties:
+    derived_from: nokia.datatypes.nfv.VnfConfigurableProperties
+    properties:
+      additional_configurable_properties:
+        default:
+          operation_triggers:
+            auto_scale:
+              period_in_seconds: 600
+              enabled: true
+            auto_backup:
+              period_in_seconds: 86220
+              enabled: true
+              
+  nokia.datatypes.VnfInfoModifiableAttributes:
+    derived_from: tosca.datatypes.nfv.VnfInfoModifiableAttributes
+    properties:
+      extensions:
+        type: nokia.datatypes.VnfInfoModifiableAttributesExtensions
+
+  nokia.datatypes.VnfInfoModifiableAttributesExtensions:
+    derived_from: tosca.datatypes.nfv.VnfInfoModifiableAttributesExtensions
+    properties:
+      vnf_name:
+        type: string
+        required: false
+        default: "sbclcm03"
+      backup_file1:
+        type: string
+        required: false
+        default: ""
+      backup_file2:
+        type: string
+        required: false
+        default: ""
+      certificate:
+        type: string
+        required: false
+        default: ""
+      cloud_name_delimiter:
+        type: string
+        required: false
+        default: "-"
+      default_action:
+        type: string
+        required: false
+        default: ""
+      int_vlan_id:
+        type: string
+        required: false
+        default: ""
+      lcm_keypair:
+        type: string
+        required: false
+        default: ""
+      storagevol_type:
+        type: string
+        required: false
+        default: "tripleo-ceph"
+      defaults:
+        type: map
+        required: false
+        default: {"storage_zone": {"1": "", "0": ""}, "action": {"1": "install", "0": "install"}, "image": {"1": "", "0": ""}, "binding_type": "normal", "availability_zone": {"1": "", "0": ""}}
+      license_reference:
+        type: string
+        required: false
+        default: "sbclcm03_QD_SBC_ST_Shawn_XU_88615989"
+      local_dns_domain:
+        type: string
+        required: false
+        default: "sbc.nokia.com"
+      local_enum_domain:
+        type: string
+        required: false
+        default: ""
+      v4_dns_server:
+        type: string
+        required: false
+        default: "172.23.102.60/."
+      v6_dns_server:
+        type: string
+        required: false
+        default: ""
+      v4_enum_server:
+        type: string
+        required: false
+        default: "172.23.102.60/e164.arpa"
+      v6_enum_server:
+        type: string
+        required: false
+        default: ""
+      v4_ntp_server:
+        type: string
+        required: false
+        default: "10.75.223.4"
+      v6_ntp_server:
+        type: string
+        required: false
+        default: "2a00:8a00:6000:d040:44::e"
+      system_name:
+        type: string
+        required: false
+        default: "sbclcm03"
+      system_prefix:
+        type: string
+        required: false
+        default: "sbclcm03"
+      time_zone:
+        type: string
+        required: false
+        default: "UTC"
+      etsi_sol_supported:
+        type: string
+        required: false
+        default: "sbc"
+      bgc:
+        type: map
+        required: false
+        default: {"0": {"1": {"vnic_info": {"1": {"set_ips": {"connectivity_ip;subnet=h248_net_v4": 0}}}, "name": "bgc1-b"}, "0": {"vnic_info": {"1": {"set_ips": {"servicetype=h248-1;float;nitype=h248sig;subnet=h248_net_v4;index=0": 1, "servicetype=h248-0;float;nitype=h248sig;subnet=h248_net_v4;index=0": 0}}}, "name": "bgc1-a"}}, "v4_static_routes": {}, "v6_static_routes": {}, "defaults": {"binding_type": {"1": "normal"}}}
+      fw:
+        type: map
+        required: false
+        default: {"0": {"1": {"vnic_info": {"1": {"set_ips": {"connectivity_ip;subnet=sig_access_v4_duplex1": 0, "connectivity_ip;subnet=sig_access_v6_duplex1": 1}}, "2": {"set_ips": {"connectivity_ip;subnet=sig_access_v6_duplex2": 1, "connectivity_ip;subnet=sig_access_v4_duplex2": 0}}}, "name": "fwa-b"}, "0": {"vnic_info": {"1": {"set_ips": {"servicetype=feph-0;float;nitype=published;subnet=sig_access_v6_duplex1;index=0": 1, "servicetype=ims-0;float;nitype=published;subnet=sig_access_v4_duplex1;index=0;VM=pair:sc:1:0:0": 2, "servicetype=ims-0;float;nitype=published;subnet=sig_access_v6_duplex1;index=0;VM=pair:sc:1:0:0": 3, "servicetype=feph-0;float;nitype=published;subnet=sig_access_v4_duplex1;index=0": 0}}, "2": {"set_ips": {"servicetype=ims-0;float;nitype=published;subnet=sig_access_v6_duplex2;index=1;VM=pair:sc:1:0:0": 3, "servicetype=feph-0;float;nitype=published;subnet=sig_access_v6_duplex2;index=1": 1, "servicetype=feph-0;float;nitype=published;subnet=sig_access_v4_duplex2;index=1": 0, "servicetype=ims-0;float;nitype=published;subnet=sig_access_v4_duplex2;index=1;VM=pair:sc:1:0:0": 2}}}, "name": "fwa-a"}}, "v4_static_routes": {}, "v6_static_routes": {}, "defaults": {"binding_type": {"1": "direct", "2": "direct"}}}
+      oam:
+        type: map
+        required: false
+        default: {"0": {"1": {"vnic_info": {"1": {"set_ips": {"servicetype=mi-0;fixed;nitype=default;subnet=oam_v4;index=0": 0}}}, "name": "oam-b"}, "0": {"vnic_info": {"1": {"set_ips": {"servicetype=cnfg-0;float;nitype=default;subnet=oam_v4;index=0": 2, "servicetype=mi-0;fixed;nitype=default;subnet=oam_v4;index=0": 0, "servicetype=mi-0;float;nitype=default;subnet=oam_v4;index=0": 1}}}, "name": "oam-a"}}, "v4_static_routes": {}, "v6_static_routes": {}, "defaults": {"binding_type": {"1": "normal"}}}
+      cfed:
+        type: map
+        required: false
+        default: {"0": {"1": {"vnic_info": {"1": {"set_ips": {"connectivity_ip;subnet=sig_core1_v4": 0, "connectivity_ip;subnet=sig_core1_v6": 1}}, "2": {"set_ips": {"connectivity_ip;subnet=sig_core2_v4": 0, "connectivity_ip;subnet=sig_core2_v6": 1}}}, "name": "cfed-b"}, "0": {"vnic_info": {"1": {"set_ips": {"servicetype=cfed-0;float;nitype=published;subnet=sig_core1_v6;index=0": 1, "servicetype=cfed-0;float;nitype=published;subnet=sig_core1_v4;index=0": 0}}, "2": {"set_ips": {"servicetype=cfed-0;float;nitype=published;subnet=sig_core2_v4;index=1": 0, "servicetype=cfed-0;float;nitype=published;subnet=sig_core2_v6;index=1": 1}}}, "name": "cfed-a"}}, "v4_static_routes": {}, "v6_static_routes": {}, "defaults": {"binding_type": {"1": "normal", "2": "normal"}}}
+      dfed:
+        type: map
+        required: false
+        default: {"0": {"1": {"vnic_info": {"1": {"set_ips": {"connectivity_ip;subnet=sig_core1_v4": 0, "connectivity_ip;subnet=sig_core1_v6": 1}}}, "name": "dfed-b"}, "0": {"vnic_info": {"1": {"set_ips": {"servicetype=dfed-0;float;nitype=diam_rx;subnet=sig_core1_v6;index=0": 1, "servicetype=dfed-0;float;nitype=diam_rx;subnet=sig_core1_v4;index=0": 0}}}, "name": "dfed-a"}}, "v4_static_routes": {}, "v6_static_routes": {}, "defaults": {"binding_type": {"1": "normal"}}}
+      pfw:
+        type: map
+        required: false
+        default: {"0": {"1": {"vnic_info": {"1": {"set_ips": {"connectivity_ip;subnet=sig_pfed_v6_duplex1": 1, "connectivity_ip;subnet=sig_pfed_v4_duplex1": 0}}, "2": {"set_ips": {"connectivity_ip;subnet=sig_pfed_v4_duplex2": 0, "connectivity_ip;subnet=sig_pfed_v6_duplex2": 1}}}, "name": "fwp-b"}, "0": {"vnic_info": {"1": {"set_ips": {"servicetype=pfed-0;float;nitype=published;subnet=sig_pfed_v6_duplex1;index=0": 1, "servicetype=pfed-0;float;nitype=published;subnet=sig_pfed_v4_duplex1;index=0": 0}}, "2": {"set_ips": {"servicetype=pfed-0;float;nitype=published;subnet=sig_pfed_v6_duplex2;index=1": 1, "servicetype=pfed-0;float;nitype=published;subnet=sig_pfed_v4_duplex2;index=1": 0}}}, "name": "fwp-a"}}, "v4_static_routes": {}, "v6_static_routes": {}, "defaults": {"binding_type": {"1": "direct", "2": "direct"}}}
+      sc:
+        type: map
+        required: false
+        default: {"v4_static_routes": {}, "1": {"1": {"vnic_info": {}, "name": "sc2-b"}, "0": {"vnic_info": {"0": {"set_ips": {"servicetype=ims-0;float;nitype=published;subnet=sig_access_v6_duplex1;index=0": 8, "servicetype=ims-3;float;nitype=published;subnet=sig_access_v6_duplex2;index=1": 15, "servicetype=ims-2;float;nitype=published;subnet=sig_access_v6_duplex2;index=1": 14, "servicetype=ims-1;float;nitype=published;subnet=sig_access_v4_duplex1;index=0": 1, "servicetype=ims-2;float;nitype=published;subnet=sig_access_v4_duplex2;index=1": 6, "servicetype=ims-1;float;nitype=published;subnet=sig_access_v6_duplex2;index=1": 13, "servicetype=ims-0;float;nitype=published;subnet=sig_access_v6_duplex2;index=1": 12, "servicetype=ims-3;float;nitype=published;subnet=sig_access_v4_duplex2;index=1": 7, "servicetype=ims-0;float;nitype=published;subnet=sig_access_v4_duplex1;index=0": 0, "servicetype=ims-1;float;nitype=published;subnet=sig_access_v6_duplex1;index=0": 9, "servicetype=ims-3;float;nitype=published;subnet=sig_access_v4_duplex1;index=0": 3, "servicetype=ims-0;float;nitype=published;subnet=sig_access_v4_duplex2;index=1": 4, "servicetype=ims-3;float;nitype=published;subnet=sig_access_v6_duplex1;index=0": 11, "servicetype=ims-2;float;nitype=published;subnet=sig_access_v6_duplex1;index=0": 10, "servicetype=ims-1;float;nitype=published;subnet=sig_access_v4_duplex2;index=1": 5, "servicetype=ims-2;float;nitype=published;subnet=sig_access_v4_duplex1;index=0": 2}}}, "name": "sc2-a"}}, "0": {"1": {"vnic_info": {}, "name": "sc1-b"}, "0": {"vnic_info": {"0": {"set_ips": {"servicetype=ims-0;float;nitype=published;subnet=sig_access_v6_duplex1;index=0": 8, "servicetype=ims-3;float;nitype=published;subnet=sig_access_v6_duplex2;index=1": 15, "servicetype=ims-2;float;nitype=published;subnet=sig_access_v6_duplex2;index=1": 14, "servicetype=ims-1;float;nitype=published;subnet=sig_access_v4_duplex1;index=0": 1, "servicetype=ims-2;float;nitype=published;subnet=sig_access_v4_duplex2;index=1": 6, "servicetype=ims-1;float;nitype=published;subnet=sig_access_v6_duplex2;index=1": 13, "servicetype=ims-0;float;nitype=published;subnet=sig_access_v6_duplex2;index=1": 12, "servicetype=ims-3;float;nitype=published;subnet=sig_access_v4_duplex2;index=1": 7, "servicetype=ims-0;float;nitype=published;subnet=sig_access_v4_duplex1;index=0": 0, "servicetype=ims-1;float;nitype=published;subnet=sig_access_v6_duplex1;index=0": 9, "servicetype=ims-3;float;nitype=published;subnet=sig_access_v4_duplex1;index=0": 3, "servicetype=ims-0;float;nitype=published;subnet=sig_access_v4_duplex2;index=1": 4, "servicetype=ims-3;float;nitype=published;subnet=sig_access_v6_duplex1;index=0": 11, "servicetype=ims-2;float;nitype=published;subnet=sig_access_v6_duplex1;index=0": 10, "servicetype=ims-1;float;nitype=published;subnet=sig_access_v4_duplex2;index=1": 5, "servicetype=ims-2;float;nitype=published;subnet=sig_access_v4_duplex1;index=0": 2}}}, "name": "sc1-a"}}, "3": {"1": {"vnic_info": {}, "name": "sc4-b"}, "0": {"vnic_info": {"0": {"set_ips": {"servicetype=ims-0;float;nitype=published;subnet=sig_access_v6_duplex1;index=0": 8, "servicetype=ims-3;float;nitype=published;subnet=sig_access_v6_duplex2;index=1": 15, "servicetype=ims-2;float;nitype=published;subnet=sig_access_v6_duplex2;index=1": 14, "servicetype=ims-1;float;nitype=published;subnet=sig_access_v4_duplex1;index=0": 1, "servicetype=ims-2;float;nitype=published;subnet=sig_access_v4_duplex2;index=1": 6, "servicetype=ims-1;float;nitype=published;subnet=sig_access_v6_duplex2;index=1": 13, "servicetype=ims-0;float;nitype=published;subnet=sig_access_v6_duplex2;index=1": 12, "servicetype=ims-3;float;nitype=published;subnet=sig_access_v4_duplex2;index=1": 7, "servicetype=ims-0;float;nitype=published;subnet=sig_access_v4_duplex1;index=0": 0, "servicetype=ims-1;float;nitype=published;subnet=sig_access_v6_duplex1;index=0": 9, "servicetype=ims-3;float;nitype=published;subnet=sig_access_v4_duplex1;index=0": 3, "servicetype=ims-0;float;nitype=published;subnet=sig_access_v4_duplex2;index=1": 4, "servicetype=ims-3;float;nitype=published;subnet=sig_access_v6_duplex1;index=0": 11, "servicetype=ims-2;float;nitype=published;subnet=sig_access_v6_duplex1;index=0": 10, "servicetype=ims-1;float;nitype=published;subnet=sig_access_v4_duplex2;index=1": 5, "servicetype=ims-2;float;nitype=published;subnet=sig_access_v4_duplex1;index=0": 2}}}, "name": "sc4-a"}}, "2": {"1": {"vnic_info": {}, "name": "sc3-b"}, "0": {"vnic_info": {"0": {"set_ips": {"servicetype=ims-0;float;nitype=published;subnet=sig_access_v6_duplex1;index=0": 8, "servicetype=ims-3;float;nitype=published;subnet=sig_access_v6_duplex2;index=1": 15, "servicetype=ims-2;float;nitype=published;subnet=sig_access_v6_duplex2;index=1": 14, "servicetype=ims-1;float;nitype=published;subnet=sig_access_v4_duplex1;index=0": 1, "servicetype=ims-2;float;nitype=published;subnet=sig_access_v4_duplex2;index=1": 6, "servicetype=ims-1;float;nitype=published;subnet=sig_access_v6_duplex2;index=1": 13, "servicetype=ims-0;float;nitype=published;subnet=sig_access_v6_duplex2;index=1": 12, "servicetype=ims-3;float;nitype=published;subnet=sig_access_v4_duplex2;index=1": 7, "servicetype=ims-0;float;nitype=published;subnet=sig_access_v4_duplex1;index=0": 0, "servicetype=ims-1;float;nitype=published;subnet=sig_access_v6_duplex1;index=0": 9, "servicetype=ims-3;float;nitype=published;subnet=sig_access_v4_duplex1;index=0": 3, "servicetype=ims-0;float;nitype=published;subnet=sig_access_v4_duplex2;index=1": 4, "servicetype=ims-3;float;nitype=published;subnet=sig_access_v6_duplex1;index=0": 11, "servicetype=ims-2;float;nitype=published;subnet=sig_access_v6_duplex1;index=0": 10, "servicetype=ims-1;float;nitype=published;subnet=sig_access_v4_duplex2;index=1": 5, "servicetype=ims-2;float;nitype=published;subnet=sig_access_v4_duplex1;index=0": 2}}}, "name": "sc3-a"}}, "4": {"1": {"vnic_info": {}, "name": "sc5-b"}, "0": {"vnic_info": {"0": {"set_ips": {"servicetype=ims-0;float;nitype=published;subnet=sig_access_v6_duplex1;index=0": 8, "servicetype=ims-3;float;nitype=published;subnet=sig_access_v6_duplex2;index=1": 15, "servicetype=ims-2;float;nitype=published;subnet=sig_access_v6_duplex2;index=1": 14, "servicetype=ims-1;float;nitype=published;subnet=sig_access_v4_duplex1;index=0": 1, "servicetype=ims-2;float;nitype=published;subnet=sig_access_v4_duplex2;index=1": 6, "servicetype=ims-1;float;nitype=published;subnet=sig_access_v6_duplex2;index=1": 13, "servicetype=ims-0;float;nitype=published;subnet=sig_access_v6_duplex2;index=1": 12, "servicetype=ims-3;float;nitype=published;subnet=sig_access_v4_duplex2;index=1": 7, "servicetype=ims-0;float;nitype=published;subnet=sig_access_v4_duplex1;index=0": 0, "servicetype=ims-1;float;nitype=published;subnet=sig_access_v6_duplex1;index=0": 9, "servicetype=ims-3;float;nitype=published;subnet=sig_access_v4_duplex1;index=0": 3, "servicetype=ims-0;float;nitype=published;subnet=sig_access_v4_duplex2;index=1": 4, "servicetype=ims-3;float;nitype=published;subnet=sig_access_v6_duplex1;index=0": 11, "servicetype=ims-2;float;nitype=published;subnet=sig_access_v6_duplex1;index=0": 10, "servicetype=ims-1;float;nitype=published;subnet=sig_access_v4_duplex2;index=1": 5, "servicetype=ims-2;float;nitype=published;subnet=sig_access_v4_duplex1;index=0": 2}}}, "name": "sc5-a"}}, "defaults": {}, "v6_static_routes": {}}
+      ccf:
+        type: map
+        required: false
+        default: {"0": {"1": {"vnic_info": {"1": {"set_ips": {"connectivity_ip;subnet=sig_core1_v4": 0, "connectivity_ip;subnet=sig_core1_v6": 1}}}, "name": "ccf-b"}, "0": {"vnic_info": {"1": {"set_ips": {"servicetype=cdr-0;float;nitype=default;subnet=sig_core1_v4;index=0": 0, "servicetype=cdr-0;float;nitype=default;subnet=sig_core1_v6;index=0": 1}}}, "name": "ccf-a"}}, "v4_static_routes": {}, "v6_static_routes": {}, "defaults": {"binding_type": {"1": "normal"}}}
+      install_config:
+        type: string
+        required: false
+        default: "\"snmp_version\": \"v3\", \"hardening_info\": {\"passwordMaxAscendDescendChars\": \"2\", \"passWarnThresh\": \"7\", \"motd\": \"CgpXQVJOSU5HISAgVGhpcyBjb21wdXRlciBzeXN0ZW0gYW5kIG5ldHdvcmsgaXMgUFJJVkFURSBhbmQgUFJPUFJJRVRBUlkKYW5kIG1heSBvbmx5IGJlIGFjY2Vzc2VkIGJ5IGF1dGhvcml6ZWQgdXNlcnMuICBVbmF1dGhvcml6ZWQgdXNlIG9mIHRoaXMKY29tcHV0ZXIgc3lzdGVtIG9yIG5ldHdvcmsgaXMgc3RyaWN0bHkgcHJvaGliaXRlZCBhbmQgbWF5IGJlIHN1YmplY3QgdG8KY3JpbWluYWwgcHJvc2VjdXRpb24sIGVtcGxveWVlIGRpc2NpcGxpbmUgdXAgdG8gYW5kIGluY2x1ZGluZyBkaXNjaGFyZ2UsCm9yIHRoZSB0ZXJtaW5hdGlvbiBvZiB2ZW5kb3Ivc2VydmljZSBjb250cmFjdHMuICBUaGUgb3duZXIsIG9yIGl0cyBhZ2VudHMsCm1heSBtb25pdG9yIGFueSBhY3Rpdml0eSBvciBjb21tdW5pY2F0aW9uIG9uIHRoZSBjb21wdXRlciBzeXN0ZW0gb3IgbmV0d29yay4KVGhlIG93bmVyLCBvciBpdHMgYWdlbnRzLCBtYXkgcmV0cmlldmUgYW55IGluZm9ybWF0aW9uIHN0b3JlZCB3aXRoaW4gdGhlCmNvbXB1dGVyIHN5c3RlbSBvciBuZXR3b3JrLiAgQnkgYWNjZXNzaW5nIGFuZCB1c2luZyB0aGlzIGNvbXB1dGVyIHN5c3RlbQpvciBuZXR3b3JrLCB5b3UgYXJlIGNvbnNlbnRpbmcgdG8gc3VjaCBtb25pdG9yaW5nIGFuZCBpbmZvcm1hdGlvbiByZXRyaWV2YWwKZm9yIGxhdyBlbmZvcmNlbWVudCBhbmQgb3RoZXIgcHVycG9zZXMuICBVc2VycyBzaG91bGQgaGF2ZSBubyBleHBlY3RhdGlvbgpvZiBwcml2YWN5IGFzIHRvIGFueSBjb21tdW5pY2F0aW9uIG9uIG9yIGluZm9ybWF0aW9uIHN0b3JlZCB3aXRoaW4gdGhlCmNvbXB1dGVyIHN5c3RlbSBvciBuZXR3b3JrLCBpbmNsdWRpbmcgaW5mb3JtYXRpb24gc3RvcmVkIGxvY2FsbHkgb3IgcmVtb3RlbHkKb24gYSBoYXJkIGRyaXZlIG9yIG90aGVyIG1lZGlhIGluIHVzZSB3aXRoIHRoaXMgY29tcHV0ZXIgc3lzdGVtIG9yIG5ldHdvcmsuCg==\", \"loginIdMaxLength\": \"20\", \"passwordUseLower\": \"1\", \"passwordNumSpecMiddle\": \"0\", \"maxPasswordLength\": \"19\", \"allowedPasswordValueType\": \"a-z,A-Z,0-9\", \"accountUnusedDuration\": \"60\", \"passwordCheckMinSeqLen\": \"2\", \"dormantDuration\": \"60\", \"passwordUseNumOrSpec\": \"1\", \"warning_banner\": \"CiBXYXJuaW5nOgpUaGlzIHN5c3RlbSBpcyByZXN0cmljdGVkIHRvIGF1dGhvcml6ZWQgdXNlcnMgZm9yIGJ1c2luZXNzIHB1cnBvc2VzLgpVbmF1dGhvcml6ZWQgYWNjZXNzIGlzIGEgdmlvbGF0aW9uIG9mIHRoZSBsYXcuIFRoaXMgc2VydmljZSBtYXkgYmUgbW9uaXRvcmVkCmZvciBhZG1pbmlzdHJhdGl2ZSBhbmQgc2VjdXJpdHkgcmVhc29ucy4gQnkgcHJvY2VlZGluZywgeW91IGNvbnNlbnQgdG8gdGhpcyBtb25pdG9yaW5nLgo=\", \"tls_ca_cert\": \"\", \"passwordUseNumber\": \"\", \"internal_network_icmp_replies_max_value\": \"1000/s\", \"numberNoPwRepeats\": \"10\", \"tls_cert\": \"\", \"maxIneffectiveAttempts\": \"10\", \"passwordNoReuseDays\": \"120\", \"external_network_icmp_replies_max_value\": \"5/s\", \"tempDisableThreshold\": \"5\", \"minPasswordReset\": \"60\", \"loginIdCharSet\": \"0-9a-z\", \"ssh_key_algorithm\": \"RSA\", \"remove_telnet\": \"No\", \"remove_compiler\": \"Yes\", \"passwordLifeSpan\": \"30\", \"minPasswordResetUnit\": \"60\", \"expireAccountDuration\": \"0\", \"minDiffPassChar\": \"3\", \"ssh_key_size\": \"2048\", \"remove_tcpdump\": \"No\", \"internal_network_icmp_replies_max_limit\": \"Yes\", \"external_network_icmp_replies_max_limit\": \"Yes\", \"passwordUseSpecial\": \"0\", \"minDiffLoginChar\": \"3\", \"kernel_params\": {}, \"pre_login_banner\": \"CgpVbmF1dGhvcml6ZWQgdXNlIG9mIHRoaXMgc3lzdGVtIGlzIHByb2hpYml0ZWQgYW5kIG1heSBiZSBwcm9zZWN1dGVkCnRvIHRoZSBmdWxsZXN0IGV4dGVudCBvZiB0aGUgbGF3LiBCeSB1c2luZyB0aGlzIHN5c3RlbSwgeW91IGltcGxpY2l0bHkKYWdyZWUgdG8gbW9uaXRvcmluZyBieSBzeXN0ZW0gbWFuYWdlbWVudCBhbmQgbGF3IGVuZm9yY2VtZW50IGF1dGhvcml0aWVzLgpJZiB5b3UgZG8gbm90IGFncmVlIHdpdGggdGhlc2UgdGVybXMsIERJU0NPTk5FQ1QgTk9XLgo=\", \"passwordUseUpper\": \"1\", \"loginIdMinLength\": \"3\", \"passwordMaxSameSeqChars\": \"2\", \"minPasswordLength\": \"8\"}, \"snmp_community\": \"public\", \"other_remote_dns_domain\": \"\", \"naming_type\": \"flexible3\", \"ssh_info\": {\"client_alive_interval\": \"\", \"gateway_ports\": \"\", \"ignore_user_known_hosts\": \"\", \"protocol\": \"\", \"client_alive_count_max\": \"\", \"ignore_rhosts\": \"\", \"strict_modes\": \"\", \"max_auth_tries\": \"\", \"login_grace_time\": \"\", \"permit_empty_passwd\": \"\"}, \"default_remote_dns_domain\": \"./default\", \"default_remote_enum_domain\": \"e164.arpa/default\", \"remote_query_only\": \"no\", \"local_dns_domain\": \"sbc.nokia.com\", \"subnet_info\": {\"h248_net_v4\": {\"RequiredMinimumRXInterval\": \"\", \"interface_label\": \"bgc1\", \"redundancy_mode\": \"none\", \"detect_multiplier\": \"\", \"connectivity_address\": \"\", \"DesiredMinimumTXInterval\": \"\", \"vlan_tag\": \"\"}, \"sig_access_v4_duplex2\": {\"RequiredMinimumRXInterval\": \"\", \"interface_label\": \"acc2\", \"redundancy_mode\": \"eipm_acm\", \"detect_multiplier\": \"\", \"connectivity_address\": \"100.69.110.1/1\", \"DesiredMinimumTXInterval\": \"\", \"vlan_tag\": \"\"}, \"sig_pfed_v4_duplex2\": {\"RequiredMinimumRXInterval\": \"\", \"interface_label\": \"pr2\", \"redundancy_mode\": \"eipm_acm\", \"detect_multiplier\": \"\", \"connectivity_address\": \"100.69.110.145/1\", \"DesiredMinimumTXInterval\": \"\", \"vlan_tag\": \"\"}, \"INTERNALnet0\": {\"interface_label\": \"int0\", \"redundancy_mode\": \"iipm\", \"vlan_tag\": \"\"}, \"sig_pfed_v6_duplex2\": {\"required_minimum_rx_interval\": \"300\", \"RequiredMinimumRXInterval\": \"\", \"connectivity_address\": \"2a00:8a00:4000:7690:16::1/1\", \"redundancy_mode\": \"eipm_acm\", \"DesiredMinimumTXInterval\": \"\", \"desired_minimum_tx_interval\": \"300\", \"sysctl_v6_mtu_size\": \"1300\", \"interface_label\": \"pr2\", \"vlan_tag\": \"\", \"detect_multiplier\": \"3\"}, \"sig_pfed_v6_duplex1\": {\"required_minimum_rx_interval\": \"300\", \"RequiredMinimumRXInterval\": \"\", \"connectivity_address\": \"2a00:8a00:4000:7690:16::1/1\", \"redundancy_mode\": \"eipm_acm\", \"DesiredMinimumTXInterval\": \"\", \"desired_minimum_tx_interval\": \"300\", \"sysctl_v6_mtu_size\": \"1300\", \"interface_label\": \"pr1\", \"vlan_tag\": \"\", \"detect_multiplier\": \"3\"}, \"sig_access_v6_duplex1\": {\"required_minimum_rx_interval\": \"300\", \"RequiredMinimumRXInterval\": \"\", \"connectivity_address\": \"2a00:8a00:4000:7690:d::1/1\", \"redundancy_mode\": \"eipm_acm\", \"DesiredMinimumTXInterval\": \"\", \"desired_minimum_tx_interval\": \"300\", \"sysctl_v6_mtu_size\": \"1500\", \"interface_label\": \"acc1\", \"vlan_tag\": \"\", \"detect_multiplier\": \"3\"}, \"sig_access_v6_duplex2\": {\"required_minimum_rx_interval\": \"300\", \"RequiredMinimumRXInterval\": \"\", \"connectivity_address\": \"2a00:8a00:4000:7690:d::1/1\", \"redundancy_mode\": \"eipm_acm\", \"DesiredMinimumTXInterval\": \"\", \"desired_minimum_tx_interval\": \"300\", \"sysctl_v6_mtu_size\": \"1500\", \"interface_label\": \"acc2\", \"vlan_tag\": \"\", \"detect_multiplier\": \"3\"}, \"sig_pfed_v4_duplex1\": {\"RequiredMinimumRXInterval\": \"\", \"interface_label\": \"pr1\", \"redundancy_mode\": \"eipm_acm\", \"detect_multiplier\": \"\", \"connectivity_address\": \"100.69.110.145/1\", \"DesiredMinimumTXInterval\": \"\", \"vlan_tag\": \"\"}, \"sig_access_v4_duplex1\": {\"RequiredMinimumRXInterval\": \"\", \"interface_label\": \"acc1\", \"redundancy_mode\": \"eipm_acm\", \"detect_multiplier\": \"\", \"connectivity_address\": \"100.69.110.1/1\", \"DesiredMinimumTXInterval\": \"\", \"vlan_tag\": \"\"}, \"sig_core1_v4\": {\"required_minimum_rx_interval\": \"10\", \"RequiredMinimumRXInterval\": \"\", \"desired_minimum_tx_interval\": \"10\", \"interface_label\": \"sig1\", \"redundancy_mode\": \"eipm_arpndp\", \"detect_multiplier\": \"3\", \"connectivity_address\": \"\", \"DesiredMinimumTXInterval\": \"\", \"vlan_tag\": \"\"}, \"sig_core2_v6\": {\"required_minimum_rx_interval\": \"10\", \"RequiredMinimumRXInterval\": \"\", \"connectivity_address\": \"\", \"redundancy_mode\": \"eipm_arpndp\", \"DesiredMinimumTXInterval\": \"\", \"desired_minimum_tx_interval\": \"10\", \"sysctl_v6_mtu_size\": \"1400\", \"interface_label\": \"sig2\", \"vlan_tag\": \"\", \"detect_multiplier\": \"3\"}, \"sig_core1_v6\": {\"required_minimum_rx_interval\": \"10\", \"RequiredMinimumRXInterval\": \"\", \"connectivity_address\": \"\", \"redundancy_mode\": \"eipm_arpndp\", \"DesiredMinimumTXInterval\": \"\", \"desired_minimum_tx_interval\": \"10\", \"sysctl_v6_mtu_size\": \"1300\", \"interface_label\": \"sig1\", \"vlan_tag\": \"\", \"detect_multiplier\": \"3\"}, \"oam_v4\": {\"required_minimum_rx_interval\": \"10\", \"RequiredMinimumRXInterval\": \"\", \"desired_minimum_tx_interval\": \"10\", \"interface_label\": \"oam1\", \"redundancy_mode\": \"eipm_arpndp\", \"detect_multiplier\": \"3\", \"connectivity_address\": \"\", \"DesiredMinimumTXInterval\": \"\", \"vlan_tag\": \"\"}, \"oam_v6\": {\"required_minimum_rx_interval\": \"10\", \"RequiredMinimumRXInterval\": \"\", \"connectivity_address\": \"\", \"redundancy_mode\": \"eipm_arpndp\", \"DesiredMinimumTXInterval\": \"\", \"desired_minimum_tx_interval\": \"10\", \"sysctl_v6_mtu_size\": \"1300\", \"interface_label\": \"oam1\", \"vlan_tag\": \"\", \"detect_multiplier\": \"3\"}, \"sig_core2_v4\": {\"required_minimum_rx_interval\": \"10\", \"RequiredMinimumRXInterval\": \"\", \"desired_minimum_tx_interval\": \"10\", \"interface_label\": \"sig2\", \"redundancy_mode\": \"eipm_arpndp\", \"detect_multiplier\": \"3\", \"connectivity_address\": \"\", \"DesiredMinimumTXInterval\": \"\", \"vlan_tag\": \"\"}}, \"local_enum_domain\": \"\", \"use_sbpr\": \"yes\", \"application_name\": \"sbc\", \"svc_counts\": {\"h248\": \"2\", \"mi\": \"1\", \"dfed\": \"1\", \"ims\": \"4\", \"feph\": \"1\", \"pfed\": \"1\", \"cdr\": \"1\", \"cfed\": \"1\", \"cnfg\": \"1\", \"gos\": \"6\", \"sns\": \"1\"}, \"other_remote_enum_domain\": \"\", \"naming_delimiter\": \"-\", \"naming_parsing\": \"flexible\""
+      ext_net_info:
+        type: map
+        required: false
+        default: {"h248_net_v4": {"subnet_id": "h248_subnet", "cidr": "192.168.1.0/24", "security_setting": "default", "id": "H248_net", "default_gateway": "192.168.1.254"}, "sig_access_v4_duplex2": {"subnet_id": "v443-Sig-Acc1-Phy2-IPV4", "cidr": "100.69.110.0/28", "security_setting": "default", "id": "v443-Sig-Acc1-PHYSENT2", "default_gateway": "100.69.110.1"}, "sig_access_v4_duplex1": {"subnet_id": "v443-Sig-Acc1-Phy1-IPV4", "cidr": "100.69.110.0/28", "security_setting": "default", "id": "v443-Sig-Acc1-PHYSENT1", "default_gateway": "100.69.110.1"}, "INTERNALnet0": {"security_setting": "default"}, "sig_pfed_v6_duplex2": {"subnet_id": "v452-Sig-Peer1-Phy2-IPV6", "cidr": "2a00:8a00:4000:7690:16::/80", "security_setting": "default", "id": "v452-Sig-Peer1-PHYSENT2", "default_gateway": "2a00:8a00:4000:7690:16::1"}, "sig_pfed_v6_duplex1": {"subnet_id": "v452-Sig-Peer1-Phy1-IPV6", "cidr": "2a00:8a00:4000:7690:16::/80", "security_setting": "default", "id": "v452-Sig-Peer1-PHYSENT1", "default_gateway": "2a00:8a00:4000:7690:16::1"}, "sig_access_v6_duplex1": {"subnet_id": "v443-Sig-Acc1-Phy1-IPV6", "cidr": "2a00:8a00:4000:7690:d::/80", "security_setting": "default", "id": "v443-Sig-Acc1-PHYSENT1", "default_gateway": "2a00:8a00:4000:7690:d::1"}, "sig_access_v6_duplex2": {"subnet_id": "v443-Sig-Acc1-Phy2-IPV6", "cidr": "2a00:8a00:4000:7690:d::/80", "security_setting": "default", "id": "v443-Sig-Acc1-PHYSENT2", "default_gateway": "2a00:8a00:4000:7690:d::1"}, "sig_pfed_v4_duplex2": {"subnet_id": "v452-Sig-Peer1-Phy2-IPV4", "cidr": "100.69.110.144/28", "security_setting": "default", "id": "v452-Sig-Peer1-PHYSENT2", "default_gateway": "100.69.110.145"}, "oam_v6": {"subnet_id": "v438-OAM-IPV6", "cidr": "2a00:8a00:4000:7690:8::/80", "security_setting": "default", "id": "v438-OAM", "default_gateway": "2a00:8a00:4000:7690:8::1"}, "sig_core1_v4": {"subnet_id": "v441-Sig-Core1-IPV4", "cidr": "100.69.127.224/28", "security_setting": "default", "id": "v441-Sig-Core1", "default_gateway": "100.69.127.225"}, "sig_core2_v6": {"subnet_id": "v442-Sig-Core2-IPV6", "cidr": "2a00:8a00:4000:7690:c::/80", "security_setting": "default", "id": "v442-Sig-Core2", "default_gateway": "2a00:8a00:4000:7690:c::1"}, "sig_core1_v6": {"subnet_id": "v441-Sig-Core1-IPV6", "cidr": "2a00:8a00:4000:7690:b::/80", "security_setting": "default", "id": "v441-Sig-Core1", "default_gateway": "2a00:8a00:4000:7690:b::1"}, "oam_v4": {"subnet_id": "v438-OAM-IPV4", "cidr": "100.69.127.128/27", "security_setting": "default", "id": "v438-OAM", "default_gateway": "100.69.127.129"}, "sig_core2_v4": {"subnet_id": "v442-Sig-Core2-IPV4", "cidr": "100.69.127.240/28", "security_setting": "default", "id": "v442-Sig-Core2", "default_gateway": "100.69.127.241"}, "sig_pfed_v4_duplex1": {"subnet_id": "v452-Sig-Peer1-Phy1-IPV4", "cidr": "100.69.110.144/28", "security_setting": "default", "id": "v452-Sig-Peer1-PHYSENT1", "default_gateway": "100.69.110.145"}}
+      auto_scalable_aspects:
+        type: list
+        entry_schema:
+          type: string
+        required: false
+        default: ["sc_Aspect"]
+      auto_scale_config:
+        type: map
+        required: false
+        default: {"quiet_period": 1800, "pm_config": {"pm_thresholds": {"VS.maxNEmemUsage": {"max": 75, "min": 30}, "VS.aveBaseCpuUsage": {"max": 75, "min": 30}}, "pm_intervals": 3}}
+      scale_in_waiting_period:
+        type: integer
+        required: false
+        default: 3
+
+  nokia.datatypes.InstantiateAdditionalParameters:
+    derived_from: tosca.datatypes.nfv.VnfOperationAdditionalParameters
+    properties:
+      skip_health_check:
+        type: string
+        required: false
+        default: "No"
+        constraints:
+          - valid_values: [ "Yes", "No" ]
+        description: "<Yes or No  - Setting this to Yes will skip the health check and bulk config>"
+      backup_file1:
+        type: string
+        required: false
+        description: "First Backup Server location eg. user@IPaddress:/path - needed for DR only"
+        default: ""
+      backup_file2:
+        type: string
+        required: false
+        description: "Second Backup Server location eg. user@IPaddress:/path - needed for DR only"
+        default: ""
+      backup_server_credentials1:
+        type: string
+        required: false
+        description: "First Backup Server Security Certificate - needed for DR only"
+        default: ""
+      backup_server_credentials2:
+        type: string
+        required: false
+        description: "Second Backup Server Security Certificate - needed for DR only"
+        default: ""
+      bulk_conf_url:
+        type: string
+        required: false
+        description: "Bulk configuration data zip file url"
+        default: ""
+      upgrade_file:
+        type: string
+        required: false
+        description: "URL of ColdStart Upgrade Archive zip file"
+        default: ""
+      upgrade_server_credentials:
+        type: string
+        required: false
+        description: "ColdStart Upgrade Archive server credentials"
+        default: ""
+  nokia.datatypes.HealAdditionalParameters:
+    derived_from: tosca.datatypes.nfv.VnfOperationAdditionalParameters
+    properties:
+      monitorDelay:
+        type: integer
+        required: false
+        default: 20
+      monitorRetries:
+        type: integer
+        required: false
+        default: 90
+      
+
+  nokia.datatypes.BackupAdditionalParameters:
+    derived_from: tosca.datatypes.nfv.VnfOperationAdditionalParameters
+    properties:
+      backupServer1:
+        type: string
+        required: false
+        description: "<user@IPaddress:/path>"
+        default: ""
+      backup_server_credentials1:
+        type: string
+        required: false
+        description: "First Backup Server Security Certificate"
+        default: ""
+      backupServer2:
+        type: string
+        required: false
+        description: "<user@IPaddress:/path>"
+        default: ""
+      backup_server_credentials2:
+        type: string
+        required: false
+        description: "Second Backup Server Security Certificate"
+        default: ""
+
+  nokia.datatypes.DbRestoreAdditionalParameters:
+    derived_from: tosca.datatypes.nfv.VnfOperationAdditionalParameters
+    properties:
+      backupInfo:
+        type: string
+        required: true
+        description: "<user@IPaddress:/path/BackupFileName>"
+      restore_media_plane:
+        type: string
+        required: true
+        description: "<One or more comma separated SCM_FLOATING_IPs or ALL>"
+        default: ""
+
+  nokia.datatypes.UpgradeArchiveAdditionalParameters:
+    derived_from: tosca.datatypes.nfv.VnfOperationAdditionalParameters
+    properties:
+      upgradeDeftKey:
+        type: string
+        required: false
+        description: "DEFT key for the load transition"
+        default: ""
+      upgradeDeftUrl:
+        type: string
+        required: false
+        description: "URL of the server where to get DEFT toolkit zip file"
+        default: ""
+      upgradeVersion:
+        type: string
+        required: false
+        description: "Software version of the new release eg. R36.24.00"
+        default: ""
+      upgradeServer:
+        type: string
+        required: false
+        description: "OFF-SYSTEM remote server to transfer the SU Archive file to eg <user@IPaddress:/path>"
+        default: "<user@IPaddress:/path>"
+      upgradeServerCredentials:
+        type: string
+        required: false
+        description: "Needed if a certificate is required to transfer the SU Archive file to the remote server"
+        default: ""
+
+  nokia.datatypes.Upgrade1ApplyAdditionalParameters:
+    derived_from: tosca.datatypes.nfv.VnfOperationAdditionalParameters
+    properties:
+      upgradeImageName:
+        type: string
+        required: true
+        description: "New image name - must match one created in openstack"
+      upgradeVersion:
+        type: string
+        required: true
+        description: "Software version eg R36.24.00"
+      upgradeDeftKey:
+        type: string
+        required: false
+        description: "DEFT key for the load transition"
+      upgradeDeftUrl:
+        type: string
+        required: true
+        description: "URL of the server where to get DEFT toolkit zip file"
+
+  nokia.datatypes.ConnectSbcMediaVnfAdditionalParameters:
+    derived_from: tosca.datatypes.nfv.VnfOperationAdditionalParameters
+    properties:
+      FixedScmIpAddress:
+        type: string
+        required: true
+        description: "<SCM_A_FixedIpAddress,SCM_B_FixedIpAddress>"
+        default: ""
+      LcmUser:
+        type: string
+        required: true
+        description: "lcm-user for media access (enter cloud-user if lcm-user not created)"
+        default: ""
+      ApplUser:
+        type: string
+        required: true
+        description: "appl-user for media diag access"
+        default: ""
+      ApplUserPw:
+        type: string
+        required: true
+        description: "appl-user password for media diag access"
+        default: ""
+
+  nokia.datatypes.DisconnectSbcMediaVnfAdditionalParameters:
+    derived_from: tosca.datatypes.nfv.VnfOperationAdditionalParameters
+    properties:
+      FixedScmIpAddress:
+        type: string
+        required: true
+        description: "<SCM_A_FixedIpAddress,SCM_B_FixedIpAddress>"
+        default: ""
+      LcmUser:
+        type: string
+        required: true
+        description: "lcm-user for media access (enter cloud-user if lcm-user not created)"
+        default: ""
+
+  
+
+  nokia.datatypes.IpManageAdditionalParameters:
+    derived_from: tosca.datatypes.nfv.VnfOperationAdditionalParameters
+    properties:
+      ipOpType:
+        type: string
+        required: true
+        description: "<operation: add_floating_ip, del_floating_ip, add_fixed_ip, del_fixed_ip>"
+        constraints:
+          - valid_values: [ add_floating_ip, del_floating_ip, add_fixed_ip, del_fixed_ip ]
+      ipSvcType:
+        type: string
+        required: false
+        description: "<service type>"
+        default: ""
+      ipPoolId:
+        type: string
+        required: false
+        description: "<pool ID>"
+        default: ""
+      ipSubnet:
+        type: string
+        required: false
+        description: "<subnet ID>"
+        default: ""
+      ipIpAddress:
+        type: string
+        required: false
+        description: "<ip address>"
+        default: ""
+      ipPortType:
+        type: string
+        required: false
+        description: "<port type: 'direct' or 'normal'>"
+        constraints:
+          - valid_values: [ direct, normal ]
+      ipMemberNum:
+        type: string
+        required: false
+        description: "<member number OR blank>"
+        default: ""
+      ipNiType:
+        type: string
+        required: false
+        description: "<NI type>"
+        default: ""
+
+  nokia.datatypes.AddSubnetAdditionalParameters:
+    derived_from: tosca.datatypes.nfv.VnfOperationAdditionalParameters
+    properties:
+      subSubName:
+        type: string
+        required: false
+        description: "<Required: subnet name>"
+      subSubBase:
+        type: string
+        required: false
+        description: "<Required: subnet base (IPv4) or subnet prefix (IPv6)>"
+      subNetmask:
+        type: string
+        required: false
+        description: "<Required: netmask in X.X.X.X notation (IPv4) or prefix length (IPv6)>"
+      subSubNum:
+        type: string
+        required: false
+        description: "<Required: VNF subnet number>"
+      subEipmMode:
+        type: string
+        required: false
+        description: "<Required: eipm_mode: eipm_acm, eipm_arpndp, none, eipm_bfd, bfd_rsr>"
+        constraints:
+          - valid_values: [ eipm_acm, eipm_arpndp, none, eipm_bfd, bfd_rsr ]
+      subGatewayIpAddress:
+        type: string
+        required: false
+        description: "<subnet gateway IP address OR blank if none>"
+      subInterfaceName:
+        type: string
+        required: false
+        description: "<Required: interface label>"
+      subCustVlan:
+        type: string
+        required: false
+        description: "<customer VLAN or blank if none>"
+      subDetectMult:
+        type: string
+        required: false
+        description: "<detection multiplier for eipm_mode eipm_arpndp>"
+      subDesiredMinRxInt:
+        type: string
+        required: false
+        description: "<desired minimum rx interval for eipm_mode eipm_arpndp>"
+      subReqdMinTxInt:
+        type: string
+        required: false
+        description: "<required minimum tx interval if eipm_mode is eipm_arpndp>"
+      subMtu:
+        type: string
+        required: false
+        description: "<mtu size if IPv6 and non-standard mtu needed specifically by application, otherwise leave blank>"
+
+  nokia.datatypes.DelSubnetAdditionalParameters:
+    derived_from: tosca.datatypes.nfv.VnfOperationAdditionalParameters
+    properties:
+      subSubBase:
+        type: string
+        required: false
+        description: "<Required: subnet base (IPv4) or subnet prefix (IPv6)>"
+      subSubNum:
+        type: string
+        required: false
+        description: "<Required: VNF subnet number>"
+
+topology_template:
+  substitution_mappings:
+    node_type: nokia.nodes.nfv.Nokia.SBC
+    requirements:
+      bgc_a_external1_ECP: [ bgc_a_external1_ECP, virtual_link]
+      bgc_b_external1_ECP: [ bgc_b_external1_ECP, virtual_link]
+      fw_a_external1_ECP: [ fw_a_external1_ECP, virtual_link]
+      fw_a_external2_ECP: [ fw_a_external2_ECP, virtual_link]
+      fw_b_external1_ECP: [ fw_b_external1_ECP, virtual_link]
+      fw_b_external2_ECP: [ fw_b_external2_ECP, virtual_link]
+      oam_a_external1_ECP: [ oam_a_external1_ECP, virtual_link]
+      oam_b_external1_ECP: [ oam_b_external1_ECP, virtual_link]
+      cfed_b_external2_ECP: [ cfed_b_external2_ECP, virtual_link]
+      cfed_a_external2_ECP: [ cfed_a_external2_ECP, virtual_link]
+      cfed_a_external1_ECP: [ cfed_a_external1_ECP, virtual_link]
+      cfed_b_external1_ECP: [ cfed_b_external1_ECP, virtual_link]
+      dfed_b_external1_ECP: [ dfed_b_external1_ECP, virtual_link]
+      dfed_a_external1_ECP: [ dfed_a_external1_ECP, virtual_link]
+      pfw_a_external1_ECP: [ pfw_a_external1_ECP, virtual_link]
+      pfw_b_external2_ECP: [ pfw_b_external2_ECP, virtual_link]
+      pfw_b_external1_ECP: [ pfw_b_external1_ECP, virtual_link]
+      pfw_a_external2_ECP: [ pfw_a_external2_ECP, virtual_link]
+      ccf_a_external1_ECP: [ ccf_a_external1_ECP, virtual_link]
+      ccf_b_external1_ECP: [ ccf_b_external1_ECP, virtual_link]
+      
+
+  node_templates:
+    self:
+      type: nokia.nodes.nfv.Nokia.SBC
+      interfaces:
+        Vnflcm:
+          instantiate:
+            inputs:
+              extensions:
+                grant_actions: *grant_actions
+                pre_actions:
+                  - javascript: LCM/javascript/prep_stack_params.js
+                    output: stack_parameters
+                post_actions:
+                  - javascript: LCM/javascript/prep_ansible_extra_vars.js
+                    include:
+                      - LCM/javascript/lcm_lib.js
+                    output: ansible_extra_vars
+                  - ansible: LCM/playbooks/deploy.yml
+                  - ansible: LCM/playbooks/sbc_bulkconfig.yml
+                  
+          terminate:
+            inputs:
+              extensions:
+                grant_actions: *grant_actions
+
+          scale:
+            inputs:
+              extensions:
+                grant_actions: *grant_actions
+                pre_actions:
+                  - javascript: LCM/javascript/prep_stack_params.js
+                    output: stack_parameters
+                  - javascript: LCM/javascript/prep_ansible_extra_vars.js
+                    include:
+                       - LCM/javascript/lcm_lib.js
+                    output: ansible_extra_vars
+                  - ansible: LCM/playbooks/pre_scale.yml
+                post_actions:
+                  - javascript: LCM/javascript/prep_ansible_extra_vars.js
+                    include:
+                       - LCM/javascript/lcm_lib.js
+                    output: ansible_extra_vars
+                  - ansible: LCM/playbooks/post_scale.yml
+
+          heal:
+            implementation: LCM/workbooks/heal_workbook.yaml
+            inputs:
+              extensions:
+                grant_actions: *grant_actions
+
+          backup:
+            implementation: LCM/workbooks/backup_workbook.yaml
+
+          DB_Restore:
+            implementation: LCM/workbooks/db_restore_workbook.yaml
+
+          upgrade_archive:
+            implementation: LCM/workbooks/upgrade_archive_workbook.yaml
+
+          upgrade_precheck:
+            implementation: LCM/workbooks/upgrade_precheck_workbook.yaml
+
+          upgrade_1_apply:
+            implementation: LCM/workbooks/upgrade_1_apply_workbook.yaml
+            inputs:
+              extensions:
+                grant_actions: *grant_actions
+
+          upgrade_2_activate:
+            implementation: LCM/workbooks/upgrade_2_activate_workbook.yaml
+
+          upgrade_3_commit:
+            implementation: LCM/workbooks/upgrade_3_commit_workbook.yaml
+            inputs:
+              extensions:
+                grant_actions: *grant_actions
+
+          connect_SBC_Media_VNF:
+            implementation: LCM/workbooks/sbc_configuration.yaml
+
+          disconnect_SBC_Media_VNF:
+            implementation: LCM/workbooks/sbc_deconfiguration.yaml
+          ip_manage:
+            implementation: LCM/workbooks/ip_manage_workbook.yaml
+          add_subnet:
+            implementation: LCM/workbooks/add_subnet_workbook.yaml
+
+          del_subnet:
+            implementation: LCM/workbooks/del_subnet_workbook.yaml
+
+          update_known_subnets:
+            implementation: LCM/workbooks/update_known_subnets_workbook.yaml
+            inputs:
+              extensions:
+                grant_actions: *grant_actions
+
+          #ip_reserve:
+          #  implementation: LCM/workbooks/ip_reserve_workbook.yaml
+          #  inputs:
+          #    extensions:
+          #      grant_actions: *grant_actions
+    oam_a:
+      type: tosca.nodes.nfv.Vdu.Compute
+      properties:
+        name: ..
+        description: oam template
+        vdu_profile:
+          min_number_of_instances: 1
+          max_number_of_instances: 1
+        sw_image_data: *sw_image_data
+      capabilities:
+        virtual_compute:
+          properties:
+            virtual_memory:
+              virtual_mem_size: 8192 MiB
+            virtual_cpu:
+              num_virtual_cpu: 2
+            virtual_local_storage:
+              - size_of_storage: 68 GiB
+      artifacts:
+        sw_image:
+          type: tosca.artifacts.nfv.SwImage
+          file: *sw_image_file
+      requirements:
+        - virtual_storage: oamVolumeA
+
+    oam_b:
+      type: tosca.nodes.nfv.Vdu.Compute
+      properties:
+        name: ..
+        description: oam template
+        vdu_profile:
+          min_number_of_instances: 1
+          max_number_of_instances: 1
+        sw_image_data: *sw_image_data
+      capabilities:
+        virtual_compute:
+          properties:
+            virtual_memory:
+              virtual_mem_size: 8192 MiB
+            virtual_cpu:
+              num_virtual_cpu: 2
+            virtual_local_storage:
+              - size_of_storage: 68 GiB
+      artifacts:
+        sw_image:
+          type: tosca.artifacts.nfv.SwImage
+          file: *sw_image_file
+      requirements:
+        - virtual_storage: oamVolumeB
+    
+    sc_a:
+      type: tosca.nodes.nfv.Vdu.Compute
+      properties:
+        name: ..
+        description: sc template
+        vdu_profile:
+          min_number_of_instances: 1
+          max_number_of_instances: 5
+        sw_image_data: *sw_image_data
+      capabilities:
+        virtual_compute:
+          properties:
+            virtual_memory:
+              virtual_mem_size: 24576 MiB
+            virtual_cpu:
+              num_virtual_cpu: 4
+            virtual_local_storage:
+              - size_of_storage: 4 GiB
+      artifacts:
+        sw_image:
+          type: tosca.artifacts.nfv.SwImage
+          file: *sw_image_file
+      requirements:
+        - virtual_storage: scVolumeA
+
+    sc_b:
+      type: tosca.nodes.nfv.Vdu.Compute
+      properties:
+        name: ..
+        description: sc template
+        vdu_profile:
+          min_number_of_instances: 1
+          max_number_of_instances: 5
+        sw_image_data: *sw_image_data
+      capabilities:
+        virtual_compute:
+          properties:
+            virtual_memory:
+              virtual_mem_size: 24576 MiB
+            virtual_cpu:
+              num_virtual_cpu: 4
+            virtual_local_storage:
+              - size_of_storage: 4 GiB
+      artifacts:
+        sw_image:
+          type: tosca.artifacts.nfv.SwImage
+          file: *sw_image_file
+      requirements:
+        - virtual_storage: scVolumeB
+    
+    fw_a:
+      type: tosca.nodes.nfv.Vdu.Compute
+      properties:
+        name: ..
+        description: fw template
+        vdu_profile:
+          min_number_of_instances: 0
+          max_number_of_instances: 1
+        sw_image_data: *sw_image_data
+      capabilities:
+        virtual_compute:
+          properties:
+            virtual_memory:
+              virtual_mem_size: 16384 MiB
+            virtual_cpu:
+              num_virtual_cpu: 8
+            virtual_local_storage:
+              - size_of_storage: 4 GiB
+      artifacts:
+        sw_image:
+          type: tosca.artifacts.nfv.SwImage
+          file: *sw_image_file
+      requirements:
+        - virtual_storage: fwVolumeA
+
+    fw_b:
+      type: tosca.nodes.nfv.Vdu.Compute
+      properties:
+        name: ..
+        description: fw template
+        vdu_profile:
+          min_number_of_instances: 0
+          max_number_of_instances: 1
+        sw_image_data: *sw_image_data
+      capabilities:
+        virtual_compute:
+          properties:
+            virtual_memory:
+              virtual_mem_size: 16384 MiB
+            virtual_cpu:
+              num_virtual_cpu: 8
+            virtual_local_storage:
+              - size_of_storage: 4 GiB
+      artifacts:
+        sw_image:
+          type: tosca.artifacts.nfv.SwImage
+          file: *sw_image_file
+      requirements:
+        - virtual_storage: fwVolumeB
+    
+    pfw_a:
+      type: tosca.nodes.nfv.Vdu.Compute
+      properties:
+        name: ..
+        description: pfw template
+        vdu_profile:
+          min_number_of_instances: 0
+          max_number_of_instances: 1
+        sw_image_data: *sw_image_data
+      capabilities:
+        virtual_compute:
+          properties:
+            virtual_memory:
+              virtual_mem_size: 16384 MiB
+            virtual_cpu:
+              num_virtual_cpu: 8
+            virtual_local_storage:
+              - size_of_storage: 4 GiB
+      artifacts:
+        sw_image:
+          type: tosca.artifacts.nfv.SwImage
+          file: *sw_image_file
+      requirements:
+        - virtual_storage: pfwVolumeA
+
+    pfw_b:
+      type: tosca.nodes.nfv.Vdu.Compute
+      properties:
+        name: ..
+        description: pfw template
+        vdu_profile:
+          min_number_of_instances: 0
+          max_number_of_instances: 1
+        sw_image_data: *sw_image_data
+      capabilities:
+        virtual_compute:
+          properties:
+            virtual_memory:
+              virtual_mem_size: 16384 MiB
+            virtual_cpu:
+              num_virtual_cpu: 8
+            virtual_local_storage:
+              - size_of_storage: 4 GiB
+      artifacts:
+        sw_image:
+          type: tosca.artifacts.nfv.SwImage
+          file: *sw_image_file
+      requirements:
+        - virtual_storage: pfwVolumeB
+    
+    bgc_a:
+      type: tosca.nodes.nfv.Vdu.Compute
+      properties:
+        name: ..
+        description: bgc template
+        vdu_profile:
+          min_number_of_instances: 1
+          max_number_of_instances: 1
+        sw_image_data: *sw_image_data
+      capabilities:
+        virtual_compute:
+          properties:
+            virtual_memory:
+              virtual_mem_size: 8192 MiB
+            virtual_cpu:
+              num_virtual_cpu: 2
+            virtual_local_storage:
+              - size_of_storage: 4 GiB
+      artifacts:
+        sw_image:
+          type: tosca.artifacts.nfv.SwImage
+          file: *sw_image_file
+      requirements:
+        - virtual_storage: bgcVolumeA
+
+    bgc_b:
+      type: tosca.nodes.nfv.Vdu.Compute
+      properties:
+        name: ..
+        description: bgc template
+        vdu_profile:
+          min_number_of_instances: 1
+          max_number_of_instances: 1
+        sw_image_data: *sw_image_data
+      capabilities:
+        virtual_compute:
+          properties:
+            virtual_memory:
+              virtual_mem_size: 8192 MiB
+            virtual_cpu:
+              num_virtual_cpu: 2
+            virtual_local_storage:
+              - size_of_storage: 4 GiB
+      artifacts:
+        sw_image:
+          type: tosca.artifacts.nfv.SwImage
+          file: *sw_image_file
+      requirements:
+        - virtual_storage: bgcVolumeB
+    
+    cfed_a:
+      type: tosca.nodes.nfv.Vdu.Compute
+      properties:
+        name: ..
+        description: cfed template
+        vdu_profile:
+          min_number_of_instances: 1
+          max_number_of_instances: 1
+        sw_image_data: *sw_image_data
+      capabilities:
+        virtual_compute:
+          properties:
+            virtual_memory:
+              virtual_mem_size: 32768 MiB
+            virtual_cpu:
+              num_virtual_cpu: 8
+            virtual_local_storage:
+              - size_of_storage: 4 GiB
+      artifacts:
+        sw_image:
+          type: tosca.artifacts.nfv.SwImage
+          file: *sw_image_file
+      requirements:
+        - virtual_storage: cfedVolumeA
+
+    cfed_b:
+      type: tosca.nodes.nfv.Vdu.Compute
+      properties:
+        name: ..
+        description: cfed template
+        vdu_profile:
+          min_number_of_instances: 1
+          max_number_of_instances: 1
+        sw_image_data: *sw_image_data
+      capabilities:
+        virtual_compute:
+          properties:
+            virtual_memory:
+              virtual_mem_size: 32768 MiB
+            virtual_cpu:
+              num_virtual_cpu: 8
+            virtual_local_storage:
+              - size_of_storage: 4 GiB
+      artifacts:
+        sw_image:
+          type: tosca.artifacts.nfv.SwImage
+          file: *sw_image_file
+      requirements:
+        - virtual_storage: cfedVolumeB
+    
+    dfed_a:
+      type: tosca.nodes.nfv.Vdu.Compute
+      properties:
+        name: ..
+        description: dfed template
+        vdu_profile:
+          min_number_of_instances: 0
+          max_number_of_instances: 1
+        sw_image_data: *sw_image_data
+      capabilities:
+        virtual_compute:
+          properties:
+            virtual_memory:
+              virtual_mem_size: 16384 MiB
+            virtual_cpu:
+              num_virtual_cpu: 4
+            virtual_local_storage:
+              - size_of_storage: 4 GiB
+      artifacts:
+        sw_image:
+          type: tosca.artifacts.nfv.SwImage
+          file: *sw_image_file
+      requirements:
+        - virtual_storage: dfedVolumeA
+
+    dfed_b:
+      type: tosca.nodes.nfv.Vdu.Compute
+      properties:
+        name: ..
+        description: dfed template
+        vdu_profile:
+          min_number_of_instances: 0
+          max_number_of_instances: 1
+        sw_image_data: *sw_image_data
+      capabilities:
+        virtual_compute:
+          properties:
+            virtual_memory:
+              virtual_mem_size: 16384 MiB
+            virtual_cpu:
+              num_virtual_cpu: 4
+            virtual_local_storage:
+              - size_of_storage: 4 GiB
+      artifacts:
+        sw_image:
+          type: tosca.artifacts.nfv.SwImage
+          file: *sw_image_file
+      requirements:
+        - virtual_storage: dfedVolumeB
+    
+    ccf_a:
+      type: tosca.nodes.nfv.Vdu.Compute
+      properties:
+        name: ..
+        description: ccf template
+        vdu_profile:
+          min_number_of_instances: 0
+          max_number_of_instances: 1
+        sw_image_data: *sw_image_data
+      capabilities:
+        virtual_compute:
+          properties:
+            virtual_memory:
+              virtual_mem_size: 8192 MiB
+            virtual_cpu:
+              num_virtual_cpu: 4
+            virtual_local_storage:
+              - size_of_storage: 480 GiB
+      artifacts:
+        sw_image:
+          type: tosca.artifacts.nfv.SwImage
+          file: *sw_image_file
+      requirements:
+        - virtual_storage: ccfVolumeA
+
+    ccf_b:
+      type: tosca.nodes.nfv.Vdu.Compute
+      properties:
+        name: ..
+        description: ccf template
+        vdu_profile:
+          min_number_of_instances: 0
+          max_number_of_instances: 1
+        sw_image_data: *sw_image_data
+      capabilities:
+        virtual_compute:
+          properties:
+            virtual_memory:
+              virtual_mem_size: 8192 MiB
+            virtual_cpu:
+              num_virtual_cpu: 4
+            virtual_local_storage:
+              - size_of_storage: 480 GiB
+      artifacts:
+        sw_image:
+          type: tosca.artifacts.nfv.SwImage
+          file: *sw_image_file
+      requirements:
+        - virtual_storage: ccfVolumeB
+    
+    oamVolumeA:
+      type: tosca.nodes.nfv.Vdu.VirtualBlockStorage
+      properties:
+        virtual_block_storage_data:
+          size_of_storage: 68 GiB
+    oamVolumeB:
+      type: tosca.nodes.nfv.Vdu.VirtualBlockStorage
+      properties:
+        virtual_block_storage_data:
+          size_of_storage: 68 GiB
+    scVolumeA:
+      type: tosca.nodes.nfv.Vdu.VirtualBlockStorage
+      properties:
+        virtual_block_storage_data:
+          size_of_storage: 4 GiB
+    scVolumeB:
+      type: tosca.nodes.nfv.Vdu.VirtualBlockStorage
+      properties:
+        virtual_block_storage_data:
+          size_of_storage: 4 GiB
+    fwVolumeA:
+      type: tosca.nodes.nfv.Vdu.VirtualBlockStorage
+      properties:
+        virtual_block_storage_data:
+          size_of_storage: 4 GiB
+    fwVolumeB:
+      type: tosca.nodes.nfv.Vdu.VirtualBlockStorage
+      properties:
+        virtual_block_storage_data:
+          size_of_storage: 4 GiB
+    pfwVolumeA:
+      type: tosca.nodes.nfv.Vdu.VirtualBlockStorage
+      properties:
+        virtual_block_storage_data:
+          size_of_storage: 4 GiB
+    pfwVolumeB:
+      type: tosca.nodes.nfv.Vdu.VirtualBlockStorage
+      properties:
+        virtual_block_storage_data:
+          size_of_storage: 4 GiB
+    bgcVolumeA:
+      type: tosca.nodes.nfv.Vdu.VirtualBlockStorage
+      properties:
+        virtual_block_storage_data:
+          size_of_storage: 4 GiB
+    bgcVolumeB:
+      type: tosca.nodes.nfv.Vdu.VirtualBlockStorage
+      properties:
+        virtual_block_storage_data:
+          size_of_storage: 4 GiB
+    cfedVolumeA:
+      type: tosca.nodes.nfv.Vdu.VirtualBlockStorage
+      properties:
+        virtual_block_storage_data:
+          size_of_storage: 4 GiB
+    cfedVolumeB:
+      type: tosca.nodes.nfv.Vdu.VirtualBlockStorage
+      properties:
+        virtual_block_storage_data:
+          size_of_storage: 4 GiB
+    dfedVolumeA:
+      type: tosca.nodes.nfv.Vdu.VirtualBlockStorage
+      properties:
+        virtual_block_storage_data:
+          size_of_storage: 4 GiB
+    dfedVolumeB:
+      type: tosca.nodes.nfv.Vdu.VirtualBlockStorage
+      properties:
+        virtual_block_storage_data:
+          size_of_storage: 4 GiB
+    ccfVolumeA:
+      type: tosca.nodes.nfv.Vdu.VirtualBlockStorage
+      properties:
+        virtual_block_storage_data:
+          size_of_storage: 480 GiB
+    ccfVolumeB:
+      type: tosca.nodes.nfv.Vdu.VirtualBlockStorage
+      properties:
+        virtual_block_storage_data:
+          size_of_storage: 480 GiB
+    bgc_a_internal0_CP:
+      type: tosca.nodes.nfv.VduCp
+      properties:
+        description: Internal connection point on ipv4
+        layer_protocols:
+          - ipv4
+        role: leaf
+        protocol:
+          - associated_layer_protocol: ipv4
+            address_data:
+              - address_type: ip_address
+                l3_address_data:
+                  ip_address_assignment: false
+                  floating_ip_activated: false
+                  number_of_ip_address: 1
+        trunk_mode: false
+      requirements:
+        - virtual_binding: bgc_a
+        - virtual_link: ipv4_internal0_vl
+
+    bgc_b_internal0_CP:
+      type: tosca.nodes.nfv.VduCp
+      properties:
+        description: Internal connection point on ipv4
+        layer_protocols:
+          - ipv4
+        role: leaf
+        protocol:
+          - associated_layer_protocol: ipv4
+            address_data:
+              - address_type: ip_address
+                l3_address_data:
+                  ip_address_assignment: false
+                  floating_ip_activated: false
+                  number_of_ip_address: 1
+        trunk_mode: false
+      requirements:
+        - virtual_binding: bgc_b
+        - virtual_link: ipv4_internal0_vl
+    
+    fw_a_internal0_CP:
+      type: tosca.nodes.nfv.VduCp
+      properties:
+        description: Internal connection point on ipv4
+        layer_protocols:
+          - ipv4
+        role: leaf
+        protocol:
+          - associated_layer_protocol: ipv4
+            address_data:
+              - address_type: ip_address
+                l3_address_data:
+                  ip_address_assignment: false
+                  floating_ip_activated: false
+                  number_of_ip_address: 1
+        trunk_mode: false
+      requirements:
+        - virtual_binding: fw_a
+        - virtual_link: ipv4_internal0_vl
+
+    fw_b_internal0_CP:
+      type: tosca.nodes.nfv.VduCp
+      properties:
+        description: Internal connection point on ipv4
+        layer_protocols:
+          - ipv4
+        role: leaf
+        protocol:
+          - associated_layer_protocol: ipv4
+            address_data:
+              - address_type: ip_address
+                l3_address_data:
+                  ip_address_assignment: false
+                  floating_ip_activated: false
+                  number_of_ip_address: 1
+        trunk_mode: false
+      requirements:
+        - virtual_binding: fw_b
+        - virtual_link: ipv4_internal0_vl
+    
+    oam_a_internal0_CP:
+      type: tosca.nodes.nfv.VduCp
+      properties:
+        description: Internal connection point on ipv4
+        layer_protocols:
+          - ipv4
+        role: leaf
+        protocol:
+          - associated_layer_protocol: ipv4
+            address_data:
+              - address_type: ip_address
+                l3_address_data:
+                  ip_address_assignment: false
+                  floating_ip_activated: false
+                  number_of_ip_address: 1
+        trunk_mode: false
+      requirements:
+        - virtual_binding: oam_a
+        - virtual_link: ipv4_internal0_vl
+
+    oam_b_internal0_CP:
+      type: tosca.nodes.nfv.VduCp
+      properties:
+        description: Internal connection point on ipv4
+        layer_protocols:
+          - ipv4
+        role: leaf
+        protocol:
+          - associated_layer_protocol: ipv4
+            address_data:
+              - address_type: ip_address
+                l3_address_data:
+                  ip_address_assignment: false
+                  floating_ip_activated: false
+                  number_of_ip_address: 1
+        trunk_mode: false
+      requirements:
+        - virtual_binding: oam_b
+        - virtual_link: ipv4_internal0_vl
+    
+    cfed_a_internal0_CP:
+      type: tosca.nodes.nfv.VduCp
+      properties:
+        description: Internal connection point on ipv4
+        layer_protocols:
+          - ipv4
+        role: leaf
+        protocol:
+          - associated_layer_protocol: ipv4
+            address_data:
+              - address_type: ip_address
+                l3_address_data:
+                  ip_address_assignment: false
+                  floating_ip_activated: false
+                  number_of_ip_address: 1
+        trunk_mode: false
+      requirements:
+        - virtual_binding: cfed_a
+        - virtual_link: ipv4_internal0_vl
+
+    cfed_b_internal0_CP:
+      type: tosca.nodes.nfv.VduCp
+      properties:
+        description: Internal connection point on ipv4
+        layer_protocols:
+          - ipv4
+        role: leaf
+        protocol:
+          - associated_layer_protocol: ipv4
+            address_data:
+              - address_type: ip_address
+                l3_address_data:
+                  ip_address_assignment: false
+                  floating_ip_activated: false
+                  number_of_ip_address: 1
+        trunk_mode: false
+      requirements:
+        - virtual_binding: cfed_b
+        - virtual_link: ipv4_internal0_vl
+    
+    dfed_a_internal0_CP:
+      type: tosca.nodes.nfv.VduCp
+      properties:
+        description: Internal connection point on ipv4
+        layer_protocols:
+          - ipv4
+        role: leaf
+        protocol:
+          - associated_layer_protocol: ipv4
+            address_data:
+              - address_type: ip_address
+                l3_address_data:
+                  ip_address_assignment: false
+                  floating_ip_activated: false
+                  number_of_ip_address: 1
+        trunk_mode: false
+      requirements:
+        - virtual_binding: dfed_a
+        - virtual_link: ipv4_internal0_vl
+
+    dfed_b_internal0_CP:
+      type: tosca.nodes.nfv.VduCp
+      properties:
+        description: Internal connection point on ipv4
+        layer_protocols:
+          - ipv4
+        role: leaf
+        protocol:
+          - associated_layer_protocol: ipv4
+            address_data:
+              - address_type: ip_address
+                l3_address_data:
+                  ip_address_assignment: false
+                  floating_ip_activated: false
+                  number_of_ip_address: 1
+        trunk_mode: false
+      requirements:
+        - virtual_binding: dfed_b
+        - virtual_link: ipv4_internal0_vl
+    
+    pfw_a_internal0_CP:
+      type: tosca.nodes.nfv.VduCp
+      properties:
+        description: Internal connection point on ipv4
+        layer_protocols:
+          - ipv4
+        role: leaf
+        protocol:
+          - associated_layer_protocol: ipv4
+            address_data:
+              - address_type: ip_address
+                l3_address_data:
+                  ip_address_assignment: false
+                  floating_ip_activated: false
+                  number_of_ip_address: 1
+        trunk_mode: false
+      requirements:
+        - virtual_binding: pfw_a
+        - virtual_link: ipv4_internal0_vl
+
+    pfw_b_internal0_CP:
+      type: tosca.nodes.nfv.VduCp
+      properties:
+        description: Internal connection point on ipv4
+        layer_protocols:
+          - ipv4
+        role: leaf
+        protocol:
+          - associated_layer_protocol: ipv4
+            address_data:
+              - address_type: ip_address
+                l3_address_data:
+                  ip_address_assignment: false
+                  floating_ip_activated: false
+                  number_of_ip_address: 1
+        trunk_mode: false
+      requirements:
+        - virtual_binding: pfw_b
+        - virtual_link: ipv4_internal0_vl
+    
+    sc_a_internal0_CP:
+      type: tosca.nodes.nfv.VduCp
+      properties:
+        description: Internal connection point on ipv4
+        layer_protocols:
+          - ipv4
+        role: leaf
+        protocol:
+          - associated_layer_protocol: ipv4
+            address_data:
+              - address_type: ip_address
+                l3_address_data:
+                  ip_address_assignment: false
+                  floating_ip_activated: false
+                  number_of_ip_address: 1
+        trunk_mode: false
+      requirements:
+        - virtual_binding: sc_a
+        - virtual_link: ipv4_internal0_vl
+
+    sc_b_internal0_CP:
+      type: tosca.nodes.nfv.VduCp
+      properties:
+        description: Internal connection point on ipv4
+        layer_protocols:
+          - ipv4
+        role: leaf
+        protocol:
+          - associated_layer_protocol: ipv4
+            address_data:
+              - address_type: ip_address
+                l3_address_data:
+                  ip_address_assignment: false
+                  floating_ip_activated: false
+                  number_of_ip_address: 1
+        trunk_mode: false
+      requirements:
+        - virtual_binding: sc_b
+        - virtual_link: ipv4_internal0_vl
+    
+    ccf_a_internal0_CP:
+      type: tosca.nodes.nfv.VduCp
+      properties:
+        description: Internal connection point on ipv4
+        layer_protocols:
+          - ipv4
+        role: leaf
+        protocol:
+          - associated_layer_protocol: ipv4
+            address_data:
+              - address_type: ip_address
+                l3_address_data:
+                  ip_address_assignment: false
+                  floating_ip_activated: false
+                  number_of_ip_address: 1
+        trunk_mode: false
+      requirements:
+        - virtual_binding: ccf_a
+        - virtual_link: ipv4_internal0_vl
+
+    ccf_b_internal0_CP:
+      type: tosca.nodes.nfv.VduCp
+      properties:
+        description: Internal connection point on ipv4
+        layer_protocols:
+          - ipv4
+        role: leaf
+        protocol:
+          - associated_layer_protocol: ipv4
+            address_data:
+              - address_type: ip_address
+                l3_address_data:
+                  ip_address_assignment: false
+                  floating_ip_activated: false
+                  number_of_ip_address: 1
+        trunk_mode: false
+      requirements:
+        - virtual_binding: ccf_b
+        - virtual_link: ipv4_internal0_vl
+    
+    
+    
+    ipv4_internal0_vl:
+      type: tosca.nodes.nfv.VnfVirtualLink
+      properties:
+        connectivity_type:
+          layer_protocols:
+            - ipv4
+          flow_pattern: mesh
+        vl_profile:
+          min_bitrate_requirements:
+            root: 100000000
+          max_bitrate_requirements:
+            root: 100000000
+    
+    bgc_a_external1_ECP:
+      type: tosca.nodes.nfv.VduCp
+      properties:
+        description: External connection point
+        layer_protocols:
+          - ipv4
+          
+        role: leaf
+        protocol:
+          - associated_layer_protocol: ipv4
+            address_data:
+              - address_type: ip_address
+                l3_address_data:
+                  ip_address_assignment: true
+                  floating_ip_activated: false
+                  number_of_ip_address: 2
+          
+        trunk_mode: false
+      requirements:
+        - virtual_binding: bgc_a
+        #- virtual_link: # requirement exposed on VNF boundary
+      
+    bgc_b_external1_ECP:
+      type: tosca.nodes.nfv.VduCp
+      properties:
+        description: External connection point
+        layer_protocols:
+          - ipv4
+          
+        role: leaf
+        protocol:
+          - associated_layer_protocol: ipv4
+            address_data:
+              - address_type: ip_address
+                l3_address_data:
+                  ip_address_assignment: true
+                  floating_ip_activated: false
+                  number_of_ip_address: 1
+          
+        trunk_mode: false
+      requirements:
+        - virtual_binding: bgc_b
+        #- virtual_link: # requirement exposed on VNF boundary
+      metadata:
+        virtual_address_sharing: |
+          - bgc_a_external1_ECP
+      
+    fw_a_external1_ECP:
+      type: tosca.nodes.nfv.VduCp
+      properties:
+        description: External connection point
+        layer_protocols:
+          - ipv4
+          - ipv6
+        role: leaf
+        protocol:
+          - associated_layer_protocol: ipv4
+            address_data:
+              - address_type: ip_address
+                l3_address_data:
+                  ip_address_assignment: true
+                  floating_ip_activated: false
+                  number_of_ip_address: 2
+          - associated_layer_protocol: ipv6
+            address_data:
+              - address_type: ip_address
+                l3_address_data:
+                  ip_address_assignment: true
+                  floating_ip_activated: false
+                  number_of_ip_address: 2
+        trunk_mode: false
+      requirements:
+        - virtual_binding: fw_a
+        #- virtual_link: # requirement exposed on VNF boundary
+      
+    fw_a_external2_ECP:
+      type: tosca.nodes.nfv.VduCp
+      properties:
+        description: External connection point
+        layer_protocols:
+          - ipv4
+          - ipv6
+        role: leaf
+        protocol:
+          - associated_layer_protocol: ipv4
+            address_data:
+              - address_type: ip_address
+                l3_address_data:
+                  ip_address_assignment: true
+                  floating_ip_activated: false
+                  number_of_ip_address: 2
+          - associated_layer_protocol: ipv6
+            address_data:
+              - address_type: ip_address
+                l3_address_data:
+                  ip_address_assignment: true
+                  floating_ip_activated: false
+                  number_of_ip_address: 2
+        trunk_mode: false
+      requirements:
+        - virtual_binding: fw_a
+        #- virtual_link: # requirement exposed on VNF boundary
+      
+    fw_b_external1_ECP:
+      type: tosca.nodes.nfv.VduCp
+      properties:
+        description: External connection point
+        layer_protocols:
+          - ipv4
+          - ipv6
+        role: leaf
+        protocol:
+          - associated_layer_protocol: ipv4
+            address_data:
+              - address_type: ip_address
+                l3_address_data:
+                  ip_address_assignment: true
+                  floating_ip_activated: false
+                  number_of_ip_address: 1
+          - associated_layer_protocol: ipv6
+            address_data:
+              - address_type: ip_address
+                l3_address_data:
+                  ip_address_assignment: true
+                  floating_ip_activated: false
+                  number_of_ip_address: 1
+        trunk_mode: false
+      requirements:
+        - virtual_binding: fw_b
+        #- virtual_link: # requirement exposed on VNF boundary
+      metadata:
+        virtual_address_sharing: |
+          - fw_a_external1_ECP
+      
+    fw_b_external2_ECP:
+      type: tosca.nodes.nfv.VduCp
+      properties:
+        description: External connection point
+        layer_protocols:
+          - ipv4
+          - ipv6
+        role: leaf
+        protocol:
+          - associated_layer_protocol: ipv4
+            address_data:
+              - address_type: ip_address
+                l3_address_data:
+                  ip_address_assignment: true
+                  floating_ip_activated: false
+                  number_of_ip_address: 1
+          - associated_layer_protocol: ipv6
+            address_data:
+              - address_type: ip_address
+                l3_address_data:
+                  ip_address_assignment: true
+                  floating_ip_activated: false
+                  number_of_ip_address: 1
+        trunk_mode: false
+      requirements:
+        - virtual_binding: fw_b
+        #- virtual_link: # requirement exposed on VNF boundary
+      metadata:
+        virtual_address_sharing: |
+          - fw_a_external2_ECP
+      
+    oam_a_external1_ECP:
+      type: tosca.nodes.nfv.VduCp
+      properties:
+        description: External connection point
+        layer_protocols:
+          - ipv4
+          
+        role: leaf
+        protocol:
+          - associated_layer_protocol: ipv4
+            address_data:
+              - address_type: ip_address
+                l3_address_data:
+                  ip_address_assignment: true
+                  floating_ip_activated: false
+                  number_of_ip_address: 3
+          
+        trunk_mode: false
+      requirements:
+        - virtual_binding: oam_a
+        #- virtual_link: # requirement exposed on VNF boundary
+      
+    oam_b_external1_ECP:
+      type: tosca.nodes.nfv.VduCp
+      properties:
+        description: External connection point
+        layer_protocols:
+          - ipv4
+          
+        role: leaf
+        protocol:
+          - associated_layer_protocol: ipv4
+            address_data:
+              - address_type: ip_address
+                l3_address_data:
+                  ip_address_assignment: true
+                  floating_ip_activated: false
+                  number_of_ip_address: 1
+          
+        trunk_mode: false
+      requirements:
+        - virtual_binding: oam_b
+        #- virtual_link: # requirement exposed on VNF boundary
+      metadata:
+        virtual_address_sharing: |
+          - oam_a_external1_ECP
+      
+    cfed_b_external2_ECP:
+      type: tosca.nodes.nfv.VduCp
+      properties:
+        description: External connection point
+        layer_protocols:
+          - ipv4
+          - ipv6
+        role: leaf
+        protocol:
+          - associated_layer_protocol: ipv4
+            address_data:
+              - address_type: ip_address
+                l3_address_data:
+                  ip_address_assignment: true
+                  floating_ip_activated: false
+                  number_of_ip_address: 1
+          - associated_layer_protocol: ipv6
+            address_data:
+              - address_type: ip_address
+                l3_address_data:
+                  ip_address_assignment: true
+                  floating_ip_activated: false
+                  number_of_ip_address: 1
+        trunk_mode: false
+      requirements:
+        - virtual_binding: cfed_b
+        #- virtual_link: # requirement exposed on VNF boundary
+      metadata:
+        virtual_address_sharing: |
+          - cfed_a_external2_ECP
+      
+    cfed_a_external2_ECP:
+      type: tosca.nodes.nfv.VduCp
+      properties:
+        description: External connection point
+        layer_protocols:
+          - ipv4
+          - ipv6
+        role: leaf
+        protocol:
+          - associated_layer_protocol: ipv4
+            address_data:
+              - address_type: ip_address
+                l3_address_data:
+                  ip_address_assignment: true
+                  floating_ip_activated: false
+                  number_of_ip_address: 1
+          - associated_layer_protocol: ipv6
+            address_data:
+              - address_type: ip_address
+                l3_address_data:
+                  ip_address_assignment: true
+                  floating_ip_activated: false
+                  number_of_ip_address: 1
+        trunk_mode: false
+      requirements:
+        - virtual_binding: cfed_a
+        #- virtual_link: # requirement exposed on VNF boundary
+      
+    cfed_a_external1_ECP:
+      type: tosca.nodes.nfv.VduCp
+      properties:
+        description: External connection point
+        layer_protocols:
+          - ipv4
+          - ipv6
+        role: leaf
+        protocol:
+          - associated_layer_protocol: ipv4
+            address_data:
+              - address_type: ip_address
+                l3_address_data:
+                  ip_address_assignment: true
+                  floating_ip_activated: false
+                  number_of_ip_address: 1
+          - associated_layer_protocol: ipv6
+            address_data:
+              - address_type: ip_address
+                l3_address_data:
+                  ip_address_assignment: true
+                  floating_ip_activated: false
+                  number_of_ip_address: 1
+        trunk_mode: false
+      requirements:
+        - virtual_binding: cfed_a
+        #- virtual_link: # requirement exposed on VNF boundary
+      
+    cfed_b_external1_ECP:
+      type: tosca.nodes.nfv.VduCp
+      properties:
+        description: External connection point
+        layer_protocols:
+          - ipv4
+          - ipv6
+        role: leaf
+        protocol:
+          - associated_layer_protocol: ipv4
+            address_data:
+              - address_type: ip_address
+                l3_address_data:
+                  ip_address_assignment: true
+                  floating_ip_activated: false
+                  number_of_ip_address: 1
+          - associated_layer_protocol: ipv6
+            address_data:
+              - address_type: ip_address
+                l3_address_data:
+                  ip_address_assignment: true
+                  floating_ip_activated: false
+                  number_of_ip_address: 1
+        trunk_mode: false
+      requirements:
+        - virtual_binding: cfed_b
+        #- virtual_link: # requirement exposed on VNF boundary
+      metadata:
+        virtual_address_sharing: |
+          - cfed_a_external1_ECP
+      
+    dfed_b_external1_ECP:
+      type: tosca.nodes.nfv.VduCp
+      properties:
+        description: External connection point
+        layer_protocols:
+          - ipv4
+          - ipv6
+        role: leaf
+        protocol:
+          - associated_layer_protocol: ipv4
+            address_data:
+              - address_type: ip_address
+                l3_address_data:
+                  ip_address_assignment: true
+                  floating_ip_activated: false
+                  number_of_ip_address: 1
+          - associated_layer_protocol: ipv6
+            address_data:
+              - address_type: ip_address
+                l3_address_data:
+                  ip_address_assignment: true
+                  floating_ip_activated: false
+                  number_of_ip_address: 1
+        trunk_mode: false
+      requirements:
+        - virtual_binding: dfed_b
+        #- virtual_link: # requirement exposed on VNF boundary
+      metadata:
+        virtual_address_sharing: |
+          - dfed_a_external1_ECP
+      
+    dfed_a_external1_ECP:
+      type: tosca.nodes.nfv.VduCp
+      properties:
+        description: External connection point
+        layer_protocols:
+          - ipv4
+          - ipv6
+        role: leaf
+        protocol:
+          - associated_layer_protocol: ipv4
+            address_data:
+              - address_type: ip_address
+                l3_address_data:
+                  ip_address_assignment: true
+                  floating_ip_activated: false
+                  number_of_ip_address: 1
+          - associated_layer_protocol: ipv6
+            address_data:
+              - address_type: ip_address
+                l3_address_data:
+                  ip_address_assignment: true
+                  floating_ip_activated: false
+                  number_of_ip_address: 1
+        trunk_mode: false
+      requirements:
+        - virtual_binding: dfed_a
+        #- virtual_link: # requirement exposed on VNF boundary
+      
+    pfw_a_external1_ECP:
+      type: tosca.nodes.nfv.VduCp
+      properties:
+        description: External connection point
+        layer_protocols:
+          - ipv4
+          - ipv6
+        role: leaf
+        protocol:
+          - associated_layer_protocol: ipv4
+            address_data:
+              - address_type: ip_address
+                l3_address_data:
+                  ip_address_assignment: true
+                  floating_ip_activated: false
+                  number_of_ip_address: 1
+          - associated_layer_protocol: ipv6
+            address_data:
+              - address_type: ip_address
+                l3_address_data:
+                  ip_address_assignment: true
+                  floating_ip_activated: false
+                  number_of_ip_address: 1
+        trunk_mode: false
+      requirements:
+        - virtual_binding: pfw_a
+        #- virtual_link: # requirement exposed on VNF boundary
+      
+    pfw_b_external2_ECP:
+      type: tosca.nodes.nfv.VduCp
+      properties:
+        description: External connection point
+        layer_protocols:
+          - ipv4
+          - ipv6
+        role: leaf
+        protocol:
+          - associated_layer_protocol: ipv4
+            address_data:
+              - address_type: ip_address
+                l3_address_data:
+                  ip_address_assignment: true
+                  floating_ip_activated: false
+                  number_of_ip_address: 1
+          - associated_layer_protocol: ipv6
+            address_data:
+              - address_type: ip_address
+                l3_address_data:
+                  ip_address_assignment: true
+                  floating_ip_activated: false
+                  number_of_ip_address: 1
+        trunk_mode: false
+      requirements:
+        - virtual_binding: pfw_b
+        #- virtual_link: # requirement exposed on VNF boundary
+      metadata:
+        virtual_address_sharing: |
+          - pfw_a_external2_ECP
+      
+    pfw_b_external1_ECP:
+      type: tosca.nodes.nfv.VduCp
+      properties:
+        description: External connection point
+        layer_protocols:
+          - ipv4
+          - ipv6
+        role: leaf
+        protocol:
+          - associated_layer_protocol: ipv4
+            address_data:
+              - address_type: ip_address
+                l3_address_data:
+                  ip_address_assignment: true
+                  floating_ip_activated: false
+                  number_of_ip_address: 1
+          - associated_layer_protocol: ipv6
+            address_data:
+              - address_type: ip_address
+                l3_address_data:
+                  ip_address_assignment: true
+                  floating_ip_activated: false
+                  number_of_ip_address: 1
+        trunk_mode: false
+      requirements:
+        - virtual_binding: pfw_b
+        #- virtual_link: # requirement exposed on VNF boundary
+      metadata:
+        virtual_address_sharing: |
+          - pfw_a_external1_ECP
+      
+    pfw_a_external2_ECP:
+      type: tosca.nodes.nfv.VduCp
+      properties:
+        description: External connection point
+        layer_protocols:
+          - ipv4
+          - ipv6
+        role: leaf
+        protocol:
+          - associated_layer_protocol: ipv4
+            address_data:
+              - address_type: ip_address
+                l3_address_data:
+                  ip_address_assignment: true
+                  floating_ip_activated: false
+                  number_of_ip_address: 1
+          - associated_layer_protocol: ipv6
+            address_data:
+              - address_type: ip_address
+                l3_address_data:
+                  ip_address_assignment: true
+                  floating_ip_activated: false
+                  number_of_ip_address: 1
+        trunk_mode: false
+      requirements:
+        - virtual_binding: pfw_a
+        #- virtual_link: # requirement exposed on VNF boundary
+      
+    ccf_a_external1_ECP:
+      type: tosca.nodes.nfv.VduCp
+      properties:
+        description: External connection point
+        layer_protocols:
+          - ipv4
+          - ipv6
+        role: leaf
+        protocol:
+          - associated_layer_protocol: ipv4
+            address_data:
+              - address_type: ip_address
+                l3_address_data:
+                  ip_address_assignment: true
+                  floating_ip_activated: false
+                  number_of_ip_address: 1
+          - associated_layer_protocol: ipv6
+            address_data:
+              - address_type: ip_address
+                l3_address_data:
+                  ip_address_assignment: true
+                  floating_ip_activated: false
+                  number_of_ip_address: 1
+        trunk_mode: false
+      requirements:
+        - virtual_binding: ccf_a
+        #- virtual_link: # requirement exposed on VNF boundary
+      
+    ccf_b_external1_ECP:
+      type: tosca.nodes.nfv.VduCp
+      properties:
+        description: External connection point
+        layer_protocols:
+          - ipv4
+          - ipv6
+        role: leaf
+        protocol:
+          - associated_layer_protocol: ipv4
+            address_data:
+              - address_type: ip_address
+                l3_address_data:
+                  ip_address_assignment: true
+                  floating_ip_activated: false
+                  number_of_ip_address: 1
+          - associated_layer_protocol: ipv6
+            address_data:
+              - address_type: ip_address
+                l3_address_data:
+                  ip_address_assignment: true
+                  floating_ip_activated: false
+                  number_of_ip_address: 1
+        trunk_mode: false
+      requirements:
+        - virtual_binding: ccf_b
+        #- virtual_link: # requirement exposed on VNF boundary
+      metadata:
+        virtual_address_sharing: |
+          - ccf_a_external1_ECP
+      
+    
+  policies:
+    - scaling_aspects:
+        type: tosca.policies.nfv.ScalingAspects
+        properties:
+          aspects:
+            bgc_Aspect:
+              name: ..
+              description: ..
+              max_scale_level: 1
+            dfed_Aspect:
+              name: ..
+              description: ..
+              max_scale_level: 1
+            fw_Aspect:
+              name: ..
+              description: ..
+              max_scale_level: 1
+            cfed_Aspect:
+              name: ..
+              description: ..
+              max_scale_level: 1
+            pfw_Aspect:
+              name: ..
+              description: ..
+              max_scale_level: 1
+            sc_Aspect:
+              name: ..
+              description: ..
+              max_scale_level: 5
+            ccf_Aspect:
+              name: ..
+              description: ..
+              max_scale_level: 1
+            
+    - bgc_a_Aspect_deltas:
+        type: tosca.policies.nfv.VduScalingAspectDeltas
+        properties:
+          aspect: bgc_Aspect
+          deltas:
+            delta_1:
+              number_of_instances: 1
+        targets: [ bgc_a ]
+
+    - bgc_b_Aspect_deltas:
+        type: tosca.policies.nfv.VduScalingAspectDeltas
+        properties:
+          aspect: bgc_Aspect
+          deltas:
+            delta_1:
+              number_of_instances: 1
+        targets: [ bgc_b ]
+    
+
+    - bgc_a_initial_delta:
+        type: tosca.policies.nfv.VduInitialDelta
+        properties:
+          initial_delta:
+            number_of_instances: 0
+        targets: [ bgc_a ]
+
+    - bgc_b_initial_delta:
+        type: tosca.policies.nfv.VduInitialDelta
+        properties:
+          initial_delta:
+            number_of_instances: 0
+        targets: [ bgc_b ]
+    
+    - dfed_a_Aspect_deltas:
+        type: tosca.policies.nfv.VduScalingAspectDeltas
+        properties:
+          aspect: dfed_Aspect
+          deltas:
+            delta_1:
+              number_of_instances: 1
+        targets: [ dfed_a ]
+
+    - dfed_b_Aspect_deltas:
+        type: tosca.policies.nfv.VduScalingAspectDeltas
+        properties:
+          aspect: dfed_Aspect
+          deltas:
+            delta_1:
+              number_of_instances: 1
+        targets: [ dfed_b ]
+    
+
+    - dfed_a_initial_delta:
+        type: tosca.policies.nfv.VduInitialDelta
+        properties:
+          initial_delta:
+            number_of_instances: 0
+        targets: [ dfed_a ]
+
+    - dfed_b_initial_delta:
+        type: tosca.policies.nfv.VduInitialDelta
+        properties:
+          initial_delta:
+            number_of_instances: 0
+        targets: [ dfed_b ]
+    
+    - fw_a_Aspect_deltas:
+        type: tosca.policies.nfv.VduScalingAspectDeltas
+        properties:
+          aspect: fw_Aspect
+          deltas:
+            delta_1:
+              number_of_instances: 1
+        targets: [ fw_a ]
+
+    - fw_b_Aspect_deltas:
+        type: tosca.policies.nfv.VduScalingAspectDeltas
+        properties:
+          aspect: fw_Aspect
+          deltas:
+            delta_1:
+              number_of_instances: 1
+        targets: [ fw_b ]
+    
+
+    - fw_a_initial_delta:
+        type: tosca.policies.nfv.VduInitialDelta
+        properties:
+          initial_delta:
+            number_of_instances: 0
+        targets: [ fw_a ]
+
+    - fw_b_initial_delta:
+        type: tosca.policies.nfv.VduInitialDelta
+        properties:
+          initial_delta:
+            number_of_instances: 0
+        targets: [ fw_b ]
+    
+    - cfed_a_Aspect_deltas:
+        type: tosca.policies.nfv.VduScalingAspectDeltas
+        properties:
+          aspect: cfed_Aspect
+          deltas:
+            delta_1:
+              number_of_instances: 1
+        targets: [ cfed_a ]
+
+    - cfed_b_Aspect_deltas:
+        type: tosca.policies.nfv.VduScalingAspectDeltas
+        properties:
+          aspect: cfed_Aspect
+          deltas:
+            delta_1:
+              number_of_instances: 1
+        targets: [ cfed_b ]
+    
+
+    - cfed_a_initial_delta:
+        type: tosca.policies.nfv.VduInitialDelta
+        properties:
+          initial_delta:
+            number_of_instances: 0
+        targets: [ cfed_a ]
+
+    - cfed_b_initial_delta:
+        type: tosca.policies.nfv.VduInitialDelta
+        properties:
+          initial_delta:
+            number_of_instances: 0
+        targets: [ cfed_b ]
+    
+    - pfw_a_Aspect_deltas:
+        type: tosca.policies.nfv.VduScalingAspectDeltas
+        properties:
+          aspect: pfw_Aspect
+          deltas:
+            delta_1:
+              number_of_instances: 1
+        targets: [ pfw_a ]
+
+    - pfw_b_Aspect_deltas:
+        type: tosca.policies.nfv.VduScalingAspectDeltas
+        properties:
+          aspect: pfw_Aspect
+          deltas:
+            delta_1:
+              number_of_instances: 1
+        targets: [ pfw_b ]
+    
+
+    - pfw_a_initial_delta:
+        type: tosca.policies.nfv.VduInitialDelta
+        properties:
+          initial_delta:
+            number_of_instances: 0
+        targets: [ pfw_a ]
+
+    - pfw_b_initial_delta:
+        type: tosca.policies.nfv.VduInitialDelta
+        properties:
+          initial_delta:
+            number_of_instances: 0
+        targets: [ pfw_b ]
+    
+    - sc_a_Aspect_deltas:
+        type: tosca.policies.nfv.VduScalingAspectDeltas
+        properties:
+          aspect: sc_Aspect
+          deltas:
+            delta_1:
+              number_of_instances: 1
+        targets: [ sc_a ]
+
+    - sc_b_Aspect_deltas:
+        type: tosca.policies.nfv.VduScalingAspectDeltas
+        properties:
+          aspect: sc_Aspect
+          deltas:
+            delta_1:
+              number_of_instances: 1
+        targets: [ sc_b ]
+    
+
+    - sc_a_initial_delta:
+        type: tosca.policies.nfv.VduInitialDelta
+        properties:
+          initial_delta:
+            number_of_instances: 0
+        targets: [ sc_a ]
+
+    - sc_b_initial_delta:
+        type: tosca.policies.nfv.VduInitialDelta
+        properties:
+          initial_delta:
+            number_of_instances: 0
+        targets: [ sc_b ]
+    
+    - ccf_a_Aspect_deltas:
+        type: tosca.policies.nfv.VduScalingAspectDeltas
+        properties:
+          aspect: ccf_Aspect
+          deltas:
+            delta_1:
+              number_of_instances: 1
+        targets: [ ccf_a ]
+
+    - ccf_b_Aspect_deltas:
+        type: tosca.policies.nfv.VduScalingAspectDeltas
+        properties:
+          aspect: ccf_Aspect
+          deltas:
+            delta_1:
+              number_of_instances: 1
+        targets: [ ccf_b ]
+    
+
+    - ccf_a_initial_delta:
+        type: tosca.policies.nfv.VduInitialDelta
+        properties:
+          initial_delta:
+            number_of_instances: 0
+        targets: [ ccf_a ]
+
+    - ccf_b_initial_delta:
+        type: tosca.policies.nfv.VduInitialDelta
+        properties:
+          initial_delta:
+            number_of_instances: 0
+        targets: [ ccf_b ]
+    
+    - oam_a_initial_delta:
+        type: tosca.policies.nfv.VduInitialDelta
+        properties:
+          initial_delta:
+            number_of_instances: 1
+        targets: [ oam_a ]
+
+    - oam_b_initial_delta:
+        type: tosca.policies.nfv.VduInitialDelta
+        properties:
+          initial_delta:
+            number_of_instances: 1
+        targets: [ oam_b ]
+    
+    - ipv4_internal0_vl_initial_delta:
+        type: tosca.policies.nfv.VirtualLinkBitrateInitialDelta
+        properties:
+          initial_delta:
+            bitrate_requirements:
+              root: 100000000
+        targets: [ ipv4_internal0_vl ]
+    
+    - instantiation_levels:
+        type: tosca.policies.nfv.InstantiationLevels
+        properties:
+          levels:
+            default:
+              description: ..
+              scale_info:
+                bgc_Aspect:
+                  scale_level: 1
+                dfed_Aspect:
+                  scale_level: 1
+                fw_Aspect:
+                  scale_level: 1
+                cfed_Aspect:
+                  scale_level: 1
+                pfw_Aspect:
+                  scale_level: 1
+                sc_Aspect:
+                  scale_level: 1
+                ccf_Aspect:
+                  scale_level: 1
+                
+            small:
+              description: ..
+              scale_info:
+                bgc_Aspect:
+                  scale_level: 1
+                dfed_Aspect:
+                  scale_level: 1
+                fw_Aspect:
+                  scale_level: 1
+                cfed_Aspect:
+                  scale_level: 1
+                pfw_Aspect:
+                  scale_level: 1
+                sc_Aspect:
+                  scale_level: 1
+                ccf_Aspect:
+                  scale_level: 1
+                
+            tiny:
+              description: ..
+              scale_info:
+                bgc_Aspect:
+                  scale_level: 1
+                dfed_Aspect:
+                  scale_level: 1
+                fw_Aspect:
+                  scale_level: 1
+                cfed_Aspect:
+                  scale_level: 1
+                pfw_Aspect:
+                  scale_level: 1
+                sc_Aspect:
+                  scale_level: 1
+                ccf_Aspect:
+                  scale_level: 1
+                
+          default_level: default
+
+    - oam_a_instantiation_levels:
+        type: tosca.policies.nfv.VduInstantiationLevels
+        properties:
+          levels:
+            default:
+              number_of_instances: 1
+            small:
+              number_of_instances: 1
+            tiny:
+              number_of_instances: 1
+        targets: [ oam_a ]
+
+    - oam_b_instantiation_levels:
+        type: tosca.policies.nfv.VduInstantiationLevels
+        properties:
+          levels:
+            default:
+              number_of_instances: 1
+            small:
+              number_of_instances: 1
+            tiny:
+              number_of_instances: 1
+        targets: [ oam_b ]
+    
+    - bgc_a_instantiation_levels:
+        type: tosca.policies.nfv.VduInstantiationLevels
+        properties:
+          levels:
+            default:
+              number_of_instances: 1
+            small:
+              number_of_instances: 1
+            tiny:
+              number_of_instances: 1
+        targets: [ bgc_a ]
+
+    - bgc_b_instantiation_levels:
+        type: tosca.policies.nfv.VduInstantiationLevels
+        properties:
+          levels:
+            default:
+              number_of_instances: 1
+            small:
+              number_of_instances: 1
+            tiny:
+              number_of_instances: 1
+        targets: [ bgc_b ]
+
+    - dfed_a_instantiation_levels:
+        type: tosca.policies.nfv.VduInstantiationLevels
+        properties:
+          levels:
+            default:
+              number_of_instances: 1
+            small:
+              number_of_instances: 1
+            tiny:
+              number_of_instances: 1
+        targets: [ dfed_a ]
+
+    - dfed_b_instantiation_levels:
+        type: tosca.policies.nfv.VduInstantiationLevels
+        properties:
+          levels:
+            default:
+              number_of_instances: 1
+            small:
+              number_of_instances: 1
+            tiny:
+              number_of_instances: 1
+        targets: [ dfed_b ]
+
+    - fw_a_instantiation_levels:
+        type: tosca.policies.nfv.VduInstantiationLevels
+        properties:
+          levels:
+            default:
+              number_of_instances: 1
+            small:
+              number_of_instances: 1
+            tiny:
+              number_of_instances: 1
+        targets: [ fw_a ]
+
+    - fw_b_instantiation_levels:
+        type: tosca.policies.nfv.VduInstantiationLevels
+        properties:
+          levels:
+            default:
+              number_of_instances: 1
+            small:
+              number_of_instances: 1
+            tiny:
+              number_of_instances: 1
+        targets: [ fw_b ]
+
+    - cfed_a_instantiation_levels:
+        type: tosca.policies.nfv.VduInstantiationLevels
+        properties:
+          levels:
+            default:
+              number_of_instances: 1
+            small:
+              number_of_instances: 1
+            tiny:
+              number_of_instances: 1
+        targets: [ cfed_a ]
+
+    - cfed_b_instantiation_levels:
+        type: tosca.policies.nfv.VduInstantiationLevels
+        properties:
+          levels:
+            default:
+              number_of_instances: 1
+            small:
+              number_of_instances: 1
+            tiny:
+              number_of_instances: 1
+        targets: [ cfed_b ]
+
+    - pfw_a_instantiation_levels:
+        type: tosca.policies.nfv.VduInstantiationLevels
+        properties:
+          levels:
+            default:
+              number_of_instances: 1
+            small:
+              number_of_instances: 1
+            tiny:
+              number_of_instances: 1
+        targets: [ pfw_a ]
+
+    - pfw_b_instantiation_levels:
+        type: tosca.policies.nfv.VduInstantiationLevels
+        properties:
+          levels:
+            default:
+              number_of_instances: 1
+            small:
+              number_of_instances: 1
+            tiny:
+              number_of_instances: 1
+        targets: [ pfw_b ]
+
+    - sc_a_instantiation_levels:
+        type: tosca.policies.nfv.VduInstantiationLevels
+        properties:
+          levels:
+            default:
+              number_of_instances: 1
+            small:
+              number_of_instances: 1
+            tiny:
+              number_of_instances: 1
+        targets: [ sc_a ]
+
+    - sc_b_instantiation_levels:
+        type: tosca.policies.nfv.VduInstantiationLevels
+        properties:
+          levels:
+            default:
+              number_of_instances: 1
+            small:
+              number_of_instances: 1
+            tiny:
+              number_of_instances: 1
+        targets: [ sc_b ]
+
+    - ccf_a_instantiation_levels:
+        type: tosca.policies.nfv.VduInstantiationLevels
+        properties:
+          levels:
+            default:
+              number_of_instances: 1
+            small:
+              number_of_instances: 1
+            tiny:
+              number_of_instances: 1
+        targets: [ ccf_a ]
+
+    - ccf_b_instantiation_levels:
+        type: tosca.policies.nfv.VduInstantiationLevels
+        properties:
+          levels:
+            default:
+              number_of_instances: 1
+            small:
+              number_of_instances: 1
+            tiny:
+              number_of_instances: 1
+        targets: [ ccf_b ]
+
+    - ipv4_internal0_vl_instantiation_levels:
+        type: tosca.policies.nfv.VirtualLinkInstantiationLevels
+        properties:
+          levels:
+            default:
+              bitrate_requirements:
+                root: 100000000
+            small:
+              bitrate_requirements:
+                root: 100000000
+            tiny:
+              bitrate_requirements:
+                root: 100000000
+        targets: [ ipv4_internal0_vl ]
+    

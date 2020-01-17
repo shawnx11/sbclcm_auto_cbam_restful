@@ -1,0 +1,102 @@
+2019-12-21 11:42:54,472 INFO:root:In Func: get_initial_sc_value
+2019-12-21 11:42:54,472 INFO:root:In Func: get_sc_count
+2019-12-21 11:44:01,505 INFO:root:In Func: get_initial_sc_value
+2019-12-21 11:44:01,505 INFO:root:In Func: get_sc_count
+2019-12-21 11:44:08,522 INFO:root:row_sc: 155
+2019-12-21 11:44:08,522 INFO:root:row_vm_count: 159
+2019-12-21 11:44:08,522 INFO:root:current SC vaule of vm_count: 1
+2019-12-21 11:44:08,522 INFO:root:initial_sc_count: 1
+2019-12-21 11:45:53,608 INFO:root:In Func: get_initial_sc_value
+2019-12-21 11:45:53,608 INFO:root:In Func: get_sc_count
+2019-12-21 11:46:00,243 INFO:root:row_sc: 155
+2019-12-21 11:46:00,243 INFO:root:row_vm_count: 159
+2019-12-21 11:46:00,243 INFO:root:current SC vaule of vm_count: 1
+2019-12-21 11:46:00,243 INFO:root:initial_sc_count: 1
+2019-12-21 11:46:00,243 INFO:root:In Func: gen_dif_updated_sc_value
+2019-12-21 11:46:00,243 INFO:root:In Func: set_sc_count
+2019-12-21 11:46:00,243 INFO:root:In Func: get_sc_count
+2019-12-21 11:46:07,442 INFO:root:row_sc: 155
+2019-12-21 11:46:07,458 INFO:root:row_vm_count: 159
+2019-12-21 11:46:07,458 INFO:root:current SC vaule of vm_count: 5
+2019-12-21 11:47:52,369 INFO:root:In Func: get_initial_sc_value
+2019-12-21 11:47:52,369 INFO:root:In Func: get_sc_count
+2019-12-21 11:47:59,168 INFO:root:row_sc: 155
+2019-12-21 11:47:59,168 INFO:root:row_vm_count: 159
+2019-12-21 11:47:59,168 INFO:root:current SC vaule of vm_count: 1
+2019-12-21 11:47:59,168 INFO:root:initial_sc_count: 1
+2019-12-21 11:47:59,168 INFO:root:In Func: gen_dif_updated_sc_value
+2019-12-21 11:47:59,168 INFO:root:In Func: set_sc_count
+2019-12-21 11:47:59,168 INFO:root:In Func: get_sc_count
+2019-12-21 11:48:07,623 INFO:root:row_sc: 155
+2019-12-21 11:48:07,623 INFO:root:row_vm_count: 159
+2019-12-21 11:48:07,623 INFO:root:current SC vaule of vm_count: 4
+2019-12-21 11:50:35,397 INFO:root:In Func: get_initial_sc_value
+2019-12-21 11:50:35,397 INFO:root:In Func: get_sc_count
+2019-12-21 11:50:42,490 INFO:root:row_sc: 155
+2019-12-21 11:50:42,490 INFO:root:row_vm_count: 159
+2019-12-21 11:50:42,490 INFO:root:current SC vaule of vm_count: 1
+2019-12-21 11:50:42,490 INFO:root:initial_sc_count: 1
+2019-12-21 11:50:42,490 INFO:root:In Func: gen_dif_updated_sc_value
+2019-12-21 11:50:42,490 INFO:root:To set sc count to: 3
+2019-12-21 11:50:42,490 INFO:root:In Func: set_sc_count
+2019-12-21 11:50:42,490 INFO:root:In Func: get_sc_count
+2019-12-21 11:50:50,476 INFO:root:row_sc: 155
+2019-12-21 11:50:50,476 INFO:root:row_vm_count: 159
+2019-12-21 11:50:50,476 INFO:root:current SC vaule of vm_count: 3
+2019-12-21 11:52:18,601 INFO:root:In Func: get_initial_sc_value
+2019-12-21 11:52:18,601 INFO:root:In Func: get_sc_count
+2019-12-21 11:52:25,360 INFO:root:row_sc: 155
+2019-12-21 11:52:25,360 INFO:root:row_vm_count: 159
+2019-12-21 11:52:25,360 INFO:root:current SC vaule of vm_count: 1
+2019-12-21 11:52:25,360 INFO:root:initial_sc_count: 1
+2019-12-21 11:52:25,360 INFO:root:In Func: gen_dif_updated_sc_value
+2019-12-21 11:52:25,360 INFO:root:To set sc count to: 3
+2019-12-21 11:52:25,360 INFO:root:In Func: set_sc_count
+2019-12-21 11:52:25,360 INFO:root:In Func: get_sc_count
+2019-12-21 11:52:33,082 INFO:root:row_sc: 155
+2019-12-21 11:52:33,082 INFO:root:row_vm_count: 159
+2019-12-21 11:52:33,082 INFO:root:current SC vaule of vm_count: 3
+2019-12-21 11:52:48,335 INFO:root:In Func: gen_dif_updated_sc_value
+2019-12-21 11:52:48,335 INFO:root:To set sc count to: 4
+2019-12-21 11:52:48,335 INFO:root:In Func: set_sc_count
+2019-12-21 11:52:48,335 INFO:root:In Func: get_sc_count
+2019-12-21 11:52:55,172 INFO:root:row_sc: 155
+2019-12-21 11:52:55,172 INFO:root:row_vm_count: 159
+2019-12-21 11:52:55,172 INFO:root:current SC vaule of vm_count: 5
+2019-12-21 11:53:08,871 INFO:root:In Func: gen_dif_updated_sc_value
+2019-12-21 11:53:08,871 INFO:root:To set sc count to: 2
+2019-12-21 11:53:08,871 INFO:root:In Func: set_sc_count
+2019-12-21 11:53:08,871 INFO:root:In Func: get_sc_count
+2019-12-21 11:53:17,576 INFO:root:row_sc: 155
+2019-12-21 11:53:17,576 INFO:root:row_vm_count: 159
+2019-12-21 11:53:17,576 INFO:root:current SC vaule of vm_count: 5
+2019-12-21 15:05:17,341 INFO:root:In Func: get_initial_sc_value
+2019-12-21 15:05:17,341 INFO:root:In Func: get_sc_count
+2019-12-21 15:05:27,657 INFO:root:row_sc: 155
+2019-12-21 15:05:27,657 INFO:root:row_vm_count: 159
+2019-12-21 15:05:27,657 INFO:root:get_sc_count SC vaule of vm_count: 1
+2019-12-21 15:05:27,657 INFO:root:initial_sc_count: 1
+2019-12-21 15:05:27,657 INFO:root:In Func: gen_dif_updated_sc_value
+2019-12-21 15:05:27,657 INFO:root:To set sc count to: 3
+2019-12-21 15:05:27,657 INFO:root:In Func: set_sc_count
+2019-12-21 15:05:27,657 INFO:root:In Func: get_sc_count
+2019-12-21 15:05:40,350 INFO:root:row_sc: 155
+2019-12-21 15:05:40,350 INFO:root:row_vm_count: 159
+2019-12-21 15:05:40,350 INFO:root:get_sc_count SC vaule of vm_count: 3
+2019-12-21 15:06:06,820 INFO:root:Successfully set sc count to: 3
+2019-12-21 15:06:06,820 INFO:root:In Func: gen_dif_updated_sc_value
+2019-12-21 15:06:06,820 INFO:root:To set sc count to: 4
+2019-12-21 15:06:06,820 INFO:root:In Func: set_sc_count
+2019-12-21 15:06:06,820 INFO:root:In Func: get_sc_count
+2019-12-21 15:06:18,868 INFO:root:row_sc: 155
+2019-12-21 15:06:18,868 INFO:root:row_vm_count: 159
+2019-12-21 15:06:18,868 INFO:root:get_sc_count SC vaule of vm_count: 4
+2019-12-21 15:06:44,662 INFO:root:Successfully set sc count to: 4
+2019-12-21 15:06:44,662 INFO:root:In Func: gen_dif_updated_sc_value
+2019-12-21 15:06:44,662 INFO:root:To set sc count to: 2
+2019-12-21 15:06:44,662 INFO:root:In Func: set_sc_count
+2019-12-21 15:06:44,662 INFO:root:In Func: get_sc_count
+2019-12-21 15:06:54,120 INFO:root:row_sc: 155
+2019-12-21 15:06:54,120 INFO:root:row_vm_count: 159
+2019-12-21 15:06:54,120 INFO:root:get_sc_count SC vaule of vm_count: 2
+2019-12-21 15:07:18,247 INFO:root:Successfully set sc count to: 2

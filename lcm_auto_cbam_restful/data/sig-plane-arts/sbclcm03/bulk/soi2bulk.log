@@ -1,0 +1,270 @@
+Jan 17 20:06:54  tmpsname: BasicInformation
+Jan 17 20:06:54  tmpsname: HardwareInformation
+Jan 17 20:06:54  tmpsname: VMInformation
+Jan 17 20:06:54  tmpsname: VMInformation
+Jan 17 20:06:54  tmpsname: VMInformation
+Jan 17 20:06:54  tmpsname: VMInformation
+Jan 17 20:06:54  tmpsname: VMInformation
+Jan 17 20:06:54  tmpsname: VMInformation
+Jan 17 20:06:54  tmpsname: VMInformation
+Jan 17 20:06:54  tmpsname: VMInformation
+Jan 17 20:06:54  tmpsname: VMInformation
+Jan 17 20:06:54  tmpsname: VMInformation
+Jan 17 20:06:54  tmpsname: VMInformation
+Jan 17 20:06:54  tmpsname: VMInformation
+Jan 17 20:06:54  tmpsname: HubPortSpeedInformation
+Jan 17 20:06:54  tmpsname: IPv4InternalSubnetInformation
+Jan 17 20:06:54  tmpsname: IPv4SubnetInformation
+Jan 17 20:06:54  tmpsname: IPv4SubnetInformation
+Jan 17 20:06:54  tmpsname: IPv4SubnetInformation
+Jan 17 20:06:54  tmpsname: IPv4SubnetInformation
+Jan 17 20:06:54  tmpsname: IPv4SubnetInformation
+Jan 17 20:06:54  tmpsname: IPv4SubnetInformation
+Jan 17 20:06:54  tmpsname: IPv4SubnetInformation
+Jan 17 20:06:54  tmpsname: IPv4SubnetInformation
+Jan 17 20:06:54  tmpsname: IPv6SubnetInformation
+Jan 17 20:06:54  tmpsname: IPv6SubnetInformation
+Jan 17 20:06:54  tmpsname: IPv6SubnetInformation
+Jan 17 20:06:54  tmpsname: IPv6SubnetInformation
+Jan 17 20:06:54  tmpsname: IPv6SubnetInformation
+Jan 17 20:06:54  tmpsname: IPv6SubnetInformation
+Jan 17 20:06:54  tmpsname: IPv6SubnetInformation
+Jan 17 20:06:54  tmpsname: IPv4ServiceIP-CDR
+Jan 17 20:06:54  tmpsname: IPv4ServiceIP-CFED
+Jan 17 20:06:54  tmpsname: IPv4ServiceIP-MI
+Jan 17 20:06:54  tmpsname: IPv4ServiceIP-MI
+Jan 17 20:06:54  tmpsname: IPv4ServiceIP-MI
+Jan 17 20:06:54  tmpsname: IPv4ServiceIP-CNFG
+Jan 17 20:06:54  tmpsname: IPv4ServiceIP-DFED
+Jan 17 20:06:54  tmpsname: IPv4ServiceIP-FEPH
+Jan 17 20:06:54  tmpsname: IPv4ServiceIP-H248
+Jan 17 20:06:54  tmpsname: IPv4ServiceIP-H248
+Jan 17 20:06:54  tmpsname: IPv4ServiceIP-IMS
+Jan 17 20:06:54  tmpsname: IPv4ServiceIP-IMS
+Jan 17 20:06:54  tmpsname: IPv4ServiceIP-IMS
+Jan 17 20:06:54  tmpsname: IPv4ServiceIP-IMS
+Jan 17 20:06:54  tmpsname: IPv4ServiceIP-IMS
+Jan 17 20:06:54  tmpsname: IPv4ServiceIP-IMS
+Jan 17 20:06:54  tmpsname: IPv4ServiceIP-IMS
+Jan 17 20:06:54  tmpsname: IPv4ServiceIP-IMS
+Jan 17 20:06:54  tmpsname: IPv4ServiceIP-IMS
+Jan 17 20:06:54  tmpsname: IPv4ServiceIP-IMS
+Jan 17 20:06:54  tmpsname: IPv4ServiceIP-IMS
+Jan 17 20:06:54  tmpsname: IPv4ServiceIP-IMS
+Jan 17 20:06:54  tmpsname: IPv4ServiceIP-IMS
+Jan 17 20:06:54  tmpsname: IPv4ServiceIP-IMS
+Jan 17 20:06:54  tmpsname: IPv4ServiceIP-IMS
+Jan 17 20:06:54  tmpsname: IPv4ServiceIP-IMS
+Jan 17 20:06:54  tmpsname: IPv4ServiceIP-IMS
+Jan 17 20:06:54  tmpsname: IPv4ServiceIP-IMS
+Jan 17 20:06:54  tmpsname: IPv4ServiceIP-IMS
+Jan 17 20:06:54  tmpsname: IPv4ServiceIP-IMS
+Jan 17 20:06:54  tmpsname: IPv4ServiceIP-PFED
+Jan 17 20:06:54  tmpsname: IPv6ServiceIP-CDR
+Jan 17 20:06:54  tmpsname: IPv6ServiceIP-CFED
+Jan 17 20:06:54  tmpsname: IPv6ServiceIP-DFED
+Jan 17 20:06:54  tmpsname: IPv6ServiceIP-FEPH
+Jan 17 20:06:54  tmpsname: IPv6ServiceIP-IMS
+Jan 17 20:06:54  tmpsname: IPv6ServiceIP-IMS
+Jan 17 20:06:54  tmpsname: IPv6ServiceIP-IMS
+Jan 17 20:06:54  tmpsname: IPv6ServiceIP-IMS
+Jan 17 20:06:54  tmpsname: IPv6ServiceIP-IMS
+Jan 17 20:06:54  tmpsname: IPv6ServiceIP-IMS
+Jan 17 20:06:54  tmpsname: IPv6ServiceIP-IMS
+Jan 17 20:06:54  tmpsname: IPv6ServiceIP-IMS
+Jan 17 20:06:54  tmpsname: IPv6ServiceIP-IMS
+Jan 17 20:06:54  tmpsname: IPv6ServiceIP-IMS
+Jan 17 20:06:54  tmpsname: IPv6ServiceIP-IMS
+Jan 17 20:06:54  tmpsname: IPv6ServiceIP-IMS
+Jan 17 20:06:54  tmpsname: IPv6ServiceIP-IMS
+Jan 17 20:06:54  tmpsname: IPv6ServiceIP-IMS
+Jan 17 20:06:54  tmpsname: IPv6ServiceIP-IMS
+Jan 17 20:06:54  tmpsname: IPv6ServiceIP-IMS
+Jan 17 20:06:54  tmpsname: IPv6ServiceIP-IMS
+Jan 17 20:06:54  tmpsname: IPv6ServiceIP-IMS
+Jan 17 20:06:54  tmpsname: IPv6ServiceIP-IMS
+Jan 17 20:06:54  tmpsname: IPv6ServiceIP-IMS
+Jan 17 20:06:54  tmpsname: IPv6ServiceIP-PFED
+Jan 17 20:06:54  tmpsname: hardening_information
+Jan 17 20:06:54  tmpsname: cloud_deployment_information
+Jan 17 20:06:54  tmpsname: cbam_information
+Jan 17 20:06:54  tmpsname: FeatureTagForEncodingContactData
+Jan 17 20:06:54  tmpsname: FeatureLicenseParameters
+Jan 17 20:06:54  tmpsname: CapacityLicenseKey
+Jan 17 20:06:54  tmpsname: GlobalParameters
+Jan 17 20:06:54  tmpsname: SCTPProfileTable
+Jan 17 20:06:54  tmpsname: SCTPConnectionManagementProfile
+Jan 17 20:06:54  tmpsname: CoreBearerRealmTable
+Jan 17 20:06:54  tmpsname: H248GWVariant
+Jan 17 20:06:54  tmpsname: IMSACRChargingProfileTable
+Jan 17 20:06:54  tmpsname: PNAPTRTargetURITable
+Jan 17 20:06:54  tmpsname: PNAPTRRegionTable
+Jan 17 20:06:54  tmpsname: HomeDomainTable
+Jan 17 20:06:54  tmpsname: NGSSParameters
+Jan 17 20:06:54  tmpsname: SIPStackTimerProfile
+Jan 17 20:06:54  tmpsname: DiamAppIDParameters
+Jan 17 20:06:54  tmpsname: SipTrustedRateLimitSet
+Jan 17 20:06:54  tmpsname: SipTrustedRateLimitSet
+Jan 17 20:06:54  tmpsname: SipUntrustedRateLimitSet
+Jan 17 20:06:54  tmpsname: SipUntrustedRateLimitSet
+Jan 17 20:06:54  tmpsname: SipAggregateTrustedRateLimitSet
+Jan 17 20:06:54  tmpsname: SipAggregateTrustedRateLimitSet
+Jan 17 20:06:54  tmpsname: SipAggregateTrustedRateLimitSet
+Jan 17 20:06:54  tmpsname: SipAggregateUntrustedRateLimitSet
+Jan 17 20:06:54  tmpsname: SipAggregateUntrustedRateLimitSet
+Jan 17 20:06:54  tmpsname: SourceAddressPolicy
+Jan 17 20:06:54  tmpsname: AggregateSourceAddressPolicy
+Jan 17 20:06:54  tmpsname: FephFlowPolicyTable
+Jan 17 20:06:54  tmpsname: FephAggPacketPolicyTable
+Jan 17 20:06:54  tmpsname: FephAggFlowPolicyTable
+Jan 17 20:06:54  tmpsname: FephRemoteIpPolicyTable
+Jan 17 20:06:54  tmpsname: SecurityGatewayProfile
+Jan 17 20:06:54  tmpsname: H248DSVariant
+Jan 17 20:06:54  tmpsname: H248DeviceServer
+Jan 17 20:06:54  tmpsname: H248DeviceServer
+Jan 17 20:06:54  tmpsname: GatewayH248
+Jan 17 20:06:54  tmpsname: GatewayH248
+Jan 17 20:06:54  tmpsname: PublishedRealmTable
+Jan 17 20:06:54  tmpsname: BorderGatewayPublishedRealmTable
+Jan 17 20:06:54  tmpsname: AudioCodec
+Jan 17 20:06:54  tmpsname: VideoCodec
+Jan 17 20:06:54  tmpsname: SblpProfileTable
+Jan 17 20:06:54  tmpsname: SDPProfileTable
+Jan 17 20:06:54  tmpsname: IbcfSipProfileTable
+Jan 17 20:06:54  tmpsname: PeeringiSGWProfileTable
+Jan 17 20:06:54  tmpsname: PFEDServiceTable
+Jan 17 20:06:54  tmpsname: PFEDPortTable
+Jan 17 20:06:54  tmpsname: CFEDServiceTable
+Jan 17 20:06:54  tmpsname: CFEDPortTable
+Jan 17 20:06:54  tmpsname: IbcfVirtualNetworkTable
+Jan 17 20:06:54  tmpsname: DSCPProfileTable
+Jan 17 20:06:54  tmpsname: PeeringSDPProfileTable
+Jan 17 20:06:54  tmpsname: IBCFSBLPProfileTable
+Jan 17 20:06:54  tmpsname: IbcfTrunkGroupTable
+Jan 17 20:06:54  tmpsname: IbcfIngressTrunkGroupMappingTable
+Jan 17 20:06:54  tmpsname: IbcfProfileTable
+Jan 17 20:06:54  tmpsname: CRFTargetList
+Jan 17 20:06:54  tmpsname: CRFTreatment
+Jan 17 20:06:54  tmpsname: CRFDATable
+Jan 17 20:06:54  tmpsname: CRFTrunkGroup
+Jan 17 20:06:54  tmpsname: CRFHostURITable
+Jan 17 20:06:54  tmpsname: CRFRoutePlan
+Jan 17 20:06:54  tmpsname: CRFRoutePriorityList
+Jan 17 20:06:54  tmpsname: CRFRouteProfile
+Jan 17 20:06:54  tmpsname: ExternalDomainRoutingTable
+Jan 17 20:06:54  tmpsname: CommonPcscfProfileTable
+Jan 17 20:06:54  tmpsname: PcscfProfileTable
+Jan 17 20:06:54  tmpsname: PDFProfileTable
+Jan 17 20:06:54  tmpsname: IMSDeviceServer
+Jan 17 20:06:54  tmpsname: IMSDeviceServer
+Jan 17 20:06:54  tmpsname: IMSDeviceServer
+Jan 17 20:06:54  tmpsname: IMSDeviceServer
+Jan 17 20:06:54  tmpsname: FephAggPolicyAssignTable
+Jan 17 20:06:54  tmpsname: TcpConnections
+Jan 17 20:06:54  tmpsname: FephEnabledServicesTable
+Jan 17 20:06:54  tmpsname: FephIpsecParametersTable
+Jan 17 20:06:54  tmpsname: LocalCCFConfiguration
+Jan 17 20:06:54  tmpsname: CdrServiceProfileTable
+Jan 17 20:06:54  tmpsname: DiameterMultipleDestinationsProfileTable
+Jan 17 20:06:54  tmpsname: DiameterProfileTable
+Jan 17 20:06:54  tmpsname: DFEDServerTable
+Jan 17 20:06:54  tmpsname: DFEDPortTable
+Jan 17 20:06:54  tmpsname: ServiceToDiameterTable
+Jan 17 20:06:54  tmpsname: DiamPort
+Jan 17 20:06:54  tmpsname: DiamPort
+Jan 17 20:06:54  tmpsname: DiamPort
+Jan 17 20:06:54  tmpsname: DiamPort
+Jan 17 20:06:54  tmpsname: NGSSSIPia
+Jan 17 20:06:54  tmpsname: NGSSSIPia
+Jan 17 20:06:54  tmpsname: NGSSSIPia
+Jan 17 20:06:54  tmpsname: NGSSSIPia
+Jan 17 20:06:54  tmpsname: BGCFParameters
+Jan 17 20:06:54  tmpsname: BgcfReleaseCodes
+Jan 17 20:06:54  tmpsname: ReservationPriorityMapping
+Jan 17 20:06:54  tmpsname: DTGlobalProfile
+Jan 17 20:06:54  Parsing table: FeatureTagForEncodingContactData
+Jan 17 20:06:54  Parsing table: FeatureLicenseParameters
+Jan 17 20:06:54  Parsing table: CapacityLicenseKey
+Jan 17 20:06:54  Parsing table: GlobalParameters
+Jan 17 20:06:54  Parsing table: SCTPProfileTable
+Jan 17 20:06:54  Parsing table: SCTPConnectionManagementProfile
+Jan 17 20:06:54  Parsing table: CoreBearerRealmTable
+Jan 17 20:06:54  Parsing table: H248GWVariant
+Jan 17 20:06:54  Parsing table: IMSACRChargingProfileTable
+Jan 17 20:06:54  Parsing table: PNAPTRTargetURITable
+Jan 17 20:06:54  Parsing table: PNAPTRRegionTable
+Jan 17 20:06:54  Parsing table: HomeDomainTable
+Jan 17 20:06:54  Parsing table: NGSSParameters
+Jan 17 20:06:54  Parsing table: SIPStackTimerProfile
+Jan 17 20:06:54  Parsing table: DiamAppIDParameters
+Jan 17 20:06:54  Parsing table: SipTrustedRateLimitSet
+Jan 17 20:06:54  Parsing table: SipUntrustedRateLimitSet
+Jan 17 20:06:54  Parsing table: SipAggregateTrustedRateLimitSet
+Jan 17 20:06:54  Parsing table: SipAggregateUntrustedRateLimitSet
+Jan 17 20:06:54  Parsing table: SourceAddressPolicy
+Jan 17 20:06:54  Parsing table: AggregateSourceAddressPolicy
+Jan 17 20:06:54  Parsing table: FephFlowPolicyTable
+Jan 17 20:06:54  the first row FephFlowPolicyTable
+Jan 17 20:06:54  Parsing table: FephAggPacketPolicyTable
+Jan 17 20:06:54  the first row FephAggPacketPolicyTable
+Jan 17 20:06:54  Parsing table: FephAggFlowPolicyTable
+Jan 17 20:06:54  the first row FephAggFlowPolicyTable
+Jan 17 20:06:54  Parsing table: FephRemoteIpPolicyTable
+Jan 17 20:06:54  the first row FephRemoteIpPolicyTable
+Jan 17 20:06:54  Parsing table: SecurityGatewayProfile
+Jan 17 20:06:54  Parsing table: H248DSVariant
+Jan 17 20:06:54  Parsing table: H248DeviceServer
+Jan 17 20:06:54  Parsing table: GatewayH248
+Jan 17 20:06:54  Parsing table: PublishedRealmTable
+Jan 17 20:06:54  Parsing table: BorderGatewayPublishedRealmTable
+Jan 17 20:06:54  Parsing table: AudioCodec
+Jan 17 20:06:54  Parsing table: VideoCodec
+Jan 17 20:06:54  Parsing table: SblpProfileTable
+Jan 17 20:06:54  Parsing table: SDPProfileTable
+Jan 17 20:06:54  Parsing table: IbcfSipProfileTable
+Jan 17 20:06:54  Parsing table: PeeringiSGWProfileTable
+Jan 17 20:06:54  Parsing table: PFEDServiceTable
+Jan 17 20:06:54  Parsing table: PFEDPortTable
+Jan 17 20:06:54  Parsing table: CFEDServiceTable
+Jan 17 20:06:54  Parsing table: CFEDPortTable
+Jan 17 20:06:54  Parsing table: IbcfVirtualNetworkTable
+Jan 17 20:06:54  Parsing table: DSCPProfileTable
+Jan 17 20:06:54  Parsing table: PeeringSDPProfileTable
+Jan 17 20:06:54  Parsing table: IBCFSBLPProfileTable
+Jan 17 20:06:54  Parsing table: IbcfTrunkGroupTable
+Jan 17 20:06:54  Parsing table: IbcfIngressTrunkGroupMappingTable
+Jan 17 20:06:54  Parsing table: IbcfProfileTable
+Jan 17 20:06:54  Parsing table: CRFTargetList
+Jan 17 20:06:54  Parsing table: CRFTreatment
+Jan 17 20:06:55  Parsing table: CRFDATable
+Jan 17 20:06:55  Parsing table: CRFTrunkGroup
+Jan 17 20:06:55  Parsing table: CRFHostURITable
+Jan 17 20:06:55  Parsing table: CRFRoutePlan
+Jan 17 20:06:55  Parsing table: CRFRoutePriorityList
+Jan 17 20:06:55  Parsing table: CRFRouteProfile
+Jan 17 20:06:55  Parsing table: ExternalDomainRoutingTable
+Jan 17 20:06:55  Parsing table: CommonPcscfProfileTable
+Jan 17 20:06:55  Parsing table: PcscfProfileTable
+Jan 17 20:06:55  Parsing table: PDFProfileTable
+Jan 17 20:06:55  Parsing table: IMSDeviceServer
+Jan 17 20:06:55  Parsing table: FephAggPolicyAssignTable
+Jan 17 20:06:55  the first row FephAggPolicyAssignTable
+Jan 17 20:06:55  Parsing table: TcpConnections
+Jan 17 20:06:55  Parsing table: FephEnabledServicesTable
+Jan 17 20:06:55  Parsing table: FephIpsecParametersTable
+Jan 17 20:06:55  Parsing table: LocalCCFConfiguration
+Jan 17 20:06:55  Parsing table: CdrServiceProfileTable
+Jan 17 20:06:55  Parsing table: DiameterMultipleDestinationsProfileTable
+Jan 17 20:06:55  Parsing table: DiameterProfileTable
+Jan 17 20:06:55  Parsing table: DFEDServerTable
+Jan 17 20:06:55  Parsing table: DFEDPortTable
+Jan 17 20:06:55  Parsing table: ServiceToDiameterTable
+Jan 17 20:06:55  Parsing table: DiamPort
+Jan 17 20:06:55  Parsing table: NGSSSIPia
+Jan 17 20:06:55  Parsing table: BGCFParameters
+Jan 17 20:06:55  Parsing table: BgcfReleaseCodes
+Jan 17 20:06:55  Parsing table: ReservationPriorityMapping
+Jan 17 20:06:55  Parsing table: DTGlobalProfile
+Jan 17 20:06:55  
+The output is stored in: /home/yact-user/shawnx/20.2/1579262790/sbclcm03/bulk/XlsprovBulkCfg.xls
+

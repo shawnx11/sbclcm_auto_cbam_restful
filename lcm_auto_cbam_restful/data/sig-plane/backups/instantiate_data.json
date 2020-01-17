@@ -1,0 +1,30 @@
+{
+  "additionalParams":
+  {
+    "backup_file1": "",
+    "backup_file2": "",
+    "backup_server_credentials1": "",
+    "backup_server_credentials2": "",
+    "bulk_conf_url": "http://10.75.44.7/sbclcm01/bulkconf_artifacts.zip",
+    "skip_health_check": "No",
+    "upgrade_file": "",
+    "upgrade_server_credentials":""
+  },
+  
+  "vimConnectionInfo": [{
+    "interfaceInfo": {
+      "endpoint": "https://10.75.225.228:13000/v3"
+    },
+    "vimType": "OPENSTACK_V3",
+    "accessInfo": {
+      "username": "a321_shawnx",
+      "password": "a321sbc",
+      "project": "a321_SBC",
+      "userDomain": "Default",
+      "projectDomain": "default",
+      "region": "regionOne"
+    },
+    "id": "vim_id"
+  }]
+
+  }

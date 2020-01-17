@@ -1,0 +1,913 @@
+{
+  "apiVersion": 4.0,
+  "flavourId": "default",
+  "extVirtualLinks": [
+    {
+      "resourceId": "h248_subnet",
+      "vimConnectionId": "vim_id",
+      "extCps": [
+        {
+          "cpConfig": [
+            {
+              "cpProtocolData": [
+                {
+                  "layerProtocol": "IP_OVER_ETHERNET",
+                  "ipOverEthernet": {
+                    "ipAddresses": [
+                      {
+                        "fixedAddresses": [
+                          "192.168.1.1"
+                        ],
+                        "subnetId": "h248_subnet",
+                        "type": "IPV4"
+                      },
+                      {
+                        "fixedAddresses": [
+                          "192.168.1.3"
+                        ],
+                        "subnetId": "h248_subnet",
+                        "type": "IPV4"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "cpdId": "bgc_a_external1_ECP"
+        },
+        {
+          "cpConfig": [
+            {
+              "cpProtocolData": [
+                {
+                  "layerProtocol": "IP_OVER_ETHERNET",
+                  "ipOverEthernet": {
+                    "ipAddresses": [
+                      {
+                        "fixedAddresses": [
+                          "192.168.1.2"
+                        ],
+                        "subnetId": "h248_subnet",
+                        "type": "IPV4"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "cpdId": "bgc_b_external1_ECP"
+        }
+      ],
+      "id": "h248_subnet"
+    },
+    {
+      "resourceId": "v443-Sig-Acc1-Phy1-IPV6",
+      "vimConnectionId": "vim_id",
+      "extCps": [
+        {
+          "cpConfig": [
+            {
+              "cpProtocolData": [
+                {
+                  "layerProtocol": "IP_OVER_ETHERNET",
+                  "ipOverEthernet": {
+                    "ipAddresses": [
+                      {
+                        "fixedAddresses": [
+                          "100.69.110.5"
+                        ],
+                        "subnetId": "v443-Sig-Acc1-Phy1-IPV4",
+                        "type": "IPV4"
+                      },
+                      {
+                        "fixedAddresses": [
+                          "2a00:8a00:4000:7690:d::5"
+                        ],
+                        "subnetId": "v443-Sig-Acc1-Phy1-IPV6",
+                        "type": "IPV6"
+                      },
+                      {
+                        "fixedAddresses": [
+                          "100.69.110.7"
+                        ],
+                        "subnetId": "v443-Sig-Acc1-Phy1-IPV4",
+                        "type": "IPV4"
+                      },
+                      {
+                        "fixedAddresses": [
+                          "2a00:8a00:4000:7690:d::7"
+                        ],
+                        "subnetId": "v443-Sig-Acc1-Phy1-IPV6",
+                        "type": "IPV6"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "cpdId": "fw_a_external1_ECP"
+        },
+        {
+          "cpConfig": [
+            {
+              "cpProtocolData": [
+                {
+                  "layerProtocol": "IP_OVER_ETHERNET",
+                  "ipOverEthernet": {
+                    "ipAddresses": [
+                      {
+                        "fixedAddresses": [
+                          "100.69.110.6"
+                        ],
+                        "subnetId": "v443-Sig-Acc1-Phy1-IPV4",
+                        "type": "IPV4"
+                      },
+                      {
+                        "fixedAddresses": [
+                          "2a00:8a00:4000:7690:d::6"
+                        ],
+                        "subnetId": "v443-Sig-Acc1-Phy1-IPV6",
+                        "type": "IPV6"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "cpdId": "fw_b_external1_ECP"
+        }
+      ],
+      "id": "v443-Sig-Acc1-Phy1-IPV6"
+    },
+    {
+      "resourceId": "v443-Sig-Acc1-Phy2-IPV6",
+      "vimConnectionId": "vim_id",
+      "extCps": [
+        {
+          "cpConfig": [
+            {
+              "cpProtocolData": [
+                {
+                  "layerProtocol": "IP_OVER_ETHERNET",
+                  "ipOverEthernet": {
+                    "ipAddresses": [
+                      {
+                        "fixedAddresses": [
+                          "100.69.110.5"
+                        ],
+                        "subnetId": "v443-Sig-Acc1-Phy2-IPV4",
+                        "type": "IPV4"
+                      },
+                      {
+                        "fixedAddresses": [
+                          "2a00:8a00:4000:7690:d::5"
+                        ],
+                        "subnetId": "v443-Sig-Acc1-Phy2-IPV6",
+                        "type": "IPV6"
+                      },
+                      {
+                        "fixedAddresses": [
+                          "100.69.110.7"
+                        ],
+                        "subnetId": "v443-Sig-Acc1-Phy2-IPV4",
+                        "type": "IPV4"
+                      },
+                      {
+                        "fixedAddresses": [
+                          "2a00:8a00:4000:7690:d::7"
+                        ],
+                        "subnetId": "v443-Sig-Acc1-Phy2-IPV6",
+                        "type": "IPV6"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "cpdId": "fw_a_external2_ECP"
+        },
+        {
+          "cpConfig": [
+            {
+              "cpProtocolData": [
+                {
+                  "layerProtocol": "IP_OVER_ETHERNET",
+                  "ipOverEthernet": {
+                    "ipAddresses": [
+                      {
+                        "fixedAddresses": [
+                          "100.69.110.6"
+                        ],
+                        "subnetId": "v443-Sig-Acc1-Phy2-IPV4",
+                        "type": "IPV4"
+                      },
+                      {
+                        "fixedAddresses": [
+                          "2a00:8a00:4000:7690:d::6"
+                        ],
+                        "subnetId": "v443-Sig-Acc1-Phy2-IPV6",
+                        "type": "IPV6"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "cpdId": "fw_b_external2_ECP"
+        }
+      ],
+      "id": "v443-Sig-Acc1-Phy2-IPV6"
+    },
+    {
+      "resourceId": "v438-OAM-IPV4",
+      "vimConnectionId": "vim_id",
+      "extCps": [
+        {
+          "cpConfig": [
+            {
+              "cpProtocolData": [
+                {
+                  "layerProtocol": "IP_OVER_ETHERNET",
+                  "ipOverEthernet": {
+                    "ipAddresses": [
+                      {
+                        "fixedAddresses": [
+                          "100.69.127.133"
+                        ],
+                        "subnetId": "v438-OAM-IPV4",
+                        "type": "IPV4"
+                      },
+                      {
+                        "fixedAddresses": [
+                          "100.69.127.135"
+                        ],
+                        "subnetId": "v438-OAM-IPV4",
+                        "type": "IPV4"
+                      },
+                      {
+                        "fixedAddresses": [
+                          "100.69.127.136"
+                        ],
+                        "subnetId": "v438-OAM-IPV4",
+                        "type": "IPV4"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "cpdId": "oam_a_external1_ECP"
+        },
+        {
+          "cpConfig": [
+            {
+              "cpProtocolData": [
+                {
+                  "layerProtocol": "IP_OVER_ETHERNET",
+                  "ipOverEthernet": {
+                    "ipAddresses": [
+                      {
+                        "fixedAddresses": [
+                          "100.69.127.134"
+                        ],
+                        "subnetId": "v438-OAM-IPV4",
+                        "type": "IPV4"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "cpdId": "oam_b_external1_ECP"
+        }
+      ],
+      "id": "v438-OAM-IPV4"
+    },
+    {
+      "resourceId": "v441-Sig-Core1-IPV6",
+      "vimConnectionId": "vim_id",
+      "extCps": [
+        {
+          "cpConfig": [
+            {
+              "cpProtocolData": [
+                {
+                  "layerProtocol": "IP_OVER_ETHERNET",
+                  "ipOverEthernet": {
+                    "ipAddresses": [
+                      {
+                        "fixedAddresses": [
+                          "100.69.127.231"
+                        ],
+                        "subnetId": "v441-Sig-Core1-IPV4",
+                        "type": "IPV4"
+                      },
+                      {
+                        "fixedAddresses": [
+                          "2a00:8a00:4000:7690:b::7"
+                        ],
+                        "subnetId": "v441-Sig-Core1-IPV6",
+                        "type": "IPV6"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "cpdId": "cfed_a_external1_ECP"
+        },
+        {
+          "cpConfig": [
+            {
+              "cpProtocolData": [
+                {
+                  "layerProtocol": "IP_OVER_ETHERNET",
+                  "ipOverEthernet": {
+                    "ipAddresses": [
+                      {
+                        "fixedAddresses": [
+                          "100.69.127.232"
+                        ],
+                        "subnetId": "v441-Sig-Core1-IPV4",
+                        "type": "IPV4"
+                      },
+                      {
+                        "fixedAddresses": [
+                          "2a00:8a00:4000:7690:b::8"
+                        ],
+                        "subnetId": "v441-Sig-Core1-IPV6",
+                        "type": "IPV6"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "cpdId": "cfed_b_external1_ECP"
+        }
+      ],
+      "id": "v441-Sig-Core1-IPV6"
+    },
+    {
+      "resourceId": "v442-Sig-Core2-IPV6",
+      "vimConnectionId": "vim_id",
+      "extCps": [
+        {
+          "cpConfig": [
+            {
+              "cpProtocolData": [
+                {
+                  "layerProtocol": "IP_OVER_ETHERNET",
+                  "ipOverEthernet": {
+                    "ipAddresses": [
+                      {
+                        "fixedAddresses": [
+                          "100.69.127.245"
+                        ],
+                        "subnetId": "v442-Sig-Core2-IPV4",
+                        "type": "IPV4"
+                      },
+                      {
+                        "fixedAddresses": [
+                          "2a00:8a00:4000:7690:c::5"
+                        ],
+                        "subnetId": "v442-Sig-Core2-IPV6",
+                        "type": "IPV6"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "cpdId": "cfed_a_external2_ECP"
+        },
+        {
+          "cpConfig": [
+            {
+              "cpProtocolData": [
+                {
+                  "layerProtocol": "IP_OVER_ETHERNET",
+                  "ipOverEthernet": {
+                    "ipAddresses": [
+                      {
+                        "fixedAddresses": [
+                          "100.69.127.246"
+                        ],
+                        "subnetId": "v442-Sig-Core2-IPV4",
+                        "type": "IPV4"
+                      },
+                      {
+                        "fixedAddresses": [
+                          "2a00:8a00:4000:7690:c::6"
+                        ],
+                        "subnetId": "v442-Sig-Core2-IPV6",
+                        "type": "IPV6"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "cpdId": "cfed_b_external2_ECP"
+        }
+      ],
+      "id": "v442-Sig-Core2-IPV6"
+    },
+    {
+      "resourceId": "v441-Sig-Core1-IPV6",
+      "vimConnectionId": "vim_id",
+      "extCps": [
+        {
+          "cpConfig": [
+            {
+              "cpProtocolData": [
+                {
+                  "layerProtocol": "IP_OVER_ETHERNET",
+                  "ipOverEthernet": {
+                    "ipAddresses": [
+                      {
+                        "fixedAddresses": [
+                          "100.69.127.233"
+                        ],
+                        "subnetId": "v441-Sig-Core1-IPV4",
+                        "type": "IPV4"
+                      },
+                      {
+                        "fixedAddresses": [
+                          "2a00:8a00:4000:7690:b::9"
+                        ],
+                        "subnetId": "v441-Sig-Core1-IPV6",
+                        "type": "IPV6"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "cpdId": "dfed_a_external1_ECP"
+        },
+        {
+          "cpConfig": [
+            {
+              "cpProtocolData": [
+                {
+                  "layerProtocol": "IP_OVER_ETHERNET",
+                  "ipOverEthernet": {
+                    "ipAddresses": [
+                      {
+                        "fixedAddresses": [
+                          "100.69.127.234"
+                        ],
+                        "subnetId": "v441-Sig-Core1-IPV4",
+                        "type": "IPV4"
+                      },
+                      {
+                        "fixedAddresses": [
+                          "2a00:8a00:4000:7690:b::10"
+                        ],
+                        "subnetId": "v441-Sig-Core1-IPV6",
+                        "type": "IPV6"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "cpdId": "dfed_b_external1_ECP"
+        }
+      ],
+      "id": "v441-Sig-Core1-IPV6"
+    },
+    {
+      "resourceId": "v452-Sig-Peer1-Phy1-IPV6",
+      "vimConnectionId": "vim_id",
+      "extCps": [
+        {
+          "cpConfig": [
+            {
+              "cpProtocolData": [
+                {
+                  "layerProtocol": "IP_OVER_ETHERNET",
+                  "ipOverEthernet": {
+                    "ipAddresses": [
+                      {
+                        "fixedAddresses": [
+                          "100.69.110.149"
+                        ],
+                        "subnetId": "v452-Sig-Peer1-Phy1-IPV4",
+                        "type": "IPV4"
+                      },
+                      {
+                        "fixedAddresses": [
+                          "2a00:8a00:4000:7690:16::5"
+                        ],
+                        "subnetId": "v452-Sig-Peer1-Phy1-IPV6",
+                        "type": "IPV6"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "cpdId": "pfw_a_external1_ECP"
+        },
+        {
+          "cpConfig": [
+            {
+              "cpProtocolData": [
+                {
+                  "layerProtocol": "IP_OVER_ETHERNET",
+                  "ipOverEthernet": {
+                    "ipAddresses": [
+                      {
+                        "fixedAddresses": [
+                          "100.69.110.150"
+                        ],
+                        "subnetId": "v452-Sig-Peer1-Phy1-IPV4",
+                        "type": "IPV4"
+                      },
+                      {
+                        "fixedAddresses": [
+                          "2a00:8a00:4000:7690:16::6"
+                        ],
+                        "subnetId": "v452-Sig-Peer1-Phy1-IPV6",
+                        "type": "IPV6"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "cpdId": "pfw_b_external1_ECP"
+        }
+      ],
+      "id": "v452-Sig-Peer1-Phy1-IPV6"
+    },
+    {
+      "resourceId": "v452-Sig-Peer1-Phy2-IPV6",
+      "vimConnectionId": "vim_id",
+      "extCps": [
+        {
+          "cpConfig": [
+            {
+              "cpProtocolData": [
+                {
+                  "layerProtocol": "IP_OVER_ETHERNET",
+                  "ipOverEthernet": {
+                    "ipAddresses": [
+                      {
+                        "fixedAddresses": [
+                          "100.69.110.149"
+                        ],
+                        "subnetId": "v452-Sig-Peer1-Phy2-IPV4",
+                        "type": "IPV4"
+                      },
+                      {
+                        "fixedAddresses": [
+                          "2a00:8a00:4000:7690:16::5"
+                        ],
+                        "subnetId": "v452-Sig-Peer1-Phy2-IPV6",
+                        "type": "IPV6"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "cpdId": "pfw_a_external2_ECP"
+        },
+        {
+          "cpConfig": [
+            {
+              "cpProtocolData": [
+                {
+                  "layerProtocol": "IP_OVER_ETHERNET",
+                  "ipOverEthernet": {
+                    "ipAddresses": [
+                      {
+                        "fixedAddresses": [
+                          "100.69.110.150"
+                        ],
+                        "subnetId": "v452-Sig-Peer1-Phy2-IPV4",
+                        "type": "IPV4"
+                      },
+                      {
+                        "fixedAddresses": [
+                          "2a00:8a00:4000:7690:16::6"
+                        ],
+                        "subnetId": "v452-Sig-Peer1-Phy2-IPV6",
+                        "type": "IPV6"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "cpdId": "pfw_b_external2_ECP"
+        }
+      ],
+      "id": "v452-Sig-Peer1-Phy2-IPV6"
+    },
+    {
+      "resourceId": "v441-Sig-Core1-IPV6",
+      "vimConnectionId": "vim_id",
+      "extCps": [
+        {
+          "cpConfig": [
+            {
+              "cpProtocolData": [
+                {
+                  "layerProtocol": "IP_OVER_ETHERNET",
+                  "ipOverEthernet": {
+                    "ipAddresses": [
+                      {
+                        "fixedAddresses": [
+                          "100.69.127.229"
+                        ],
+                        "subnetId": "v441-Sig-Core1-IPV4",
+                        "type": "IPV4"
+                      },
+                      {
+                        "fixedAddresses": [
+                          "2a00:8a00:4000:7690:b::5"
+                        ],
+                        "subnetId": "v441-Sig-Core1-IPV6",
+                        "type": "IPV6"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "cpdId": "ccf_a_external1_ECP"
+        },
+        {
+          "cpConfig": [
+            {
+              "cpProtocolData": [
+                {
+                  "layerProtocol": "IP_OVER_ETHERNET",
+                  "ipOverEthernet": {
+                    "ipAddresses": [
+                      {
+                        "fixedAddresses": [
+                          "100.69.127.230"
+                        ],
+                        "subnetId": "v441-Sig-Core1-IPV4",
+                        "type": "IPV4"
+                      },
+                      {
+                        "fixedAddresses": [
+                          "2a00:8a00:4000:7690:b::6"
+                        ],
+                        "subnetId": "v441-Sig-Core1-IPV6",
+                        "type": "IPV6"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "cpdId": "ccf_b_external1_ECP"
+        }
+      ],
+      "id": "v441-Sig-Core1-IPV6"
+    }
+  ],
+  "additionalParams": {
+    "backup_file1": "",
+    "backup_file2": "",
+    "backup_server_credentials1": "",
+    "backup_server_credentials2": "",
+    "bulk_conf_url": "http://10.75.44.7/sbclcm-auto/bulkconf_artifacts.zip",
+    "skip_health_check": "No",
+    "upgrade_file": "",
+    "upgrade_server_credentials": ""
+  },
+  "grantlessMode": true,
+  "softwareImages": [
+    {
+      "vnfdSoftwareImageId": "bgc_a",
+      "vimConnectionId": "vim_id",
+      "vimSoftwareImageId": "nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2"
+    },
+    {
+      "vnfdSoftwareImageId": "bgc_b",
+      "vimConnectionId": "vim_id",
+      "vimSoftwareImageId": "nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2"
+    },
+    {
+      "vnfdSoftwareImageId": "fw_a",
+      "vimConnectionId": "vim_id",
+      "vimSoftwareImageId": "nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2"
+    },
+    {
+      "vnfdSoftwareImageId": "fw_b",
+      "vimConnectionId": "vim_id",
+      "vimSoftwareImageId": "nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2"
+    },
+    {
+      "vnfdSoftwareImageId": "oam_a",
+      "vimConnectionId": "vim_id",
+      "vimSoftwareImageId": "nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2"
+    },
+    {
+      "vnfdSoftwareImageId": "oam_b",
+      "vimConnectionId": "vim_id",
+      "vimSoftwareImageId": "nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2"
+    },
+    {
+      "vnfdSoftwareImageId": "cfed_a",
+      "vimConnectionId": "vim_id",
+      "vimSoftwareImageId": "nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2"
+    },
+    {
+      "vnfdSoftwareImageId": "cfed_b",
+      "vimConnectionId": "vim_id",
+      "vimSoftwareImageId": "nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2"
+    },
+    {
+      "vnfdSoftwareImageId": "dfed_a",
+      "vimConnectionId": "vim_id",
+      "vimSoftwareImageId": "nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2"
+    },
+    {
+      "vnfdSoftwareImageId": "dfed_b",
+      "vimConnectionId": "vim_id",
+      "vimSoftwareImageId": "nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2"
+    },
+    {
+      "vnfdSoftwareImageId": "pfw_a",
+      "vimConnectionId": "vim_id",
+      "vimSoftwareImageId": "nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2"
+    },
+    {
+      "vnfdSoftwareImageId": "pfw_b",
+      "vimConnectionId": "vim_id",
+      "vimSoftwareImageId": "nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2"
+    },
+    {
+      "vnfdSoftwareImageId": "sc_a",
+      "vimConnectionId": "vim_id",
+      "vimSoftwareImageId": "nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2"
+    },
+    {
+      "vnfdSoftwareImageId": "sc_b",
+      "vimConnectionId": "vim_id",
+      "vimSoftwareImageId": "nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2"
+    },
+    {
+      "vnfdSoftwareImageId": "ccf_a",
+      "vimConnectionId": "vim_id",
+      "vimSoftwareImageId": "nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2"
+    },
+    {
+      "vnfdSoftwareImageId": "ccf_b",
+      "vimConnectionId": "vim_id",
+      "vimSoftwareImageId": "nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2"
+    }
+  ],
+  "extManagedVirtualLinks": [],
+  "zones": [
+    {
+      "vimConnectionId": "vim_id",
+      "zoneId": "Host-Group_Lsriov_z1",
+      "id": "0"
+    },
+    {
+      "vimConnectionId": "vim_id",
+      "zoneId": "Host-Group_Lsriov_z2",
+      "id": "1"
+    },
+    {
+      "vimConnectionId": "vim_id",
+      "zoneId": "nova",
+      "id": "storage0"
+    },
+    {
+      "vimConnectionId": "vim_id",
+      "zoneId": "nova",
+      "id": "storage1"
+    }
+  ],
+  "vimConnectionInfo": [
+    {
+      "interfaceInfo": {
+        "endpoint": "https://10.75.12.196:13000/v3"
+      },
+      "vimType": "OPENSTACK_V3",
+      "accessInfo": {
+        "username": "cb0078sa",
+        "password": "LabAcc0unt",
+        "project": "CB0078",
+        "userDomain": "Default",
+        "projectDomain": "default",
+        "region": "regionOne"
+      },
+      "id": "vim_id"
+    }
+  ],
+  "computeResourceFlavours": [
+    {
+      "vimConnectionId": "vim_id",
+      "vnfdVirtualComputeDescId": "oam_a",
+      "vimFlavourId": "CAU-2-8-21-8"
+    },
+    {
+      "vimConnectionId": "vim_id",
+      "vnfdVirtualComputeDescId": "oam_b",
+      "vimFlavourId": "CAU-2-8-21-8"
+    },
+    {
+      "vimConnectionId": "vim_id",
+      "vnfdVirtualComputeDescId": "sc_a",
+      "vimFlavourId": "CAU-4-24-15-1"
+    },
+    {
+      "vimConnectionId": "vim_id",
+      "vnfdVirtualComputeDescId": "sc_b",
+      "vimFlavourId": "CAU-4-24-15-1"
+    },
+    {
+      "vimConnectionId": "vim_id",
+      "vnfdVirtualComputeDescId": "fw_a",
+      "vimFlavourId": "CAU-8-16-15-1"
+    },
+    {
+      "vimConnectionId": "vim_id",
+      "vnfdVirtualComputeDescId": "fw_b",
+      "vimFlavourId": "CAU-8-16-15-1"
+    },
+    {
+      "vimConnectionId": "vim_id",
+      "vnfdVirtualComputeDescId": "pfw_a",
+      "vimFlavourId": "CAU-8-16-15-1"
+    },
+    {
+      "vimConnectionId": "vim_id",
+      "vnfdVirtualComputeDescId": "pfw_b",
+      "vimFlavourId": "CAU-8-16-15-1"
+    },
+    {
+      "vimConnectionId": "vim_id",
+      "vnfdVirtualComputeDescId": "bgc_a",
+      "vimFlavourId": "CAU-2-8-15-1"
+    },
+    {
+      "vimConnectionId": "vim_id",
+      "vnfdVirtualComputeDescId": "bgc_b",
+      "vimFlavourId": "CAU-2-8-15-1"
+    },
+    {
+      "vimConnectionId": "vim_id",
+      "vnfdVirtualComputeDescId": "cfed_a",
+      "vimFlavourId": "CAU-8-32-15-1"
+    },
+    {
+      "vimConnectionId": "vim_id",
+      "vnfdVirtualComputeDescId": "cfed_b",
+      "vimFlavourId": "CAU-8-32-15-1"
+    },
+    {
+      "vimConnectionId": "vim_id",
+      "vnfdVirtualComputeDescId": "dfed_a",
+      "vimFlavourId": "CAU-4-16-15-1"
+    },
+    {
+      "vimConnectionId": "vim_id",
+      "vnfdVirtualComputeDescId": "dfed_b",
+      "vimFlavourId": "CAU-4-16-15-1"
+    },
+    {
+      "vimConnectionId": "vim_id",
+      "vnfdVirtualComputeDescId": "ccf_a",
+      "vimFlavourId": "CAU-4-8-15-1"
+    },
+    {
+      "vimConnectionId": "vim_id",
+      "vnfdVirtualComputeDescId": "ccf_b",
+      "vimFlavourId": "CAU-4-8-15-1"
+    }
+  ],
+  "instantiationLevelId": "default"
+}

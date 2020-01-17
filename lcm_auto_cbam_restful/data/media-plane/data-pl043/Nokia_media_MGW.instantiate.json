@@ -1,0 +1,344 @@
+{
+  "computeResourceFlavours": [
+    {
+      "vnfdVirtualComputeDescId": "scm10_compute",
+      "resourceId": "default"
+    },
+    {
+      "vnfdVirtualComputeDescId": "scm11_compute",
+      "resourceId": "default"
+    },
+    {
+      "vnfdVirtualComputeDescId": "pimA_compute",
+      "resourceId": "default"
+    },
+    {
+      "vnfdVirtualComputeDescId": "pimB_compute",
+      "resourceId": "default"
+    },
+    {
+       "vnfdVirtualComputeDescId": "mcm_compute",
+       "resourceId": "default"
+    }
+  ],
+  "zones": [
+    {
+      "resourceId": "default",
+      "id": "zoneId"
+    }
+  ],
+  "softwareImages": [
+    {  
+      "vnfdSoftwareImageId": "image",
+      "resourceId": "nokia-mgw-rhel7.7-3.10.0-1062.4.1.ap100013.x86_64.qcow2"
+    }
+  ],
+  "grantlessMode": true,
+  "extManagedVirtualLinks": [],
+  "flavourId": "scalable",
+  "vims": [
+    {
+      "interfaceEndpoint": "https://10.75.12.196:13000",
+      "accessInfo": {
+        "tenant": "CB0078",
+        "username": "cb0078sa",
+        "password": "LabAcc0unt"
+      },
+      "interfaceInfo": {
+        "region": "regionOne"
+      },
+      "id": "vim_id"
+    }
+  ],
+  "additionalParams": {
+    "inject_well_known_temp_key": "yes",
+    "Scripturl": "http://100.69.127.146/sbclcm-auto/bulk.zip"
+  },
+  "instantiationLevelId": "default",
+  "extVirtualLinks": [
+    {
+      "extCps": [
+        {          
+          "cpdId": "pim_A_voice1_ipv6_ecp",
+          "addresses": [
+            {
+                "subnetId": "v448-Bear-Access1-Phy1-IPV6",
+                "ip": "2a00:8a00:4000:7690:12::5"
+            }
+            ,{
+                "subnetId": "v448-Bear-Access1-Phy1-IPV6",
+                "ip": "2a00:8a00:4000:7690:12::7"
+            }
+            ,{
+                "subnetId": "v448-Bear-Access1-Phy1-IPV6",
+                "ip": "2a00:8a00:4000:7690:12::9"
+            }
+            ,{
+                "subnetId": "v448-Bear-Access1-Phy1-IPV6",
+                "ip": "2a00:8a00:4000:7690:12::11"
+            }
+            ,{
+                "subnetId": "v448-Bear-Access1-Phy1-IPV6",
+                "ip": "2a00:8a00:4000:7690:12::13"
+            }
+          ]
+        }
+        ,{          
+          "cpdId": "pim_B_voice1_ipv6_ecp",
+          "addresses": [
+            {
+                "subnetId": "v448-Bear-Access1-Phy1-IPV6",
+                "ip": "2a00:8a00:4000:7690:12::6"
+            }
+            ,{
+                "subnetId": "v448-Bear-Access1-Phy1-IPV6",
+                "ip": "2a00:8a00:4000:7690:12::8"
+            }
+            ,{
+                "subnetId": "v448-Bear-Access1-Phy1-IPV6",
+                "ip": "2a00:8a00:4000:7690:12::10"
+            }
+            ,{
+                "subnetId": "v448-Bear-Access1-Phy1-IPV6",
+                "ip": "2a00:8a00:4000:7690:12::12"
+            }
+            ,{
+                "subnetId": "v448-Bear-Access1-Phy1-IPV6",
+                "ip": "2a00:8a00:4000:7690:12::14"
+            }
+          ]
+        }
+      ],
+      "resourceId": "v448-Bear-Access1-PHYSENT1"
+    }
+    ,{
+      "extCps": [
+        {          
+          "cpdId": "pim_A_voice2_ipv6_ecp",
+          "addresses": [
+            {
+                "subnetId": "v450-Bear-Core1-Phy1-IPV6",
+                "ip": "2a00:8a00:4000:7690:14::5"
+            }
+            ,{
+                "subnetId": "v450-Bear-Core1-Phy1-IPV6",
+                "ip": "2a00:8a00:4000:7690:14::7"
+            }
+            ,{
+                "subnetId": "v450-Bear-Core1-Phy1-IPV6",
+                "ip": "2a00:8a00:4000:7690:14::9"
+            }
+            ,{
+                "subnetId": "v450-Bear-Core1-Phy1-IPV6",
+                "ip": "2a00:8a00:4000:7690:14::11"
+            }
+            ,{
+                "subnetId": "v450-Bear-Core1-Phy1-IPV6",
+                "ip": "2a00:8a00:4000:7690:14::13"
+            }
+          ]
+        }
+        ,{          
+          "cpdId": "pim_B_voice2_ipv6_ecp",
+          "addresses": [
+            {
+                "subnetId": "v450-Bear-Core1-Phy1-IPV6",
+                "ip": "2a00:8a00:4000:7690:14::6"
+            }
+            ,{
+                "subnetId": "v450-Bear-Core1-Phy1-IPV6",
+                "ip": "2a00:8a00:4000:7690:14::8"
+            }
+            ,{
+                "subnetId": "v450-Bear-Core1-Phy1-IPV6",
+                "ip": "2a00:8a00:4000:7690:14::10"
+            }
+            ,{
+                "subnetId": "v450-Bear-Core1-Phy1-IPV6",
+                "ip": "2a00:8a00:4000:7690:14::12"
+            }
+            ,{
+                "subnetId": "v450-Bear-Core1-Phy1-IPV6",
+                "ip": "2a00:8a00:4000:7690:14::14"
+            }
+          ]
+        }
+      ],
+      "resourceId": "v450-Bear-Core1-PHYSENT1"
+    }
+    ,{
+      "extCps": [
+        {          
+          "cpdId": "mate_pim_A_voice1_ipv6_ecp",
+          "addresses": [
+            {
+                "subnetId": "v448-Bear-Access1-Phy2-IPV6",
+                "ip": "2a00:8a00:4000:7690:12::5"
+            }
+            ,{
+                "subnetId": "v448-Bear-Access1-Phy2-IPV6",
+                "ip": "2a00:8a00:4000:7690:12::7"
+            }
+            ,{
+                "subnetId": "v448-Bear-Access1-Phy2-IPV6",
+                "ip": "2a00:8a00:4000:7690:12::9"
+            }
+            ,{
+                "subnetId": "v448-Bear-Access1-Phy2-IPV6",
+                "ip": "2a00:8a00:4000:7690:12::11"
+            }
+            ,{
+                "subnetId": "v448-Bear-Access1-Phy2-IPV6",
+                "ip": "2a00:8a00:4000:7690:12::13"
+            }
+          ]
+        }
+        ,{          
+          "cpdId": "mate_pim_B_voice1_ipv6_ecp",
+          "addresses": [
+            {
+                "subnetId": "v448-Bear-Access1-Phy2-IPV6",
+                "ip": "2a00:8a00:4000:7690:12::6"
+            }
+            ,{
+                "subnetId": "v448-Bear-Access1-Phy2-IPV6",
+                "ip": "2a00:8a00:4000:7690:12::8"
+            }
+            ,{
+                "subnetId": "v448-Bear-Access1-Phy2-IPV6",
+                "ip": "2a00:8a00:4000:7690:12::10"
+            }
+            ,{
+                "subnetId": "v448-Bear-Access1-Phy2-IPV6",
+                "ip": "2a00:8a00:4000:7690:12::12"
+            }
+            ,{
+                "subnetId": "v448-Bear-Access1-Phy2-IPV6",
+                "ip": "2a00:8a00:4000:7690:12::14"
+            }
+          ]
+        }
+      ],
+      "resourceId": "v448-Bear-Access1-PHYSENT2"
+    }
+    ,{
+      "extCps": [
+        {          
+          "cpdId": "mate_pim_A_voice2_ipv6_ecp",
+          "addresses": [
+            {
+                "subnetId": "v450-Bear-Core1-Phy2-IPV6",
+                "ip": "2a00:8a00:4000:7690:14::5"
+            }
+            ,{
+                "subnetId": "v450-Bear-Core1-Phy2-IPV6",
+                "ip": "2a00:8a00:4000:7690:14::7"
+            }
+            ,{
+                "subnetId": "v450-Bear-Core1-Phy2-IPV6",
+                "ip": "2a00:8a00:4000:7690:14::9"
+            }
+            ,{
+                "subnetId": "v450-Bear-Core1-Phy2-IPV6",
+                "ip": "2a00:8a00:4000:7690:14::11"
+            }
+            ,{
+                "subnetId": "v450-Bear-Core1-Phy2-IPV6",
+                "ip": "2a00:8a00:4000:7690:14::13"
+            }
+          ]
+        }
+        ,{          
+          "cpdId": "mate_pim_B_voice2_ipv6_ecp",
+          "addresses": [
+            {
+                "subnetId": "v450-Bear-Core1-Phy2-IPV6",
+                "ip": "2a00:8a00:4000:7690:14::6"
+            }
+            ,{
+                "subnetId": "v450-Bear-Core1-Phy2-IPV6",
+                "ip": "2a00:8a00:4000:7690:14::8"
+            }
+            ,{
+                "subnetId": "v450-Bear-Core1-Phy2-IPV6",
+                "ip": "2a00:8a00:4000:7690:14::10"
+            }
+            ,{
+                "subnetId": "v450-Bear-Core1-Phy2-IPV6",
+                "ip": "2a00:8a00:4000:7690:14::12"
+            }
+            ,{
+                "subnetId": "v450-Bear-Core1-Phy2-IPV6",
+                "ip": "2a00:8a00:4000:7690:14::14"
+            }
+          ]
+        }
+      ],
+      "resourceId": "v450-Bear-Core1-PHYSENT2"
+    }
+    , {
+      "extCps": [
+         {   
+          "cpdId": "scm_10_sig_ipv4_ecp",
+          "addresses": [
+            {
+              "subnetId": "h248_subnet",
+              "ip": "192.168.1.101"
+            }
+          ]
+         }
+        , {   
+          "cpdId": "scm_11_sig_ipv4_ecp",
+          "addresses": [
+            {
+              "subnetId": "h248_subnet",
+              "ip": "192.168.1.102"
+            }
+          ]
+         }
+      ], 
+      "resourceId": "H248_net"
+    }
+    , {
+      "extCps": [
+         {   
+          "cpdId": "scm_10_oam_ipv4_ecp",
+          "addresses": [
+            {
+              "subnetId": "v438-OAM-IPV4",
+              "ip": "100.69.127.150"
+            }
+          ]
+         }
+        , {   
+          "cpdId": "scm_10_oam_ipv6_ecp",
+          "addresses": [
+            {
+              "subnetId": "v438-OAM-IPV6",
+              "ip": "2a00:8a00:4000:7690:8::13"
+            }
+          ]
+        }
+        , {   
+          "cpdId": "scm_11_oam_ipv4_ecp",
+          "addresses": [
+            {
+              "subnetId": "v438-OAM-IPV4",
+              "ip": "100.69.127.151"
+            }
+          ]
+         }
+        , {   
+          "cpdId": "scm_11_oam_ipv6_ecp",
+          "addresses": [
+            {
+              "subnetId": "v438-OAM-IPV6",
+              "ip": "2a00:8a00:4000:7690:8::14"
+            }
+          ]
+        }
+      ], 
+      "resourceId": "v438-OAM"
+    }
+]
+}

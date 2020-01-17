@@ -1,0 +1,1908 @@
+Help on package paramiko:
+NAME
+    paramiko
+DESCRIPTION
+    # Copyright (C) 2003-2011  Robey Pointer <robeypointer@gmail.com>
+    #
+    # This file is part of paramiko.
+    #
+    # Paramiko is free software; you can redistribute it and/or modify it under the
+    # terms of the GNU Lesser General Public License as published by the Free
+    # Software Foundation; either version 2.1 of the License, or (at your option)
+    # any later version.
+    #
+    # Paramiko is distributed in the hope that it will be useful, but WITHOUT ANY
+    # WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
+    # A PARTICULAR PURPOSE.  See the GNU Lesser General Public License for more
+    # details.
+    #
+    # You should have received a copy of the GNU Lesser General Public License
+    # along with Paramiko; if not, write to the Free Software Foundation, Inc.,
+    # 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA.
+PACKAGE CONTENTS
+    _version
+    _winapi
+    agent
+    auth_handler
+    ber
+    buffered_pipe
+    channel
+    client
+    common
+    compress
+    config
+    dsskey
+    ecdsakey
+    ed25519key
+    file
+    hostkeys
+    kex_ecdh_nist
+    kex_gex
+    kex_group1
+    kex_group14
+    kex_gss
+    message
+    packet
+    pipe
+    pkey
+    primes
+    proxy
+    py3compat
+    rsakey
+    server
+    sftp
+    sftp_attr
+    sftp_client
+    sftp_file
+    sftp_handle
+    sftp_server
+    sftp_si
+    ssh_exception
+    ssh_gss
+    transport
+    util
+    win_pageant
+CLASSES
+    builtins.Exception(builtins.BaseException)
+        paramiko.sftp.SFTPError
+        paramiko.ssh_exception.SSHException
+            paramiko.ssh_exception.AuthenticationException
+                paramiko.ssh_exception.BadAuthenticationType
+                paramiko.ssh_exception.PasswordRequiredException
+            paramiko.ssh_exception.BadHostKeyException
+            paramiko.ssh_exception.ChannelException
+            paramiko.ssh_exception.ProxyCommandFailure
+    builtins.object
+        paramiko.client.MissingHostKeyPolicy
+            paramiko.client.AutoAddPolicy
+            paramiko.client.RejectPolicy
+            paramiko.client.WarningPolicy
+        paramiko.config.SSHConfig
+        paramiko.message.Message
+        paramiko.pkey.PKey
+            paramiko.agent.AgentKey
+            paramiko.dsskey.DSSKey
+            paramiko.rsakey.RSAKey
+        paramiko.server.ServerInterface
+        paramiko.sftp_attr.SFTPAttributes
+        paramiko.sftp_si.SFTPServerInterface
+        paramiko.transport.SecurityOptions
+    collections.abc.MutableMapping(collections.abc.Mapping)
+        paramiko.hostkeys.HostKeys
+    paramiko.agent.AgentSSH(builtins.object)
+        paramiko.agent.Agent
+    paramiko.sftp.BaseSFTP(builtins.object)
+        paramiko.sftp_client.SFTPClient(paramiko.sftp.BaseSFTP, paramiko.util.ClosingContextManager)
+            paramiko.sftp_client.SFTP
+        paramiko.sftp_server.SFTPServer(paramiko.sftp.BaseSFTP, paramiko.server.SubsystemHandler)
+    paramiko.util.ClosingContextManager(builtins.object)
+        paramiko.channel.Channel
+        paramiko.client.SSHClient
+        paramiko.file.BufferedFile
+            paramiko.sftp_file.SFTPFile
+        paramiko.proxy.ProxyCommand
+        paramiko.sftp_client.SFTPClient(paramiko.sftp.BaseSFTP, paramiko.util.ClosingContextManager)
+            paramiko.sftp_client.SFTP
+        paramiko.sftp_handle.SFTPHandle
+        paramiko.transport.Transport(threading.Thread, paramiko.util.ClosingContextManager)
+    threading.Thread(builtins.object)
+        paramiko.server.SubsystemHandler
+            paramiko.sftp_server.SFTPServer(paramiko.sftp.BaseSFTP, paramiko.server.SubsystemHandler)
+        paramiko.transport.Transport(threading.Thread, paramiko.util.ClosingContextManager)
+
+    class Agent(AgentSSH)
+     |  Client interface for using private keys from an SSH agent running on the
+     |  local machine.  If an SSH agent is running, this class can be used to
+     |  connect to it and retrieve `.PKey` objects which can be used when
+     |  attempting to authenticate to remote SSH servers.
+     |
+     |  Upon initialization, a session with the local machine's SSH agent is
+     |  opened, if one is running. If no agent is running, initialization will
+     |  succeed, but `get_keys` will return an empty tuple.
+     |
+     |  :raises: `.SSHException` --
+     |      if an SSH agent is found, but speaks an incompatible protocol
+     |
+     |  Method resolution order:
+     |      Agent
+     |      AgentSSH
+     |      builtins.object
+     |
+     |  Methods defined here:
+     |
+     |  __init__(self)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |
+     |  close(self)
+     |      Close the SSH agent connection.
+     |
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from AgentSSH:
+     |
+     |  get_keys(self)
+     |      Return the list of keys available through the SSH agent, if any.  If
+     |      no SSH agent was running (or it couldn't be contacted), an empty list
+     |      will be returned.
+     |
+     |      :return:
+     |          a tuple of `.AgentKey` objects representing keys available on the
+     |          SSH agent
+     |
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from AgentSSH:
+     |
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+
+    class AgentKey(paramiko.pkey.PKey)
+     |  AgentKey(agent, blob)
+     |
+     |  Private key held in a local SSH agent.  This type of key can be used for
+     |  authenticating to a remote server (signing).  Most other key operations
+     |  work as expected.
+     |
+     |  Method resolution order:
+     |      AgentKey
+     |      paramiko.pkey.PKey
+     |      builtins.object
+     |
+     |  Methods defined here:
+     |
+     |  __init__(self, agent, blob)
+     |      Create a new instance of this public key type.  If ``msg`` is given,
+     |      the key's public part(s) will be filled in from the message.  If
+     |      ``data`` is given, the key's public part(s) will be filled in from
+     |      the string.
+     |
+     |      :param .Message msg:
+     |          an optional SSH `.Message` containing a public key of this type.
+     |      :param str data: an optional string containing a public key
+     |          of this type
+     |
+     |      :raises: `.SSHException` --
+     |          if a key cannot be created from the ``data`` or ``msg`` given, or
+     |          no key was passed in.
+     |
+     |  __str__(self)
+     |      Return str(self).
+     |
+     |  asbytes(self)
+     |      Return a string of an SSH `.Message` made up of the public part(s) of
+     |      this key.  This string is suitable for passing to `__init__` to
+     |      re-create the key object later.
+     |
+     |  get_name(self)
+     |      Return the name of this private key implementation.
+     |
+     |      :return:
+     |          name of this private key type, in SSH terminology, as a `str` (for
+     |          example, ``"ssh-rsa"``).
+     |
+     |  sign_ssh_data(self, data)
+     |      Sign a blob of data with this private key, and return a `.Message`
+     |      representing an SSH signature message.
+     |
+     |      :param str data: the data to sign.
+     |      :return: an SSH signature `message <.Message>`.
+     |
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from paramiko.pkey.PKey:
+     |
+     |  __cmp__(self, other)
+     |      Compare this key to another.  Returns 0 if this key is equivalent to
+     |      the given key, or non-0 if they are different.  Only the public parts
+     |      of the key are compared, so a public key will compare equal to its
+     |      corresponding private key.
+     |
+     |      :param .PKey other: key to compare to.
+     |
+     |  __eq__(self, other)
+     |      Return self==value.
+     |
+     |  can_sign(self)
+     |      Return ``True`` if this key has the private part necessary for signing
+     |      data.
+     |
+     |  get_base64(self)
+     |      Return a base64 string containing the public part of this key.  Nothing
+     |      secret is revealed.  This format is compatible with that used to store
+     |      public key files or recognized host keys.
+     |
+     |      :return: a base64 `string <str>` containing the public part of the key.
+     |
+     |  get_bits(self)
+     |      Return the number of significant bits in this key.  This is useful
+     |      for judging the relative security of a key.
+     |
+     |      :return: bits in the key (as an `int`)
+     |
+     |  get_fingerprint(self)
+     |      Return an MD5 fingerprint of the public part of this key.  Nothing
+     |      secret is revealed.
+     |
+     |      :return:
+     |          a 16-byte `string <str>` (binary) of the MD5 fingerprint, in SSH
+     |          format.
+     |
+     |  load_certificate(self, value)
+     |      Supplement the private key contents with data loaded from an OpenSSH
+     |      public key (``.pub``) or certificate (``-cert.pub``) file, a string
+     |      containing such a file, or a `.Message` object.
+     |
+     |      The .pub contents adds no real value, since the private key
+     |      file includes sufficient information to derive the public
+     |      key info. For certificates, however, this can be used on
+     |      the client side to offer authentication requests to the server
+     |      based on certificate instead of raw public key.
+     |
+     |      See:
+     |      https://github.com/openssh/openssh-portable/blob/master/PROTOCOL.certkeys
+     |
+     |      Note: very little effort is made to validate the certificate contents,
+     |      that is for the server to decide if it is good enough to authenticate
+     |      successfully.
+     |
+     |  verify_ssh_sig(self, data, msg)
+     |      Given a blob of data, and an SSH message representing a signature of
+     |      that data, verify that it was signed with this key.
+     |
+     |      :param str data: the data that was signed.
+     |      :param .Message msg: an SSH signature message
+     |      :return:
+     |          ``True`` if the signature verifies correctly; ``False`` otherwise.
+     |
+     |  write_private_key(self, file_obj, password=None)
+     |      Write private key contents into a file (or file-like) object.  If the
+     |      password is not ``None``, the key is encrypted before writing.
+     |
+     |      :param file_obj: the file-like object to write into
+     |      :param str password: an optional password to use to encrypt the key
+     |
+     |      :raises: ``IOError`` -- if there was an error writing to the file
+     |      :raises: `.SSHException` -- if the key is invalid
+     |
+     |  write_private_key_file(self, filename, password=None)
+     |      Write private key contents into a file.  If the password is not
+     |      ``None``, the key is encrypted before writing.
+     |
+     |      :param str filename: name of the file to write
+     |      :param str password:
+     |          an optional password to use to encrypt the key file
+     |
+     |      :raises: ``IOError`` -- if there was an error writing the file
+     |      :raises: `.SSHException` -- if the key is invalid
+     |
+     |  ----------------------------------------------------------------------
+     |  Class methods inherited from paramiko.pkey.PKey:
+     |
+     |  from_private_key(file_obj, password=None) from builtins.type
+     |      Create a key object by reading a private key from a file (or file-like)
+     |      object.  If the private key is encrypted and ``password`` is not
+     |      ``None``, the given password will be used to decrypt the key (otherwise
+     |      `.PasswordRequiredException` is thrown).
+     |
+     |      :param file_obj: the file-like object to read from
+     |      :param str password:
+     |          an optional password to use to decrypt the key, if it's encrypted
+     |      :return: a new `.PKey` based on the given private key
+     |
+     |      :raises: ``IOError`` -- if there was an error reading the key
+     |      :raises: `.PasswordRequiredException` --
+     |          if the private key file is encrypted, and ``password`` is ``None``
+     |      :raises: `.SSHException` -- if the key file is invalid
+     |
+     |  from_private_key_file(filename, password=None) from builtins.type
+     |      Create a key object by reading a private key file.  If the private
+     |      key is encrypted and ``password`` is not ``None``, the given password
+     |      will be used to decrypt the key (otherwise `.PasswordRequiredException`
+     |      is thrown).  Through the magic of Python, this factory method will
+     |      exist in all subclasses of PKey (such as `.RSAKey` or `.DSSKey`), but
+     |      is useless on the abstract PKey class.
+     |
+     |      :param str filename: name of the file to read
+     |      :param str password:
+     |          an optional password to use to decrypt the key file, if it's
+     |          encrypted
+     |      :return: a new `.PKey` based on the given private key
+     |
+     |      :raises: ``IOError`` -- if there was an error reading the file
+     |      :raises: `.PasswordRequiredException` -- if the private key file is
+     |          encrypted, and ``password`` is ``None``
+     |      :raises: `.SSHException` -- if the key file is invalid
+     |
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from paramiko.pkey.PKey:
+     |
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from paramiko.pkey.PKey:
+     |
+     |  __hash__ = None
+
+    class AuthenticationException(SSHException)
+     |  Exception raised when authentication failed for some reason.  It may be
+     |  possible to retry with different credentials.  (Other classes specify more
+     |  specific reasons.)
+     |
+     |  .. versionadded:: 1.6
+     |
+     |  Method resolution order:
+     |      AuthenticationException
+     |      SSHException
+     |      builtins.Exception
+     |      builtins.BaseException
+     |      builtins.object
+     |
+     |  Data descriptors inherited from SSHException:
+     |
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from builtins.Exception:
+     |
+     |  __init__(self, /, *args, **kwargs)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |
+     |  ----------------------------------------------------------------------
+     |  Static methods inherited from builtins.Exception:
+     |
+     |  __new__(*args, **kwargs) from builtins.type
+     |      Create and return a new object.  See help(type) for accurate signature.
+     |
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from builtins.BaseException:
+     |
+     |  __delattr__(self, name, /)
+     |      Implement delattr(self, name).
+     |
+     |  __getattribute__(self, name, /)
+     |      Return getattr(self, name).
+     |
+     |  __reduce__(...)
+     |      Helper for pickle.
+     |
+     |  __repr__(self, /)
+     |      Return repr(self).
+     |
+     |  __setattr__(self, name, value, /)
+     |      Implement setattr(self, name, value).
+     |
+     |  __setstate__(...)
+     |
+     |  __str__(self, /)
+     |      Return str(self).
+     |
+     |  with_traceback(...)
+     |      Exception.with_traceback(tb) --
+     |      set self.__traceback__ to tb and return self.
+     |
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from builtins.BaseException:
+     |
+     |  __cause__
+     |      exception cause
+     |
+     |  __context__
+     |      exception context
+     |
+     |  __dict__
+     |
+     |  __suppress_context__
+     |
+     |  __traceback__
+     |
+     |  args
+
+    class AutoAddPolicy(MissingHostKeyPolicy)
+     |  Policy for automatically adding the hostname and new host key to the
+     |  local `.HostKeys` object, and saving it.  This is used by `.SSHClient`.
+     |
+     |  Method resolution order:
+     |      AutoAddPolicy
+     |      MissingHostKeyPolicy
+     |      builtins.object
+     |
+     |  Methods defined here:
+     |
+     |  missing_host_key(self, client, hostname, key)
+     |      Called when an `.SSHClient` receives a server key for a server that
+     |      isn't in either the system or local `.HostKeys` object.  To accept
+     |      the key, simply return.  To reject, raised an exception (which will
+     |      be passed to the calling application).
+     |
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from MissingHostKeyPolicy:
+     |
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+
+    class BadAuthenticationType(AuthenticationException)
+     |  BadAuthenticationType(explanation, types)
+     |
+     |  Exception raised when an authentication type (like password) is used, but
+     |  the server isn't allowing that type.  (It may only allow public-key, for
+     |  example.)
+     |
+     |  .. versionadded:: 1.1
+     |
+     |  Method resolution order:
+     |      BadAuthenticationType
+     |      AuthenticationException
+     |      SSHException
+     |      builtins.Exception
+     |      builtins.BaseException
+     |      builtins.object
+     |
+     |  Methods defined here:
+     |
+     |  __init__(self, explanation, types)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |
+     |  __str__(self)
+     |      Return str(self).
+     |
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |
+     |  allowed_types = []
+     |
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from SSHException:
+     |
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |
+     |  ----------------------------------------------------------------------
+     |  Static methods inherited from builtins.Exception:
+     |
+     |  __new__(*args, **kwargs) from builtins.type
+     |      Create and return a new object.  See help(type) for accurate signature.
+     |
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from builtins.BaseException:
+     |
+     |  __delattr__(self, name, /)
+     |      Implement delattr(self, name).
+     |
+     |  __getattribute__(self, name, /)
+     |      Return getattr(self, name).
+     |
+     |  __reduce__(...)
+     |      Helper for pickle.
+     |
+     |  __repr__(self, /)
+     |      Return repr(self).
+     |
+     |  __setattr__(self, name, value, /)
+     |      Implement setattr(self, name, value).
+     |
+     |  __setstate__(...)
+     |
+     |  with_traceback(...)
+     |      Exception.with_traceback(tb) --
+     |      set self.__traceback__ to tb and return self.
+     |
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from builtins.BaseException:
+     |
+     |  __cause__
+     |      exception cause
+     |
+     |  __context__
+     |      exception context
+     |
+     |  __dict__
+     |
+     |  __suppress_context__
+     |
+     |  __traceback__
+     |
+     |  args
+
+    class BadHostKeyException(SSHException)
+     |  BadHostKeyException(hostname, got_key, expected_key)
+     |
+     |  The host key given by the SSH server did not match what we were expecting.
+     |
+     |  :param str hostname: the hostname of the SSH server
+     |  :param PKey got_key: the host key presented by the server
+     |  :param PKey expected_key: the host key expected
+     |
+     |  .. versionadded:: 1.6
+     |
+     |  Method resolution order:
+     |      BadHostKeyException
+     |      SSHException
+     |      builtins.Exception
+     |      builtins.BaseException
+     |      builtins.object
+     |
+     |  Methods defined here:
+     |
+     |  __init__(self, hostname, got_key, expected_key)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from SSHException:
+     |
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |
+     |  ----------------------------------------------------------------------
+     |  Static methods inherited from builtins.Exception:
+     |
+     |  __new__(*args, **kwargs) from builtins.type
+     |      Create and return a new object.  See help(type) for accurate signature.
+     |
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from builtins.BaseException:
+     |
+     |  __delattr__(self, name, /)
+     |      Implement delattr(self, name).
+     |
+     |  __getattribute__(self, name, /)
+     |      Return getattr(self, name).
+     |
+     |  __reduce__(...)
+     |      Helper for pickle.
+     |
+     |  __repr__(self, /)
+     |      Return repr(self).
+     |
+     |  __setattr__(self, name, value, /)
+     |      Implement setattr(self, name, value).
+     |
+     |  __setstate__(...)
+     |
+     |  __str__(self, /)
+     |      Return str(self).
+     |
+     |  with_traceback(...)
+     |      Exception.with_traceback(tb) --
+     |      set self.__traceback__ to tb and return self.
+     |
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from builtins.BaseException:
+     |
+     |  __cause__
+     |      exception cause
+     |
+     |  __context__
+     |      exception context
+     |
+     |  __dict__
+     |
+     |  __suppress_context__
+     |
+     |  __traceback__
+     |
+     |  args
+
+    class BufferedFile(paramiko.util.ClosingContextManager)
+     |  Reusable base class to implement Python-style file buffering around a
+     |  simpler stream.
+     |
+     |  Method resolution order:
+     |      BufferedFile
+     |      paramiko.util.ClosingContextManager
+     |      builtins.object
+     |
+     |  Methods defined here:
+     |
+     |  __del__(self)
+     |
+     |  __init__(self)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |
+     |  __iter__(self)
+     |      Returns an iterator that can be used to iterate over the lines in this
+     |      file.  This iterator happens to return the file itself, since a file is
+     |      its own iterator.
+     |
+     |      :raises: ``ValueError`` -- if the file is closed.
+     |
+     |  __next__(self)
+     |      Returns the next line from the input, or raises ``StopIteration``
+     |      when EOF is hit.  Unlike python file objects, it's okay to mix
+     |      calls to `.next` and `.readline`.
+     |
+     |      :raises: ``StopIteration`` -- when the end of the file is reached.
+     |
+     |      :returns: a line (`str`) read from the file.
+     |
+     |  close(self)
+     |      Close the file.  Future read and write operations will fail.
+     |
+     |  flush(self)
+     |      Write out any data in the write buffer.  This may do nothing if write
+     |      buffering is not turned on.
+     |
+     |  read(self, size=None)
+     |      Read at most ``size`` bytes from the file (less if we hit the end of
+     |      the file first).  If the ``size`` argument is negative or omitted,
+     |      read all the remaining data in the file.
+     |
+     |      .. note::
+     |          ``'b'`` mode flag is ignored (``self.FLAG_BINARY`` in
+     |          ``self._flags``), because SSH treats all files as binary, since we
+     |          have no idea what encoding the file is in, or even if the file is
+     |          text data.
+     |
+     |      :param int size: maximum number of bytes to read
+     |      :returns:
+     |          data read from the file (as bytes), or an empty string if EOF was
+     |          encountered immediately
+     |
+     |  readable(self)
+     |      Check if the file can be read from.
+     |
+     |      :returns:
+     |          `True` if the file can be read from. If `False`, `read` will raise
+     |          an exception.
+     |
+     |  readinto(self, buff)
+     |      Read up to ``len(buff)`` bytes into ``bytearray`` *buff* and return the
+     |      number of bytes read.
+     |
+     |      :returns:
+     |          The number of bytes read.
+     |
+     |  readline(self, size=None)
+     |      Read one entire line from the file.  A trailing newline character is
+     |      kept in the string (but may be absent when a file ends with an
+     |      incomplete line).  If the size argument is present and non-negative, it
+     |      is a maximum byte count (including the trailing newline) and an
+     |      incomplete line may be returned.  An empty string is returned only when
+     |      EOF is encountered immediately.
+     |
+     |      .. note::
+     |          Unlike stdio's ``fgets``, the returned string contains null
+     |          characters (``'\0'``) if they occurred in the input.
+     |
+     |      :param int size: maximum length of returned string.
+     |      :returns:
+     |          next line of the file, or an empty string if the end of the
+     |          file has been reached.
+     |
+     |          If the file was opened in binary (``'b'``) mode: bytes are returned
+     |          Else: the encoding of the file is assumed to be UTF-8 and character
+     |          strings (`str`) are returned
+     |
+     |  readlines(self, sizehint=None)
+     |      Read all remaining lines using `readline` and return them as a list.
+     |      If the optional ``sizehint`` argument is present, instead of reading up
+     |      to EOF, whole lines totalling approximately sizehint bytes (possibly
+     |      after rounding up to an internal buffer size) are read.
+     |
+     |      :param int sizehint: desired maximum number of bytes to read.
+     |      :returns: list of lines read from the file.
+     |
+     |  seek(self, offset, whence=0)
+     |      Set the file's current position, like stdio's ``fseek``.  Not all file
+     |      objects support seeking.
+     |
+     |      .. note::
+     |          If a file is opened in append mode (``'a'`` or ``'a+'``), any seek
+     |          operations will be undone at the next write (as the file position
+     |          will move back to the end of the file).
+     |
+     |      :param int offset:
+     |          position to move to within the file, relative to ``whence``.
+     |      :param int whence:
+     |          type of movement: 0 = absolute; 1 = relative to the current
+     |          position; 2 = relative to the end of the file.
+     |
+     |      :raises: ``IOError`` -- if the file doesn't support random access.
+     |
+     |  seekable(self)
+     |      Check if the file supports random access.
+     |
+     |      :returns:
+     |          `True` if the file supports random access. If `False`, `seek` will
+     |          raise an exception.
+     |
+     |  tell(self)
+     |      Return the file's current position.  This may not be accurate or
+     |      useful if the underlying file doesn't support random access, or was
+     |      opened in append mode.
+     |
+     |      :returns: file position (`number <int>` of bytes).
+     |
+     |  writable(self)
+     |      Check if the file can be written to.
+     |
+     |      :returns:
+     |          `True` if the file can be written to. If `False`, `write` will
+     |          raise an exception.
+     |
+     |  write(self, data)
+     |      Write data to the file.  If write buffering is on (``bufsize`` was
+     |      specified and non-zero), some or all of the data may not actually be
+     |      written yet.  (Use `flush` or `close` to force buffered data to be
+     |      written out.)
+     |
+     |      :param data: ``str``/``bytes`` data to write
+     |
+     |  writelines(self, sequence)
+     |      Write a sequence of strings to the file.  The sequence can be any
+     |      iterable object producing strings, typically a list of strings.  (The
+     |      name is intended to match `readlines`; `writelines` does not add line
+     |      separators.)
+     |
+     |      :param sequence: an iterable sequence of strings.
+     |
+     |  xreadlines(self)
+     |      Identical to ``iter(f)``.  This is a deprecated file interface that
+     |      predates Python iterator support.
+     |
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |
+     |  closed
+     |
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |
+     |  FLAG_APPEND = 4
+     |
+     |  FLAG_BINARY = 16
+     |
+     |  FLAG_BUFFERED = 32
+     |
+     |  FLAG_LINE_BUFFERED = 64
+     |
+     |  FLAG_READ = 1
+     |
+     |  FLAG_UNIVERSAL_NEWLINE = 128
+     |
+     |  FLAG_WRITE = 2
+     |
+     |  SEEK_CUR = 1
+     |
+     |  SEEK_END = 2
+     |
+     |  SEEK_SET = 0
+     |
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from paramiko.util.ClosingContextManager:
+     |
+     |  __enter__(self)
+     |
+     |  __exit__(self, type, value, traceback)
+     |
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from paramiko.util.ClosingContextManager:
+     |
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+
+    class Channel(paramiko.util.ClosingContextManager)
+     |  Channel(chanid)
+     |
+     |  A secure tunnel across an SSH `.Transport`.  A Channel is meant to behave
+     |  like a socket, and has an API that should be indistinguishable from the
+     |  Python socket API.
+     |
+     |  Because SSH2 has a windowing kind of flow control, if you stop reading data
+     |  from a Channel and its buffer fills up, the server will be unable to send
+     |  you any more data until you read some of it.  (This won't affect other
+     |  channels on the same transport -- all channels on a single transport are
+     |  flow-controlled independently.)  Similarly, if the server isn't reading
+     |  data you send, calls to `send` may block, unless you set a timeout.  This
+     |  is exactly like a normal network socket, so it shouldn't be too surprising.
+     |
+     |  Instances of this class may be used as context managers.
+     |
+     |  Method resolution order:
+     |      Channel
+     |      paramiko.util.ClosingContextManager
+     |      builtins.object
+     |
+     |  Methods defined here:
+     |
+     |  __del__(self)
+     |
+     |  __init__(self, chanid)
+     |      Create a new channel.  The channel is not associated with any
+     |      particular session or `.Transport` until the Transport attaches it.
+     |      Normally you would only call this method from the constructor of a
+     |      subclass of `.Channel`.
+     |
+     |      :param int chanid:
+     |          the ID of this channel, as passed by an existing `.Transport`.
+     |
+     |  __repr__(self)
+     |      Return a string representation of this object, for debugging.
+     |
+     |  close(self)
+     |      Close the channel.  All future read/write operations on the channel
+     |      will fail.  The remote end will receive no more data (after queued data
+     |      is flushed).  Channels are automatically closed when their `.Transport`
+     |      is closed or when they are garbage collected.
+     |
+     |  exec_command(self, command)
+     |      Execute a command on the server.  If the server allows it, the channel
+     |      will then be directly connected to the stdin, stdout, and stderr of
+     |      the command being executed.
+     |
+     |      When the command finishes executing, the channel will be closed and
+     |      can't be reused.  You must open a new channel if you wish to execute
+     |      another command.
+     |
+     |      :param str command: a shell command to execute.
+     |
+     |      :raises:
+     |          `.SSHException` -- if the request was rejected or the channel was
+     |          closed
+     |
+     |  exit_status_ready(self)
+     |      Return true if the remote process has exited and returned an exit
+     |      status. You may use this to poll the process status if you don't
+     |      want to block in `recv_exit_status`. Note that the server may not
+     |      return an exit status in some cases (like bad servers).
+     |
+     |      :return:
+     |          ``True`` if `recv_exit_status` will return immediately, else
+     |          ``False``.
+     |
+     |      .. versionadded:: 1.7.3
+     |
+     |  fileno(self)
+     |      Returns an OS-level file descriptor which can be used for polling, but
+     |      but not for reading or writing.  This is primarily to allow Python's
+     |      ``select`` module to work.
+     |
+     |      The first time ``fileno`` is called on a channel, a pipe is created to
+     |      simulate real OS-level file descriptor (FD) behavior.  Because of this,
+     |      two OS-level FDs are created, which will use up FDs faster than normal.
+     |      (You won't notice this effect unless you have hundreds of channels
+     |      open at the same time.)
+     |
+     |      :return: an OS-level file descriptor (`int`)
+     |
+     |      .. warning::
+     |          This method causes channel reads to be slightly less efficient.
+     |
+     |  get_id(self)
+     |      Return the `int` ID # for this channel.
+     |
+     |      The channel ID is unique across a `.Transport` and usually a small
+     |      number.  It's also the number passed to
+     |      `.ServerInterface.check_channel_request` when determining whether to
+     |      accept a channel request in server mode.
+     |
+     |  get_name(self)
+     |      Get the name of this channel that was previously set by `set_name`.
+     |
+     |  get_pty(self, term='vt100', width=80, height=24, width_pixels=0, height_pixels=0)
+     |      Request a pseudo-terminal from the server.  This is usually used right
+     |      after creating a client channel, to ask the server to provide some
+     |      basic terminal semantics for a shell invoked with `invoke_shell`.
+     |      It isn't necessary (or desirable) to call this method if you're going
+     |      to execute a single command with `exec_command`.
+     |
+     |      :param str term: the terminal type to emulate
+     |          (for example, ``'vt100'``)
+     |      :param int width: width (in characters) of the terminal screen
+     |      :param int height: height (in characters) of the terminal screen
+     |      :param int width_pixels: width (in pixels) of the terminal screen
+     |      :param int height_pixels: height (in pixels) of the terminal screen
+     |
+     |      :raises:
+     |          `.SSHException` -- if the request was rejected or the channel was
+     |          closed
+     |
+     |  get_transport(self)
+     |      Return the `.Transport` associated with this channel.
+     |
+     |  getpeername(self)
+     |      Return the address of the remote side of this Channel, if possible.
+     |
+     |      This simply wraps `.Transport.getpeername`, used to provide enough of a
+     |      socket-like interface to allow asyncore to work. (asyncore likes to
+     |      call ``'getpeername'``.)
+     |
+     |  gettimeout(self)
+     |      Returns the timeout in seconds (as a float) associated with socket
+     |      operations, or ``None`` if no timeout is set.  This reflects the last
+     |      call to `setblocking` or `settimeout`.
+     |
+     |  invoke_shell(self)
+     |      Request an interactive shell session on this channel.  If the server
+     |      allows it, the channel will then be directly connected to the stdin,
+     |      stdout, and stderr of the shell.
+     |
+     |      Normally you would call `get_pty` before this, in which case the
+     |      shell will operate through the pty, and the channel will be connected
+     |      to the stdin and stdout of the pty.
+     |
+     |      When the shell exits, the channel will be closed and can't be reused.
+     |      You must open a new channel if you wish to open another shell.
+     |
+     |      :raises:
+     |          `.SSHException` -- if the request was rejected or the channel was
+     |          closed
+     |
+     |  invoke_subsystem(self, subsystem)
+     |      Request a subsystem on the server (for example, ``sftp``).  If the
+     |      server allows it, the channel will then be directly connected to the
+     |      requested subsystem.
+     |
+     |      When the subsystem finishes, the channel will be closed and can't be
+     |      reused.
+     |
+     |      :param str subsystem: name of the subsystem being requested.
+     |
+     |      :raises:
+     |          `.SSHException` -- if the request was rejected or the channel was
+     |          closed
+     |
+     |  makefile(self, *params)
+     |      Return a file-like object associated with this channel.  The optional
+     |      ``mode`` and ``bufsize`` arguments are interpreted the same way as by
+     |      the built-in ``file()`` function in Python.
+     |
+     |      :return: `.ChannelFile` object which can be used for Python file I/O.
+     |
+     |  makefile_stderr(self, *params)
+     |      Return a file-like object associated with this channel's stderr
+     |      stream.   Only channels using `exec_command` or `invoke_shell`
+     |      without a pty will ever have data on the stderr stream.
+     |
+     |      The optional ``mode`` and ``bufsize`` arguments are interpreted the
+     |      same way as by the built-in ``file()`` function in Python.  For a
+     |      client, it only makes sense to open this file for reading.  For a
+     |      server, it only makes sense to open this file for writing.
+     |
+     |      :return: `.ChannelFile` object which can be used for Python file I/O.
+     |
+     |      .. versionadded:: 1.1
+     |
+     |  recv(self, nbytes)
+     |      Receive data from the channel.  The return value is a string
+     |      representing the data received.  The maximum amount of data to be
+     |      received at once is specified by ``nbytes``.  If a string of
+     |      length zero is returned, the channel stream has closed.
+     |
+     |      :param int nbytes: maximum number of bytes to read.
+     |      :return: received data, as a ``str``/``bytes``.
+     |
+     |      :raises socket.timeout:
+     |          if no data is ready before the timeout set by `settimeout`.
+     |
+     |  recv_exit_status(self)
+     |      Return the exit status from the process on the server.  This is
+     |      mostly useful for retrieving the results of an `exec_command`.
+     |      If the command hasn't finished yet, this method will wait until
+     |      it does, or until the channel is closed.  If no exit status is
+     |      provided by the server, -1 is returned.
+     |
+     |      .. warning::
+     |          In some situations, receiving remote output larger than the current
+     |          `.Transport` or session's ``window_size`` (e.g. that set by the
+     |          ``default_window_size`` kwarg for `.Transport.__init__`) will cause
+     |          `.recv_exit_status` to hang indefinitely if it is called prior to a
+     |          sufficiently large `.Channel.recv` (or if there are no threads
+     |          calling `.Channel.recv` in the background).
+     |
+     |          In these cases, ensuring that `.recv_exit_status` is called *after*
+     |          `.Channel.recv` (or, again, using threads) can avoid the hang.
+     |
+     |      :return: the exit code (as an `int`) of the process on the server.
+     |
+     |      .. versionadded:: 1.2
+     |
+     |  recv_ready(self)
+     |      Returns true if data is buffered and ready to be read from this
+     |      channel.  A ``False`` result does not mean that the channel has closed;
+     |      it means you may need to wait before more data arrives.
+     |
+     |      :return:
+     |          ``True`` if a `recv` call on this channel would immediately return
+     |          at least one byte; ``False`` otherwise.
+     |
+     |  recv_stderr(self, nbytes)
+     |      Receive data from the channel's stderr stream.  Only channels using
+     |      `exec_command` or `invoke_shell` without a pty will ever have data
+     |      on the stderr stream.  The return value is a string representing the
+     |      data received.  The maximum amount of data to be received at once is
+     |      specified by ``nbytes``.  If a string of length zero is returned, the
+     |      channel stream has closed.
+     |
+     |      :param int nbytes: maximum number of bytes to read.
+     |      :return: received data as a `str`
+     |
+     |      :raises socket.timeout: if no data is ready before the timeout set by
+     |          `settimeout`.
+     |
+     |      .. versionadded:: 1.1
+     |
+     |  recv_stderr_ready(self)
+     |      Returns true if data is buffered and ready to be read from this
+     |      channel's stderr stream.  Only channels using `exec_command` or
+     |      `invoke_shell` without a pty will ever have data on the stderr
+     |      stream.
+     |
+     |      :return:
+     |          ``True`` if a `recv_stderr` call on this channel would immediately
+     |          return at least one byte; ``False`` otherwise.
+     |
+     |      .. versionadded:: 1.1
+     |
+     |  request_forward_agent(self, handler)
+     |      Request for a forward SSH Agent on this channel.
+     |      This is only valid for an ssh-agent from OpenSSH !!!
+     |
+     |      :param handler:
+     |          a required callable handler to use for incoming SSH Agent
+     |          connections
+     |
+     |      :return: True if we are ok, else False
+     |          (at that time we always return ok)
+     |
+     |      :raises: SSHException in case of channel problem.
+     |
+     |  request_x11(self, screen_number=0, auth_protocol=None, auth_cookie=None, single_connection=False, handler=None)
+     |      Request an x11 session on this channel.  If the server allows it,
+     |      further x11 requests can be made from the server to the client,
+     |      when an x11 application is run in a shell session.
+     |
+     |      From :rfc:`4254`::
+     |
+     |          It is RECOMMENDED that the 'x11 authentication cookie' that is
+     |          sent be a fake, random cookie, and that the cookie be checked and
+     |          replaced by the real cookie when a connection request is received.
+     |
+     |      If you omit the auth_cookie, a new secure random 128-bit value will be
+     |      generated, used, and returned.  You will need to use this value to
+     |      verify incoming x11 requests and replace them with the actual local
+     |      x11 cookie (which requires some knowledge of the x11 protocol).
+     |
+     |      If a handler is passed in, the handler is called from another thread
+     |      whenever a new x11 connection arrives.  The default handler queues up
+     |      incoming x11 connections, which may be retrieved using
+     |      `.Transport.accept`.  The handler's calling signature is::
+     |
+     |          handler(channel: Channel, (address: str, port: int))
+     |
+     |      :param int screen_number: the x11 screen number (0, 10, etc.)
+     |      :param str auth_protocol:
+     |          the name of the X11 authentication method used; if none is given,
+     |          ``"MIT-MAGIC-COOKIE-1"`` is used
+     |      :param str auth_cookie:
+     |          hexadecimal string containing the x11 auth cookie; if none is
+     |          given, a secure random 128-bit value is generated
+     |      :param bool single_connection:
+     |          if True, only a single x11 connection will be forwarded (by
+     |          default, any number of x11 connections can arrive over this
+     |          session)
+     |      :param handler:
+     |          an optional callable handler to use for incoming X11 connections
+     |      :return: the auth_cookie used
+     |
+     |  resize_pty(self, width=80, height=24, width_pixels=0, height_pixels=0)
+     |      Resize the pseudo-terminal.  This can be used to change the width and
+     |      height of the terminal emulation created in a previous `get_pty` call.
+     |
+     |      :param int width: new width (in characters) of the terminal screen
+     |      :param int height: new height (in characters) of the terminal screen
+     |      :param int width_pixels: new width (in pixels) of the terminal screen
+     |      :param int height_pixels: new height (in pixels) of the terminal screen
+     |
+     |      :raises:
+     |          `.SSHException` -- if the request was rejected or the channel was
+     |          closed
+     |
+     |  send(self, s)
+     |      Send data to the channel.  Returns the number of bytes sent, or 0 if
+     |      the channel stream is closed.  Applications are responsible for
+     |      checking that all data has been sent: if only some of the data was
+     |      transmitted, the application needs to attempt delivery of the remaining
+     |      data.
+     |
+     |      :param str s: data to send
+     |      :return: number of bytes actually sent, as an `int`
+     |
+     |      :raises socket.timeout: if no data could be sent before the timeout set
+     |          by `settimeout`.
+     |
+     |  send_exit_status(self, status)
+     |      Send the exit status of an executed command to the client.  (This
+     |      really only makes sense in server mode.)  Many clients expect to
+     |      get some sort of status code back from an executed command after
+     |      it completes.
+     |
+     |      :param int status: the exit code of the process
+     |
+     |      .. versionadded:: 1.2
+     |
+     |  send_ready(self)
+     |      Returns true if data can be written to this channel without blocking.
+     |      This means the channel is either closed (so any write attempt would
+     |      return immediately) or there is at least one byte of space in the
+     |      outbound buffer. If there is at least one byte of space in the
+     |      outbound buffer, a `send` call will succeed immediately and return
+     |      the number of bytes actually written.
+     |
+     |      :return:
+     |          ``True`` if a `send` call on this channel would immediately succeed
+     |          or fail
+     |
+     |  send_stderr(self, s)
+     |      Send data to the channel on the "stderr" stream.  This is normally
+     |      only used by servers to send output from shell commands -- clients
+     |      won't use this.  Returns the number of bytes sent, or 0 if the channel
+     |      stream is closed.  Applications are responsible for checking that all
+     |      data has been sent: if only some of the data was transmitted, the
+     |      application needs to attempt delivery of the remaining data.
+     |
+     |      :param str s: data to send.
+     |      :return: number of bytes actually sent, as an `int`.
+     |
+     |      :raises socket.timeout:
+     |          if no data could be sent before the timeout set by `settimeout`.
+     |
+     |      .. versionadded:: 1.1
+     |
+     |  sendall(self, s)
+     |      Send data to the channel, without allowing partial results.  Unlike
+     |      `send`, this method continues to send data from the given string until
+     |      either all data has been sent or an error occurs.  Nothing is returned.
+     |
+     |      :param str s: data to send.
+     |
+     |      :raises socket.timeout:
+     |          if sending stalled for longer than the timeout set by `settimeout`.
+     |      :raises socket.error:
+     |          if an error occurred before the entire string was sent.
+     |
+     |      .. note::
+     |          If the channel is closed while only part of the data has been
+     |          sent, there is no way to determine how much data (if any) was sent.
+     |          This is irritating, but identically follows Python's API.
+     |
+     |  sendall_stderr(self, s)
+     |      Send data to the channel's "stderr" stream, without allowing partial
+     |      results.  Unlike `send_stderr`, this method continues to send data
+     |      from the given string until all data has been sent or an error occurs.
+     |      Nothing is returned.
+     |
+     |      :param str s: data to send to the client as "stderr" output.
+     |
+     |      :raises socket.timeout:
+     |          if sending stalled for longer than the timeout set by `settimeout`.
+     |      :raises socket.error:
+     |          if an error occurred before the entire string was sent.
+     |
+     |      .. versionadded:: 1.1
+     |
+     |  set_combine_stderr(self, combine)
+     |      Set whether stderr should be combined into stdout on this channel.
+     |      The default is ``False``, but in some cases it may be convenient to
+     |      have both streams combined.
+     |
+     |      If this is ``False``, and `exec_command` is called (or ``invoke_shell``
+     |      with no pty), output to stderr will not show up through the `recv`
+     |      and `recv_ready` calls.  You will have to use `recv_stderr` and
+     |      `recv_stderr_ready` to get stderr output.
+     |
+     |      If this is ``True``, data will never show up via `recv_stderr` or
+     |      `recv_stderr_ready`.
+     |
+     |      :param bool combine:
+     |          ``True`` if stderr output should be combined into stdout on this
+     |          channel.
+     |      :return: the previous setting (a `bool`).
+     |
+     |      .. versionadded:: 1.1
+     |
+     |  set_environment_variable(self, name, value)
+     |      Set the value of an environment variable.
+     |
+     |      .. warning::
+     |          The server may reject this request depending on its ``AcceptEnv``
+     |          setting; such rejections will fail silently (which is common client
+     |          practice for this particular request type). Make sure you
+     |          understand your server's configuration before using!
+     |
+     |      :param str name: name of the environment variable
+     |      :param str value: value of the environment variable
+     |
+     |      :raises:
+     |          `.SSHException` -- if the request was rejected or the channel was
+     |          closed
+     |
+     |  set_name(self, name)
+     |      Set a name for this channel.  Currently it's only used to set the name
+     |      of the channel in logfile entries.  The name can be fetched with the
+     |      `get_name` method.
+     |
+     |      :param str name: new channel name
+     |
+     |  setblocking(self, blocking)
+     |      Set blocking or non-blocking mode of the channel: if ``blocking`` is 0,
+     |      the channel is set to non-blocking mode; otherwise it's set to blocking
+     |      mode. Initially all channels are in blocking mode.
+     |
+     |      In non-blocking mode, if a `recv` call doesn't find any data, or if a
+     |      `send` call can't immediately dispose of the data, an error exception
+     |      is raised. In blocking mode, the calls block until they can proceed. An
+     |      EOF condition is considered "immediate data" for `recv`, so if the
+     |      channel is closed in the read direction, it will never block.
+     |
+     |      ``chan.setblocking(0)`` is equivalent to ``chan.settimeout(0)``;
+     |      ``chan.setblocking(1)`` is equivalent to ``chan.settimeout(None)``.
+     |
+     |      :param int blocking:
+     |          0 to set non-blocking mode; non-0 to set blocking mode.
+     |
+     |  settimeout(self, timeout)
+     |      Set a timeout on blocking read/write operations.  The ``timeout``
+     |      argument can be a nonnegative float expressing seconds, or ``None``.
+     |      If a float is given, subsequent channel read/write operations will
+     |      raise a timeout exception if the timeout period value has elapsed
+     |      before the operation has completed.  Setting a timeout of ``None``
+     |      disables timeouts on socket operations.
+     |
+     |      ``chan.settimeout(0.0)`` is equivalent to ``chan.setblocking(0)``;
+     |      ``chan.settimeout(None)`` is equivalent to ``chan.setblocking(1)``.
+     |
+     |      :param float timeout:
+     |          seconds to wait for a pending read/write operation before raising
+     |          ``socket.timeout``, or ``None`` for no timeout.
+     |
+     |  shutdown(self, how)
+     |      Shut down one or both halves of the connection.  If ``how`` is 0,
+     |      further receives are disallowed.  If ``how`` is 1, further sends
+     |      are disallowed.  If ``how`` is 2, further sends and receives are
+     |      disallowed.  This closes the stream in one or both directions.
+     |
+     |      :param int how:
+     |          0 (stop receiving), 1 (stop sending), or 2 (stop receiving and
+     |            sending).
+     |
+     |  shutdown_read(self)
+     |      Shutdown the receiving side of this socket, closing the stream in
+     |      the incoming direction.  After this call, future reads on this
+     |      channel will fail instantly.  This is a convenience method, equivalent
+     |      to ``shutdown(0)``, for people who don't make it a habit to
+     |      memorize unix constants from the 1970s.
+     |
+     |      .. versionadded:: 1.2
+     |
+     |  shutdown_write(self)
+     |      Shutdown the sending side of this socket, closing the stream in
+     |      the outgoing direction.  After this call, future writes on this
+     |      channel will fail instantly.  This is a convenience method, equivalent
+     |      to ``shutdown(1)``, for people who don't make it a habit to
+     |      memorize unix constants from the 1970s.
+     |
+     |      .. versionadded:: 1.2
+     |
+     |  update_environment(self, environment)
+     |      Updates this channel's remote shell environment.
+     |
+     |      .. note::
+     |          This operation is additive - i.e. the current environment is not
+     |          reset before the given environment variables are set.
+     |
+     |      .. warning::
+     |          Servers may silently reject some environment variables; see the
+     |          warning in `set_environment_variable` for details.
+     |
+     |      :param dict environment:
+     |          a dictionary containing the name and respective values to set
+     |      :raises:
+     |          `.SSHException` -- if any of the environment variables was rejected
+     |          by the server or the channel was closed
+     |
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from paramiko.util.ClosingContextManager:
+     |
+     |  __enter__(self)
+     |
+     |  __exit__(self, type, value, traceback)
+     |
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from paramiko.util.ClosingContextManager:
+     |
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+
+    class ChannelException(SSHException)
+     |  ChannelException(code, text)
+     |
+     |  Exception raised when an attempt to open a new `.Channel` fails.
+     |
+     |  :param int code: the error code returned by the server
+     |
+     |  .. versionadded:: 1.6
+     |
+     |  Method resolution order:
+     |      ChannelException
+     |      SSHException
+     |      builtins.Exception
+     |      builtins.BaseException
+     |      builtins.object
+     |
+     |  Methods defined here:
+     |
+     |  __init__(self, code, text)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from SSHException:
+     |
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |
+     |  ----------------------------------------------------------------------
+     |  Static methods inherited from builtins.Exception:
+     |
+     |  __new__(*args, **kwargs) from builtins.type
+     |      Create and return a new object.  See help(type) for accurate signature.
+     |
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from builtins.BaseException:
+     |
+     |  __delattr__(self, name, /)
+     |      Implement delattr(self, name).
+     |
+     |  __getattribute__(self, name, /)
+     |      Return getattr(self, name).
+     |
+     |  __reduce__(...)
+     |      Helper for pickle.
+     |
+     |  __repr__(self, /)
+     |      Return repr(self).
+     |
+     |  __setattr__(self, name, value, /)
+     |      Implement setattr(self, name, value).
+     |
+     |  __setstate__(...)
+     |
+     |  __str__(self, /)
+     |      Return str(self).
+     |
+     |  with_traceback(...)
+     |      Exception.with_traceback(tb) --
+     |      set self.__traceback__ to tb and return self.
+     |
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from builtins.BaseException:
+     |
+     |  __cause__
+     |      exception cause
+     |
+     |  __context__
+     |      exception context
+     |
+     |  __dict__
+     |
+     |  __suppress_context__
+     |
+     |  __traceback__
+     |
+     |  args
+
+    class DSSKey(paramiko.pkey.PKey)
+     |  DSSKey(msg=None, data=None, filename=None, password=None, vals=None, file_obj=None)
+     |
+     |  Representation of a DSS key which can be used to sign an verify SSH2
+     |  data.
+     |
+     |  Method resolution order:
+     |      DSSKey
+     |      paramiko.pkey.PKey
+     |      builtins.object
+     |
+     |  Methods defined here:
+     |
+     |  __hash__(self)
+     |      Return hash(self).
+     |
+     |  __init__(self, msg=None, data=None, filename=None, password=None, vals=None, file_obj=None)
+     |      Create a new instance of this public key type.  If ``msg`` is given,
+     |      the key's public part(s) will be filled in from the message.  If
+     |      ``data`` is given, the key's public part(s) will be filled in from
+     |      the string.
+     |
+     |      :param .Message msg:
+     |          an optional SSH `.Message` containing a public key of this type.
+     |      :param str data: an optional string containing a public key
+     |          of this type
+     |
+     |      :raises: `.SSHException` --
+     |          if a key cannot be created from the ``data`` or ``msg`` given, or
+     |          no key was passed in.
+     |
+     |  __str__(self)
+     |      Return str(self).
+     |
+     |  asbytes(self)
+     |      Return a string of an SSH `.Message` made up of the public part(s) of
+     |      this key.  This string is suitable for passing to `__init__` to
+     |      re-create the key object later.
+     |
+     |  can_sign(self)
+     |      Return ``True`` if this key has the private part necessary for signing
+     |      data.
+     |
+     |  get_bits(self)
+     |      Return the number of significant bits in this key.  This is useful
+     |      for judging the relative security of a key.
+     |
+     |      :return: bits in the key (as an `int`)
+     |
+     |  get_name(self)
+     |      Return the name of this private key implementation.
+     |
+     |      :return:
+     |          name of this private key type, in SSH terminology, as a `str` (for
+     |          example, ``"ssh-rsa"``).
+     |
+     |  sign_ssh_data(self, data)
+     |      Sign a blob of data with this private key, and return a `.Message`
+     |      representing an SSH signature message.
+     |
+     |      :param str data: the data to sign.
+     |      :return: an SSH signature `message <.Message>`.
+     |
+     |  verify_ssh_sig(self, data, msg)
+     |      Given a blob of data, and an SSH message representing a signature of
+     |      that data, verify that it was signed with this key.
+     |
+     |      :param str data: the data that was signed.
+     |      :param .Message msg: an SSH signature message
+     |      :return:
+     |          ``True`` if the signature verifies correctly; ``False`` otherwise.
+     |
+     |  write_private_key(self, file_obj, password=None)
+     |      Write private key contents into a file (or file-like) object.  If the
+     |      password is not ``None``, the key is encrypted before writing.
+     |
+     |      :param file_obj: the file-like object to write into
+     |      :param str password: an optional password to use to encrypt the key
+     |
+     |      :raises: ``IOError`` -- if there was an error writing to the file
+     |      :raises: `.SSHException` -- if the key is invalid
+     |
+     |  write_private_key_file(self, filename, password=None)
+     |      Write private key contents into a file.  If the password is not
+     |      ``None``, the key is encrypted before writing.
+     |
+     |      :param str filename: name of the file to write
+     |      :param str password:
+     |          an optional password to use to encrypt the key file
+     |
+     |      :raises: ``IOError`` -- if there was an error writing the file
+     |      :raises: `.SSHException` -- if the key is invalid
+     |
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |
+     |  generate(bits=1024, progress_func=None)
+     |      Generate a new private DSS key.  This factory function can be used to
+     |      generate a new host key or authentication key.
+     |
+     |      :param int bits: number of bits the generated key should be.
+     |      :param progress_func: Unused
+     |      :return: new `.DSSKey` private key
+     |
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from paramiko.pkey.PKey:
+     |
+     |  __cmp__(self, other)
+     |      Compare this key to another.  Returns 0 if this key is equivalent to
+     |      the given key, or non-0 if they are different.  Only the public parts
+     |      of the key are compared, so a public key will compare equal to its
+     |      corresponding private key.
+     |
+     |      :param .PKey other: key to compare to.
+     |
+     |  __eq__(self, other)
+     |      Return self==value.
+     |
+     |  get_base64(self)
+     |      Return a base64 string containing the public part of this key.  Nothing
+     |      secret is revealed.  This format is compatible with that used to store
+     |      public key files or recognized host keys.
+     |
+     |      :return: a base64 `string <str>` containing the public part of the key.
+     |
+     |  get_fingerprint(self)
+     |      Return an MD5 fingerprint of the public part of this key.  Nothing
+     |      secret is revealed.
+     |
+     |      :return:
+     |          a 16-byte `string <str>` (binary) of the MD5 fingerprint, in SSH
+     |          format.
+     |
+     |  load_certificate(self, value)
+     |      Supplement the private key contents with data loaded from an OpenSSH
+     |      public key (``.pub``) or certificate (``-cert.pub``) file, a string
+     |      containing such a file, or a `.Message` object.
+     |
+     |      The .pub contents adds no real value, since the private key
+     |      file includes sufficient information to derive the public
+     |      key info. For certificates, however, this can be used on
+     |      the client side to offer authentication requests to the server
+     |      based on certificate instead of raw public key.
+     |
+     |      See:
+     |      https://github.com/openssh/openssh-portable/blob/master/PROTOCOL.certkeys
+     |
+     |      Note: very little effort is made to validate the certificate contents,
+     |      that is for the server to decide if it is good enough to authenticate
+     |      successfully.
+     |
+     |  ----------------------------------------------------------------------
+     |  Class methods inherited from paramiko.pkey.PKey:
+     |
+     |  from_private_key(file_obj, password=None) from builtins.type
+     |      Create a key object by reading a private key from a file (or file-like)
+     |      object.  If the private key is encrypted and ``password`` is not
+     |      ``None``, the given password will be used to decrypt the key (otherwise
+     |      `.PasswordRequiredException` is thrown).
+     |
+     |      :param file_obj: the file-like object to read from
+     |      :param str password:
+     |          an optional password to use to decrypt the key, if it's encrypted
+     |      :return: a new `.PKey` based on the given private key
+     |
+     |      :raises: ``IOError`` -- if there was an error reading the key
+     |      :raises: `.PasswordRequiredException` --
+     |          if the private key file is encrypted, and ``password`` is ``None``
+     |      :raises: `.SSHException` -- if the key file is invalid
+     |
+     |  from_private_key_file(filename, password=None) from builtins.type
+     |      Create a key object by reading a private key file.  If the private
+     |      key is encrypted and ``password`` is not ``None``, the given password
+     |      will be used to decrypt the key (otherwise `.PasswordRequiredException`
+     |      is thrown).  Through the magic of Python, this factory method will
+     |      exist in all subclasses of PKey (such as `.RSAKey` or `.DSSKey`), but
+     |      is useless on the abstract PKey class.
+     |
+     |      :param str filename: name of the file to read
+     |      :param str password:
+     |          an optional password to use to decrypt the key file, if it's
+     |          encrypted
+     |      :return: a new `.PKey` based on the given private key
+     |
+     |      :raises: ``IOError`` -- if there was an error reading the file
+     |      :raises: `.PasswordRequiredException` -- if the private key file is
+     |          encrypted, and ``password`` is ``None``
+     |      :raises: `.SSHException` -- if the key file is invalid
+     |
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from paramiko.pkey.PKey:
+     |
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+
+    class HostKeys(collections.abc.MutableMapping)
+     |  HostKeys(filename=None)
+     |
+     |  Representation of an OpenSSH-style "known hosts" file.  Host keys can be
+     |  read from one or more files, and then individual hosts can be looked up to
+     |  verify server keys during SSH negotiation.
+     |
+     |  A `.HostKeys` object can be treated like a dict; any dict lookup is
+     |  equivalent to calling `lookup`.
+     |
+     |  .. versionadded:: 1.5.3
+     |
+     |  Method resolution order:
+     |      HostKeys
+     |      collections.abc.MutableMapping
+     |      collections.abc.Mapping
+     |      collections.abc.Collection
+     |      collections.abc.Sized
+     |      collections.abc.Iterable
+     |      collections.abc.Container
+     |      builtins.object
+     |
+     |  Methods defined here:
+     |
+     |  __delitem__(self, key)
+     |
+     |  __getitem__(self, key)
+     |
+     |  __init__(self, filename=None)
+     |      Create a new HostKeys object, optionally loading keys from an OpenSSH
+     |      style host-key file.
+     |
+     |      :param str filename: filename to load host keys from, or ``None``
+     |
+     |  __iter__(self)
+     |
+     |  __len__(self)
+     |
+     |  __setitem__(self, hostname, entry)
+     |
+     |  add(self, hostname, keytype, key)
+     |      Add a host key entry to the table.  Any existing entry for a
+     |      ``(hostname, keytype)`` pair will be replaced.
+     |
+     |      :param str hostname: the hostname (or IP) to add
+     |      :param str keytype: key type (``"ssh-rsa"`` or ``"ssh-dss"``)
+     |      :param .PKey key: the key to add
+     |
+     |  check(self, hostname, key)
+     |      Return True if the given key is associated with the given hostname
+     |      in this dictionary.
+     |
+     |      :param str hostname: hostname (or IP) of the SSH server
+     |      :param .PKey key: the key to check
+     |      :return:
+     |          ``True`` if the key is associated with the hostname; else ``False``
+     |
+     |  clear(self)
+     |      Remove all host keys from the dictionary.
+     |
+     |  keys(self)
+     |      D.keys() -> a set-like object providing a view on D's keys
+     |
+     |  load(self, filename)
+     |      Read a file of known SSH host keys, in the format used by OpenSSH.
+     |      This type of file unfortunately doesn't exist on Windows, but on
+     |      posix, it will usually be stored in
+     |      ``os.path.expanduser("~/.ssh/known_hosts")``.
+     |
+     |      If this method is called multiple times, the host keys are merged,
+     |      not cleared.  So multiple calls to `load` will just call `add`,
+     |      replacing any existing entries and adding new ones.
+     |
+     |      :param str filename: name of the file to read host keys from
+     |
+     |      :raises: ``IOError`` -- if there was an error reading the file
+     |
+     |  lookup(self, hostname)
+     |      Find a hostkey entry for a given hostname or IP.  If no entry is found,
+     |      ``None`` is returned.  Otherwise a dictionary of keytype to key is
+     |      returned.  The keytype will be either ``"ssh-rsa"`` or ``"ssh-dss"``.
+     |
+     |      :param str hostname: the hostname (or IP) to lookup
+     |      :return: dict of `str` -> `.PKey` keys associated with this host
+     |          (or ``None``)
+     |
+     |  save(self, filename)
+     |      Save host keys into a file, in the format used by OpenSSH.  The order
+     |      of keys in the file will be preserved when possible (if these keys were
+     |      loaded from a file originally).  The single exception is that combined
+     |      lines will be split into individual key lines, which is arguably a bug.
+     |
+     |      :param str filename: name of the file to write
+     |
+     |      :raises: ``IOError`` -- if there was an error writing the file
+     |
+     |      .. versionadded:: 1.6.1
+     |
+     |  values(self)
+     |      D.values() -> an object providing a view on D's values
+     |
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |
+     |  hash_host(hostname, salt=None)
+     |      Return a "hashed" form of the hostname, as used by OpenSSH when storing
+     |      hashed hostnames in the known_hosts file.
+     |
+     |      :param str hostname: the hostname to hash
+     |      :param str salt: optional salt to use when hashing
+     |          (must be 20 bytes long)
+     |      :return: the hashed hostname as a `str`
+     |
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |
+     |  __abstractmethods__ = frozenset()
+     |
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from collections.abc.MutableMapping:
+     |
+     |  pop(self, key, default=<object object at 0x00DA4098>)
+     |      D.pop(k[,d]) -> v, remove specified key and return the corresponding value.
+     |      If key is not found, d is returned if given, otherwise KeyError is raised.
+     |
+     |  popitem(self)
+     |      D.popitem() -> (k, v), remove and return some (key, value) pair
+     |      as a 2-tuple; but raise KeyError if D is empty.
+     |
+     |  setdefault(self, key, default=None)
+     |      D.setdefault(k[,d]) -> D.get(k,d), also set D[k]=d if k not in D
+     |
+     |  update(*args, **kwds)
+     |      D.update([E, ]**F) -> None.  Update D from mapping/iterable E and F.
+     |      If E present and has a .keys() method, does:     for k in E: D[k] = E[k]
+     |      If E present and lacks .keys() method, does:     for (k, v) in E: D[k] = v
+     |      In either case, this is followed by: for k, v in F.items(): D[k] = v
+     |
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from collections.abc.Mapping:
+     |
+     |  __contains__(self, key)
+     |
+     |  __eq__(self, other)
+     |      Return self==value.
+     |
+     |  get(self, key, default=None)
+     |      D.get(k[,d]) -> D[k] if k in D, else d.  d defaults to None.
+     |
+     |  items(self)
+     |      D.items() -> a set-like object providing a view on D's items
+     |
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from collections.abc.Mapping:
+     |
+     |  __hash__ = None
+     |
+     |  __reversed__ = None
+     |
+     |  ----------------------------------------------------------------------
+     |  Class methods inherited from collections.abc.Collection:
+     |
+     |  __subclasshook__(C) from abc.ABCMeta
+     |      Abstract classes can override this to customize issubclass().
+     |
+     |      This is invoked early on by abc.ABCMeta.__subclasscheck__().
+     |      It should return True, False or NotImplemented.  If it returns
+     |      NotImplemented, the normal algorithm is used.  Otherwise, it
+     |      overrides the normal algorithm (and the outcome is cached).
+
+    class Message(builtins.object)
+     |  Message(content=None)
+     |
+     |  An SSH2 message is a stream of bytes that encodes some combination of
+     |  strings, integers, bools, and infinite-precision integers (known in Python
+     |  as longs).  This class builds or breaks down such a byte stream.
+     |
+     |  Normally you don't need to deal with anything this low-level, but it's
+     |  exposed for people implementing custom extensions, or features that
+     |  paramiko doesn't support yet.
+     |
+     |  Methods defined here:
+     |
+     |  __init__(self, content=None)
+     |      Create a new SSH2 message.
+     |
+     |      :param str content:
+     |          the byte stream to use as the message content (passed in only when
+     |          decomposing a message).
+     |
+     |  __repr__(self)
+     |      Returns a string representation of this object, for debugging.
+     |
+     |  __str__(self)
+     |      Return the byte stream content of this message, as a string/bytes obj.
+     |
+     |  add(self, *seq)
+     |      Add a sequence of items to the stream.  The values are encoded based
+     |      on their type: str, int, bool, list, or long.
+     |
+     |      .. warning::
+     |          Longs are encoded non-deterministically.  Don't use this method.
+     |
+     |      :param seq: the sequence of items
+     |
+     |  add_adaptive_int(self, n)
+     |      Add an integer to the stream.
+     |
+     |      :param int n: integer to add
+     |
+     |  add_boolean(self, b)
+     |      Add a boolean value to the stream.
+     |
+     |      :param bool b: boolean value to add
+     |
+     |  add_byte(self, b)
+     |      Write a single byte to the stream, without any formatting.
+     |
+     |      :param str b: byte to add
+     |
+     |  add_bytes(self, b)
+     |      Write bytes to the stream, without any formatting.
+     |
+     |      :param str b: bytes to add
+     |
+     |  add_int(self, n)
+     |      Add an integer to the stream.
+     |
+     |      :param int n: integer to add
+     |
+     |  add_int64(self, n)
+     |      Add a 64-bit int to the stream.
+     |
+     |      :param long n: long int to add
+     |
+     |  add_list(self, l)
+     |      Add a list of strings to the stream.  They are encoded identically to
+     |      a single string of values separated by commas.  (Yes, really, that's
+     |      how SSH2 does it.)
+     |
+     |      :param l: list of strings to add
+     |
+     |  add_mpint(self, z)
+     |      Add a long int to the stream, encoded as an infinite-precision
+     |      integer.  This method only works on positive numbers.
+     |
+     |      :param long z: long int to add
+     |
+     |  add_string(self, s)
+     |      Add a string to the stream.
+     |
+     |      :param str s: string to add
+     |
+     |  asbytes(self)
+     |      Return the byte stream content of this Message, as bytes.
+     |
+     |  get_adaptive_int(self)
+     |      Fetch an int from the stream.
+     |
+     |      :return: a 32-bit unsigned `int`.
+     |
+     |  get_binary(self)
+     |      Fetch a string from the stream.  This could be a byte string and may
+     |      contain unprintable characters.  (It's not unheard of for a string to
+     |      contain another byte-stream Message.)
+     |
+     |  get_boolean(self)
+     |      Fetch a boolean from the stream.
+     |
+     |  get_byte(self)
+     |      Return the next byte of the message, without decomposing it.  This
+     |      is equivalent to `get_bytes(1) <get_bytes>`.
+     |
+     |      :return:
+     |          the next (`str`) byte of the message, or ``'

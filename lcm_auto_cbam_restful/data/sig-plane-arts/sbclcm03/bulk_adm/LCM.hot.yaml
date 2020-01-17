@@ -1,0 +1,854 @@
+heat_template_version: 2015-04-30
+
+description: |
+  Example HOT file illustrating elasticity groups.
+
+parameters:
+
+  cbam:
+    type: json
+    description: |
+      Values provided via the CBAM VNFD and input files.
+
+resources:
+
+  FORMATXLATE:
+    type: LCP-CBAM.template.yaml
+    properties:
+      cbam: {get_param: cbam}
+      lcp: {get_param: ["cbam", "lcp"]}
+      vmtype_list: ["oam", "sc", "fw", "pfw", "bgc", "cfed", "dfed", "ccf"]
+      stack: {get_param: "OS::stack_name"}
+      tag2rsc: {
+        "oam": "OAM",
+        "sc": "SC_RRG",
+        "fw": "FW_RRG",
+        "pfw": "PFW_RRG",
+        "bgc": "BGC_RRG",
+        "cfed": "CFED_RRG",
+        "dfed": "DFED_RRG",
+        "ccf": "CCF_RRG",
+        "": ""
+      }
+
+  "RESV_shared_PRG": {
+    "type": "OS::Heat::ResourceGroup",
+    "properties": {
+      "count": {
+        "str_replace": {
+          "params": {
+            "$cnt": {
+              "get_param": [
+                "cbam",
+                "extensions",
+                "resv_ips",
+                "port_count"
+              ]
+            }
+          },
+          "template": "0$cnt"
+        }
+      },
+      "resource_def": {
+        "type": "LCP-ReservedPort.template.yaml",
+        "properties": {
+          "ext_net_info": {
+            "get_param": ["cbam", "extensions", "ext_net_info"]
+          },
+          "pgroup_member": "%index%",
+          "usage_info": {get_attr: [FORMATXLATE, usage_info]},
+          "resv_ips": {
+            "get_param": [
+              "cbam",
+              "extensions",
+              "resv_ips"
+            ]
+          }
+        }
+      }
+    }
+  }
+  NOKIA-LCP-Base:
+    type: LCP-Base.template.yaml
+    depends_on:
+      - FORMATXLATE
+    properties:
+      usage_info: {get_attr: [FORMATXLATE, usage_info]}
+      int_net_count: 1
+      ext_net_list: ['oam_v4', 'sig_core1_v4', 'sig_core2_v4', 'h248_net_v4', 'sig_access_v4_duplex1', 'sig_access_v4_duplex2', 'sig_pfed_v4_duplex1', 'sig_pfed_v4_duplex2', 'oam_v6', 'sig_core1_v6', 'sig_core2_v6', 'sig_access_v6_duplex1', 'sig_access_v6_duplex2', 'sig_pfed_v6_duplex1', 'sig_pfed_v6_duplex2']
+      ext_net_info: {get_attr: [FORMATXLATE, ext_net_info]}
+      total_vm_pairs: {get_attr: [FORMATXLATE, total_vm_pairs]}
+      total_nk_vm_count: {get_attr: [FORMATXLATE, total_nk_vm_count]}
+
+  OAM:
+    type: LCP-PairGroup.template.yaml
+    depends_on:
+      - NOKIA-LCP-Base
+      - SC_RRG
+      - FW_RRG
+      - PFW_RRG
+      - CFED_RRG
+      - DFED_RRG
+      - CCF_RRG
+      
+    properties:
+      default_action: {get_attr: [FORMATXLATE, default_action]}
+      default_name_base:
+        str_replace:
+          template: |
+            {"": "OAM$delimiter0$delimiter"}
+          params:
+            $delimiter: {get_attr: [FORMATXLATE, usage_info, cloud_name_delimiter]}
+      group_id: "0"
+      group_tag: "oam"
+      group_index: '0'
+      current_group_count: 1
+      role: "oam"
+      lcm_keypair: {get_attr: [FORMATXLATE, lcm_keypair]}
+      total_pair_count: {get_attr: [NOKIA-LCP-Base, TotalPairCount]}
+      total_nk_vm_count: {get_attr: [NOKIA-LCP-Base, TotalNkVmCount]}
+      backup_file1: {get_attr: [FORMATXLATE, backup_file1]}
+      backup_file2: {get_attr: [FORMATXLATE, backup_file2]}
+      certificate: {get_attr: [FORMATXLATE, certificate]}
+      name_delimiter: {get_attr: [FORMATXLATE, usage_info, cloud_name_delimiter]}
+      int_net_count: 1
+      install_config: {get_attr: [FORMATXLATE, install_config]}
+      net_info_str: {get_attr: [NOKIA-LCP-Base, NetInfoStr]}
+      sec_group: {get_attr: [NOKIA-LCP-Base, OpenSec]}
+      ssh_access_key: {get_attr: [FORMATXLATE, ssh_access_key]}
+      ssh_public_key: {get_attr: [NOKIA-LCP-Base, PublicKey]}
+      ssh_private_key: {get_attr: [NOKIA-LCP-Base, PrivateKey]}
+      storagevol_type: {get_attr: [FORMATXLATE, storagevol_type]}
+      storage_size: 68
+      int_net_info: {get_attr: [NOKIA-LCP-Base, IntNetInfo]}
+      ext_net_info: {get_attr: [FORMATXLATE, ext_net_info]}
+      usage_info: {get_attr: [FORMATXLATE, usage_info]}
+      config_info: {
+        poolinfo: '["cnfg-0", "mi-0", "sns-0"]',
+        "v4_static_routes": '{}',
+        "v6_static_routes": '{}',
+        v4_default_gateway: "oam_v4",
+        v6_default_gateway: "oam_v6",
+        
+        vnic_count: 2,
+        "0": { 
+          vnic_info: {
+            
+            "0": [
+              {"count": "0", "binding_type": "normal", "subnet_count": "1", "allowed_subnets": ["INTERNALnet0"]},
+              {"label": "connectivity_ip;subnet=INTERNALnet0", "subnet": "INTERNALnet0"},
+              
+            ],      
+            
+            "1": [
+              {"count": "3", "binding_type": "normal", "subnet_count": "1", "allowed_subnets": ["oam_v4"]},
+              {"label": "servicetype=mi-0;fixed;nitype=default;subnet=oam_v4;index=0", "subnet": "oam_v4"},
+              {"label": "servicetype=mi-0;float;nitype=default;subnet=oam_v4;index=0", "subnet": "oam_v4"},
+              {"label": "servicetype=cnfg-0;float;nitype=default;subnet=oam_v4;index=0", "subnet": "oam_v4"},
+              
+            ],
+            
+          }
+        },
+        "1": { 
+          vnic_info: {
+            
+            "0": [
+              {"count": "0", "binding_type": "normal", "subnet_count": "1", "allowed_subnets": ["INTERNALnet0"]},
+              {"label": "connectivity_ip;subnet=INTERNALnet0", "subnet": "INTERNALnet0"},
+              
+            ],      
+            
+            "1": [
+              {"count": "1", "binding_type": "normal", "subnet_count": "1", "allowed_subnets": ["oam_v4"]},
+              {"label": "servicetype=mi-0;fixed;nitype=default;subnet=oam_v4;index=0", "subnet": "oam_v4"},
+              
+            ],
+            
+          }
+        }
+        
+      }
+  
+  SC_RRG:
+    type: OS::Heat::ResourceGroup
+    depends_on:
+      - NOKIA-LCP-Base
+      - FW_RRG
+      - PFW_RRG
+      - CFED_RRG
+      
+    properties:
+      count: {get_param: [cbam, resources, SC_RRG, count] }
+      resource_def:
+        type: LCP-PairGroup.template.yaml
+        properties:
+          default_action: {get_attr: [FORMATXLATE, default_action]}
+          default_name_base:
+            str_replace:
+              template: |
+                {"": "SC$delimiter%index%$delimiter"}
+              params:
+                $delimiter: {get_attr: [FORMATXLATE, usage_info, cloud_name_delimiter]}
+          group_id: "1"
+          group_tag: "sc"
+          group_index: '%index%'
+          current_group_count: {get_param: [cbam, resources, SC_RRG, count] }
+          lcm_keypair: {get_attr: [FORMATXLATE, lcm_keypair]}
+          total_pair_count: {get_attr: [NOKIA-LCP-Base, TotalPairCount]}
+          total_nk_vm_count: {get_attr: [NOKIA-LCP-Base, TotalNkVmCount]}
+          backup_file1: {get_attr: [FORMATXLATE, backup_file1]}
+          backup_file2: {get_attr: [FORMATXLATE, backup_file2]}
+          name_delimiter: {get_attr: [FORMATXLATE, usage_info, cloud_name_delimiter]}
+          install_config: {get_attr: [FORMATXLATE, install_config]}
+          net_info_str: {get_attr: [NOKIA-LCP-Base, NetInfoStr]}
+          sec_group: {get_attr: [NOKIA-LCP-Base, OpenSec]}
+          ssh_access_key: {get_attr: [FORMATXLATE, ssh_access_key]}
+          ssh_public_key: {get_attr: [NOKIA-LCP-Base, PublicKey]}
+          ssh_private_key: {get_attr: [NOKIA-LCP-Base, PrivateKey]}
+          storagevol_type: {get_attr: [FORMATXLATE, storagevol_type]}
+          storage_size: 4
+          int_net_count: 1
+          int_net_info: {get_attr: [NOKIA-LCP-Base, IntNetInfo]}
+          ext_net_info: {get_attr: [FORMATXLATE, ext_net_info]}
+          usage_info: {get_attr: [FORMATXLATE, usage_info]}
+          config_info: {
+            poolinfo: '["ims-0", "ims-1", "ims-2", "ims-3", "gos-0"]',
+            "v4_static_routes": '{}',
+            "v6_static_routes": '{}',
+            
+            v4_default_gateway: "",
+            
+            v6_default_gateway: "",
+            
+            vnic_count: 1,
+            "0": { 
+              vnic_info: {
+                
+                "0": [
+                  {"count": "0", "binding_type": "normal", "subnet_count": "1", "allowed_subnets": ["INTERNALnet0"]},
+                  {"label": "connectivity_ip;subnet=INTERNALnet0", "subnet": "INTERNALnet0"},
+                  {"label": "servicetype=ims-0;float;nitype=published;subnet=sig_access_v4_duplex1;index=0", "subnet": "sig_access_v4_duplex1"},
+                  {"label": "servicetype=ims-1;float;nitype=published;subnet=sig_access_v4_duplex1;index=0", "subnet": "sig_access_v4_duplex1"},
+                  {"label": "servicetype=ims-2;float;nitype=published;subnet=sig_access_v4_duplex1;index=0", "subnet": "sig_access_v4_duplex1"},
+                  {"label": "servicetype=ims-3;float;nitype=published;subnet=sig_access_v4_duplex1;index=0", "subnet": "sig_access_v4_duplex1"},
+                  {"label": "servicetype=ims-0;float;nitype=published;subnet=sig_access_v4_duplex2;index=1", "subnet": "sig_access_v4_duplex2"},
+                  {"label": "servicetype=ims-1;float;nitype=published;subnet=sig_access_v4_duplex2;index=1", "subnet": "sig_access_v4_duplex2"},
+                  {"label": "servicetype=ims-2;float;nitype=published;subnet=sig_access_v4_duplex2;index=1", "subnet": "sig_access_v4_duplex2"},
+                  {"label": "servicetype=ims-3;float;nitype=published;subnet=sig_access_v4_duplex2;index=1", "subnet": "sig_access_v4_duplex2"},
+                  {"label": "servicetype=ims-0;float;nitype=published;subnet=sig_access_v6_duplex1;index=0", "subnet": "sig_access_v6_duplex1"},
+                  {"label": "servicetype=ims-1;float;nitype=published;subnet=sig_access_v6_duplex1;index=0", "subnet": "sig_access_v6_duplex1"},
+                  {"label": "servicetype=ims-2;float;nitype=published;subnet=sig_access_v6_duplex1;index=0", "subnet": "sig_access_v6_duplex1"},
+                  {"label": "servicetype=ims-3;float;nitype=published;subnet=sig_access_v6_duplex1;index=0", "subnet": "sig_access_v6_duplex1"},
+                  {"label": "servicetype=ims-0;float;nitype=published;subnet=sig_access_v6_duplex2;index=1", "subnet": "sig_access_v6_duplex2"},
+                  {"label": "servicetype=ims-1;float;nitype=published;subnet=sig_access_v6_duplex2;index=1", "subnet": "sig_access_v6_duplex2"},
+                  {"label": "servicetype=ims-2;float;nitype=published;subnet=sig_access_v6_duplex2;index=1", "subnet": "sig_access_v6_duplex2"},
+                  {"label": "servicetype=ims-3;float;nitype=published;subnet=sig_access_v6_duplex2;index=1", "subnet": "sig_access_v6_duplex2"},
+                  
+                ],      
+                
+              }
+            },
+            "1": { 
+              vnic_info: {
+                
+                "0": [
+                  {"count": "0", "binding_type": "normal", "subnet_count": "1", "allowed_subnets": ["INTERNALnet0"]},
+                  {"label": "connectivity_ip;subnet=INTERNALnet0", "subnet": "INTERNALnet0"},
+                  
+                ],      
+                
+              }
+            }
+            
+          }
+  
+  FW_RRG:
+    type: OS::Heat::ResourceGroup
+    depends_on:
+      - NOKIA-LCP-Base
+      
+    properties:
+      count: {get_param: [cbam, resources, FW_RRG, count] }
+      resource_def:
+        type: LCP-PairGroup.template.yaml
+        properties:
+          default_action: {get_attr: [FORMATXLATE, default_action]}
+          default_name_base:
+            str_replace:
+              template: |
+                {"": "FW$delimiter%index%$delimiter"}
+              params:
+                $delimiter: {get_attr: [FORMATXLATE, usage_info, cloud_name_delimiter]}
+          group_id: "2"
+          group_tag: "fw"
+          group_index: '%index%'
+          current_group_count: {get_param: [cbam, resources, FW_RRG, count] }
+          lcm_keypair: {get_attr: [FORMATXLATE, lcm_keypair]}
+          total_pair_count: {get_attr: [NOKIA-LCP-Base, TotalPairCount]}
+          total_nk_vm_count: {get_attr: [NOKIA-LCP-Base, TotalNkVmCount]}
+          backup_file1: {get_attr: [FORMATXLATE, backup_file1]}
+          backup_file2: {get_attr: [FORMATXLATE, backup_file2]}
+          name_delimiter: {get_attr: [FORMATXLATE, usage_info, cloud_name_delimiter]}
+          install_config: {get_attr: [FORMATXLATE, install_config]}
+          net_info_str: {get_attr: [NOKIA-LCP-Base, NetInfoStr]}
+          sec_group: {get_attr: [NOKIA-LCP-Base, OpenSec]}
+          ssh_access_key: {get_attr: [FORMATXLATE, ssh_access_key]}
+          ssh_public_key: {get_attr: [NOKIA-LCP-Base, PublicKey]}
+          ssh_private_key: {get_attr: [NOKIA-LCP-Base, PrivateKey]}
+          storagevol_type: {get_attr: [FORMATXLATE, storagevol_type]}
+          storage_size: 4
+          int_net_count: 1
+          int_net_info: {get_attr: [NOKIA-LCP-Base, IntNetInfo]}
+          ext_net_info: {get_attr: [FORMATXLATE, ext_net_info]}
+          usage_info: {get_attr: [FORMATXLATE, usage_info]}
+          config_info: {
+            poolinfo: '["feph-0", "gos-3"]',
+            "v4_static_routes": '{}',
+            "v6_static_routes": '{}',
+            v4_default_gateway: "sig_access_v4_duplex1",
+            v6_default_gateway: "sig_access_v6_duplex1",
+            
+            vnic_count: 3,
+            "0": { 
+              vnic_info: {
+                
+                "0": [
+                  {"count": "0", "binding_type": "normal", "subnet_count": "1", "allowed_subnets": ["INTERNALnet0"]},
+                  {"label": "connectivity_ip;subnet=INTERNALnet0", "subnet": "INTERNALnet0"},
+                  
+                ],      
+                
+                "1": [
+                  {"count": "4", "binding_type": "direct", "subnet_count": "2", "allowed_subnets": ["sig_access_v4_duplex1","sig_access_v6_duplex1"]},
+                  {"label": "servicetype=feph-0;float;nitype=published;subnet=sig_access_v4_duplex1;index=0", "subnet": "sig_access_v4_duplex1"},
+                  {"label": "servicetype=feph-0;float;nitype=published;subnet=sig_access_v6_duplex1;index=0", "subnet": "sig_access_v6_duplex1"},
+                  {"label": "servicetype=ims-0;float;nitype=published;subnet=sig_access_v4_duplex1;index=0;VM=pair:sc:1:0:0", "subnet": "sig_access_v4_duplex1"},
+                  {"label": "servicetype=ims-0;float;nitype=published;subnet=sig_access_v6_duplex1;index=0;VM=pair:sc:1:0:0", "subnet": "sig_access_v6_duplex1"},
+                  
+                ],
+                
+                "2": [
+                  {"count": "4", "binding_type": "direct", "subnet_count": "2", "allowed_subnets": ["sig_access_v4_duplex2","sig_access_v6_duplex2"]},
+                  {"label": "servicetype=feph-0;float;nitype=published;subnet=sig_access_v4_duplex2;index=1", "subnet": "sig_access_v4_duplex2"},
+                  {"label": "servicetype=feph-0;float;nitype=published;subnet=sig_access_v6_duplex2;index=1", "subnet": "sig_access_v6_duplex2"},
+                  {"label": "servicetype=ims-0;float;nitype=published;subnet=sig_access_v4_duplex2;index=1;VM=pair:sc:1:0:0", "subnet": "sig_access_v4_duplex2"},
+                  {"label": "servicetype=ims-0;float;nitype=published;subnet=sig_access_v6_duplex2;index=1;VM=pair:sc:1:0:0", "subnet": "sig_access_v6_duplex2"},
+                  
+                ],
+                
+              }
+            },
+            "1": { 
+              vnic_info: {
+                
+                "0": [
+                  {"count": "0", "binding_type": "normal", "subnet_count": "1", "allowed_subnets": ["INTERNALnet0"]},
+                  {"label": "connectivity_ip;subnet=INTERNALnet0", "subnet": "INTERNALnet0"},
+                  
+                ],      
+                
+                "1": [
+                  {"count": "2", "binding_type": "direct", "subnet_count": "2", "allowed_subnets": ["sig_access_v4_duplex1","sig_access_v6_duplex1"]},
+                  {"label": "connectivity_ip;subnet=sig_access_v4_duplex1", "subnet": "sig_access_v4_duplex1"},
+                  {"label": "connectivity_ip;subnet=sig_access_v6_duplex1", "subnet": "sig_access_v6_duplex1"},
+                  
+                ],
+                
+                "2": [
+                  {"count": "2", "binding_type": "direct", "subnet_count": "2", "allowed_subnets": ["sig_access_v4_duplex2","sig_access_v6_duplex2"]},
+                  {"label": "connectivity_ip;subnet=sig_access_v4_duplex2", "subnet": "sig_access_v4_duplex2"},
+                  {"label": "connectivity_ip;subnet=sig_access_v6_duplex2", "subnet": "sig_access_v6_duplex2"},
+                  
+                ],
+                
+              }
+            }
+            
+          }
+  
+  PFW_RRG:
+    type: OS::Heat::ResourceGroup
+    depends_on:
+      - NOKIA-LCP-Base
+      
+    properties:
+      count: {get_param: [cbam, resources, PFW_RRG, count] }
+      resource_def:
+        type: LCP-PairGroup.template.yaml
+        properties:
+          default_action: {get_attr: [FORMATXLATE, default_action]}
+          default_name_base:
+            str_replace:
+              template: |
+                {"": "PFW$delimiter%index%$delimiter"}
+              params:
+                $delimiter: {get_attr: [FORMATXLATE, usage_info, cloud_name_delimiter]}
+          group_id: "3"
+          group_tag: "pfw"
+          group_index: '%index%'
+          current_group_count: {get_param: [cbam, resources, PFW_RRG, count] }
+          lcm_keypair: {get_attr: [FORMATXLATE, lcm_keypair]}
+          total_pair_count: {get_attr: [NOKIA-LCP-Base, TotalPairCount]}
+          total_nk_vm_count: {get_attr: [NOKIA-LCP-Base, TotalNkVmCount]}
+          backup_file1: {get_attr: [FORMATXLATE, backup_file1]}
+          backup_file2: {get_attr: [FORMATXLATE, backup_file2]}
+          name_delimiter: {get_attr: [FORMATXLATE, usage_info, cloud_name_delimiter]}
+          install_config: {get_attr: [FORMATXLATE, install_config]}
+          net_info_str: {get_attr: [NOKIA-LCP-Base, NetInfoStr]}
+          sec_group: {get_attr: [NOKIA-LCP-Base, OpenSec]}
+          ssh_access_key: {get_attr: [FORMATXLATE, ssh_access_key]}
+          ssh_public_key: {get_attr: [NOKIA-LCP-Base, PublicKey]}
+          ssh_private_key: {get_attr: [NOKIA-LCP-Base, PrivateKey]}
+          storagevol_type: {get_attr: [FORMATXLATE, storagevol_type]}
+          storage_size: 4
+          int_net_count: 1
+          int_net_info: {get_attr: [NOKIA-LCP-Base, IntNetInfo]}
+          ext_net_info: {get_attr: [FORMATXLATE, ext_net_info]}
+          usage_info: {get_attr: [FORMATXLATE, usage_info]}
+          config_info: {
+            poolinfo: '["pfed-0", "gos-5"]',
+            "v4_static_routes": '{}',
+            "v6_static_routes": '{}',
+            v4_default_gateway: "sig_pfed_v4_duplex1",
+            v6_default_gateway: "sig_pfed_v6_duplex1",
+            
+            vnic_count: 3,
+            "0": { 
+              vnic_info: {
+                
+                "0": [
+                  {"count": "0", "binding_type": "normal", "subnet_count": "1", "allowed_subnets": ["INTERNALnet0"]},
+                  {"label": "connectivity_ip;subnet=INTERNALnet0", "subnet": "INTERNALnet0"},
+                  
+                ],      
+                
+                "1": [
+                  {"count": "2", "binding_type": "direct", "subnet_count": "2", "allowed_subnets": ["sig_pfed_v4_duplex1","sig_pfed_v6_duplex1"]},
+                  {"label": "servicetype=pfed-0;float;nitype=published;subnet=sig_pfed_v4_duplex1;index=0", "subnet": "sig_pfed_v4_duplex1"},
+                  {"label": "servicetype=pfed-0;float;nitype=published;subnet=sig_pfed_v6_duplex1;index=0", "subnet": "sig_pfed_v6_duplex1"},
+                  
+                ],
+                
+                "2": [
+                  {"count": "2", "binding_type": "direct", "subnet_count": "2", "allowed_subnets": ["sig_pfed_v4_duplex2","sig_pfed_v6_duplex2"]},
+                  {"label": "servicetype=pfed-0;float;nitype=published;subnet=sig_pfed_v4_duplex2;index=1", "subnet": "sig_pfed_v4_duplex2"},
+                  {"label": "servicetype=pfed-0;float;nitype=published;subnet=sig_pfed_v6_duplex2;index=1", "subnet": "sig_pfed_v6_duplex2"},
+                  
+                ],
+                
+              }
+            },
+            "1": { 
+              vnic_info: {
+                
+                "0": [
+                  {"count": "0", "binding_type": "normal", "subnet_count": "1", "allowed_subnets": ["INTERNALnet0"]},
+                  {"label": "connectivity_ip;subnet=INTERNALnet0", "subnet": "INTERNALnet0"},
+                  
+                ],      
+                
+                "1": [
+                  {"count": "2", "binding_type": "direct", "subnet_count": "2", "allowed_subnets": ["sig_pfed_v4_duplex1","sig_pfed_v6_duplex1"]},
+                  {"label": "connectivity_ip;subnet=sig_pfed_v4_duplex1", "subnet": "sig_pfed_v4_duplex1"},
+                  {"label": "connectivity_ip;subnet=sig_pfed_v6_duplex1", "subnet": "sig_pfed_v6_duplex1"},
+                  
+                ],
+                
+                "2": [
+                  {"count": "2", "binding_type": "direct", "subnet_count": "2", "allowed_subnets": ["sig_pfed_v4_duplex2","sig_pfed_v6_duplex2"]},
+                  {"label": "connectivity_ip;subnet=sig_pfed_v4_duplex2", "subnet": "sig_pfed_v4_duplex2"},
+                  {"label": "connectivity_ip;subnet=sig_pfed_v6_duplex2", "subnet": "sig_pfed_v6_duplex2"},
+                  
+                ],
+                
+              }
+            }
+            
+          }
+  
+  BGC_RRG:
+    type: OS::Heat::ResourceGroup
+    depends_on:
+      - NOKIA-LCP-Base
+      - SC_RRG
+      - FW_RRG
+      - PFW_RRG
+      - CFED_RRG
+      - DFED_RRG
+      - CCF_RRG
+      
+    properties:
+      count: {get_param: [cbam, resources, BGC_RRG, count] }
+      resource_def:
+        type: LCP-PairGroup.template.yaml
+        properties:
+          default_action: {get_attr: [FORMATXLATE, default_action]}
+          default_name_base:
+            str_replace:
+              template: |
+                {"": "BGC$delimiter%index%$delimiter"}
+              params:
+                $delimiter: {get_attr: [FORMATXLATE, usage_info, cloud_name_delimiter]}
+          group_id: "4"
+          group_tag: "bgc"
+          group_index: '%index%'
+          current_group_count: {get_param: [cbam, resources, BGC_RRG, count] }
+          lcm_keypair: {get_attr: [FORMATXLATE, lcm_keypair]}
+          total_pair_count: {get_attr: [NOKIA-LCP-Base, TotalPairCount]}
+          total_nk_vm_count: {get_attr: [NOKIA-LCP-Base, TotalNkVmCount]}
+          backup_file1: {get_attr: [FORMATXLATE, backup_file1]}
+          backup_file2: {get_attr: [FORMATXLATE, backup_file2]}
+          name_delimiter: {get_attr: [FORMATXLATE, usage_info, cloud_name_delimiter]}
+          install_config: {get_attr: [FORMATXLATE, install_config]}
+          net_info_str: {get_attr: [NOKIA-LCP-Base, NetInfoStr]}
+          sec_group: {get_attr: [NOKIA-LCP-Base, OpenSec]}
+          ssh_access_key: {get_attr: [FORMATXLATE, ssh_access_key]}
+          ssh_public_key: {get_attr: [NOKIA-LCP-Base, PublicKey]}
+          ssh_private_key: {get_attr: [NOKIA-LCP-Base, PrivateKey]}
+          storagevol_type: {get_attr: [FORMATXLATE, storagevol_type]}
+          storage_size: 4
+          int_net_count: 1
+          int_net_info: {get_attr: [NOKIA-LCP-Base, IntNetInfo]}
+          ext_net_info: {get_attr: [FORMATXLATE, ext_net_info]}
+          usage_info: {get_attr: [FORMATXLATE, usage_info]}
+          config_info: {
+            poolinfo: '["h248-0", "h248-1", "gos-1"]',
+            "v4_static_routes": '{}',
+            "v6_static_routes": '{}',
+            v4_default_gateway: "h248_net_v4",
+            
+            v6_default_gateway: "",
+            
+            vnic_count: 2,
+            "0": { 
+              vnic_info: {
+                
+                "0": [
+                  {"count": "0", "binding_type": "normal", "subnet_count": "1", "allowed_subnets": ["INTERNALnet0"]},
+                  {"label": "connectivity_ip;subnet=INTERNALnet0", "subnet": "INTERNALnet0"},
+                  
+                ],      
+                
+                "1": [
+                  {"count": "2", "binding_type": "normal", "subnet_count": "1", "allowed_subnets": ["h248_net_v4"]},
+                  {"label": "servicetype=h248-0;float;nitype=h248sig;subnet=h248_net_v4;index=0", "subnet": "h248_net_v4"},
+                  {"label": "servicetype=h248-1;float;nitype=h248sig;subnet=h248_net_v4;index=0", "subnet": "h248_net_v4"},
+                  
+                ],
+                
+              }
+            },
+            "1": { 
+              vnic_info: {
+                
+                "0": [
+                  {"count": "0", "binding_type": "normal", "subnet_count": "1", "allowed_subnets": ["INTERNALnet0"]},
+                  {"label": "connectivity_ip;subnet=INTERNALnet0", "subnet": "INTERNALnet0"},
+                  
+                ],      
+                
+                "1": [
+                  {"count": "1", "binding_type": "normal", "subnet_count": "1", "allowed_subnets": ["h248_net_v4"]},
+                  {"label": "connectivity_ip;subnet=h248_net_v4", "subnet": "h248_net_v4"},
+                  
+                ],
+                
+              }
+            }
+            
+          }
+  
+  CFED_RRG:
+    type: OS::Heat::ResourceGroup
+    depends_on:
+      - NOKIA-LCP-Base
+      - FW_RRG
+      - PFW_RRG
+      
+    properties:
+      count: {get_param: [cbam, resources, CFED_RRG, count] }
+      resource_def:
+        type: LCP-PairGroup.template.yaml
+        properties:
+          default_action: {get_attr: [FORMATXLATE, default_action]}
+          default_name_base:
+            str_replace:
+              template: |
+                {"": "CFED$delimiter%index%$delimiter"}
+              params:
+                $delimiter: {get_attr: [FORMATXLATE, usage_info, cloud_name_delimiter]}
+          group_id: "5"
+          group_tag: "cfed"
+          group_index: '%index%'
+          current_group_count: {get_param: [cbam, resources, CFED_RRG, count] }
+          lcm_keypair: {get_attr: [FORMATXLATE, lcm_keypair]}
+          total_pair_count: {get_attr: [NOKIA-LCP-Base, TotalPairCount]}
+          total_nk_vm_count: {get_attr: [NOKIA-LCP-Base, TotalNkVmCount]}
+          backup_file1: {get_attr: [FORMATXLATE, backup_file1]}
+          backup_file2: {get_attr: [FORMATXLATE, backup_file2]}
+          name_delimiter: {get_attr: [FORMATXLATE, usage_info, cloud_name_delimiter]}
+          install_config: {get_attr: [FORMATXLATE, install_config]}
+          net_info_str: {get_attr: [NOKIA-LCP-Base, NetInfoStr]}
+          sec_group: {get_attr: [NOKIA-LCP-Base, OpenSec]}
+          ssh_access_key: {get_attr: [FORMATXLATE, ssh_access_key]}
+          ssh_public_key: {get_attr: [NOKIA-LCP-Base, PublicKey]}
+          ssh_private_key: {get_attr: [NOKIA-LCP-Base, PrivateKey]}
+          storagevol_type: {get_attr: [FORMATXLATE, storagevol_type]}
+          storage_size: 4
+          int_net_count: 1
+          int_net_info: {get_attr: [NOKIA-LCP-Base, IntNetInfo]}
+          ext_net_info: {get_attr: [FORMATXLATE, ext_net_info]}
+          usage_info: {get_attr: [FORMATXLATE, usage_info]}
+          config_info: {
+            poolinfo: '["cfed-0", "gos-2"]',
+            "v4_static_routes": '{}',
+            "v6_static_routes": '{}',
+            v4_default_gateway: "sig_core1_v4",
+            v6_default_gateway: "sig_core1_v6",
+            
+            vnic_count: 3,
+            "0": { 
+              vnic_info: {
+                
+                "0": [
+                  {"count": "0", "binding_type": "normal", "subnet_count": "1", "allowed_subnets": ["INTERNALnet0"]},
+                  {"label": "connectivity_ip;subnet=INTERNALnet0", "subnet": "INTERNALnet0"},
+                  
+                ],      
+                
+                "1": [
+                  {"count": "2", "binding_type": "normal", "subnet_count": "2", "allowed_subnets": ["sig_core1_v4","sig_core1_v6"]},
+                  {"label": "servicetype=cfed-0;float;nitype=published;subnet=sig_core1_v4;index=0", "subnet": "sig_core1_v4"},
+                  {"label": "servicetype=cfed-0;float;nitype=published;subnet=sig_core1_v6;index=0", "subnet": "sig_core1_v6"},
+                  
+                ],
+                
+                "2": [
+                  {"count": "2", "binding_type": "normal", "subnet_count": "2", "allowed_subnets": ["sig_core2_v4","sig_core2_v6"]},
+                  {"label": "servicetype=cfed-0;float;nitype=published;subnet=sig_core2_v4;index=1", "subnet": "sig_core2_v4"},
+                  {"label": "servicetype=cfed-0;float;nitype=published;subnet=sig_core2_v6;index=1", "subnet": "sig_core2_v6"},
+                  
+                ],
+                
+              }
+            },
+            "1": { 
+              vnic_info: {
+                
+                "0": [
+                  {"count": "0", "binding_type": "normal", "subnet_count": "1", "allowed_subnets": ["INTERNALnet0"]},
+                  {"label": "connectivity_ip;subnet=INTERNALnet0", "subnet": "INTERNALnet0"},
+                  
+                ],      
+                
+                "1": [
+                  {"count": "2", "binding_type": "normal", "subnet_count": "2", "allowed_subnets": ["sig_core1_v4","sig_core1_v6"]},
+                  {"label": "connectivity_ip;subnet=sig_core1_v4", "subnet": "sig_core1_v4"},
+                  {"label": "connectivity_ip;subnet=sig_core1_v6", "subnet": "sig_core1_v6"},
+                  
+                ],
+                
+                "2": [
+                  {"count": "2", "binding_type": "normal", "subnet_count": "2", "allowed_subnets": ["sig_core2_v4","sig_core2_v6"]},
+                  {"label": "connectivity_ip;subnet=sig_core2_v4", "subnet": "sig_core2_v4"},
+                  {"label": "connectivity_ip;subnet=sig_core2_v6", "subnet": "sig_core2_v6"},
+                  
+                ],
+                
+              }
+            }
+            
+          }
+  
+  DFED_RRG:
+    type: OS::Heat::ResourceGroup
+    depends_on:
+      - NOKIA-LCP-Base
+      - FW_RRG
+      - PFW_RRG
+      - CFED_RRG
+      
+    properties:
+      count: {get_param: [cbam, resources, DFED_RRG, count] }
+      resource_def:
+        type: LCP-PairGroup.template.yaml
+        properties:
+          default_action: {get_attr: [FORMATXLATE, default_action]}
+          default_name_base:
+            str_replace:
+              template: |
+                {"": "DFED$delimiter%index%$delimiter"}
+              params:
+                $delimiter: {get_attr: [FORMATXLATE, usage_info, cloud_name_delimiter]}
+          group_id: "6"
+          group_tag: "dfed"
+          group_index: '%index%'
+          current_group_count: {get_param: [cbam, resources, DFED_RRG, count] }
+          lcm_keypair: {get_attr: [FORMATXLATE, lcm_keypair]}
+          total_pair_count: {get_attr: [NOKIA-LCP-Base, TotalPairCount]}
+          total_nk_vm_count: {get_attr: [NOKIA-LCP-Base, TotalNkVmCount]}
+          backup_file1: {get_attr: [FORMATXLATE, backup_file1]}
+          backup_file2: {get_attr: [FORMATXLATE, backup_file2]}
+          name_delimiter: {get_attr: [FORMATXLATE, usage_info, cloud_name_delimiter]}
+          install_config: {get_attr: [FORMATXLATE, install_config]}
+          net_info_str: {get_attr: [NOKIA-LCP-Base, NetInfoStr]}
+          sec_group: {get_attr: [NOKIA-LCP-Base, OpenSec]}
+          ssh_access_key: {get_attr: [FORMATXLATE, ssh_access_key]}
+          ssh_public_key: {get_attr: [NOKIA-LCP-Base, PublicKey]}
+          ssh_private_key: {get_attr: [NOKIA-LCP-Base, PrivateKey]}
+          storagevol_type: {get_attr: [FORMATXLATE, storagevol_type]}
+          storage_size: 4
+          int_net_count: 1
+          int_net_info: {get_attr: [NOKIA-LCP-Base, IntNetInfo]}
+          ext_net_info: {get_attr: [FORMATXLATE, ext_net_info]}
+          usage_info: {get_attr: [FORMATXLATE, usage_info]}
+          config_info: {
+            poolinfo: '["dfed-0", "gos-4"]',
+            "v4_static_routes": '{}',
+            "v6_static_routes": '{}',
+            v4_default_gateway: "sig_core1_v4",
+            v6_default_gateway: "sig_core1_v6",
+            
+            vnic_count: 2,
+            "0": { 
+              vnic_info: {
+                
+                "0": [
+                  {"count": "0", "binding_type": "normal", "subnet_count": "1", "allowed_subnets": ["INTERNALnet0"]},
+                  {"label": "connectivity_ip;subnet=INTERNALnet0", "subnet": "INTERNALnet0"},
+                  
+                ],      
+                
+                "1": [
+                  {"count": "2", "binding_type": "normal", "subnet_count": "2", "allowed_subnets": ["sig_core1_v4","sig_core1_v6"]},
+                  {"label": "servicetype=dfed-0;float;nitype=diam_rx;subnet=sig_core1_v4;index=0", "subnet": "sig_core1_v4"},
+                  {"label": "servicetype=dfed-0;float;nitype=diam_rx;subnet=sig_core1_v6;index=0", "subnet": "sig_core1_v6"},
+                  
+                ],
+                
+              }
+            },
+            "1": { 
+              vnic_info: {
+                
+                "0": [
+                  {"count": "0", "binding_type": "normal", "subnet_count": "1", "allowed_subnets": ["INTERNALnet0"]},
+                  {"label": "connectivity_ip;subnet=INTERNALnet0", "subnet": "INTERNALnet0"},
+                  
+                ],      
+                
+                "1": [
+                  {"count": "2", "binding_type": "normal", "subnet_count": "2", "allowed_subnets": ["sig_core1_v4","sig_core1_v6"]},
+                  {"label": "connectivity_ip;subnet=sig_core1_v4", "subnet": "sig_core1_v4"},
+                  {"label": "connectivity_ip;subnet=sig_core1_v6", "subnet": "sig_core1_v6"},
+                  
+                ],
+                
+              }
+            }
+            
+          }
+  
+  CCF_RRG:
+    type: OS::Heat::ResourceGroup
+    depends_on:
+      - NOKIA-LCP-Base
+      - FW_RRG
+      - PFW_RRG
+      - CFED_RRG
+      
+    properties:
+      count: {get_param: [cbam, resources, CCF_RRG, count] }
+      resource_def:
+        type: LCP-PairGroup.template.yaml
+        properties:
+          default_action: {get_attr: [FORMATXLATE, default_action]}
+          default_name_base:
+            str_replace:
+              template: |
+                {"": "CCF$delimiter%index%$delimiter"}
+              params:
+                $delimiter: {get_attr: [FORMATXLATE, usage_info, cloud_name_delimiter]}
+          group_id: "7"
+          group_tag: "ccf"
+          group_index: '%index%'
+          current_group_count: {get_param: [cbam, resources, CCF_RRG, count] }
+          lcm_keypair: {get_attr: [FORMATXLATE, lcm_keypair]}
+          total_pair_count: {get_attr: [NOKIA-LCP-Base, TotalPairCount]}
+          total_nk_vm_count: {get_attr: [NOKIA-LCP-Base, TotalNkVmCount]}
+          backup_file1: {get_attr: [FORMATXLATE, backup_file1]}
+          backup_file2: {get_attr: [FORMATXLATE, backup_file2]}
+          name_delimiter: {get_attr: [FORMATXLATE, usage_info, cloud_name_delimiter]}
+          install_config: {get_attr: [FORMATXLATE, install_config]}
+          net_info_str: {get_attr: [NOKIA-LCP-Base, NetInfoStr]}
+          sec_group: {get_attr: [NOKIA-LCP-Base, OpenSec]}
+          ssh_access_key: {get_attr: [FORMATXLATE, ssh_access_key]}
+          ssh_public_key: {get_attr: [NOKIA-LCP-Base, PublicKey]}
+          ssh_private_key: {get_attr: [NOKIA-LCP-Base, PrivateKey]}
+          storagevol_type: {get_attr: [FORMATXLATE, storagevol_type]}
+          storage_size: 480
+          int_net_count: 1
+          int_net_info: {get_attr: [NOKIA-LCP-Base, IntNetInfo]}
+          ext_net_info: {get_attr: [FORMATXLATE, ext_net_info]}
+          usage_info: {get_attr: [FORMATXLATE, usage_info]}
+          config_info: {
+            poolinfo: '["cdr-0"]',
+            "v4_static_routes": '{}',
+            "v6_static_routes": '{}',
+            v4_default_gateway: "sig_core1_v4",
+            v6_default_gateway: "sig_core1_v6",
+            
+            vnic_count: 2,
+            "0": { 
+              vnic_info: {
+                
+                "0": [
+                  {"count": "0", "binding_type": "normal", "subnet_count": "1", "allowed_subnets": ["INTERNALnet0"]},
+                  {"label": "connectivity_ip;subnet=INTERNALnet0", "subnet": "INTERNALnet0"},
+                  
+                ],      
+                
+                "1": [
+                  {"count": "2", "binding_type": "normal", "subnet_count": "2", "allowed_subnets": ["sig_core1_v4","sig_core1_v6"]},
+                  {"label": "servicetype=cdr-0;float;nitype=default;subnet=sig_core1_v4;index=0", "subnet": "sig_core1_v4"},
+                  {"label": "servicetype=cdr-0;float;nitype=default;subnet=sig_core1_v6;index=0", "subnet": "sig_core1_v6"},
+                  
+                ],
+                
+              }
+            },
+            "1": { 
+              vnic_info: {
+                
+                "0": [
+                  {"count": "0", "binding_type": "normal", "subnet_count": "1", "allowed_subnets": ["INTERNALnet0"]},
+                  {"label": "connectivity_ip;subnet=INTERNALnet0", "subnet": "INTERNALnet0"},
+                  
+                ],      
+                
+                "1": [
+                  {"count": "2", "binding_type": "normal", "subnet_count": "2", "allowed_subnets": ["sig_core1_v4","sig_core1_v6"]},
+                  {"label": "connectivity_ip;subnet=sig_core1_v4", "subnet": "sig_core1_v4"},
+                  {"label": "connectivity_ip;subnet=sig_core1_v6", "subnet": "sig_core1_v6"},
+                  
+                ],
+                
+              }
+            }
+            
+          }
+  
+  
+outputs:
+
+  OAMA-EXTIPS:
+    description: |
+      IP addresses assigned to the first external network on OAM VM-A.
+    value: {get_attr: [OAM, VMA-EXT_IPS]}
+
+  OAMB-EXTIPS:
+    description: |
+      IP addresses assigned to the first external network on OAM VM-B.
+    value: {get_attr: [OAM, VMB-EXT_IPS]}
+ 

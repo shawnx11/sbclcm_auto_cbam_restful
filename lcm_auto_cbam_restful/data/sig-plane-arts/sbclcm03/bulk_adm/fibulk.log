@@ -1,0 +1,586 @@
+Generating "Basic Information" ...
+Generating "Hardware Information" ...
+Generating "VM Information" ...
+Generating "Service Location Information" ...
+Generating "Disk Scheme Information" ...
+Generating "N+K Information" ...
+Generating "IPv4 Internal Subnet Information" ...
+Generating "IPv4 Subnet Information" ...
+Generating "IPv6 Subnet Information" ...
+Generating "IPv4 Service IP Information" ...
+Generating "IPv4 Subnet Information" ...
+Generating "IPv4 Subnet Information" ...
+Generating "IPv4 Subnet Information" ...
+Generating "IPv4 Subnet Information" ...
+Generating "IPv4 Subnet Information" ...
+Generating "IPv4 Subnet Information" ...
+Generating "IPv4 Subnet Information" ...
+Generating "IPv4 Subnet Information" ...
+Generating "IPv4 Subnet Information" ...
+Generating "IPv4 Subnet Information" ...
+Generating "IPv4 Subnet Information" ...
+Generating "IPv4 Subnet Information" ...
+Generating "IPv4 Subnet Information" ...
+Generating "IPv4 Subnet Information" ...
+Generating "IPv4 Subnet Information" ...
+Generating "IPv4 Subnet Information" ...
+Generating "IPv4 Subnet Information" ...
+Generating "IPv4 Subnet Information" ...
+Generating "IPv4 Subnet Information" ...
+Generating "IPv4 Subnet Information" ...
+Generating "IPv4 Subnet Information" ...
+Generating "IPv4 Subnet Information" ...
+Generating "IPv4 Subnet Information" ...
+Generating "IPv4 Subnet Information" ...
+Generating "IPv4 Subnet Information" ...
+Generating "IPv4 Subnet Information" ...
+Generating "IPv4 Subnet Information" ...
+Generating "IPv4 Subnet Information" ...
+Generating "IPv4 Subnet Information" ...
+Generating "IPv4 Subnet Information" ...
+Generating "IPv4 Subnet Information" ...
+Generating "IPv4 Subnet Information" ...
+Generating "IPv4 Subnet Information" ...
+Generating "IPv4 Subnet Information" ...
+Generating "IPv4 Subnet Information" ...
+Generating "IPv4 Subnet Information" ...
+Generating "IPv4 Subnet Information" ...
+Generating "IPv4 Subnet Information" ...
+Generating "IPv4 Subnet Information" ...
+Generating "IPv4 Subnet Information" ...
+Generating "IPv4 Subnet Information" ...
+Generating "IPv4 Subnet Information" ...
+Generating "IPv4 Subnet Information" ...
+Generating "IPv4 Subnet Information" ...
+Generating "IPv4 Subnet Information" ...
+Generating "IPv4 Subnet Information" ...
+Generating "IPv4 Subnet Information" ...
+Generating "IPv4 Subnet Information" ...
+Generating "IPv4 Subnet Information" ...
+Generating "IPv4 Subnet Information" ...
+Generating "IPv4 Subnet Information" ...
+Generating "IPv4 Subnet Information" ...
+Generating "IPv4 Subnet Information" ...
+Generating "IPv4 Subnet Information" ...
+Generating "IPv4 Subnet Information" ...
+Generating "IPv4 Subnet Information" ...
+Generating "IPv4 Subnet Information" ...
+Generating "IPv4 Subnet Information" ...
+Generating "IPv4 Subnet Information" ...
+Generating "IPv4 Subnet Information" ...
+Generating "IPv4 Subnet Information" ...
+Generating "IPv4 Subnet Information" ...
+Generating "IPv4 Subnet Information" ...
+Generating "IPv6 Service IP Information" ...
+Generating "IPv4 Static Routes Information" ...
+Generating "IPv6 Static Routes Information" ...
+Generating "SSH Information" ...
+Generating "Hardening Information" ...
+Generating "IPv4 Service Default Gateway" ...
+Generating "IPv6 Service Default Gateway" ...
+Generating "VM Information" ...
+Generating "VM Information" ...
+
+Basic Information:
+
+Chassis Type:
+Virtualized System
+
+Tenant Type:
+cloud_guest
+
+Network Type:
+legacy
+
+Naming Type:
+flexible3
+
+Naming Delimiter:
+-
+
+Naming Parsing:
+flexible
+
+SNMP Community:
+public
+
+SNMP Version:
+v3
+
+System Name:
+sbclcm03
+
+System Prefix:
+sbclcm03
+
+License Reference Name string:
+sbclcm03_QD_SBC_ST_Shawn_XU_88615989
+
+Application Name:
+sbc
+
+Time Zone:
+UTC
+
+Use SBPR (Source Based Policy Routing):
+Yes
+
+Remote Query Only:
+No
+
+Local DNS Domain:
+sbc.nokia.com
+
+Remote DNS Domain:
+./default
+
+Remote ENUM Domain:
+e164.arpa/default
+
+NTP Server IPv4 Address:
+10.75.223.4
+
+NTP Server IPv6 Address:
+2a00:8a00:6000:d040:44::e
+
+DNS Server IPv4 Address/DNS Domain Name:
+172.23.102.60/.
+
+ENUM Server IPv4 Address/ENUM Domain Name:
+172.23.102.60/e164.arpa
+
+Hardware Information:
+
+Cabinet:
+0
+
+Cabinet/Shelf/Mnemonic:
+0/0/_SHELF_1_99,0/1/_SHELF_1_99
+
+Shelf/Card/Front_mnemonic/Rear_mnemonic:
+0/1/_GUEST/NONE,0/2/_GUEST/NONE,0/3/_GUEST/NONE,0/4/_GUEST/NONE,0/5/_GUEST/NONE,0/6/_GUEST/NONE,0/7/_GUEST/NONE,0/8/_GUEST/NONE,0/9/_GUEST/NONE,0/10/_GUEST/NONE,0/11/_GUEST/NONE,0/12/_GUEST/NONE,1/1/_GUEST/NONE,1/2/_GUEST/NONE,1/3/_GUEST/NONE,1/4/_GUEST/NONE,1/5/_GUEST/NONE,1/6/_GUEST/NONE,1/7/_GUEST/NONE,1/8/_GUEST/NONE,1/9/_GUEST/NONE,1/10/_GUEST/NONE,1/11/_GUEST/NONE,1/12/_GUEST/NONE
+
+VM Information:
+
+
+Service Location Information:
+
+Service Location:bgc1-a,bgc1-b|h248-0,h248-1,gos-1
+Service Location:ccf-a,ccf-b|cdr-0
+Service Location:cfed-a,cfed-b|cfed-0,gos-2
+Service Location:dfed-a,dfed-b|dfed-0,gos-4
+Service Location:fwa-a,fwa-b|feph-0,gos-3
+Service Location:fwp-a,fwp-b|pfed-0,gos-5
+Service Location:oam-a,oam-b|mi-0,cnfg-0,sns-0
+Service Location:sc1-a,sc1-b|ims-0,ims-1,ims-2,ims-3,gos-0
+Service Location:sc2-a,sc2-b|ims-4,ims-5,ims-6,ims-7,gos-6
+Service Location:sc3-a,sc3-b|ims-8,ims-9,ims-10,ims-11,gos-12
+Service Location:sc4-a,sc4-b|ims-12,ims-13,ims-14,ims-15,gos-18
+Service Location:sc5-a,sc5-b|ims-16,ims-17,ims-18,ims-19,gos-24
+
+Disk Scheme Information:
+
+
+HUB SSH & SOL IP Information (14-slot ATCA only):
+
+
+HUB Port Speed Information:
+
+
+N+K Information:
+
+
+IPv4 Internal Subnet Information:
+
+IPv4 Internal Subnet 0 Base:
+169.254.0.0
+
+IPv4 Internal Subnet 0 Interface Label:
+int0
+
+IPv4 Internal Subnet 0 Redundancy Mode:
+iipm
+
+IPv4 Subnet Information:
+
+IPv4 Subnet 1 Name |OAM_v4
+IPv4 Subnet 1 Base |100.69.127.128
+IPv4 Subnet 1 Network Mask |255.255.255.224
+IPv4 Subnet 1 Gateway |100.69.127.129
+IPv4 Subnet 1 Transport Interface |
+IPv4 Subnet 1 Interface Label |oam1
+IPv4 Subnet 1 Redundancy Mode |eipm_arpndp
+IPv4 Subnet 1 VLAN Tag |
+IPv4 Subnet 1 Detect Multiplier |3
+IPv4 Subnet 1 Desired Minimum TX Interval |10
+IPv4 Subnet 1 Required Minimum RX Internal |10
+IPv4 Subnet 2 Name |SIG_core1_v4
+IPv4 Subnet 2 Base |100.69.127.224
+IPv4 Subnet 2 Network Mask |255.255.255.240
+IPv4 Subnet 2 Gateway |100.69.127.225
+IPv4 Subnet 2 Transport Interface |
+IPv4 Subnet 2 Interface Label |sig1
+IPv4 Subnet 2 Redundancy Mode |eipm_arpndp
+IPv4 Subnet 2 VLAN Tag |
+IPv4 Subnet 2 Detect Multiplier |3
+IPv4 Subnet 2 Desired Minimum TX Interval |10
+IPv4 Subnet 2 Required Minimum RX Internal |10
+IPv4 Subnet 3 Name |SIG_core2_v4
+IPv4 Subnet 3 Base |100.69.127.240
+IPv4 Subnet 3 Network Mask |255.255.255.240
+IPv4 Subnet 3 Gateway |100.69.127.241
+IPv4 Subnet 3 Transport Interface |
+IPv4 Subnet 3 Interface Label |sig2
+IPv4 Subnet 3 Redundancy Mode |eipm_arpndp
+IPv4 Subnet 3 VLAN Tag |
+IPv4 Subnet 3 Detect Multiplier |3
+IPv4 Subnet 3 Desired Minimum TX Interval |10
+IPv4 Subnet 3 Required Minimum RX Internal |10
+IPv4 Subnet 4 Name |H248_net_v4
+IPv4 Subnet 4 Base |192.168.1.0
+IPv4 Subnet 4 Network Mask |255.255.255.0
+IPv4 Subnet 4 Gateway |192.168.1.254
+IPv4 Subnet 4 Transport Interface |
+IPv4 Subnet 4 Interface Label |bgc1
+IPv4 Subnet 4 Redundancy Mode |none
+IPv4 Subnet 4 VLAN Tag |
+IPv4 Subnet 4 Detect Multiplier |
+IPv4 Subnet 4 Desired Minimum TX Interval |
+IPv4 Subnet 4 Required Minimum RX Internal |
+IPv4 Subnet 5 Name |SIG_access_v4_DUPLEX1
+IPv4 Subnet 5 Base |100.69.110.0
+IPv4 Subnet 5 Network Mask |255.255.255.240
+IPv4 Subnet 5 Gateway |100.69.110.1
+IPv4 Subnet 5 Transport Interface |
+IPv4 Subnet 5 Interface Label |acc1
+IPv4 Subnet 5 Redundancy Mode |eipm_acm
+IPv4 Subnet 5 VLAN Tag |
+IPv4 Subnet 5 Connectivity Address |100.69.110.1/1
+IPv4 Subnet 5 Detect Multiplier |
+IPv4 Subnet 5 Desired Minimum TX Interval |
+IPv4 Subnet 5 Required Minimum RX Internal |
+IPv4 Subnet 6 Name |SIG_access_v4_DUPLEX2
+IPv4 Subnet 6 Base |100.69.110.0
+IPv4 Subnet 6 Network Mask |255.255.255.240
+IPv4 Subnet 6 Gateway |100.69.110.1
+IPv4 Subnet 6 Transport Interface |
+IPv4 Subnet 6 Interface Label |acc2
+IPv4 Subnet 6 Redundancy Mode |eipm_acm
+IPv4 Subnet 6 VLAN Tag |
+IPv4 Subnet 6 Connectivity Address |100.69.110.1/1
+IPv4 Subnet 6 Detect Multiplier |
+IPv4 Subnet 6 Desired Minimum TX Interval |
+IPv4 Subnet 6 Required Minimum RX Internal |
+IPv4 Subnet 7 Name |SIG_PFED_v4_DUPLEX1
+IPv4 Subnet 7 Base |100.69.110.144
+IPv4 Subnet 7 Network Mask |255.255.255.240
+IPv4 Subnet 7 Gateway |100.69.110.145
+IPv4 Subnet 7 Transport Interface |
+IPv4 Subnet 7 Interface Label |pr1
+IPv4 Subnet 7 Redundancy Mode |eipm_acm
+IPv4 Subnet 7 VLAN Tag |
+IPv4 Subnet 7 Connectivity Address |100.69.110.145/1
+IPv4 Subnet 7 Detect Multiplier |
+IPv4 Subnet 7 Desired Minimum TX Interval |
+IPv4 Subnet 7 Required Minimum RX Internal |
+IPv4 Subnet 8 Name |SIG_PFED_v4_DUPLEX2
+IPv4 Subnet 8 Base |100.69.110.144
+IPv4 Subnet 8 Network Mask |255.255.255.240
+IPv4 Subnet 8 Gateway |100.69.110.145
+IPv4 Subnet 8 Transport Interface |
+IPv4 Subnet 8 Interface Label |pr2
+IPv4 Subnet 8 Redundancy Mode |eipm_acm
+IPv4 Subnet 8 VLAN Tag |
+IPv4 Subnet 8 Connectivity Address |100.69.110.145/1
+IPv4 Subnet 8 Detect Multiplier |
+IPv4 Subnet 8 Desired Minimum TX Interval |
+IPv4 Subnet 8 Required Minimum RX Internal |
+
+IPv6 Subnet Information:
+
+IPv6 Subnet 1 Name |OAM_v6
+IPv6 Subnet 1 Prefix |2a00:8a00:4000:7690:8::
+IPv6 Subnet 1 Prefix Length |80
+IPv6 Subnet 1 Gateway |2a00:8a00:4000:7690:8::1
+IPv6 Subnet 1 Transport Interface |
+IPv6 Subnet 1 Interface Label |oam1
+IPv6 Subnet 1 Redundancy Mode |eipm_arpndp
+IPv6 Subnet 1 VLAN Tag |
+IPv6 Subnet 1 Detect Multiplier |3
+IPv6 Subnet 1 Desired Minimum TX Interval |10
+IPv6 Subnet 1 Required Minimum RX Internal |10
+IPv6 Subnet 1 MTU Size |1300
+IPv6 Subnet 2 Name |SIG_core1_v6
+IPv6 Subnet 2 Prefix |2a00:8a00:4000:7690:b::
+IPv6 Subnet 2 Prefix Length |80
+IPv6 Subnet 2 Gateway |2a00:8a00:4000:7690:b::1
+IPv6 Subnet 2 Transport Interface |
+IPv6 Subnet 2 Interface Label |sig1
+IPv6 Subnet 2 Redundancy Mode |eipm_arpndp
+IPv6 Subnet 2 VLAN Tag |
+IPv6 Subnet 2 Detect Multiplier |3
+IPv6 Subnet 2 Desired Minimum TX Interval |10
+IPv6 Subnet 2 Required Minimum RX Internal |10
+IPv6 Subnet 2 MTU Size |1300
+IPv6 Subnet 3 Name |SIG_core2_v6
+IPv6 Subnet 3 Prefix |2a00:8a00:4000:7690:c::
+IPv6 Subnet 3 Prefix Length |80
+IPv6 Subnet 3 Gateway |2a00:8a00:4000:7690:c::1
+IPv6 Subnet 3 Transport Interface |
+IPv6 Subnet 3 Interface Label |sig2
+IPv6 Subnet 3 Redundancy Mode |eipm_arpndp
+IPv6 Subnet 3 VLAN Tag |
+IPv6 Subnet 3 Detect Multiplier |3
+IPv6 Subnet 3 Desired Minimum TX Interval |10
+IPv6 Subnet 3 Required Minimum RX Internal |10
+IPv6 Subnet 3 MTU Size |1400
+IPv6 Subnet 4 Name |SIG_access_v6_DUPLEX1
+IPv6 Subnet 4 Prefix |2a00:8a00:4000:7690:d::
+IPv6 Subnet 4 Prefix Length |80
+IPv6 Subnet 4 Gateway |2a00:8a00:4000:7690:d::1
+IPv6 Subnet 4 Transport Interface |
+IPv6 Subnet 4 Interface Label |acc1
+IPv6 Subnet 4 Redundancy Mode |eipm_acm
+IPv6 Subnet 4 VLAN Tag |
+IPv6 Subnet 4 Connectivity Address |2a00:8a00:4000:7690:d::1/1
+IPv6 Subnet 4 Detect Multiplier |3
+IPv6 Subnet 4 Desired Minimum TX Interval |300
+IPv6 Subnet 4 Required Minimum RX Internal |300
+IPv6 Subnet 4 MTU Size |1500
+IPv6 Subnet 5 Name |SIG_access_v6_DUPLEX2
+IPv6 Subnet 5 Prefix |2a00:8a00:4000:7690:d::
+IPv6 Subnet 5 Prefix Length |80
+IPv6 Subnet 5 Gateway |2a00:8a00:4000:7690:d::1
+IPv6 Subnet 5 Transport Interface |
+IPv6 Subnet 5 Interface Label |acc2
+IPv6 Subnet 5 Redundancy Mode |eipm_acm
+IPv6 Subnet 5 VLAN Tag |
+IPv6 Subnet 5 Connectivity Address |2a00:8a00:4000:7690:d::1/1
+IPv6 Subnet 5 Detect Multiplier |3
+IPv6 Subnet 5 Desired Minimum TX Interval |300
+IPv6 Subnet 5 Required Minimum RX Internal |300
+IPv6 Subnet 5 MTU Size |1500
+IPv6 Subnet 6 Name |SIG_PFED_v6_DUPLEX1
+IPv6 Subnet 6 Prefix |2a00:8a00:4000:7690:16::
+IPv6 Subnet 6 Prefix Length |80
+IPv6 Subnet 6 Gateway |2a00:8a00:4000:7690:16::1
+IPv6 Subnet 6 Transport Interface |
+IPv6 Subnet 6 Interface Label |pr1
+IPv6 Subnet 6 Redundancy Mode |eipm_acm
+IPv6 Subnet 6 VLAN Tag |
+IPv6 Subnet 6 Connectivity Address |2a00:8a00:4000:7690:16::1/1
+IPv6 Subnet 6 Detect Multiplier |3
+IPv6 Subnet 6 Desired Minimum TX Interval |300
+IPv6 Subnet 6 Required Minimum RX Internal |300
+IPv6 Subnet 6 MTU Size |1300
+IPv6 Subnet 7 Name |SIG_PFED_v6_DUPLEX2
+IPv6 Subnet 7 Prefix |2a00:8a00:4000:7690:16::
+IPv6 Subnet 7 Prefix Length |80
+IPv6 Subnet 7 Gateway |2a00:8a00:4000:7690:16::1
+IPv6 Subnet 7 Transport Interface |
+IPv6 Subnet 7 Interface Label |pr2
+IPv6 Subnet 7 Redundancy Mode |eipm_acm
+IPv6 Subnet 7 VLAN Tag |
+IPv6 Subnet 7 Connectivity Address |2a00:8a00:4000:7690:16::1/1
+IPv6 Subnet 7 Detect Multiplier |3
+IPv6 Subnet 7 Desired Minimum TX Interval |300
+IPv6 Subnet 7 Required Minimum RX Internal |300
+IPv6 Subnet 7 MTU Size |1300
+
+IPv4 Service IP Information:
+
+IPv4 Service IP: fixed,MI-0-0,default|1/100.69.127.133
+IPv4 Service IP: fixed,MI-0-1,default|1/100.69.127.134
+IPv4 Service IP: floating,CDR-0-X,default|2/100.69.127.229_100.69.127.230
+IPv4 Service IP: floating,CFED-0-X,published|2/100.69.127.231_100.69.127.232,3/100.69.127.245_100.69.127.246
+IPv4 Service IP: floating,CNFG-0-X,default|1/100.69.127.136
+IPv4 Service IP: floating,DFED-0-X,diam_rx|2/100.69.127.233_100.69.127.234
+IPv4 Service IP: floating,FEPH-0-X,published|5/100.69.110.5_100.69.110.6,6/100.69.110.5_100.69.110.6
+IPv4 Service IP: floating,H248-0-X,h248sig|4/192.168.1.1_192.168.1.2
+IPv4 Service IP: floating,H248-1-X,h248sig|4/192.168.1.3
+IPv4 Service IP: floating,IMS-0-X,published|5/100.69.110.7,6/100.69.110.7
+IPv4 Service IP: floating,IMS-1-X,published|5/100.69.110.7,6/100.69.110.7
+IPv4 Service IP: floating,IMS-10-X,published|5/100.69.110.7,6/100.69.110.7
+IPv4 Service IP: floating,IMS-11-X,published|5/100.69.110.7,6/100.69.110.7
+IPv4 Service IP: floating,IMS-12-X,published|5/100.69.110.7,6/100.69.110.7
+IPv4 Service IP: floating,IMS-13-X,published|5/100.69.110.7,6/100.69.110.7
+IPv4 Service IP: floating,IMS-14-X,published|5/100.69.110.7,6/100.69.110.7
+IPv4 Service IP: floating,IMS-15-X,published|5/100.69.110.7,6/100.69.110.7
+IPv4 Service IP: floating,IMS-16-X,published|5/100.69.110.7,6/100.69.110.7
+IPv4 Service IP: floating,IMS-17-X,published|5/100.69.110.7,6/100.69.110.7
+IPv4 Service IP: floating,IMS-18-X,published|5/100.69.110.7,6/100.69.110.7
+IPv4 Service IP: floating,IMS-19-X,published|5/100.69.110.7,6/100.69.110.7
+IPv4 Service IP: floating,IMS-2-X,published|5/100.69.110.7,6/100.69.110.7
+IPv4 Service IP: floating,IMS-3-X,published|5/100.69.110.7,6/100.69.110.7
+IPv4 Service IP: floating,IMS-4-X,published|5/100.69.110.7,6/100.69.110.7
+IPv4 Service IP: floating,IMS-5-X,published|5/100.69.110.7,6/100.69.110.7
+IPv4 Service IP: floating,IMS-6-X,published|5/100.69.110.7,6/100.69.110.7
+IPv4 Service IP: floating,IMS-7-X,published|5/100.69.110.7,6/100.69.110.7
+IPv4 Service IP: floating,IMS-8-X,published|5/100.69.110.7,6/100.69.110.7
+IPv4 Service IP: floating,IMS-9-X,published|5/100.69.110.7,6/100.69.110.7
+IPv4 Service IP: floating,MI-0-X,default|1/100.69.127.135
+IPv4 Service IP: floating,PFED-0-X,published|7/100.69.110.149_100.69.110.150,8/100.69.110.149_100.69.110.150
+
+IPv6 Service IP Information:
+
+IPv6 Service IP: floating,CDR-0-X,default|2/2a00:8a00:4000:7690:b::5_2a00:8a00:4000:7690:b::6
+IPv6 Service IP: floating,CFED-0-X,published|2/2a00:8a00:4000:7690:b::7_2a00:8a00:4000:7690:b::8,3/2a00:8a00:4000:7690:c::5_2a00:8a00:4000:7690:c::6
+IPv6 Service IP: floating,DFED-0-X,diam_rx|2/2a00:8a00:4000:7690:b::9_2a00:8a00:4000:7690:b::10
+IPv6 Service IP: floating,FEPH-0-X,published|4/2a00:8a00:4000:7690:d::5_2a00:8a00:4000:7690:d::6,5/2a00:8a00:4000:7690:d::5_2a00:8a00:4000:7690:d::6
+IPv6 Service IP: floating,IMS-0-X,published|4/2a00:8a00:4000:7690:d::7,5/2a00:8a00:4000:7690:d::7
+IPv6 Service IP: floating,IMS-1-X,published|4/2a00:8a00:4000:7690:d::7,5/2a00:8a00:4000:7690:d::7
+IPv6 Service IP: floating,IMS-10-X,published|4/2a00:8a00:4000:7690:d::7,5/2a00:8a00:4000:7690:d::7
+IPv6 Service IP: floating,IMS-11-X,published|4/2a00:8a00:4000:7690:d::7,5/2a00:8a00:4000:7690:d::7
+IPv6 Service IP: floating,IMS-12-X,published|4/2a00:8a00:4000:7690:d::7,5/2a00:8a00:4000:7690:d::7
+IPv6 Service IP: floating,IMS-13-X,published|4/2a00:8a00:4000:7690:d::7,5/2a00:8a00:4000:7690:d::7
+IPv6 Service IP: floating,IMS-14-X,published|4/2a00:8a00:4000:7690:d::7,5/2a00:8a00:4000:7690:d::7
+IPv6 Service IP: floating,IMS-15-X,published|4/2a00:8a00:4000:7690:d::7,5/2a00:8a00:4000:7690:d::7
+IPv6 Service IP: floating,IMS-16-X,published|4/2a00:8a00:4000:7690:d::7,5/2a00:8a00:4000:7690:d::7
+IPv6 Service IP: floating,IMS-17-X,published|4/2a00:8a00:4000:7690:d::7,5/2a00:8a00:4000:7690:d::7
+IPv6 Service IP: floating,IMS-18-X,published|4/2a00:8a00:4000:7690:d::7,5/2a00:8a00:4000:7690:d::7
+IPv6 Service IP: floating,IMS-19-X,published|4/2a00:8a00:4000:7690:d::7,5/2a00:8a00:4000:7690:d::7
+IPv6 Service IP: floating,IMS-2-X,published|4/2a00:8a00:4000:7690:d::7,5/2a00:8a00:4000:7690:d::7
+IPv6 Service IP: floating,IMS-3-X,published|4/2a00:8a00:4000:7690:d::7,5/2a00:8a00:4000:7690:d::7
+IPv6 Service IP: floating,IMS-4-X,published|4/2a00:8a00:4000:7690:d::7,5/2a00:8a00:4000:7690:d::7
+IPv6 Service IP: floating,IMS-5-X,published|4/2a00:8a00:4000:7690:d::7,5/2a00:8a00:4000:7690:d::7
+IPv6 Service IP: floating,IMS-6-X,published|4/2a00:8a00:4000:7690:d::7,5/2a00:8a00:4000:7690:d::7
+IPv6 Service IP: floating,IMS-7-X,published|4/2a00:8a00:4000:7690:d::7,5/2a00:8a00:4000:7690:d::7
+IPv6 Service IP: floating,IMS-8-X,published|4/2a00:8a00:4000:7690:d::7,5/2a00:8a00:4000:7690:d::7
+IPv6 Service IP: floating,IMS-9-X,published|4/2a00:8a00:4000:7690:d::7,5/2a00:8a00:4000:7690:d::7
+IPv6 Service IP: floating,PFED-0-X,published|6/2a00:8a00:4000:7690:16::5_2a00:8a00:4000:7690:16::6,7/2a00:8a00:4000:7690:16::5_2a00:8a00:4000:7690:16::6
+
+IPv4 Service Default Gateway:
+
+
+IPv6 Service Default Gateway:
+
+
+IPv4 Static Routes Information:
+
+
+IPv6 Static Routes Information:
+
+
+SSH Information:
+
+Hardening Information:
+
+Hardening motd:
+
+
+WARNING!  This computer system and network is PRIVATE and PROPRIETARY
+and may only be accessed by authorized users.  Unauthorized use of this
+computer system or network is strictly prohibited and may be subject to
+criminal prosecution, employee discipline up to and including discharge,
+or the termination of vendor/service contracts.  The owner, or its agents,
+may monitor any activity or communication on the computer system or network.
+The owner, or its agents, may retrieve any information stored within the
+computer system or network.  By accessing and using this computer system
+or network, you are consenting to such monitoring and information retrieval
+for law enforcement and other purposes.  Users should have no expectation
+of privacy as to any communication on or information stored within the
+computer system or network, including information stored locally or remotely
+on a hard drive or other media in use with this computer system or network.
+
+
+Hardening Pre Login Banner:
+
+
+Unauthorized use of this system is prohibited and may be prosecuted
+to the fullest extent of the law. By using this system, you implicitly
+agree to monitoring by system management and law enforcement authorities.
+If you do not agree with these terms, DISCONNECT NOW.
+
+
+Hardening Warning Banner:
+
+ Warning:
+This system is restricted to authorized users for business purposes.
+Unauthorized access is a violation of the law. This service may be monitored
+for administrative and security reasons. By proceeding, you consent to this monitoring.
+
+
+Hardening Login Id Char Set:
+0-9a-z
+
+Hardening Min Password Reset:
+60
+
+Hardening Number of Password Repeat:
+10
+
+Hardening Allowed Password Value Type:
+a-z,A-Z,0-9
+
+Hardening Password Use Upper case:
+1
+
+Hardening Password Use Lower case:
+1
+
+Hardening Password Use Number:
+1
+
+Hardening Password Use Special:
+0
+
+Hardening Min Password Length:
+8
+
+Hardening Max Password Length:
+19
+
+Hardening Password Check Min Sequence Length:
+2
+
+Hardening Password Waning Threshold:
+7
+
+Hardening Password Num Spec Middle:
+0
+
+Hardening Password Max Ascend Descend Chars:
+2
+
+Hardening Password Max Same Seq Chars:
+2
+
+Hardening Password No Reuse Days:
+120
+
+Hardening Dormant Duration:
+60
+
+Hardening Password Use Num or Special:
+1
+
+Hardening Password Min Diff Login Char:
+3
+
+Hardening Password Min Diff Password Char:
+3
+
+Hardening Password Reset Unit:
+60
+
+Hardening Password Life Span:
+30
+
+Hardening Login Id Min Length:
+3
+
+Hardening Login Id Max Length:
+20
+
+Hardening Expire Account Duration:
+0
+
+Hardening Account Unuser Duration:
+60
+
+Hardening Max Ineffective Attempts:
+10
+
+Hardening Temp Disable Threshold:
+5---------Jan 17 12:06:56 --------
+No Errors in this action
