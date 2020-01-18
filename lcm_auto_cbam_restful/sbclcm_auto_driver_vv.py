@@ -1361,6 +1361,7 @@ class SigVnfLcmTestDriver(SBCVnfLcmTestDriver):
         """
         # Need to setup pubkey authentication after instantiation
         """
+        log('In Func:' + sys._getframe().f_code.co_name)
         pubkey = ''
         # Delete the pubkey in backup server authorized_keys
         # Example: sed - i '/sbclcm03/d' /home/centos/.ssh/authorized_keys
@@ -1387,6 +1388,7 @@ class SigVnfLcmTestDriver(SBCVnfLcmTestDriver):
         This is to remove existing raw backup/archive zip before backup/ua
         :param sshtype: passwd or pubkey
         """
+        log('In Func:' + sys._getframe().f_code.co_name)
         match_str = ['_LCP', 'su_archive_R']
         ip = self.backup_server_ip
         if sshtype == 'passwd':
@@ -1415,6 +1417,7 @@ class SigVnfLcmTestDriver(SBCVnfLcmTestDriver):
         :param sshtype: passwd or pubkey
         :param ziptype: backup or cssu
         """
+        log('In Func:' + sys._getframe().f_code.co_name)
         match_str = ''
         newzip = ''
         ip = self.backup_server_ip
@@ -1620,6 +1623,7 @@ class MediaVnfLcmTestDriver(SBCVnfLcmTestDriver):
         self.sbcvnf.backout_vnf(self.additinalParams_Backout)
 
     def gen_stby_vm_list(self):
+        log('In Func:' + sys._getframe().f_code.co_name)
         self.prep_local_known_hosts()
         cmd = 'vi node'
         data = ssh_paramiko_pexpect(cmd, self.scm_vip, self.appl_user, self.appl_passwd)
@@ -1666,6 +1670,7 @@ class MediaVnfLcmTestDriver(SBCVnfLcmTestDriver):
         log('stbyALL_list: ' + str(self.stbyALL_list))
 
     def prep_bkserver_pubkey(self):
+        log('In Func:' + sys._getframe().f_code.co_name)
         pubkey = ''
         # Delete the pubkey in backup server authorized_keys
         # Example: sed - i '/A7510/d' /home/centos/.ssh/authorized_keys
@@ -1690,6 +1695,7 @@ class MediaVnfLcmTestDriver(SBCVnfLcmTestDriver):
                              self.backup_server_passwd_passwd, sshtype)
 
     def rm_backup_zip(self):
+        log('In Func:' + sys._getframe().f_code.co_name)
         """
         Remove the BACKUP_C.ZIP on backup server
         """
@@ -1718,6 +1724,7 @@ class MediaVnfLcmTestDriver(SBCVnfLcmTestDriver):
         # ECDSA host key for 10.75.44.12 has changed and you have requested strict checking.
         # Host key verification failed.
         """
+        log('In Func:' + sys._getframe().f_code.co_name)
         log('Rmove the existing entry of SCM VIP in /c/Users/shawnx/.ssh/known_hosts.')
         known_hosts_file = r'/c/Users/shawnx/.ssh/known_hosts'
         tmp_list = []
@@ -3323,6 +3330,14 @@ class LcmTestDriver(object):
         self.sigvnf_ScaleOut()
         self.sigvnf_Backup_Remote_Creds1()
 
+    def sigvnf_tests_modify_da(self):
+        self.sigvnf_Modify_DisableAutoBackup()
+        self.sigvnf_Modify_DisableAutoScale()
+
+    def sigvnf_tests_modify_ea(self):
+        self.sigvnf_Modify_EnableAutoBackup()
+        self.sigvnf_Modify_EnableAutoScale()
+
     def sigvnf_tests_td(self):
         self.sigvnf_Terminate()
         self.sigvnf_Delete()
@@ -3415,6 +3430,7 @@ class LcmTestDriver(object):
         setup_vnfdIds()
         self.refresh_sigDriver(sig_vnfdId)
         self.sigvnf_DRInstantiate()
+        self.sigvnf_tests_modify_da()
 
     def sigvnf_tests_cssu(self, server_type='httpserver1'):
         # self.sigvnf_Backup_Remote_Creds1()
@@ -3424,6 +3440,7 @@ class LcmTestDriver(object):
         setup_vnfdIds()
         self.refresh_sigDriver(sig_vnfdId_SU)
         self.sigvnf_CSSUInstantiate()
+        self.sigvnf_tests_modify_da()
 
     def sigvnf_tests_su(self):
         self.sigvnf_GenArts4SU(rel=toload_rel)
@@ -3435,6 +3452,7 @@ class LcmTestDriver(object):
         self.sigvnf_Upgrade1Apply()
         self.sigvnf_Upgrade2Activate()
         self.sigvnf_Upgrade3Commit()
+        self.sigvnf_tests_modify_da()
 
     #######################################################################################
     # medvnf

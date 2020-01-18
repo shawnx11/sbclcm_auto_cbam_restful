@@ -193,15 +193,15 @@
                             "set_ips": {
                                 "servicetype=feph-0;float;nitype=published;subnet=sig_access_v6_duplex1;index=0": 1, 
                                 "servicetype=ims-0;float;nitype=published;subnet=sig_access_v4_duplex1;index=0;VM=pair:sc:1:0:0": 2, 
-                                "servicetype=ims-0;float;nitype=published;subnet=sig_access_v6_duplex1;index=0;VM=pair:sc:1:0:0": 3, 
-                                "servicetype=feph-0;float;nitype=published;subnet=sig_access_v4_duplex1;index=0": 0
+                                "servicetype=feph-0;float;nitype=published;subnet=sig_access_v4_duplex1;index=0": 0, 
+                                "servicetype=ims-0;float;nitype=published;subnet=sig_access_v6_duplex1;index=0;VM=pair:sc:1:0:0": 3
                             }
                         }, 
                         "2": {
                             "set_ips": {
-                                "servicetype=ims-0;float;nitype=published;subnet=sig_access_v6_duplex2;index=1;VM=pair:sc:1:0:0": 3, 
-                                "servicetype=feph-0;float;nitype=published;subnet=sig_access_v6_duplex2;index=1": 1, 
                                 "servicetype=feph-0;float;nitype=published;subnet=sig_access_v4_duplex2;index=1": 0, 
+                                "servicetype=feph-0;float;nitype=published;subnet=sig_access_v6_duplex2;index=1": 1, 
+                                "servicetype=ims-0;float;nitype=published;subnet=sig_access_v6_duplex2;index=1;VM=pair:sc:1:0:0": 3, 
                                 "servicetype=ims-0;float;nitype=published;subnet=sig_access_v4_duplex2;index=1;VM=pair:sc:1:0:0": 2
                             }
                         }
@@ -527,11 +527,11 @@
                 "1": "recreate", 
                 "0": "recreate"
             }, 
-            "binding_type": "normal", 
             "image": {
                 "1": "", 
                 "0": ""
             }, 
+            "binding_type": "normal", 
             "availability_zone": {
                 "1": "", 
                 "0": ""
