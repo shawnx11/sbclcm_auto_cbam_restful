@@ -1223,7 +1223,8 @@ class SigVnfLcmTestDriver(SBCVnfLcmTestDriver):
         self.sig_oama_ip = '100.69.127.133'
         self.sig_oam_login = 'root'
         self.sig_oam_passwd = 'newsys'
-        self.fixed_scm_ip = '100.69.127.150,100.69.127.151'
+        # self.fixed_scm_ip = '100.69.127.150,100.69.127.151'
+        self.fixed_scm_ip = '10.75.44.10,10.75.44.11'
         self.restore_media_plane = 'ALL'
         self.cssu_zip = 'cssu_archive.zip'
         self.backup_zip = 'backup.zip'
@@ -1380,6 +1381,33 @@ class SigVnfLcmTestDriver(SBCVnfLcmTestDriver):
         cmd = 'cat /tmp/tmp_key >> /home/centos/.ssh/authorized_keys'
         result = ssh_command(cmd, self.backup_server_ip, self.backup_server_login_passwd,
                              self.backup_server_passwd_passwd, sshtype)
+
+    def rm_existing_raw_zip(self, sshtype='passwd'):
+        """
+        This is to remove existing raw backup/archive zip before backup/ua
+        :param sshtype: passwd or pubkey
+        """
+        match_str = ['_LCP', 'su_archive_R']
+        ip = self.backup_server_ip
+        if sshtype == 'passwd':
+            login = self.backup_server_login_passwd
+            passwd_key = self.backup_server_passwd_passwd
+        elif sshtype == 'pubkey':
+            login = self.backup_server_login_pubkey
+            passwd_key = self.local_private_key
+        else:
+            log('Only type passwd and pubkey supprted for sshtype. Error out.')
+            exit(1)
+        cmd = 'ls ' + self.backup_server_dir
+        result = ssh_command(cmd, ip, login, passwd_key, sshtype)
+        for mstr in match_str:
+            if mstr in result:
+                rlist = result.split()
+                for r in rlist:
+                    if mstr in r:
+                        cmd = 'rm -f ' + self.backup_server_dir + r
+                        log(cmd)
+                        ssh_command(cmd, ip, login, passwd_key, sshtype)
 
     def prep_backup_cssu_zip(self, sshtype='passwd', ziptype='backup'):
         """
@@ -2723,6 +2751,7 @@ class LcmTestDriver(object):
         self.setup_sigDriver()
         # setup pubkey before backup
         self.sigDriver.prep_bkserver_pubkey()
+        self.sigDriver.rm_existing_raw_zip(sshtype='passwd')
         for ap in [
             self.sigDriver.additinalParams_Backup_Local,
             self.sigDriver.additinalParams_Backup_Remote_1,
@@ -2746,6 +2775,8 @@ class LcmTestDriver(object):
     def sigvnf_Backup_Remote1(self):
         log('In Func: ' + sys._getframe().f_code.co_name)
         self.setup_sigDriver()
+        self.sigDriver.prep_bkserver_pubkey()
+        self.sigDriver.rm_existing_raw_zip(sshtype='passwd')
         self.sigDriver.custom_backup(self.sigDriver.additinalParams_Backup_Remote_1)
         self.sigDriver.check_opstatus(operation='OTHER', operationName='custom:backup', timeout=20)
         self.sigDriver.prep_backup_cssu_zip(sshtype='passwd', ziptype='backup')
@@ -2753,6 +2784,8 @@ class LcmTestDriver(object):
     def sigvnf_Backup_Remote2(self):
         log('In Func: ' + sys._getframe().f_code.co_name)
         self.setup_sigDriver()
+        self.sigDriver.prep_bkserver_pubkey()
+        self.sigDriver.rm_existing_raw_zip(sshtype='passwd')
         self.sigDriver.custom_backup(self.sigDriver.additinalParams_Backup_Remote_2)
         self.sigDriver.check_opstatus(operation='OTHER', operationName='custom:backup', timeout=20)
         self.sigDriver.prep_backup_cssu_zip(sshtype='passwd', ziptype='backup')
@@ -2760,6 +2793,8 @@ class LcmTestDriver(object):
     def sigvnf_Backup_Remote12(self):
         log('In Func: ' + sys._getframe().f_code.co_name)
         self.setup_sigDriver()
+        self.sigDriver.prep_bkserver_pubkey()
+        self.sigDriver.rm_existing_raw_zip(sshtype='passwd')
         self.sigDriver.custom_backup(self.sigDriver.additinalParams_Backup_Remote_12)
         self.sigDriver.check_opstatus(operation='OTHER', operationName='custom:backup', timeout=20)
         self.sigDriver.prep_backup_cssu_zip(sshtype='passwd', ziptype='backup')
@@ -2767,6 +2802,7 @@ class LcmTestDriver(object):
     def sigvnf_Backup_Remote_Creds1(self):
         log('In Func: ' + sys._getframe().f_code.co_name)
         self.setup_sigDriver()
+        self.sigDriver.rm_existing_raw_zip(sshtype='passwd')
         self.sigDriver.custom_backup(self.sigDriver.additinalParams_Backup_Remote_Creds_1)
         self.sigDriver.check_opstatus(operation='OTHER', operationName='custom:backup', timeout=20)
         self.sigDriver.prep_backup_cssu_zip(sshtype='passwd', ziptype='backup')
@@ -2774,6 +2810,7 @@ class LcmTestDriver(object):
     def sigvnf_Backup_Remote_Creds2(self):
         log('In Func: ' + sys._getframe().f_code.co_name)
         self.setup_sigDriver()
+        self.sigDriver.rm_existing_raw_zip(sshtype='passwd')
         self.sigDriver.custom_backup(self.sigDriver.additinalParams_Backup_Remote_Creds_2)
         self.sigDriver.check_opstatus(operation='OTHER', operationName='custom:backup', timeout=20)
         self.sigDriver.prep_backup_cssu_zip(sshtype='passwd', ziptype='backup')
@@ -2781,6 +2818,7 @@ class LcmTestDriver(object):
     def sigvnf_Backup_Remote_Creds12(self):
         log('In Func: ' + sys._getframe().f_code.co_name)
         self.setup_sigDriver()
+        self.sigDriver.rm_existing_raw_zip(sshtype='passwd')
         self.sigDriver.custom_backup(self.sigDriver.additinalParams_Backup_Remote_Creds_12)
         self.sigDriver.check_opstatus(operation='OTHER', operationName='custom:backup', timeout=20)
         self.sigDriver.prep_backup_cssu_zip(sshtype='passwd', ziptype='backup')

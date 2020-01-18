@@ -651,3 +651,1462 @@ Success!
 2020-01-17 20:09:11,826 INFO:root:expect_code: 200
 2020-01-17 20:09:14,700 INFO:root:SBC VNF INSTANTIATE  PROCESSING
 2020-01-17 20:09:14,700 INFO:root:Wait for 60 secs...
+2020-01-17 21:28:54,333 INFO:root:id: 243
+2020-01-17 21:28:54,334 INFO:root:vnfdId: a429bbb6-3747-11ea-94a5-1cc1de70bde5
+2020-01-17 21:28:54,334 INFO:root:vnfProvider: Nokia
+2020-01-17 21:28:54,334 INFO:root:vnfProductName: SBC-media
+2020-01-17 21:28:54,335 INFO:root:vnfSoftwareVersion: ap100013
+2020-01-17 21:28:54,335 INFO:root:vnfdVersion: sbgw01
+2020-01-17 21:28:54,335 INFO:root:onboardingState: ONBOARDED
+2020-01-17 21:28:54,335 INFO:root:operationalState: ENABLED
+2020-01-17 21:28:54,336 INFO:root:userDefinedData: {'vimType': 'openstack', 'references': ['CBAM-ae4fff2b41e24f9082ed7cca81c0054f']}
+2020-01-17 21:28:54,336 INFO:root:_links: {'vnfd': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/243/vnfd'}, 'packageContent': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/243/package_content'}, 'self': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/243'}}
+2020-01-17 21:28:54,336 INFO:root:id: 303
+2020-01-17 21:28:54,337 INFO:root:vnfdId: d14d9c19-360f-47f5-a018-fb5ca424e80e
+2020-01-17 21:28:54,337 INFO:root:vnfProvider: Nokia
+2020-01-17 21:28:54,337 INFO:root:vnfProductName: SBC
+2020-01-17 21:28:54,338 INFO:root:vnfSoftwareVersion: sbclcm03~37.34.06
+2020-01-17 21:28:54,338 INFO:root:vnfdVersion: sbclcm03~37.34.06
+2020-01-17 21:28:54,338 INFO:root:onboardingState: ONBOARDED
+2020-01-17 21:28:54,338 INFO:root:operationalState: ENABLED
+2020-01-17 21:28:54,339 INFO:root:userDefinedData: {'vimType': 'openstack', 'references': ['CBAM-62563c6fb46b4267a702209b11bf6e23']}
+2020-01-17 21:28:54,339 INFO:root:_links: {'vnfd': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/303/vnfd'}, 'packageContent': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/303/package_content'}, 'self': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/303'}}
+2020-01-17 21:28:54,339 INFO:root:id: 239
+2020-01-17 21:28:54,340 INFO:root:vnfdId: 38a2f54a-373f-11ea-b927-1cc1de70bde4
+2020-01-17 21:28:54,340 INFO:root:vnfProvider: Nokia
+2020-01-17 21:28:54,340 INFO:root:vnfProductName: SBC-media
+2020-01-17 21:28:54,341 INFO:root:vnfSoftwareVersion: an100053
+2020-01-17 21:28:54,341 INFO:root:vnfdVersion: sbgw01
+2020-01-17 21:28:54,341 INFO:root:onboardingState: ONBOARDED
+2020-01-17 21:28:54,341 INFO:root:operationalState: ENABLED
+2020-01-17 21:28:54,342 INFO:root:userDefinedData: {'vimType': 'openstack', 'references': []}
+2020-01-17 21:28:54,342 INFO:root:_links: {'vnfd': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/239/vnfd'}, 'packageContent': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/239/package_content'}, 'self': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/239'}}
+2020-01-17 21:28:54,342 INFO:root:id: 293
+2020-01-17 21:28:54,343 INFO:root:vnfdId: ed5d8c9f-2aa7-4dd5-ad5c-dcfb62c3c0bf
+2020-01-17 21:28:54,343 INFO:root:vnfProvider: Nokia
+2020-01-17 21:28:54,343 INFO:root:vnfProductName: SBC
+2020-01-17 21:28:54,343 INFO:root:vnfSoftwareVersion: sbclcm03~37.28.06
+2020-01-17 21:28:54,344 INFO:root:vnfdVersion: sbclcm03~37.28.06
+2020-01-17 21:28:54,344 INFO:root:onboardingState: ONBOARDED
+2020-01-17 21:28:54,345 INFO:root:operationalState: ENABLED
+2020-01-17 21:28:54,345 INFO:root:userDefinedData: {'vimType': 'openstack', 'references': []}
+2020-01-17 21:28:54,345 INFO:root:_links: {'vnfd': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/293/vnfd'}, 'packageContent': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/293/package_content'}, 'self': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/293'}}
+2020-01-17 21:28:54,345 INFO:root:Media Plane vnfdId_SU: a429bbb6-3747-11ea-94a5-1cc1de70bde5
+2020-01-17 21:28:54,346 INFO:root:Media Plane vnfSoftwareVersion for SUTOLoad: ap100013
+2020-01-17 21:28:54,346 INFO:root:Sig Plane vnfdId: d14d9c19-360f-47f5-a018-fb5ca424e80e
+2020-01-17 21:28:54,346 INFO:root:Sig Plane vnfSoftwareVersion: sbclcm03~37.34.06
+2020-01-17 21:28:54,347 INFO:root:Media Plane vnfdId: 38a2f54a-373f-11ea-b927-1cc1de70bde4
+2020-01-17 21:28:54,347 INFO:root:Media Plane vnfSoftwareVersion: an100053
+2020-01-17 21:28:54,347 INFO:root:In Func: sigvnf_Modify_DisableAutoBackup
+2020-01-17 21:28:54,368 INFO:root:In Func: setup_sigDriver
+2020-01-17 21:28:56,926 INFO:root:get_vnf_id: sig vnf id: CBAM-62563c6fb46b4267a702209b11bf6e23
+2020-01-17 21:28:56,927 INFO:root:wait_processing
+2020-01-17 21:28:56,927 INFO:root:In Func:send_request
+2020-01-17 21:28:56,928 INFO:root:type: GET
+2020-01-17 21:28:56,928 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-17 21:28:56,928 INFO:root:data: {}
+2020-01-17 21:28:56,929 INFO:root:expect_code: 200
+2020-01-17 21:28:59,684 INFO:root:In Func:send_request
+2020-01-17 21:28:59,685 INFO:root:type: PATCH
+2020-01-17 21:28:59,685 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_instances/CBAM-62563c6fb46b4267a702209b11bf6e23
+2020-01-17 21:28:59,686 INFO:root:data: {'vnfConfigurableProperties': {'operation_triggers': {'auto_backup': {'periodInSeconds': 86220, 'enabled': False}}}}
+2020-01-17 21:28:59,686 INFO:root:expect_code: 202
+2020-01-17 21:29:03,542 INFO:root:In Func:send_request
+2020-01-17 21:29:03,543 INFO:root:type: GET
+2020-01-17 21:29:03,543 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-17 21:29:03,543 INFO:root:data: {}
+2020-01-17 21:29:03,544 INFO:root:expect_code: 200
+2020-01-17 21:29:06,354 INFO:root:SBC VNF MODIFY_INFO  COMPLETED
+2020-01-17 21:29:06,355 INFO:root:In Func: sigvnf_Modify_DisableAutoScale
+2020-01-17 21:29:06,355 INFO:root:In Func: setup_sigDriver
+2020-01-17 21:29:08,909 INFO:root:get_vnf_id: sig vnf id: CBAM-62563c6fb46b4267a702209b11bf6e23
+2020-01-17 21:29:08,910 INFO:root:wait_processing
+2020-01-17 21:29:08,910 INFO:root:In Func:send_request
+2020-01-17 21:29:08,912 INFO:root:type: GET
+2020-01-17 21:29:08,914 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-17 21:29:08,914 INFO:root:data: {}
+2020-01-17 21:29:08,915 INFO:root:expect_code: 200
+2020-01-17 21:29:11,779 INFO:root:In Func:send_request
+2020-01-17 21:29:11,780 INFO:root:type: PATCH
+2020-01-17 21:29:11,780 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_instances/CBAM-62563c6fb46b4267a702209b11bf6e23
+2020-01-17 21:29:11,781 INFO:root:data: {'vnfConfigurableProperties': {'operation_triggers': {'auto_scale': {'periodInSeconds': 600, 'enabled': False}}}}
+2020-01-17 21:29:11,781 INFO:root:expect_code: 202
+2020-01-17 21:29:15,427 INFO:root:In Func:send_request
+2020-01-17 21:29:15,429 INFO:root:type: GET
+2020-01-17 21:29:15,431 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-17 21:29:15,431 INFO:root:data: {}
+2020-01-17 21:29:15,432 INFO:root:expect_code: 200
+2020-01-17 21:29:18,148 INFO:root:SBC VNF MODIFY_INFO  COMPLETED
+2020-01-17 21:29:18,148 INFO:root:In Func: sigvnf_ConnectSbcMediaVnf
+2020-01-17 21:29:18,149 INFO:root:In Func: setup_sigDriver
+2020-01-17 21:29:20,723 INFO:root:get_vnf_id: sig vnf id: CBAM-62563c6fb46b4267a702209b11bf6e23
+2020-01-17 21:29:20,724 INFO:root:wait_processing
+2020-01-17 21:29:20,724 INFO:root:In Func:send_request
+2020-01-17 21:29:20,724 INFO:root:type: GET
+2020-01-17 21:29:20,725 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-17 21:29:20,725 INFO:root:data: {}
+2020-01-17 21:29:20,726 INFO:root:expect_code: 200
+2020-01-17 21:29:23,468 INFO:root:In Func:send_request
+2020-01-17 21:29:23,468 INFO:root:type: POST
+2020-01-17 21:29:23,469 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_instances/CBAM-62563c6fb46b4267a702209b11bf6e23/custom/connect_SBC_Media_VNF
+2020-01-17 21:29:23,469 INFO:root:data: {'additionalParams': {'FixedScmIpAddress': '100.69.127.150,100.69.127.151', 'LcmUser': 'cloud-user', 'ApplUser': 'diag', 'ApplUserPw': '-assured'}}
+2020-01-17 21:29:23,470 INFO:root:expect_code: 202
+2020-01-17 21:29:27,625 INFO:root:In Func:send_request
+2020-01-17 21:29:27,626 INFO:root:type: GET
+2020-01-17 21:29:27,626 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-17 21:29:27,626 INFO:root:data: {}
+2020-01-17 21:29:27,627 INFO:root:expect_code: 200
+2020-01-17 21:29:30,432 INFO:root:SBC VNF OTHER custom:connect_SBC_Media_VNF status: STARTING
+2020-01-17 21:30:30,433 INFO:root:In Func:send_request
+2020-01-17 21:30:30,433 INFO:root:type: GET
+2020-01-17 21:30:30,433 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-17 21:30:30,433 INFO:root:data: {}
+2020-01-17 21:30:30,434 INFO:root:expect_code: 200
+2020-01-17 21:30:33,315 INFO:root:SBC VNF OTHER custom:connect_SBC_Media_VNF PROCESSING
+2020-01-17 21:30:33,316 INFO:root:Wait for 60 secs...
+2020-01-17 21:31:33,318 INFO:root:In Func:send_request
+2020-01-17 21:31:33,318 INFO:root:type: GET
+2020-01-17 21:31:33,319 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-17 21:31:33,319 INFO:root:data: {}
+2020-01-17 21:31:33,319 INFO:root:expect_code: 200
+2020-01-17 21:31:36,108 INFO:root:SBC VNF OTHER custom:connect_SBC_Media_VNF PROCESSING
+2020-01-17 21:31:36,109 INFO:root:Wait for 60 secs...
+2020-01-17 21:32:36,110 INFO:root:In Func:send_request
+2020-01-17 21:32:36,110 INFO:root:type: GET
+2020-01-17 21:32:36,110 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-17 21:32:36,111 INFO:root:data: {}
+2020-01-17 21:32:36,112 INFO:root:expect_code: 200
+2020-01-17 21:32:38,926 INFO:root:SBC VNF OTHER custom:connect_SBC_Media_VNF PROCESSING
+2020-01-17 21:32:38,927 INFO:root:Wait for 60 secs...
+2020-01-17 21:33:38,928 INFO:root:In Func:send_request
+2020-01-17 21:33:38,928 INFO:root:type: GET
+2020-01-17 21:33:38,928 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-17 21:33:38,929 INFO:root:data: {}
+2020-01-17 21:33:38,929 INFO:root:expect_code: 200
+2020-01-17 21:33:41,876 INFO:root:SBC VNF OTHER custom:connect_SBC_Media_VNF FAILED
+2020-01-17 21:33:41,877 INFO:root:In Func:send_request
+2020-01-17 21:33:41,877 INFO:root:type: GET
+2020-01-17 21:33:41,878 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-17 21:33:41,878 INFO:root:data: {}
+2020-01-17 21:33:41,878 INFO:root:expect_code: 200
+2020-01-17 21:33:44,611 INFO:root:{'vnfInstanceId': 'CBAM-62563c6fb46b4267a702209b11bf6e23', 'additionalData': {'requestId': '0d60e0b81fea4fce8bdb7d9ad04f6440'}, 'isCancelPending': False, 'isAutomaticInvocation': False, 'operationName': 'custom:connect_SBC_Media_VNF', 'operationState': 'FAILED', '_links': {'vnfInstance': {'href': 'https://100.69.127.147/vnflcm/v1/vnf_instances/CBAM-62563c6fb46b4267a702209b11bf6e23'}, 'self': {'href': 'https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs/CBAM-665ef4cffad94dd79a9472f068559b56'}, 'list': {'href': 'https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs'}}, 'startTime': '2020-01-17T13:29:26.517746Z', 'stateEnteredTime': '2020-01-17T13:33:05.495389Z', 'operation': 'OTHER', 'id': 'CBAM-665ef4cffad94dd79a9472f068559b56'}
+2020-01-17 21:39:45,123 INFO:root:id: 243
+2020-01-17 21:39:45,126 INFO:root:vnfdId: a429bbb6-3747-11ea-94a5-1cc1de70bde5
+2020-01-17 21:39:45,126 INFO:root:vnfProvider: Nokia
+2020-01-17 21:39:45,127 INFO:root:vnfProductName: SBC-media
+2020-01-17 21:39:45,127 INFO:root:vnfSoftwareVersion: ap100013
+2020-01-17 21:39:45,127 INFO:root:vnfdVersion: sbgw01
+2020-01-17 21:39:45,127 INFO:root:onboardingState: ONBOARDED
+2020-01-17 21:39:45,128 INFO:root:operationalState: ENABLED
+2020-01-17 21:39:45,128 INFO:root:userDefinedData: {'vimType': 'openstack', 'references': ['CBAM-ae4fff2b41e24f9082ed7cca81c0054f']}
+2020-01-17 21:39:45,128 INFO:root:_links: {'vnfd': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/243/vnfd'}, 'packageContent': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/243/package_content'}, 'self': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/243'}}
+2020-01-17 21:39:45,129 INFO:root:id: 303
+2020-01-17 21:39:45,129 INFO:root:vnfdId: d14d9c19-360f-47f5-a018-fb5ca424e80e
+2020-01-17 21:39:45,129 INFO:root:vnfProvider: Nokia
+2020-01-17 21:39:45,130 INFO:root:vnfProductName: SBC
+2020-01-17 21:39:45,130 INFO:root:vnfSoftwareVersion: sbclcm03~37.34.06
+2020-01-17 21:39:45,130 INFO:root:vnfdVersion: sbclcm03~37.34.06
+2020-01-17 21:39:45,131 INFO:root:onboardingState: ONBOARDED
+2020-01-17 21:39:45,131 INFO:root:operationalState: ENABLED
+2020-01-17 21:39:45,131 INFO:root:userDefinedData: {'vimType': 'openstack', 'references': ['CBAM-62563c6fb46b4267a702209b11bf6e23']}
+2020-01-17 21:39:45,132 INFO:root:_links: {'vnfd': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/303/vnfd'}, 'packageContent': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/303/package_content'}, 'self': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/303'}}
+2020-01-17 21:39:45,132 INFO:root:id: 239
+2020-01-17 21:39:45,132 INFO:root:vnfdId: 38a2f54a-373f-11ea-b927-1cc1de70bde4
+2020-01-17 21:39:45,132 INFO:root:vnfProvider: Nokia
+2020-01-17 21:39:45,133 INFO:root:vnfProductName: SBC-media
+2020-01-17 21:39:45,133 INFO:root:vnfSoftwareVersion: an100053
+2020-01-17 21:39:45,133 INFO:root:vnfdVersion: sbgw01
+2020-01-17 21:39:45,133 INFO:root:onboardingState: ONBOARDED
+2020-01-17 21:39:45,133 INFO:root:operationalState: ENABLED
+2020-01-17 21:39:45,134 INFO:root:userDefinedData: {'vimType': 'openstack', 'references': []}
+2020-01-17 21:39:45,134 INFO:root:_links: {'vnfd': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/239/vnfd'}, 'packageContent': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/239/package_content'}, 'self': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/239'}}
+2020-01-17 21:39:45,134 INFO:root:id: 293
+2020-01-17 21:39:45,134 INFO:root:vnfdId: ed5d8c9f-2aa7-4dd5-ad5c-dcfb62c3c0bf
+2020-01-17 21:39:45,134 INFO:root:vnfProvider: Nokia
+2020-01-17 21:39:45,135 INFO:root:vnfProductName: SBC
+2020-01-17 21:39:45,135 INFO:root:vnfSoftwareVersion: sbclcm03~37.28.06
+2020-01-17 21:39:45,135 INFO:root:vnfdVersion: sbclcm03~37.28.06
+2020-01-17 21:39:45,135 INFO:root:onboardingState: ONBOARDED
+2020-01-17 21:39:45,135 INFO:root:operationalState: ENABLED
+2020-01-17 21:39:45,135 INFO:root:userDefinedData: {'vimType': 'openstack', 'references': []}
+2020-01-17 21:39:45,135 INFO:root:_links: {'vnfd': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/293/vnfd'}, 'packageContent': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/293/package_content'}, 'self': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/293'}}
+2020-01-17 21:39:45,136 INFO:root:Media Plane vnfdId_SU: a429bbb6-3747-11ea-94a5-1cc1de70bde5
+2020-01-17 21:39:45,136 INFO:root:Media Plane vnfSoftwareVersion for SUTOLoad: ap100013
+2020-01-17 21:39:45,136 INFO:root:Sig Plane vnfdId: d14d9c19-360f-47f5-a018-fb5ca424e80e
+2020-01-17 21:39:45,136 INFO:root:Sig Plane vnfSoftwareVersion: sbclcm03~37.34.06
+2020-01-17 21:39:45,136 INFO:root:Media Plane vnfdId: 38a2f54a-373f-11ea-b927-1cc1de70bde4
+2020-01-17 21:39:45,136 INFO:root:Media Plane vnfSoftwareVersion: an100053
+2020-01-17 21:39:45,137 INFO:root:In Func: sigvnf_Modify_DisableAutoBackup
+2020-01-17 21:39:45,137 INFO:root:In Func: setup_sigDriver
+2020-01-17 21:39:47,566 INFO:root:get_vnf_id: sig vnf id: CBAM-62563c6fb46b4267a702209b11bf6e23
+2020-01-17 21:39:47,567 INFO:root:wait_processing
+2020-01-17 21:39:47,567 INFO:root:In Func:send_request
+2020-01-17 21:39:47,567 INFO:root:type: GET
+2020-01-17 21:39:47,567 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-17 21:39:47,568 INFO:root:data: {}
+2020-01-17 21:39:47,568 INFO:root:expect_code: 200
+2020-01-17 21:39:50,357 INFO:root:In Func:send_request
+2020-01-17 21:39:50,357 INFO:root:type: PATCH
+2020-01-17 21:39:50,358 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_instances/CBAM-62563c6fb46b4267a702209b11bf6e23
+2020-01-17 21:39:50,358 INFO:root:data: {'vnfConfigurableProperties': {'operation_triggers': {'auto_backup': {'periodInSeconds': 86220, 'enabled': False}}}}
+2020-01-17 21:39:50,358 INFO:root:expect_code: 202
+2020-01-17 21:39:54,324 INFO:root:In Func:send_request
+2020-01-17 21:39:54,324 INFO:root:type: GET
+2020-01-17 21:39:54,325 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-17 21:39:54,325 INFO:root:data: {}
+2020-01-17 21:39:54,325 INFO:root:expect_code: 200
+2020-01-17 21:39:57,117 INFO:root:SBC VNF MODIFY_INFO  COMPLETED
+2020-01-17 21:39:57,118 INFO:root:In Func: sigvnf_Modify_DisableAutoScale
+2020-01-17 21:39:57,118 INFO:root:In Func: setup_sigDriver
+2020-01-17 21:39:59,680 INFO:root:get_vnf_id: sig vnf id: CBAM-62563c6fb46b4267a702209b11bf6e23
+2020-01-17 21:39:59,681 INFO:root:wait_processing
+2020-01-17 21:39:59,681 INFO:root:In Func:send_request
+2020-01-17 21:39:59,681 INFO:root:type: GET
+2020-01-17 21:39:59,682 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-17 21:39:59,682 INFO:root:data: {}
+2020-01-17 21:39:59,682 INFO:root:expect_code: 200
+2020-01-17 21:40:02,441 INFO:root:In Func:send_request
+2020-01-17 21:40:02,442 INFO:root:type: PATCH
+2020-01-17 21:40:02,442 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_instances/CBAM-62563c6fb46b4267a702209b11bf6e23
+2020-01-17 21:40:02,443 INFO:root:data: {'vnfConfigurableProperties': {'operation_triggers': {'auto_scale': {'periodInSeconds': 600, 'enabled': False}}}}
+2020-01-17 21:40:02,443 INFO:root:expect_code: 202
+2020-01-17 21:40:06,192 INFO:root:In Func:send_request
+2020-01-17 21:40:06,193 INFO:root:type: GET
+2020-01-17 21:40:06,193 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-17 21:40:06,193 INFO:root:data: {}
+2020-01-17 21:40:06,193 INFO:root:expect_code: 200
+2020-01-17 21:40:09,020 INFO:root:SBC VNF MODIFY_INFO  COMPLETED
+2020-01-17 21:40:09,023 INFO:root:In Func: sigvnf_ConnectSbcMediaVnf
+2020-01-17 21:40:09,023 INFO:root:In Func: setup_sigDriver
+2020-01-17 21:40:11,585 INFO:root:get_vnf_id: sig vnf id: CBAM-62563c6fb46b4267a702209b11bf6e23
+2020-01-17 21:40:11,586 INFO:root:wait_processing
+2020-01-17 21:40:11,586 INFO:root:In Func:send_request
+2020-01-17 21:40:11,586 INFO:root:type: GET
+2020-01-17 21:40:11,587 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-17 21:40:11,587 INFO:root:data: {}
+2020-01-17 21:40:11,587 INFO:root:expect_code: 200
+2020-01-17 21:40:14,422 INFO:root:In Func:send_request
+2020-01-17 21:40:14,423 INFO:root:type: POST
+2020-01-17 21:40:14,423 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_instances/CBAM-62563c6fb46b4267a702209b11bf6e23/custom/connect_SBC_Media_VNF
+2020-01-17 21:40:14,423 INFO:root:data: {'additionalParams': {'FixedScmIpAddress': '10.75.44.10,10.75.44.11', 'LcmUser': 'cloud-user', 'ApplUser': 'diag', 'ApplUserPw': '-assured'}}
+2020-01-17 21:40:14,424 INFO:root:expect_code: 202
+2020-01-17 21:40:18,912 INFO:root:In Func:send_request
+2020-01-17 21:40:18,912 INFO:root:type: GET
+2020-01-17 21:40:18,912 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-17 21:40:18,913 INFO:root:data: {}
+2020-01-17 21:40:18,913 INFO:root:expect_code: 200
+2020-01-17 21:40:21,721 INFO:root:SBC VNF OTHER custom:connect_SBC_Media_VNF status: STARTING
+2020-01-17 21:41:21,729 INFO:root:In Func:send_request
+2020-01-17 21:41:21,729 INFO:root:type: GET
+2020-01-17 21:41:21,729 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-17 21:41:21,730 INFO:root:data: {}
+2020-01-17 21:41:21,730 INFO:root:expect_code: 200
+2020-01-17 21:41:24,629 INFO:root:SBC VNF OTHER custom:connect_SBC_Media_VNF PROCESSING
+2020-01-17 21:41:24,631 INFO:root:Wait for 60 secs...
+2020-01-17 21:42:24,639 INFO:root:In Func:send_request
+2020-01-17 21:42:24,639 INFO:root:type: GET
+2020-01-17 21:42:24,639 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-17 21:42:24,640 INFO:root:data: {}
+2020-01-17 21:42:24,640 INFO:root:expect_code: 200
+2020-01-17 21:42:27,442 INFO:root:SBC VNF OTHER custom:connect_SBC_Media_VNF PROCESSING
+2020-01-17 21:42:27,442 INFO:root:Wait for 60 secs...
+2020-01-17 21:43:27,449 INFO:root:In Func:send_request
+2020-01-17 21:43:27,449 INFO:root:type: GET
+2020-01-17 21:43:27,449 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-17 21:43:27,450 INFO:root:data: {}
+2020-01-17 21:43:27,450 INFO:root:expect_code: 200
+2020-01-17 21:43:30,257 INFO:root:SBC VNF OTHER custom:connect_SBC_Media_VNF PROCESSING
+2020-01-17 21:43:30,258 INFO:root:Wait for 60 secs...
+2020-01-17 21:44:30,265 INFO:root:In Func:send_request
+2020-01-17 21:44:30,265 INFO:root:type: GET
+2020-01-17 21:44:30,265 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-17 21:44:30,266 INFO:root:data: {}
+2020-01-17 21:44:30,266 INFO:root:expect_code: 200
+2020-01-17 21:44:33,053 INFO:root:SBC VNF OTHER custom:connect_SBC_Media_VNF PROCESSING
+2020-01-17 21:44:33,053 INFO:root:Wait for 60 secs...
+2020-01-17 21:45:33,060 INFO:root:In Func:send_request
+2020-01-17 21:45:33,061 INFO:root:type: GET
+2020-01-17 21:45:33,063 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-17 21:45:33,064 INFO:root:data: {}
+2020-01-17 21:45:33,065 INFO:root:expect_code: 200
+2020-01-17 21:45:35,979 INFO:root:SBC VNF OTHER custom:connect_SBC_Media_VNF PROCESSING
+2020-01-17 21:45:35,979 INFO:root:Wait for 60 secs...
+2020-01-17 21:46:35,987 INFO:root:In Func:send_request
+2020-01-17 21:46:35,987 INFO:root:type: GET
+2020-01-17 21:46:35,987 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-17 21:46:35,987 INFO:root:data: {}
+2020-01-17 21:46:35,988 INFO:root:expect_code: 200
+2020-01-17 21:46:38,801 INFO:root:SBC VNF OTHER custom:connect_SBC_Media_VNF PROCESSING
+2020-01-17 21:46:38,802 INFO:root:Wait for 60 secs...
+2020-01-17 21:47:38,809 INFO:root:In Func:send_request
+2020-01-17 21:47:38,809 INFO:root:type: GET
+2020-01-17 21:47:38,810 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-17 21:47:38,811 INFO:root:data: {}
+2020-01-17 21:47:38,811 INFO:root:expect_code: 200
+2020-01-17 21:47:41,619 INFO:root:SBC VNF OTHER custom:connect_SBC_Media_VNF PROCESSING
+2020-01-17 21:47:41,619 INFO:root:Wait for 60 secs...
+2020-01-17 21:48:41,628 INFO:root:In Func:send_request
+2020-01-17 21:48:41,630 INFO:root:type: GET
+2020-01-17 21:48:41,632 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-17 21:48:41,632 INFO:root:data: {}
+2020-01-17 21:48:41,633 INFO:root:expect_code: 200
+2020-01-17 21:48:44,429 INFO:root:SBC VNF OTHER custom:connect_SBC_Media_VNF PROCESSING
+2020-01-17 21:48:44,430 INFO:root:Wait for 60 secs...
+2020-01-17 21:49:44,437 INFO:root:In Func:send_request
+2020-01-17 21:49:44,438 INFO:root:type: GET
+2020-01-17 21:49:44,439 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-17 21:49:44,440 INFO:root:data: {}
+2020-01-17 21:49:44,441 INFO:root:expect_code: 200
+2020-01-17 21:49:47,350 INFO:root:SBC VNF OTHER custom:connect_SBC_Media_VNF PROCESSING
+2020-01-17 21:49:47,351 INFO:root:Wait for 60 secs...
+2020-01-17 21:50:47,357 INFO:root:In Func:send_request
+2020-01-17 21:50:47,358 INFO:root:type: GET
+2020-01-17 21:50:47,359 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-17 21:50:47,359 INFO:root:data: {}
+2020-01-17 21:50:47,359 INFO:root:expect_code: 200
+2020-01-17 21:50:50,250 INFO:root:SBC VNF OTHER custom:connect_SBC_Media_VNF PROCESSING
+2020-01-17 21:50:50,251 INFO:root:Wait for 60 secs...
+2020-01-17 21:51:50,258 INFO:root:In Func:send_request
+2020-01-17 21:51:50,258 INFO:root:type: GET
+2020-01-17 21:51:50,258 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-17 21:51:50,259 INFO:root:data: {}
+2020-01-17 21:51:50,259 INFO:root:expect_code: 200
+2020-01-17 21:51:53,096 INFO:root:SBC VNF OTHER custom:connect_SBC_Media_VNF PROCESSING
+2020-01-17 21:51:53,097 INFO:root:Wait for 60 secs...
+2020-01-17 21:52:53,102 INFO:root:In Func:send_request
+2020-01-17 21:52:53,102 INFO:root:type: GET
+2020-01-17 21:52:53,102 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-17 21:52:53,103 INFO:root:data: {}
+2020-01-17 21:52:53,103 INFO:root:expect_code: 200
+2020-01-17 21:52:55,967 INFO:root:SBC VNF OTHER custom:connect_SBC_Media_VNF PROCESSING
+2020-01-17 21:52:55,968 INFO:root:Wait for 60 secs...
+2020-01-17 21:53:55,976 INFO:root:In Func:send_request
+2020-01-17 21:53:55,976 INFO:root:type: GET
+2020-01-17 21:53:55,976 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-17 21:53:55,976 INFO:root:data: {}
+2020-01-17 21:53:55,976 INFO:root:expect_code: 200
+2020-01-17 21:53:58,748 INFO:root:SBC VNF OTHER custom:connect_SBC_Media_VNF COMPLETED
+2020-01-17 21:53:58,749 INFO:root:In Func: sigvnf_DisconnectSbcMediaVnf
+2020-01-17 21:53:58,749 INFO:root:In Func: setup_sigDriver
+2020-01-17 21:54:01,323 INFO:root:get_vnf_id: sig vnf id: CBAM-62563c6fb46b4267a702209b11bf6e23
+2020-01-17 21:54:01,323 INFO:root:wait_processing
+2020-01-17 21:54:01,324 INFO:root:In Func:send_request
+2020-01-17 21:54:01,324 INFO:root:type: GET
+2020-01-17 21:54:01,324 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-17 21:54:01,324 INFO:root:data: {}
+2020-01-17 21:54:01,325 INFO:root:expect_code: 200
+2020-01-17 21:54:04,172 INFO:root:In Func:send_request
+2020-01-17 21:54:04,173 INFO:root:type: POST
+2020-01-17 21:54:04,173 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_instances/CBAM-62563c6fb46b4267a702209b11bf6e23/custom/disconnect_SBC_Media_VNF
+2020-01-17 21:54:04,173 INFO:root:data: {'additionalParams': {'FixedScmIpAddress': '10.75.44.10,10.75.44.11', 'LcmUser': 'cloud-user'}}
+2020-01-17 21:54:04,174 INFO:root:expect_code: 202
+2020-01-17 21:54:08,424 INFO:root:In Func:send_request
+2020-01-17 21:54:08,424 INFO:root:type: GET
+2020-01-17 21:54:08,425 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-17 21:54:08,426 INFO:root:data: {}
+2020-01-17 21:54:08,426 INFO:root:expect_code: 200
+2020-01-17 21:54:11,220 INFO:root:SBC VNF OTHER custom:disconnect_SBC_Media_VNF status: STARTING
+2020-01-17 21:55:11,226 INFO:root:In Func:send_request
+2020-01-17 21:55:11,226 INFO:root:type: GET
+2020-01-17 21:55:11,227 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-17 21:55:11,227 INFO:root:data: {}
+2020-01-17 21:55:11,227 INFO:root:expect_code: 200
+2020-01-17 21:55:14,228 INFO:root:SBC VNF OTHER custom:disconnect_SBC_Media_VNF PROCESSING
+2020-01-17 21:55:14,229 INFO:root:Wait for 60 secs...
+2020-01-17 21:56:14,234 INFO:root:In Func:send_request
+2020-01-17 21:56:14,234 INFO:root:type: GET
+2020-01-17 21:56:14,235 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-17 21:56:14,235 INFO:root:data: {}
+2020-01-17 21:56:14,235 INFO:root:expect_code: 200
+2020-01-17 21:56:17,023 INFO:root:SBC VNF OTHER custom:disconnect_SBC_Media_VNF PROCESSING
+2020-01-17 21:56:17,023 INFO:root:Wait for 60 secs...
+2020-01-17 21:57:17,029 INFO:root:In Func:send_request
+2020-01-17 21:57:17,029 INFO:root:type: GET
+2020-01-17 21:57:17,032 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-17 21:57:17,033 INFO:root:data: {}
+2020-01-17 21:57:17,033 INFO:root:expect_code: 200
+2020-01-17 21:57:19,862 INFO:root:SBC VNF OTHER custom:disconnect_SBC_Media_VNF PROCESSING
+2020-01-17 21:57:19,862 INFO:root:Wait for 60 secs...
+2020-01-17 21:58:19,868 INFO:root:In Func:send_request
+2020-01-17 21:58:19,868 INFO:root:type: GET
+2020-01-17 21:58:19,868 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-17 21:58:19,868 INFO:root:data: {}
+2020-01-17 21:58:19,869 INFO:root:expect_code: 200
+2020-01-17 21:58:22,751 INFO:root:SBC VNF OTHER custom:disconnect_SBC_Media_VNF PROCESSING
+2020-01-17 21:58:22,752 INFO:root:Wait for 60 secs...
+2020-01-17 21:59:22,757 INFO:root:In Func:send_request
+2020-01-17 21:59:22,757 INFO:root:type: GET
+2020-01-17 21:59:22,757 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-17 21:59:22,758 INFO:root:data: {}
+2020-01-17 21:59:22,758 INFO:root:expect_code: 200
+2020-01-17 21:59:25,540 INFO:root:SBC VNF OTHER custom:disconnect_SBC_Media_VNF PROCESSING
+2020-01-17 21:59:25,541 INFO:root:Wait for 60 secs...
+2020-01-17 22:00:25,546 INFO:root:In Func:send_request
+2020-01-17 22:00:25,546 INFO:root:type: GET
+2020-01-17 22:00:25,546 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-17 22:00:25,546 INFO:root:data: {}
+2020-01-17 22:00:25,547 INFO:root:expect_code: 200
+2020-01-17 22:00:28,460 INFO:root:SBC VNF OTHER custom:disconnect_SBC_Media_VNF PROCESSING
+2020-01-17 22:00:28,460 INFO:root:Wait for 60 secs...
+2020-01-17 22:01:28,466 INFO:root:In Func:send_request
+2020-01-17 22:01:28,468 INFO:root:type: GET
+2020-01-17 22:01:28,469 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-17 22:01:28,470 INFO:root:data: {}
+2020-01-17 22:01:28,471 INFO:root:expect_code: 200
+2020-01-17 22:01:31,268 INFO:root:SBC VNF OTHER custom:disconnect_SBC_Media_VNF PROCESSING
+2020-01-17 22:01:31,268 INFO:root:Wait for 60 secs...
+2020-01-17 22:02:31,272 INFO:root:In Func:send_request
+2020-01-17 22:02:31,272 INFO:root:type: GET
+2020-01-17 22:02:31,272 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-17 22:02:31,273 INFO:root:data: {}
+2020-01-17 22:02:31,273 INFO:root:expect_code: 200
+2020-01-17 22:02:34,096 INFO:root:SBC VNF OTHER custom:disconnect_SBC_Media_VNF PROCESSING
+2020-01-17 22:02:34,096 INFO:root:Wait for 60 secs...
+2020-01-17 22:03:34,102 INFO:root:In Func:send_request
+2020-01-17 22:03:34,103 INFO:root:type: GET
+2020-01-17 22:03:34,104 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-17 22:03:34,109 INFO:root:data: {}
+2020-01-17 22:03:34,109 INFO:root:expect_code: 200
+2020-01-17 22:03:36,988 INFO:root:SBC VNF OTHER custom:disconnect_SBC_Media_VNF PROCESSING
+2020-01-17 22:03:36,988 INFO:root:Wait for 60 secs...
+2020-01-17 22:04:36,993 INFO:root:In Func:send_request
+2020-01-17 22:04:36,993 INFO:root:type: GET
+2020-01-17 22:04:36,994 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-17 22:04:36,998 INFO:root:data: {}
+2020-01-17 22:04:37,000 INFO:root:expect_code: 200
+2020-01-17 22:04:39,823 INFO:root:SBC VNF OTHER custom:disconnect_SBC_Media_VNF COMPLETED
+2020-01-17 22:04:39,823 INFO:root:In Func: sigvnf_ConnectSbcMediaVnf
+2020-01-17 22:04:39,823 INFO:root:In Func: setup_sigDriver
+2020-01-17 22:04:42,477 INFO:root:get_vnf_id: sig vnf id: CBAM-62563c6fb46b4267a702209b11bf6e23
+2020-01-17 22:04:42,477 INFO:root:wait_processing
+2020-01-17 22:04:42,477 INFO:root:In Func:send_request
+2020-01-17 22:04:42,478 INFO:root:type: GET
+2020-01-17 22:04:42,478 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-17 22:04:42,478 INFO:root:data: {}
+2020-01-17 22:04:42,478 INFO:root:expect_code: 200
+2020-01-17 22:04:45,253 INFO:root:In Func:send_request
+2020-01-17 22:04:45,254 INFO:root:type: POST
+2020-01-17 22:04:45,259 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_instances/CBAM-62563c6fb46b4267a702209b11bf6e23/custom/connect_SBC_Media_VNF
+2020-01-17 22:04:45,260 INFO:root:data: {'additionalParams': {'FixedScmIpAddress': '10.75.44.10,10.75.44.11', 'LcmUser': 'cloud-user', 'ApplUser': 'diag', 'ApplUserPw': '-assured'}}
+2020-01-17 22:04:45,260 INFO:root:expect_code: 202
+2020-01-17 22:04:49,499 INFO:root:In Func:send_request
+2020-01-17 22:04:49,500 INFO:root:type: GET
+2020-01-17 22:04:49,501 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-17 22:04:49,501 INFO:root:data: {}
+2020-01-17 22:04:49,503 INFO:root:expect_code: 200
+2020-01-17 22:04:52,313 INFO:root:SBC VNF OTHER custom:connect_SBC_Media_VNF status: STARTING
+2020-01-17 22:05:52,317 INFO:root:In Func:send_request
+2020-01-17 22:05:52,318 INFO:root:type: GET
+2020-01-17 22:05:52,319 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-17 22:05:52,319 INFO:root:data: {}
+2020-01-17 22:05:52,320 INFO:root:expect_code: 200
+2020-01-17 22:05:55,191 INFO:root:SBC VNF OTHER custom:connect_SBC_Media_VNF PROCESSING
+2020-01-17 22:05:55,192 INFO:root:Wait for 60 secs...
+2020-01-17 22:06:55,197 INFO:root:In Func:send_request
+2020-01-17 22:06:55,198 INFO:root:type: GET
+2020-01-17 22:06:55,199 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-17 22:06:55,199 INFO:root:data: {}
+2020-01-17 22:06:55,200 INFO:root:expect_code: 200
+2020-01-17 22:07:06,249 WARNING:urllib3.connectionpool:Retrying (Retry(total=9, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProxyError('Cannot connect to proxy.', NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x07474BF0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))': /auth/realms/cbam/protocol/openid-connect/token
+2020-01-17 22:07:06,251 WARNING:urllib3.connectionpool:Retrying (Retry(total=8, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProxyError('Cannot connect to proxy.', NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x07436C50>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))': /auth/realms/cbam/protocol/openid-connect/token
+2020-01-17 22:07:06,252 WARNING:urllib3.connectionpool:Retrying (Retry(total=7, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProxyError('Cannot connect to proxy.', NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x07436830>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))': /auth/realms/cbam/protocol/openid-connect/token
+2020-01-17 22:07:06,254 WARNING:urllib3.connectionpool:Retrying (Retry(total=6, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProxyError('Cannot connect to proxy.', NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x07436CB0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))': /auth/realms/cbam/protocol/openid-connect/token
+2020-01-17 22:07:06,255 WARNING:urllib3.connectionpool:Retrying (Retry(total=5, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProxyError('Cannot connect to proxy.', NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x07471790>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))': /auth/realms/cbam/protocol/openid-connect/token
+2020-01-17 22:07:06,256 WARNING:urllib3.connectionpool:Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProxyError('Cannot connect to proxy.', NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x07471230>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))': /auth/realms/cbam/protocol/openid-connect/token
+2020-01-17 22:07:06,257 WARNING:urllib3.connectionpool:Retrying (Retry(total=3, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProxyError('Cannot connect to proxy.', NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x07471170>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))': /auth/realms/cbam/protocol/openid-connect/token
+2020-01-17 22:07:06,258 WARNING:urllib3.connectionpool:Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProxyError('Cannot connect to proxy.', NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x074716D0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))': /auth/realms/cbam/protocol/openid-connect/token
+2020-01-17 22:07:06,260 WARNING:urllib3.connectionpool:Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProxyError('Cannot connect to proxy.', NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x07471650>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))': /auth/realms/cbam/protocol/openid-connect/token
+2020-01-17 22:07:06,261 WARNING:urllib3.connectionpool:Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProxyError('Cannot connect to proxy.', NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x07471470>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))': /auth/realms/cbam/protocol/openid-connect/token
+2020-01-17 22:07:06,263 INFO:root:Func get_token failed. Response: None.
+2020-01-17 22:07:06,268 WARNING:urllib3.connectionpool:Retrying (Retry(total=9, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProxyError('Cannot connect to proxy.', NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x07474A50>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))': /vnflcm/v1/vnf_lcm_op_occs
+2020-01-17 22:07:06,269 WARNING:urllib3.connectionpool:Retrying (Retry(total=8, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProxyError('Cannot connect to proxy.', NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x07474A70>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))': /vnflcm/v1/vnf_lcm_op_occs
+2020-01-17 22:07:06,270 WARNING:urllib3.connectionpool:Retrying (Retry(total=7, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProxyError('Cannot connect to proxy.', NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x07474DB0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))': /vnflcm/v1/vnf_lcm_op_occs
+2020-01-17 22:07:06,271 WARNING:urllib3.connectionpool:Retrying (Retry(total=6, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProxyError('Cannot connect to proxy.', NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x07474590>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))': /vnflcm/v1/vnf_lcm_op_occs
+2020-01-17 22:07:06,272 WARNING:urllib3.connectionpool:Retrying (Retry(total=5, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProxyError('Cannot connect to proxy.', NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x07474F90>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))': /vnflcm/v1/vnf_lcm_op_occs
+2020-01-17 22:07:06,275 WARNING:urllib3.connectionpool:Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProxyError('Cannot connect to proxy.', NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x07474910>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))': /vnflcm/v1/vnf_lcm_op_occs
+2020-01-17 22:07:06,276 WARNING:urllib3.connectionpool:Retrying (Retry(total=3, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProxyError('Cannot connect to proxy.', NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x07474430>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))': /vnflcm/v1/vnf_lcm_op_occs
+2020-01-17 22:07:06,278 WARNING:urllib3.connectionpool:Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProxyError('Cannot connect to proxy.', NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x07474B70>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))': /vnflcm/v1/vnf_lcm_op_occs
+2020-01-17 22:07:06,279 WARNING:urllib3.connectionpool:Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProxyError('Cannot connect to proxy.', NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x07474D10>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))': /vnflcm/v1/vnf_lcm_op_occs
+2020-01-17 22:07:06,282 WARNING:urllib3.connectionpool:Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProxyError('Cannot connect to proxy.', NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x07436890>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))': /vnflcm/v1/vnf_lcm_op_occs
+2020-01-17 22:07:06,283 INFO:root:Func send_request failed. Response: None.
+2020-01-18 10:02:25,719 INFO:root:id: 243
+2020-01-18 10:02:25,734 INFO:root:vnfdId: a429bbb6-3747-11ea-94a5-1cc1de70bde5
+2020-01-18 10:02:25,734 INFO:root:vnfProvider: Nokia
+2020-01-18 10:02:25,734 INFO:root:vnfProductName: SBC-media
+2020-01-18 10:02:25,734 INFO:root:vnfSoftwareVersion: ap100013
+2020-01-18 10:02:25,734 INFO:root:vnfdVersion: sbgw01
+2020-01-18 10:02:25,734 INFO:root:onboardingState: ONBOARDED
+2020-01-18 10:02:25,734 INFO:root:operationalState: ENABLED
+2020-01-18 10:02:25,734 INFO:root:userDefinedData: {'vimType': 'openstack', 'references': ['CBAM-ae4fff2b41e24f9082ed7cca81c0054f']}
+2020-01-18 10:02:25,734 INFO:root:_links: {'vnfd': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/243/vnfd'}, 'packageContent': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/243/package_content'}, 'self': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/243'}}
+2020-01-18 10:02:25,734 INFO:root:id: 303
+2020-01-18 10:02:25,734 INFO:root:vnfdId: d14d9c19-360f-47f5-a018-fb5ca424e80e
+2020-01-18 10:02:25,734 INFO:root:vnfProvider: Nokia
+2020-01-18 10:02:25,734 INFO:root:vnfProductName: SBC
+2020-01-18 10:02:25,734 INFO:root:vnfSoftwareVersion: sbclcm03~37.34.06
+2020-01-18 10:02:25,734 INFO:root:vnfdVersion: sbclcm03~37.34.06
+2020-01-18 10:02:25,734 INFO:root:onboardingState: ONBOARDED
+2020-01-18 10:02:25,734 INFO:root:operationalState: ENABLED
+2020-01-18 10:02:25,734 INFO:root:userDefinedData: {'vimType': 'openstack', 'references': ['CBAM-62563c6fb46b4267a702209b11bf6e23']}
+2020-01-18 10:02:25,734 INFO:root:_links: {'vnfd': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/303/vnfd'}, 'packageContent': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/303/package_content'}, 'self': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/303'}}
+2020-01-18 10:02:25,734 INFO:root:id: 239
+2020-01-18 10:02:25,734 INFO:root:vnfdId: 38a2f54a-373f-11ea-b927-1cc1de70bde4
+2020-01-18 10:02:25,734 INFO:root:vnfProvider: Nokia
+2020-01-18 10:02:25,734 INFO:root:vnfProductName: SBC-media
+2020-01-18 10:02:25,734 INFO:root:vnfSoftwareVersion: an100053
+2020-01-18 10:02:25,734 INFO:root:vnfdVersion: sbgw01
+2020-01-18 10:02:25,734 INFO:root:onboardingState: ONBOARDED
+2020-01-18 10:02:25,734 INFO:root:operationalState: ENABLED
+2020-01-18 10:02:25,750 INFO:root:userDefinedData: {'vimType': 'openstack', 'references': []}
+2020-01-18 10:02:25,750 INFO:root:_links: {'vnfd': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/239/vnfd'}, 'packageContent': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/239/package_content'}, 'self': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/239'}}
+2020-01-18 10:02:25,750 INFO:root:id: 293
+2020-01-18 10:02:25,750 INFO:root:vnfdId: ed5d8c9f-2aa7-4dd5-ad5c-dcfb62c3c0bf
+2020-01-18 10:02:25,750 INFO:root:vnfProvider: Nokia
+2020-01-18 10:02:25,750 INFO:root:vnfProductName: SBC
+2020-01-18 10:02:25,750 INFO:root:vnfSoftwareVersion: sbclcm03~37.28.06
+2020-01-18 10:02:25,750 INFO:root:vnfdVersion: sbclcm03~37.28.06
+2020-01-18 10:02:25,750 INFO:root:onboardingState: ONBOARDED
+2020-01-18 10:02:25,750 INFO:root:operationalState: ENABLED
+2020-01-18 10:02:25,750 INFO:root:userDefinedData: {'vimType': 'openstack', 'references': []}
+2020-01-18 10:02:25,750 INFO:root:_links: {'vnfd': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/293/vnfd'}, 'packageContent': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/293/package_content'}, 'self': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/293'}}
+2020-01-18 10:02:25,750 INFO:root:Media Plane vnfdId_SU: a429bbb6-3747-11ea-94a5-1cc1de70bde5
+2020-01-18 10:02:25,750 INFO:root:Media Plane vnfSoftwareVersion for SUTOLoad: ap100013
+2020-01-18 10:02:25,750 INFO:root:Sig Plane vnfdId: d14d9c19-360f-47f5-a018-fb5ca424e80e
+2020-01-18 10:02:25,750 INFO:root:Sig Plane vnfSoftwareVersion: sbclcm03~37.34.06
+2020-01-18 10:02:25,750 INFO:root:Media Plane vnfdId: 38a2f54a-373f-11ea-b927-1cc1de70bde4
+2020-01-18 10:02:25,750 INFO:root:Media Plane vnfSoftwareVersion: an100053
+2020-01-18 10:02:25,750 INFO:root:In Func: sigvnf_Backup_Remote_Creds12
+2020-01-18 10:02:25,750 INFO:root:In Func: setup_sigDriver
+2020-01-18 10:02:28,273 INFO:root:get_vnf_id: sig vnf id: CBAM-62563c6fb46b4267a702209b11bf6e23
+2020-01-18 10:02:28,273 INFO:root:wait_processing
+2020-01-18 10:02:28,273 INFO:root:In Func:send_request
+2020-01-18 10:02:28,273 INFO:root:type: GET
+2020-01-18 10:02:28,273 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 10:02:28,273 INFO:root:data: {}
+2020-01-18 10:02:28,273 INFO:root:expect_code: 200
+2020-01-18 10:02:31,040 INFO:root:In Func:send_request
+2020-01-18 10:02:31,040 INFO:root:type: POST
+2020-01-18 10:02:31,040 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_instances/CBAM-62563c6fb46b4267a702209b11bf6e23/custom/backup
+2020-01-18 10:02:31,040 INFO:root:data: {'additionalParams': {'backupServer1': 'centos@10.75.44.7:/var/www/html/sbclcm-auto/', 'backup_server_credentials1': '-----BEGIN RSA PRIVATE KEY-----\nMIIEowIBAAKCAQEAvX/4YeeQcBqR2sjW18T8WbiAVdnVIs4ZNNlTEG+Ps6OFeQFm\nUBwXvtqbetitEhAAU2OT4ivuh+B20KM/WHM6r57URA1qgNK8Sk9tLUiZRvMDkDR8\nWpAEQSw0fvkO91J93q9Siu3h2uhiKtB1ARESb5DcayttXg0fr9U5hmT/mD5MJ/nC\npfE5ByuHzmWSJo9Vya+YM0UBZnja38vhfc8mAeJ0pxQVxkoL4KzYF2JJAqIzH9tw\nkJLfZbNlxQtOKRCSRWtdcCHckfS0/BISf9f0jdG9h15q3vvKc0j+dXCJny5jfgCc\nHl2+e4RYK3evvJPWQNSZ/+iMZqn1SyligpbKXQIDAQABAoIBABtfsAach73Z6LXd\nC0Px/a4MO+Wq6OH1Oajrt9cI9o4xkedP73KlDD0SoSEWybFxRErHeKZUSEmygBdV\nbaIeSxzxaaJG+dqQFoj5fkDrWtDn69zZ6BjA8wxjEVZCLgpGDU6srtTI1jZkGUIs\nCKrVx378QwrsJAlRBgHFYGDsmAtqvLetbMm272K/hz2e4jxMf08LcDx1fUgDO+hD\naMjzVmbIYNbFftLQD/yG+DgtvP7f728yoG8gNXC0shPqetHtfnwCbJ3H1ju9svGW\nDFYzrBwZZZMY0nTAWjY/DXSS1ORrq7LXSIPKf/3kobfMU67ugeC6NrEsncdIKvIE\n/yVKTrUCgYEA4iMKFeRdIWjzijg3Iie6k09vduTH+nsELDKjzHqcyPmEBisidFQA\nFMjJO8+jh+KKusqYEDp1l4qHLbtN1hatKZV6PwfcmPITA+uczZa9Z3YAKsI1GAOi\n0GUmjmoElOGc1I+k55fWAt48hWRoPd4vrlGaAw8otIdiSXHdpwdb3rsCgYEA1oZa\nH7R4j757Ny47NHIPsXsfZwyD2TTU+oOIDOPvBWN6GuU70N5ZW21529mwLKbr5e2H\n9ofMhSJQkXlg6e6F5wmj7Q0n+mGNoPeNoq7bRB1gHelODs4vAnnVNz2vCGt0uqSd\n+UoemidWKm8RFNAG8yS9uoQrk7sZpA5MYHrJBccCgYBELqxrzV8HI83Kbwiwk6n9\noIXLI0/ohg7MBLi+fnmnXxQfiAHrcShVG/UQw5pa7kNF7q/KtNWfy3TWpRLi6hNr\n5lXli0lIFDUHiZLNqhWRjFKgkc3QX8hHbTgi2HRpL11J+cWOzokIdFlrHssPXF6k\nAJafNYLga7GG034xTla04QKBgAK5Meu1HtK0WFwa+iVwTUKzjXKBdisLwKhtgwym\n2CH5YVN2FYxRRlEi0qk32kS22cfRfChlEPOfu+Yc5F4T6R9FwA8CW7+R/XpNqj6m\neaIjvVSj4ZnOhEpDwbEx10cEFjdIX7kKd9j9JtrjDhR1j6EGlmIHy4XUmj66771J\n0cOBAoGBAJyXMkKKbsSGDGYoyzazVjLYzIqmC2tOnYkHHl3heEZN/LkphPuLdbcj\n2pk2wlqskZ2LQxnylJDgIIA6rJBoLvBj5Xo+9EN7uidHHv+8JGBy4FPcDNl2O5RR\nLbiaAVSQNQNm+hku9e0XH0+YFrCP+0Q8D9DGYzhupslAzJEyoz3R\n-----END RSA PRIVATE KEY-----', 'backupServer2': 'centos@10.75.44.7:/var/www/html/sbclcm-auto/', 'backup_server_credentials2': '-----BEGIN RSA PRIVATE KEY-----\nMIIEowIBAAKCAQEAvX/4YeeQcBqR2sjW18T8WbiAVdnVIs4ZNNlTEG+Ps6OFeQFm\nUBwXvtqbetitEhAAU2OT4ivuh+B20KM/WHM6r57URA1qgNK8Sk9tLUiZRvMDkDR8\nWpAEQSw0fvkO91J93q9Siu3h2uhiKtB1ARESb5DcayttXg0fr9U5hmT/mD5MJ/nC\npfE5ByuHzmWSJo9Vya+YM0UBZnja38vhfc8mAeJ0pxQVxkoL4KzYF2JJAqIzH9tw\nkJLfZbNlxQtOKRCSRWtdcCHckfS0/BISf9f0jdG9h15q3vvKc0j+dXCJny5jfgCc\nHl2+e4RYK3evvJPWQNSZ/+iMZqn1SyligpbKXQIDAQABAoIBABtfsAach73Z6LXd\nC0Px/a4MO+Wq6OH1Oajrt9cI9o4xkedP73KlDD0SoSEWybFxRErHeKZUSEmygBdV\nbaIeSxzxaaJG+dqQFoj5fkDrWtDn69zZ6BjA8wxjEVZCLgpGDU6srtTI1jZkGUIs\nCKrVx378QwrsJAlRBgHFYGDsmAtqvLetbMm272K/hz2e4jxMf08LcDx1fUgDO+hD\naMjzVmbIYNbFftLQD/yG+DgtvP7f728yoG8gNXC0shPqetHtfnwCbJ3H1ju9svGW\nDFYzrBwZZZMY0nTAWjY/DXSS1ORrq7LXSIPKf/3kobfMU67ugeC6NrEsncdIKvIE\n/yVKTrUCgYEA4iMKFeRdIWjzijg3Iie6k09vduTH+nsELDKjzHqcyPmEBisidFQA\nFMjJO8+jh+KKusqYEDp1l4qHLbtN1hatKZV6PwfcmPITA+uczZa9Z3YAKsI1GAOi\n0GUmjmoElOGc1I+k55fWAt48hWRoPd4vrlGaAw8otIdiSXHdpwdb3rsCgYEA1oZa\nH7R4j757Ny47NHIPsXsfZwyD2TTU+oOIDOPvBWN6GuU70N5ZW21529mwLKbr5e2H\n9ofMhSJQkXlg6e6F5wmj7Q0n+mGNoPeNoq7bRB1gHelODs4vAnnVNz2vCGt0uqSd\n+UoemidWKm8RFNAG8yS9uoQrk7sZpA5MYHrJBccCgYBELqxrzV8HI83Kbwiwk6n9\noIXLI0/ohg7MBLi+fnmnXxQfiAHrcShVG/UQw5pa7kNF7q/KtNWfy3TWpRLi6hNr\n5lXli0lIFDUHiZLNqhWRjFKgkc3QX8hHbTgi2HRpL11J+cWOzokIdFlrHssPXF6k\nAJafNYLga7GG034xTla04QKBgAK5Meu1HtK0WFwa+iVwTUKzjXKBdisLwKhtgwym\n2CH5YVN2FYxRRlEi0qk32kS22cfRfChlEPOfu+Yc5F4T6R9FwA8CW7+R/XpNqj6m\neaIjvVSj4ZnOhEpDwbEx10cEFjdIX7kKd9j9JtrjDhR1j6EGlmIHy4XUmj66771J\n0cOBAoGBAJyXMkKKbsSGDGYoyzazVjLYzIqmC2tOnYkHHl3heEZN/LkphPuLdbcj\n2pk2wlqskZ2LQxnylJDgIIA6rJBoLvBj5Xo+9EN7uidHHv+8JGBy4FPcDNl2O5RR\nLbiaAVSQNQNm+hku9e0XH0+YFrCP+0Q8D9DGYzhupslAzJEyoz3R\n-----END RSA PRIVATE KEY-----'}}
+2020-01-18 10:02:31,040 INFO:root:expect_code: 202
+2020-01-18 10:02:35,283 INFO:root:In Func:send_request
+2020-01-18 10:02:35,283 INFO:root:type: GET
+2020-01-18 10:02:35,283 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 10:02:35,283 INFO:root:data: {}
+2020-01-18 10:02:35,283 INFO:root:expect_code: 200
+2020-01-18 10:02:38,085 INFO:root:SBC VNF OTHER custom:backup status: STARTING
+2020-01-18 10:03:38,085 INFO:root:In Func:send_request
+2020-01-18 10:03:38,085 INFO:root:type: GET
+2020-01-18 10:03:38,086 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 10:03:38,087 INFO:root:data: {}
+2020-01-18 10:03:38,088 INFO:root:expect_code: 200
+2020-01-18 10:03:40,981 INFO:root:SBC VNF OTHER custom:backup PROCESSING
+2020-01-18 10:03:40,981 INFO:root:Wait for 60 secs...
+2020-01-18 10:04:40,983 INFO:root:In Func:send_request
+2020-01-18 10:04:40,983 INFO:root:type: GET
+2020-01-18 10:04:40,983 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 10:04:40,984 INFO:root:data: {}
+2020-01-18 10:04:40,984 INFO:root:expect_code: 200
+2020-01-18 10:04:43,882 INFO:root:SBC VNF OTHER custom:backup PROCESSING
+2020-01-18 10:04:43,882 INFO:root:Wait for 60 secs...
+2020-01-18 10:05:43,883 INFO:root:In Func:send_request
+2020-01-18 10:05:43,883 INFO:root:type: GET
+2020-01-18 10:05:43,884 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 10:05:43,884 INFO:root:data: {}
+2020-01-18 10:05:43,884 INFO:root:expect_code: 200
+2020-01-18 10:05:46,785 INFO:root:SBC VNF OTHER custom:backup PROCESSING
+2020-01-18 10:05:46,785 INFO:root:Wait for 60 secs...
+2020-01-18 10:06:46,785 INFO:root:In Func:send_request
+2020-01-18 10:06:46,785 INFO:root:type: GET
+2020-01-18 10:06:46,785 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 10:06:46,785 INFO:root:data: {}
+2020-01-18 10:06:46,785 INFO:root:expect_code: 200
+2020-01-18 10:06:49,601 INFO:root:SBC VNF OTHER custom:backup PROCESSING
+2020-01-18 10:06:49,602 INFO:root:Wait for 60 secs...
+2020-01-18 10:07:49,604 INFO:root:In Func:send_request
+2020-01-18 10:07:49,604 INFO:root:type: GET
+2020-01-18 10:07:49,604 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 10:07:49,604 INFO:root:data: {}
+2020-01-18 10:07:49,604 INFO:root:expect_code: 200
+2020-01-18 10:07:52,490 INFO:root:SBC VNF OTHER custom:backup PROCESSING
+2020-01-18 10:07:52,506 INFO:root:Wait for 60 secs...
+2020-01-18 10:08:52,527 INFO:root:In Func:send_request
+2020-01-18 10:08:52,527 INFO:root:type: GET
+2020-01-18 10:08:52,527 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 10:08:52,527 INFO:root:data: {}
+2020-01-18 10:08:52,527 INFO:root:expect_code: 200
+2020-01-18 10:08:55,395 INFO:root:SBC VNF OTHER custom:backup PROCESSING
+2020-01-18 10:08:55,395 INFO:root:Wait for 60 secs...
+2020-01-18 10:09:55,411 INFO:root:In Func:send_request
+2020-01-18 10:09:55,411 INFO:root:type: GET
+2020-01-18 10:09:55,411 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 10:09:55,411 INFO:root:data: {}
+2020-01-18 10:09:55,411 INFO:root:expect_code: 200
+2020-01-18 10:09:58,222 INFO:root:SBC VNF OTHER custom:backup PROCESSING
+2020-01-18 10:09:58,222 INFO:root:Wait for 60 secs...
+2020-01-18 10:10:58,229 INFO:root:In Func:send_request
+2020-01-18 10:10:58,229 INFO:root:type: GET
+2020-01-18 10:10:58,229 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 10:10:58,230 INFO:root:data: {}
+2020-01-18 10:10:58,230 INFO:root:expect_code: 200
+2020-01-18 10:11:01,098 INFO:root:SBC VNF OTHER custom:backup PROCESSING
+2020-01-18 10:11:01,099 INFO:root:Wait for 60 secs...
+2020-01-18 10:12:01,107 INFO:root:In Func:send_request
+2020-01-18 10:12:01,107 INFO:root:type: GET
+2020-01-18 10:12:01,108 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 10:12:01,108 INFO:root:data: {}
+2020-01-18 10:12:01,108 INFO:root:expect_code: 200
+2020-01-18 10:12:03,885 INFO:root:SBC VNF OTHER custom:backup COMPLETED
+2020-01-18 10:12:03,885 INFO:root:In Func: ssh_command
+2020-01-18 10:12:03,885 INFO:root:cmd: ls /var/www/html/sbclcm-auto/
+2020-01-18 10:12:04,386 INFO:paramiko.transport:Connected (version 2.0, client OpenSSH_7.4)
+2020-01-18 10:12:06,042 INFO:paramiko.transport:Authentication (publickey) failed.
+2020-01-18 10:12:11,744 INFO:paramiko.transport:Authentication (password) successful!
+2020-01-18 10:12:12,932 INFO:root:mv /var/www/html/sbclcm-auto/sbclcm03_100.69.127.135_R37.34.06_1579313446_LCP.zip /var/www/html/sbclcm-auto/backup.zip
+2020-01-18 10:12:12,932 INFO:root:In Func: ssh_command
+2020-01-18 10:12:12,932 INFO:root:cmd: mv /var/www/html/sbclcm-auto/sbclcm03_100.69.127.135_R37.34.06_1579313446_LCP.zip /var/www/html/sbclcm-auto/backup.zip
+2020-01-18 10:12:13,449 INFO:paramiko.transport:Connected (version 2.0, client OpenSSH_7.4)
+2020-01-18 10:12:14,823 INFO:paramiko.transport:Authentication (publickey) failed.
+2020-01-18 10:12:20,480 INFO:paramiko.transport:Authentication (password) successful!
+2020-01-18 10:12:21,683 INFO:root:chmod 777 /var/www/html/sbclcm-auto/backup.zip
+2020-01-18 10:12:21,683 INFO:root:In Func: ssh_command
+2020-01-18 10:12:21,683 INFO:root:cmd: chmod 777 /var/www/html/sbclcm-auto/backup.zip
+2020-01-18 10:12:22,184 INFO:paramiko.transport:Connected (version 2.0, client OpenSSH_7.4)
+2020-01-18 10:12:23,534 INFO:paramiko.transport:Authentication (publickey) failed.
+2020-01-18 10:12:29,207 INFO:paramiko.transport:Authentication (password) successful!
+2020-01-18 10:12:30,411 INFO:root:mv /var/www/html/sbclcm-auto/sbclcm03_10.75.44.24_R37.34.00.6200_1578377017_LCP.zip /var/www/html/sbclcm-auto/backup.zip
+2020-01-18 10:12:30,411 INFO:root:In Func: ssh_command
+2020-01-18 10:12:30,411 INFO:root:cmd: mv /var/www/html/sbclcm-auto/sbclcm03_10.75.44.24_R37.34.00.6200_1578377017_LCP.zip /var/www/html/sbclcm-auto/backup.zip
+2020-01-18 10:12:30,912 INFO:paramiko.transport:Connected (version 2.0, client OpenSSH_7.4)
+2020-01-18 10:12:32,303 INFO:paramiko.transport:Authentication (publickey) failed.
+2020-01-18 10:12:37,969 INFO:paramiko.transport:Authentication (password) successful!
+2020-01-18 10:12:39,176 INFO:root:chmod 777 /var/www/html/sbclcm-auto/backup.zip
+2020-01-18 10:12:39,176 INFO:root:In Func: ssh_command
+2020-01-18 10:12:39,176 INFO:root:cmd: chmod 777 /var/www/html/sbclcm-auto/backup.zip
+2020-01-18 10:12:39,679 INFO:paramiko.transport:Connected (version 2.0, client OpenSSH_7.4)
+2020-01-18 10:12:41,037 INFO:paramiko.transport:Authentication (publickey) failed.
+2020-01-18 10:12:46,706 INFO:paramiko.transport:Authentication (password) successful!
+2020-01-18 10:12:47,882 INFO:root:In Func: sigvnf_DBRestore
+2020-01-18 10:12:47,882 INFO:root:In Func: setup_sigDriver
+2020-01-18 10:12:50,407 INFO:root:get_vnf_id: sig vnf id: CBAM-62563c6fb46b4267a702209b11bf6e23
+2020-01-18 10:12:50,407 INFO:root:wait_processing
+2020-01-18 10:12:50,407 INFO:root:In Func:send_request
+2020-01-18 10:12:50,407 INFO:root:type: GET
+2020-01-18 10:12:50,407 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 10:12:50,407 INFO:root:data: {}
+2020-01-18 10:12:50,407 INFO:root:expect_code: 200
+2020-01-18 10:12:53,187 INFO:root:In Func:send_request
+2020-01-18 10:12:53,187 INFO:root:type: POST
+2020-01-18 10:12:53,187 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_instances/CBAM-62563c6fb46b4267a702209b11bf6e23/custom/DB_Restore
+2020-01-18 10:12:53,187 INFO:root:data: {'additionalParams': {'backupInfo': 'centos@10.75.44.7:/var/www/html/sbclcm-auto/backup.zip', 'restore_media_plane': 'ALL'}}
+2020-01-18 10:12:53,187 INFO:root:expect_code: 202
+2020-01-18 10:12:57,429 INFO:root:In Func:send_request
+2020-01-18 10:12:57,429 INFO:root:type: GET
+2020-01-18 10:12:57,429 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 10:12:57,429 INFO:root:data: {}
+2020-01-18 10:12:57,429 INFO:root:expect_code: 200
+2020-01-18 10:13:00,260 INFO:root:SBC VNF OTHER custom:DB_Restore status: STARTING
+2020-01-18 10:14:00,274 INFO:root:In Func:send_request
+2020-01-18 10:14:00,274 INFO:root:type: GET
+2020-01-18 10:14:00,274 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 10:14:00,274 INFO:root:data: {}
+2020-01-18 10:14:00,274 INFO:root:expect_code: 200
+2020-01-18 10:14:03,130 INFO:root:SBC VNF OTHER custom:DB_Restore PROCESSING
+2020-01-18 10:14:03,130 INFO:root:Wait for 60 secs...
+2020-01-18 10:15:03,133 INFO:root:In Func:send_request
+2020-01-18 10:15:03,133 INFO:root:type: GET
+2020-01-18 10:15:03,133 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 10:15:03,133 INFO:root:data: {}
+2020-01-18 10:15:03,133 INFO:root:expect_code: 200
+2020-01-18 10:15:05,934 INFO:root:SBC VNF OTHER custom:DB_Restore PROCESSING
+2020-01-18 10:15:05,934 INFO:root:Wait for 60 secs...
+2020-01-18 10:16:05,935 INFO:root:In Func:send_request
+2020-01-18 10:16:05,935 INFO:root:type: GET
+2020-01-18 10:16:05,935 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 10:16:05,936 INFO:root:data: {}
+2020-01-18 10:16:05,936 INFO:root:expect_code: 200
+2020-01-18 10:16:08,745 INFO:root:SBC VNF OTHER custom:DB_Restore PROCESSING
+2020-01-18 10:16:08,745 INFO:root:Wait for 60 secs...
+2020-01-18 10:17:08,747 INFO:root:In Func:send_request
+2020-01-18 10:17:08,747 INFO:root:type: GET
+2020-01-18 10:17:08,748 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 10:17:08,748 INFO:root:data: {}
+2020-01-18 10:17:08,749 INFO:root:expect_code: 200
+2020-01-18 10:17:11,658 INFO:root:SBC VNF OTHER custom:DB_Restore PROCESSING
+2020-01-18 10:17:11,659 INFO:root:Wait for 60 secs...
+2020-01-18 10:18:11,662 INFO:root:In Func:send_request
+2020-01-18 10:18:11,662 INFO:root:type: GET
+2020-01-18 10:18:11,662 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 10:18:11,662 INFO:root:data: {}
+2020-01-18 10:18:11,662 INFO:root:expect_code: 200
+2020-01-18 10:18:14,557 INFO:root:SBC VNF OTHER custom:DB_Restore PROCESSING
+2020-01-18 10:18:14,557 INFO:root:Wait for 60 secs...
+2020-01-18 10:19:14,560 INFO:root:In Func:send_request
+2020-01-18 10:19:14,560 INFO:root:type: GET
+2020-01-18 10:19:14,560 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 10:19:14,560 INFO:root:data: {}
+2020-01-18 10:19:14,560 INFO:root:expect_code: 200
+2020-01-18 10:19:17,362 INFO:root:SBC VNF OTHER custom:DB_Restore PROCESSING
+2020-01-18 10:19:17,363 INFO:root:Wait for 60 secs...
+2020-01-18 10:20:17,368 INFO:root:In Func:send_request
+2020-01-18 10:20:17,368 INFO:root:type: GET
+2020-01-18 10:20:17,368 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 10:20:17,368 INFO:root:data: {}
+2020-01-18 10:20:17,368 INFO:root:expect_code: 200
+2020-01-18 10:20:20,262 INFO:root:SBC VNF OTHER custom:DB_Restore PROCESSING
+2020-01-18 10:20:20,262 INFO:root:Wait for 60 secs...
+2020-01-18 10:21:20,265 INFO:root:In Func:send_request
+2020-01-18 10:21:20,265 INFO:root:type: GET
+2020-01-18 10:21:20,265 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 10:21:20,265 INFO:root:data: {}
+2020-01-18 10:21:20,265 INFO:root:expect_code: 200
+2020-01-18 10:21:23,180 INFO:root:SBC VNF OTHER custom:DB_Restore PROCESSING
+2020-01-18 10:21:23,180 INFO:root:Wait for 60 secs...
+2020-01-18 10:22:23,193 INFO:root:In Func:send_request
+2020-01-18 10:22:23,193 INFO:root:type: GET
+2020-01-18 10:22:23,193 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 10:22:23,193 INFO:root:data: {}
+2020-01-18 10:22:23,193 INFO:root:expect_code: 200
+2020-01-18 10:22:26,087 INFO:root:SBC VNF OTHER custom:DB_Restore PROCESSING
+2020-01-18 10:22:26,088 INFO:root:Wait for 60 secs...
+2020-01-18 10:23:26,089 INFO:root:In Func:send_request
+2020-01-18 10:23:26,090 INFO:root:type: GET
+2020-01-18 10:23:26,091 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 10:23:26,091 INFO:root:data: {}
+2020-01-18 10:23:26,091 INFO:root:expect_code: 200
+2020-01-18 10:23:28,984 INFO:root:SBC VNF OTHER custom:DB_Restore PROCESSING
+2020-01-18 10:23:28,984 INFO:root:Wait for 60 secs...
+2020-01-18 10:24:28,997 INFO:root:In Func:send_request
+2020-01-18 10:24:28,997 INFO:root:type: GET
+2020-01-18 10:24:28,997 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 10:24:28,997 INFO:root:data: {}
+2020-01-18 10:24:28,997 INFO:root:expect_code: 200
+2020-01-18 10:24:31,828 INFO:root:SBC VNF OTHER custom:DB_Restore PROCESSING
+2020-01-18 10:24:31,828 INFO:root:Wait for 60 secs...
+2020-01-18 10:25:31,834 INFO:root:In Func:send_request
+2020-01-18 10:25:31,834 INFO:root:type: GET
+2020-01-18 10:25:31,834 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 10:25:31,834 INFO:root:data: {}
+2020-01-18 10:25:31,834 INFO:root:expect_code: 200
+2020-01-18 10:25:34,674 INFO:root:SBC VNF OTHER custom:DB_Restore PROCESSING
+2020-01-18 10:25:34,674 INFO:root:Wait for 60 secs...
+2020-01-18 10:26:34,689 INFO:root:In Func:send_request
+2020-01-18 10:26:34,689 INFO:root:type: GET
+2020-01-18 10:26:34,689 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 10:26:34,689 INFO:root:data: {}
+2020-01-18 10:26:34,689 INFO:root:expect_code: 200
+2020-01-18 10:26:37,466 INFO:root:SBC VNF OTHER custom:DB_Restore PROCESSING
+2020-01-18 10:26:37,466 INFO:root:Wait for 60 secs...
+2020-01-18 10:27:37,478 INFO:root:In Func:send_request
+2020-01-18 10:27:37,478 INFO:root:type: GET
+2020-01-18 10:27:37,478 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 10:27:37,478 INFO:root:data: {}
+2020-01-18 10:27:37,478 INFO:root:expect_code: 200
+2020-01-18 10:27:40,371 INFO:root:SBC VNF OTHER custom:DB_Restore PROCESSING
+2020-01-18 10:27:40,371 INFO:root:Wait for 60 secs...
+2020-01-18 10:28:40,384 INFO:root:In Func:send_request
+2020-01-18 10:28:40,384 INFO:root:type: GET
+2020-01-18 10:28:40,384 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 10:28:40,384 INFO:root:data: {}
+2020-01-18 10:28:40,384 INFO:root:expect_code: 200
+2020-01-18 10:28:43,226 INFO:root:SBC VNF OTHER custom:DB_Restore PROCESSING
+2020-01-18 10:28:43,226 INFO:root:Wait for 60 secs...
+2020-01-18 10:29:43,239 INFO:root:In Func:send_request
+2020-01-18 10:29:43,239 INFO:root:type: GET
+2020-01-18 10:29:43,239 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 10:29:43,239 INFO:root:data: {}
+2020-01-18 10:29:43,239 INFO:root:expect_code: 200
+2020-01-18 10:29:46,112 INFO:root:SBC VNF OTHER custom:DB_Restore PROCESSING
+2020-01-18 10:29:46,127 INFO:root:Wait for 60 secs...
+2020-01-18 10:30:46,135 INFO:root:In Func:send_request
+2020-01-18 10:30:46,135 INFO:root:type: GET
+2020-01-18 10:30:46,135 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 10:30:46,135 INFO:root:data: {}
+2020-01-18 10:30:46,135 INFO:root:expect_code: 200
+2020-01-18 10:30:49,031 INFO:root:SBC VNF OTHER custom:DB_Restore PROCESSING
+2020-01-18 10:30:49,031 INFO:root:Wait for 60 secs...
+2020-01-18 10:31:49,046 INFO:root:In Func:send_request
+2020-01-18 10:31:49,046 INFO:root:type: GET
+2020-01-18 10:31:49,046 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 10:31:49,046 INFO:root:data: {}
+2020-01-18 10:31:49,046 INFO:root:expect_code: 200
+2020-01-18 10:31:51,858 INFO:root:SBC VNF OTHER custom:DB_Restore PROCESSING
+2020-01-18 10:31:51,858 INFO:root:Wait for 60 secs...
+2020-01-18 10:32:51,888 INFO:root:In Func:send_request
+2020-01-18 10:32:51,888 INFO:root:type: GET
+2020-01-18 10:32:51,888 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 10:32:51,888 INFO:root:data: {}
+2020-01-18 10:32:51,888 INFO:root:expect_code: 200
+2020-01-18 10:32:54,786 INFO:root:SBC VNF OTHER custom:DB_Restore PROCESSING
+2020-01-18 10:32:54,786 INFO:root:Wait for 60 secs...
+2020-01-18 10:33:54,804 INFO:root:In Func:send_request
+2020-01-18 10:33:54,804 INFO:root:type: GET
+2020-01-18 10:33:54,804 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 10:33:54,804 INFO:root:data: {}
+2020-01-18 10:33:54,804 INFO:root:expect_code: 200
+2020-01-18 10:33:57,578 INFO:root:SBC VNF OTHER custom:DB_Restore PROCESSING
+2020-01-18 10:33:57,593 INFO:root:Wait for 60 secs...
+2020-01-18 10:34:57,598 INFO:root:In Func:send_request
+2020-01-18 10:34:57,598 INFO:root:type: GET
+2020-01-18 10:34:57,598 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 10:34:57,598 INFO:root:data: {}
+2020-01-18 10:34:57,598 INFO:root:expect_code: 200
+2020-01-18 10:35:00,515 INFO:root:SBC VNF OTHER custom:DB_Restore PROCESSING
+2020-01-18 10:35:00,515 INFO:root:Wait for 60 secs...
+2020-01-18 10:36:00,533 INFO:root:In Func:send_request
+2020-01-18 10:36:00,533 INFO:root:type: GET
+2020-01-18 10:36:00,533 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 10:36:00,533 INFO:root:data: {}
+2020-01-18 10:36:00,533 INFO:root:expect_code: 200
+2020-01-18 10:36:03,324 INFO:root:SBC VNF OTHER custom:DB_Restore PROCESSING
+2020-01-18 10:36:03,324 INFO:root:Wait for 60 secs...
+2020-01-18 10:37:03,334 INFO:root:In Func:send_request
+2020-01-18 10:37:03,334 INFO:root:type: GET
+2020-01-18 10:37:03,334 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 10:37:03,334 INFO:root:data: {}
+2020-01-18 10:37:03,334 INFO:root:expect_code: 200
+2020-01-18 10:37:06,132 INFO:root:SBC VNF OTHER custom:DB_Restore PROCESSING
+2020-01-18 10:37:06,132 INFO:root:Wait for 60 secs...
+2020-01-18 10:38:06,154 INFO:root:In Func:send_request
+2020-01-18 10:38:06,154 INFO:root:type: GET
+2020-01-18 10:38:06,154 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 10:38:06,154 INFO:root:data: {}
+2020-01-18 10:38:06,154 INFO:root:expect_code: 200
+2020-01-18 10:38:09,060 INFO:root:SBC VNF OTHER custom:DB_Restore PROCESSING
+2020-01-18 10:38:09,060 INFO:root:Wait for 60 secs...
+2020-01-18 10:39:09,071 INFO:root:In Func:send_request
+2020-01-18 10:39:09,071 INFO:root:type: GET
+2020-01-18 10:39:09,071 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 10:39:09,071 INFO:root:data: {}
+2020-01-18 10:39:09,071 INFO:root:expect_code: 200
+2020-01-18 10:39:11,919 INFO:root:SBC VNF OTHER custom:DB_Restore PROCESSING
+2020-01-18 10:39:11,919 INFO:root:Wait for 60 secs...
+2020-01-18 10:40:11,930 INFO:root:In Func:send_request
+2020-01-18 10:40:11,930 INFO:root:type: GET
+2020-01-18 10:40:11,930 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 10:40:11,930 INFO:root:data: {}
+2020-01-18 10:40:11,930 INFO:root:expect_code: 200
+2020-01-18 10:40:14,726 INFO:root:SBC VNF OTHER custom:DB_Restore PROCESSING
+2020-01-18 10:40:14,726 INFO:root:Wait for 60 secs...
+2020-01-18 10:41:14,728 INFO:root:In Func:send_request
+2020-01-18 10:41:14,728 INFO:root:type: GET
+2020-01-18 10:41:14,728 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 10:41:14,728 INFO:root:data: {}
+2020-01-18 10:41:14,728 INFO:root:expect_code: 200
+2020-01-18 10:41:17,642 INFO:root:SBC VNF OTHER custom:DB_Restore PROCESSING
+2020-01-18 10:41:17,642 INFO:root:Wait for 60 secs...
+2020-01-18 10:42:17,646 INFO:root:In Func:send_request
+2020-01-18 10:42:17,646 INFO:root:type: GET
+2020-01-18 10:42:17,646 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 10:42:17,646 INFO:root:data: {}
+2020-01-18 10:42:17,646 INFO:root:expect_code: 200
+2020-01-18 10:42:20,429 INFO:root:SBC VNF OTHER custom:DB_Restore PROCESSING
+2020-01-18 10:42:20,429 INFO:root:Wait for 60 secs...
+2020-01-18 10:43:20,444 INFO:root:In Func:send_request
+2020-01-18 10:43:20,444 INFO:root:type: GET
+2020-01-18 10:43:20,444 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 10:43:20,444 INFO:root:data: {}
+2020-01-18 10:43:20,444 INFO:root:expect_code: 200
+2020-01-18 10:43:23,359 INFO:root:SBC VNF OTHER custom:DB_Restore PROCESSING
+2020-01-18 10:43:23,359 INFO:root:Wait for 60 secs...
+2020-01-18 10:44:23,376 INFO:root:In Func:send_request
+2020-01-18 10:44:23,376 INFO:root:type: GET
+2020-01-18 10:44:23,376 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 10:44:23,376 INFO:root:data: {}
+2020-01-18 10:44:23,376 INFO:root:expect_code: 200
+2020-01-18 10:44:26,246 INFO:root:SBC VNF OTHER custom:DB_Restore PROCESSING
+2020-01-18 10:44:26,246 INFO:root:Wait for 60 secs...
+2020-01-18 10:45:26,263 INFO:root:In Func:send_request
+2020-01-18 10:45:26,264 INFO:root:type: GET
+2020-01-18 10:45:26,264 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 10:45:26,264 INFO:root:data: {}
+2020-01-18 10:45:26,264 INFO:root:expect_code: 200
+2020-01-18 10:45:29,060 INFO:root:SBC VNF OTHER custom:DB_Restore PROCESSING
+2020-01-18 10:45:29,060 INFO:root:Wait for 60 secs...
+2020-01-18 10:46:29,076 INFO:root:In Func:send_request
+2020-01-18 10:46:29,076 INFO:root:type: GET
+2020-01-18 10:46:29,076 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 10:46:29,076 INFO:root:data: {}
+2020-01-18 10:46:29,076 INFO:root:expect_code: 200
+2020-01-18 10:46:32,372 INFO:root:SBC VNF OTHER custom:DB_Restore PROCESSING
+2020-01-18 10:46:32,372 INFO:root:Wait for 60 secs...
+2020-01-18 10:47:32,380 INFO:root:In Func:send_request
+2020-01-18 10:47:32,380 INFO:root:type: GET
+2020-01-18 10:47:32,380 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 10:47:32,380 INFO:root:data: {}
+2020-01-18 10:47:32,380 INFO:root:expect_code: 200
+2020-01-18 10:47:35,428 INFO:root:SBC VNF OTHER custom:DB_Restore PROCESSING
+2020-01-18 10:47:35,428 INFO:root:Wait for 60 secs...
+2020-01-18 10:48:35,429 INFO:root:In Func:send_request
+2020-01-18 10:48:35,429 INFO:root:type: GET
+2020-01-18 10:48:35,429 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 10:48:35,429 INFO:root:data: {}
+2020-01-18 10:48:35,429 INFO:root:expect_code: 200
+2020-01-18 10:48:38,270 INFO:root:SBC VNF OTHER custom:DB_Restore PROCESSING
+2020-01-18 10:48:38,286 INFO:root:Wait for 60 secs...
+2020-01-18 10:49:38,287 INFO:root:In Func:send_request
+2020-01-18 10:49:38,287 INFO:root:type: GET
+2020-01-18 10:49:38,287 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 10:49:38,287 INFO:root:data: {}
+2020-01-18 10:49:38,287 INFO:root:expect_code: 200
+2020-01-18 10:49:41,183 INFO:root:SBC VNF OTHER custom:DB_Restore PROCESSING
+2020-01-18 10:49:41,183 INFO:root:Wait for 60 secs...
+2020-01-18 10:50:41,183 INFO:root:In Func:send_request
+2020-01-18 10:50:41,183 INFO:root:type: GET
+2020-01-18 10:50:41,183 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 10:50:41,183 INFO:root:data: {}
+2020-01-18 10:50:41,183 INFO:root:expect_code: 200
+2020-01-18 10:50:44,095 INFO:root:SBC VNF OTHER custom:DB_Restore PROCESSING
+2020-01-18 10:50:44,095 INFO:root:Wait for 60 secs...
+2020-01-18 10:51:44,101 INFO:root:In Func:send_request
+2020-01-18 10:51:44,101 INFO:root:type: GET
+2020-01-18 10:51:44,101 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 10:51:44,101 INFO:root:data: {}
+2020-01-18 10:51:44,101 INFO:root:expect_code: 200
+2020-01-18 10:51:47,164 INFO:root:SBC VNF OTHER custom:DB_Restore PROCESSING
+2020-01-18 10:51:47,164 INFO:root:Wait for 60 secs...
+2020-01-18 10:52:47,166 INFO:root:In Func:send_request
+2020-01-18 10:52:47,166 INFO:root:type: GET
+2020-01-18 10:52:47,166 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 10:52:47,166 INFO:root:data: {}
+2020-01-18 10:52:47,166 INFO:root:expect_code: 200
+2020-01-18 10:52:50,333 INFO:root:SBC VNF OTHER custom:DB_Restore PROCESSING
+2020-01-18 10:52:50,333 INFO:root:Wait for 60 secs...
+2020-01-18 10:53:50,348 INFO:root:In Func:send_request
+2020-01-18 10:53:50,348 INFO:root:type: GET
+2020-01-18 10:53:50,348 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 10:53:50,348 INFO:root:data: {}
+2020-01-18 10:53:50,348 INFO:root:expect_code: 200
+2020-01-18 10:53:53,340 INFO:root:SBC VNF OTHER custom:DB_Restore PROCESSING
+2020-01-18 10:53:53,341 INFO:root:Wait for 60 secs...
+2020-01-18 10:54:53,347 INFO:root:In Func:send_request
+2020-01-18 10:54:53,347 INFO:root:type: GET
+2020-01-18 10:54:53,347 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 10:54:53,347 INFO:root:data: {}
+2020-01-18 10:54:53,347 INFO:root:expect_code: 200
+2020-01-18 10:54:56,227 INFO:root:SBC VNF OTHER custom:DB_Restore PROCESSING
+2020-01-18 10:54:56,227 INFO:root:Wait for 60 secs...
+2020-01-18 10:55:56,241 INFO:root:In Func:send_request
+2020-01-18 10:55:56,241 INFO:root:type: GET
+2020-01-18 10:55:56,241 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 10:55:56,241 INFO:root:data: {}
+2020-01-18 10:55:56,241 INFO:root:expect_code: 200
+2020-01-18 10:55:59,032 INFO:root:SBC VNF OTHER custom:DB_Restore PROCESSING
+2020-01-18 10:55:59,032 INFO:root:Wait for 60 secs...
+2020-01-18 10:56:59,037 INFO:root:In Func:send_request
+2020-01-18 10:56:59,037 INFO:root:type: GET
+2020-01-18 10:56:59,037 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 10:56:59,037 INFO:root:data: {}
+2020-01-18 10:56:59,037 INFO:root:expect_code: 200
+2020-01-18 10:57:01,927 INFO:root:SBC VNF OTHER custom:DB_Restore PROCESSING
+2020-01-18 10:57:01,927 INFO:root:Wait for 60 secs...
+2020-01-18 10:58:01,933 INFO:root:In Func:send_request
+2020-01-18 10:58:01,933 INFO:root:type: GET
+2020-01-18 10:58:01,933 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 10:58:01,933 INFO:root:data: {}
+2020-01-18 10:58:01,933 INFO:root:expect_code: 200
+2020-01-18 10:58:04,760 INFO:root:SBC VNF OTHER custom:DB_Restore PROCESSING
+2020-01-18 10:58:04,760 INFO:root:Wait for 60 secs...
+2020-01-18 10:59:04,774 INFO:root:In Func:send_request
+2020-01-18 10:59:04,774 INFO:root:type: GET
+2020-01-18 10:59:04,774 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 10:59:04,774 INFO:root:data: {}
+2020-01-18 10:59:04,774 INFO:root:expect_code: 200
+2020-01-18 10:59:07,574 INFO:root:SBC VNF OTHER custom:DB_Restore PROCESSING
+2020-01-18 10:59:07,574 INFO:root:Wait for 60 secs...
+2020-01-18 11:00:07,586 INFO:root:In Func:send_request
+2020-01-18 11:00:07,586 INFO:root:type: GET
+2020-01-18 11:00:07,586 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 11:00:07,586 INFO:root:data: {}
+2020-01-18 11:00:07,586 INFO:root:expect_code: 200
+2020-01-18 11:00:10,479 INFO:root:SBC VNF OTHER custom:DB_Restore PROCESSING
+2020-01-18 11:00:10,479 INFO:root:Wait for 60 secs...
+2020-01-18 11:01:10,489 INFO:root:In Func:send_request
+2020-01-18 11:01:10,489 INFO:root:type: GET
+2020-01-18 11:01:10,489 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 11:01:10,489 INFO:root:data: {}
+2020-01-18 11:01:10,489 INFO:root:expect_code: 200
+2020-01-18 11:01:13,398 INFO:root:SBC VNF OTHER custom:DB_Restore PROCESSING
+2020-01-18 11:01:13,414 INFO:root:Wait for 60 secs...
+2020-01-18 11:02:13,420 INFO:root:In Func:send_request
+2020-01-18 11:02:13,420 INFO:root:type: GET
+2020-01-18 11:02:13,420 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 11:02:13,420 INFO:root:data: {}
+2020-01-18 11:02:13,420 INFO:root:expect_code: 200
+2020-01-18 11:02:16,259 INFO:root:SBC VNF OTHER custom:DB_Restore PROCESSING
+2020-01-18 11:02:16,259 INFO:root:Wait for 60 secs...
+2020-01-18 11:03:16,277 INFO:root:In Func:send_request
+2020-01-18 11:03:16,277 INFO:root:type: GET
+2020-01-18 11:03:16,277 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 11:03:16,277 INFO:root:data: {}
+2020-01-18 11:03:16,277 INFO:root:expect_code: 200
+2020-01-18 11:03:19,104 INFO:root:SBC VNF OTHER custom:DB_Restore PROCESSING
+2020-01-18 11:03:19,105 INFO:root:Wait for 60 secs...
+2020-01-18 11:04:19,119 INFO:root:In Func:send_request
+2020-01-18 11:04:19,119 INFO:root:type: GET
+2020-01-18 11:04:19,119 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 11:04:19,119 INFO:root:data: {}
+2020-01-18 11:04:19,119 INFO:root:expect_code: 200
+2020-01-18 11:04:21,898 INFO:root:SBC VNF OTHER custom:DB_Restore PROCESSING
+2020-01-18 11:04:21,898 INFO:root:Wait for 60 secs...
+2020-01-18 11:05:21,922 INFO:root:In Func:send_request
+2020-01-18 11:05:21,922 INFO:root:type: GET
+2020-01-18 11:05:21,922 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 11:05:21,922 INFO:root:data: {}
+2020-01-18 11:05:21,922 INFO:root:expect_code: 200
+2020-01-18 11:05:24,777 INFO:root:SBC VNF OTHER custom:DB_Restore PROCESSING
+2020-01-18 11:05:24,777 INFO:root:Wait for 60 secs...
+2020-01-18 11:06:24,785 INFO:root:In Func:send_request
+2020-01-18 11:06:24,785 INFO:root:type: GET
+2020-01-18 11:06:24,785 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 11:06:24,785 INFO:root:data: {}
+2020-01-18 11:06:24,785 INFO:root:expect_code: 200
+2020-01-18 11:06:27,612 INFO:root:SBC VNF OTHER custom:DB_Restore PROCESSING
+2020-01-18 11:06:27,612 INFO:root:Wait for 60 secs...
+2020-01-18 11:07:27,624 INFO:root:In Func:send_request
+2020-01-18 11:07:27,624 INFO:root:type: GET
+2020-01-18 11:07:27,624 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 11:07:27,624 INFO:root:data: {}
+2020-01-18 11:07:27,624 INFO:root:expect_code: 200
+2020-01-18 11:07:30,505 INFO:root:SBC VNF OTHER custom:DB_Restore PROCESSING
+2020-01-18 11:07:30,505 INFO:root:Wait for 60 secs...
+2020-01-18 11:08:30,518 INFO:root:In Func:send_request
+2020-01-18 11:08:30,518 INFO:root:type: GET
+2020-01-18 11:08:30,518 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 11:08:30,518 INFO:root:data: {}
+2020-01-18 11:08:30,518 INFO:root:expect_code: 200
+2020-01-18 11:08:33,314 INFO:root:SBC VNF OTHER custom:DB_Restore PROCESSING
+2020-01-18 11:08:33,314 INFO:root:Wait for 60 secs...
+2020-01-18 11:09:33,325 INFO:root:In Func:send_request
+2020-01-18 11:09:33,325 INFO:root:type: GET
+2020-01-18 11:09:33,325 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 11:09:33,325 INFO:root:data: {}
+2020-01-18 11:09:33,325 INFO:root:expect_code: 200
+2020-01-18 11:09:36,121 INFO:root:SBC VNF OTHER custom:DB_Restore PROCESSING
+2020-01-18 11:09:36,121 INFO:root:Wait for 60 secs...
+2020-01-18 11:10:36,122 INFO:root:In Func:send_request
+2020-01-18 11:10:36,123 INFO:root:type: GET
+2020-01-18 11:10:36,123 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 11:10:36,123 INFO:root:data: {}
+2020-01-18 11:10:36,123 INFO:root:expect_code: 200
+2020-01-18 11:10:39,028 INFO:root:SBC VNF OTHER custom:DB_Restore PROCESSING
+2020-01-18 11:10:39,028 INFO:root:Wait for 60 secs...
+2020-01-18 11:11:39,043 INFO:root:In Func:send_request
+2020-01-18 11:11:39,043 INFO:root:type: GET
+2020-01-18 11:11:39,043 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 11:11:39,043 INFO:root:data: {}
+2020-01-18 11:11:39,043 INFO:root:expect_code: 200
+2020-01-18 11:11:41,852 INFO:root:SBC VNF OTHER custom:DB_Restore PROCESSING
+2020-01-18 11:11:41,852 INFO:root:Wait for 60 secs...
+2020-01-18 11:12:41,864 INFO:root:In Func:send_request
+2020-01-18 11:12:41,864 INFO:root:type: GET
+2020-01-18 11:12:41,864 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 11:12:41,864 INFO:root:data: {}
+2020-01-18 11:12:41,864 INFO:root:expect_code: 200
+2020-01-18 11:12:44,760 INFO:root:SBC VNF OTHER custom:DB_Restore PROCESSING
+2020-01-18 11:12:44,760 INFO:root:Wait for 60 secs...
+2020-01-18 11:13:44,770 INFO:root:In Func:send_request
+2020-01-18 11:13:44,770 INFO:root:type: GET
+2020-01-18 11:13:44,770 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 11:13:44,770 INFO:root:data: {}
+2020-01-18 11:13:44,770 INFO:root:expect_code: 200
+2020-01-18 11:13:47,664 INFO:root:SBC VNF OTHER custom:DB_Restore PROCESSING
+2020-01-18 11:13:47,665 INFO:root:Wait for 60 secs...
+2020-01-18 11:14:47,682 INFO:root:In Func:send_request
+2020-01-18 11:14:47,682 INFO:root:type: GET
+2020-01-18 11:14:47,682 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 11:14:47,682 INFO:root:data: {}
+2020-01-18 11:14:47,682 INFO:root:expect_code: 200
+2020-01-18 11:14:50,745 INFO:root:SBC VNF OTHER custom:DB_Restore PROCESSING
+2020-01-18 11:14:50,745 INFO:root:Wait for 60 secs...
+2020-01-18 11:27:52,220 INFO:root:id: 243
+2020-01-18 11:27:52,220 INFO:root:vnfdId: a429bbb6-3747-11ea-94a5-1cc1de70bde5
+2020-01-18 11:27:52,220 INFO:root:vnfProvider: Nokia
+2020-01-18 11:27:52,220 INFO:root:vnfProductName: SBC-media
+2020-01-18 11:27:52,220 INFO:root:vnfSoftwareVersion: ap100013
+2020-01-18 11:27:52,220 INFO:root:vnfdVersion: sbgw01
+2020-01-18 11:27:52,220 INFO:root:onboardingState: ONBOARDED
+2020-01-18 11:27:52,220 INFO:root:operationalState: ENABLED
+2020-01-18 11:27:52,220 INFO:root:userDefinedData: {'vimType': 'openstack', 'references': ['CBAM-ae4fff2b41e24f9082ed7cca81c0054f']}
+2020-01-18 11:27:52,220 INFO:root:_links: {'vnfd': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/243/vnfd'}, 'packageContent': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/243/package_content'}, 'self': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/243'}}
+2020-01-18 11:27:52,220 INFO:root:id: 303
+2020-01-18 11:27:52,220 INFO:root:vnfdId: d14d9c19-360f-47f5-a018-fb5ca424e80e
+2020-01-18 11:27:52,220 INFO:root:vnfProvider: Nokia
+2020-01-18 11:27:52,220 INFO:root:vnfProductName: SBC
+2020-01-18 11:27:52,220 INFO:root:vnfSoftwareVersion: sbclcm03~37.34.06
+2020-01-18 11:27:52,220 INFO:root:vnfdVersion: sbclcm03~37.34.06
+2020-01-18 11:27:52,220 INFO:root:onboardingState: ONBOARDED
+2020-01-18 11:27:52,220 INFO:root:operationalState: ENABLED
+2020-01-18 11:27:52,220 INFO:root:userDefinedData: {'vimType': 'openstack', 'references': ['CBAM-62563c6fb46b4267a702209b11bf6e23']}
+2020-01-18 11:27:52,220 INFO:root:_links: {'vnfd': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/303/vnfd'}, 'packageContent': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/303/package_content'}, 'self': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/303'}}
+2020-01-18 11:27:52,220 INFO:root:id: 239
+2020-01-18 11:27:52,220 INFO:root:vnfdId: 38a2f54a-373f-11ea-b927-1cc1de70bde4
+2020-01-18 11:27:52,220 INFO:root:vnfProvider: Nokia
+2020-01-18 11:27:52,220 INFO:root:vnfProductName: SBC-media
+2020-01-18 11:27:52,220 INFO:root:vnfSoftwareVersion: an100053
+2020-01-18 11:27:52,220 INFO:root:vnfdVersion: sbgw01
+2020-01-18 11:27:52,220 INFO:root:onboardingState: ONBOARDED
+2020-01-18 11:27:52,220 INFO:root:operationalState: ENABLED
+2020-01-18 11:27:52,220 INFO:root:userDefinedData: {'vimType': 'openstack', 'references': []}
+2020-01-18 11:27:52,220 INFO:root:_links: {'vnfd': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/239/vnfd'}, 'packageContent': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/239/package_content'}, 'self': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/239'}}
+2020-01-18 11:27:52,220 INFO:root:id: 293
+2020-01-18 11:27:52,220 INFO:root:vnfdId: ed5d8c9f-2aa7-4dd5-ad5c-dcfb62c3c0bf
+2020-01-18 11:27:52,220 INFO:root:vnfProvider: Nokia
+2020-01-18 11:27:52,220 INFO:root:vnfProductName: SBC
+2020-01-18 11:27:52,220 INFO:root:vnfSoftwareVersion: sbclcm03~37.28.06
+2020-01-18 11:27:52,220 INFO:root:vnfdVersion: sbclcm03~37.28.06
+2020-01-18 11:27:52,220 INFO:root:onboardingState: ONBOARDED
+2020-01-18 11:27:52,220 INFO:root:operationalState: ENABLED
+2020-01-18 11:27:52,220 INFO:root:userDefinedData: {'vimType': 'openstack', 'references': []}
+2020-01-18 11:27:52,220 INFO:root:_links: {'vnfd': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/293/vnfd'}, 'packageContent': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/293/package_content'}, 'self': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/293'}}
+2020-01-18 11:27:52,220 INFO:root:Media Plane vnfdId_SU: a429bbb6-3747-11ea-94a5-1cc1de70bde5
+2020-01-18 11:27:52,220 INFO:root:Media Plane vnfSoftwareVersion for SUTOLoad: ap100013
+2020-01-18 11:27:52,220 INFO:root:Sig Plane vnfdId: d14d9c19-360f-47f5-a018-fb5ca424e80e
+2020-01-18 11:27:52,220 INFO:root:Sig Plane vnfSoftwareVersion: sbclcm03~37.34.06
+2020-01-18 11:27:52,220 INFO:root:Media Plane vnfdId: 38a2f54a-373f-11ea-b927-1cc1de70bde4
+2020-01-18 11:27:52,220 INFO:root:Media Plane vnfSoftwareVersion: an100053
+2020-01-18 11:27:52,220 INFO:root:In Func: sigvnf_Backup_Remote_Creds12
+2020-01-18 11:27:52,236 INFO:root:In Func: setup_sigDriver
+2020-01-18 11:27:54,729 INFO:root:get_vnf_id: sig vnf id: CBAM-62563c6fb46b4267a702209b11bf6e23
+2020-01-18 11:27:54,729 INFO:root:wait_processing
+2020-01-18 11:27:54,729 INFO:root:In Func:send_request
+2020-01-18 11:27:54,729 INFO:root:type: GET
+2020-01-18 11:27:54,729 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 11:27:54,729 INFO:root:data: {}
+2020-01-18 11:27:54,729 INFO:root:expect_code: 200
+2020-01-18 11:27:57,539 INFO:root:In Func:send_request
+2020-01-18 11:27:57,539 INFO:root:type: POST
+2020-01-18 11:27:57,539 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_instances/CBAM-62563c6fb46b4267a702209b11bf6e23/custom/backup
+2020-01-18 11:27:57,539 INFO:root:data: {'additionalParams': {'backupServer1': 'centos@10.75.44.7:/var/www/html/sbclcm-auto/', 'backup_server_credentials1': '-----BEGIN RSA PRIVATE KEY-----\nMIIEowIBAAKCAQEAvX/4YeeQcBqR2sjW18T8WbiAVdnVIs4ZNNlTEG+Ps6OFeQFm\nUBwXvtqbetitEhAAU2OT4ivuh+B20KM/WHM6r57URA1qgNK8Sk9tLUiZRvMDkDR8\nWpAEQSw0fvkO91J93q9Siu3h2uhiKtB1ARESb5DcayttXg0fr9U5hmT/mD5MJ/nC\npfE5ByuHzmWSJo9Vya+YM0UBZnja38vhfc8mAeJ0pxQVxkoL4KzYF2JJAqIzH9tw\nkJLfZbNlxQtOKRCSRWtdcCHckfS0/BISf9f0jdG9h15q3vvKc0j+dXCJny5jfgCc\nHl2+e4RYK3evvJPWQNSZ/+iMZqn1SyligpbKXQIDAQABAoIBABtfsAach73Z6LXd\nC0Px/a4MO+Wq6OH1Oajrt9cI9o4xkedP73KlDD0SoSEWybFxRErHeKZUSEmygBdV\nbaIeSxzxaaJG+dqQFoj5fkDrWtDn69zZ6BjA8wxjEVZCLgpGDU6srtTI1jZkGUIs\nCKrVx378QwrsJAlRBgHFYGDsmAtqvLetbMm272K/hz2e4jxMf08LcDx1fUgDO+hD\naMjzVmbIYNbFftLQD/yG+DgtvP7f728yoG8gNXC0shPqetHtfnwCbJ3H1ju9svGW\nDFYzrBwZZZMY0nTAWjY/DXSS1ORrq7LXSIPKf/3kobfMU67ugeC6NrEsncdIKvIE\n/yVKTrUCgYEA4iMKFeRdIWjzijg3Iie6k09vduTH+nsELDKjzHqcyPmEBisidFQA\nFMjJO8+jh+KKusqYEDp1l4qHLbtN1hatKZV6PwfcmPITA+uczZa9Z3YAKsI1GAOi\n0GUmjmoElOGc1I+k55fWAt48hWRoPd4vrlGaAw8otIdiSXHdpwdb3rsCgYEA1oZa\nH7R4j757Ny47NHIPsXsfZwyD2TTU+oOIDOPvBWN6GuU70N5ZW21529mwLKbr5e2H\n9ofMhSJQkXlg6e6F5wmj7Q0n+mGNoPeNoq7bRB1gHelODs4vAnnVNz2vCGt0uqSd\n+UoemidWKm8RFNAG8yS9uoQrk7sZpA5MYHrJBccCgYBELqxrzV8HI83Kbwiwk6n9\noIXLI0/ohg7MBLi+fnmnXxQfiAHrcShVG/UQw5pa7kNF7q/KtNWfy3TWpRLi6hNr\n5lXli0lIFDUHiZLNqhWRjFKgkc3QX8hHbTgi2HRpL11J+cWOzokIdFlrHssPXF6k\nAJafNYLga7GG034xTla04QKBgAK5Meu1HtK0WFwa+iVwTUKzjXKBdisLwKhtgwym\n2CH5YVN2FYxRRlEi0qk32kS22cfRfChlEPOfu+Yc5F4T6R9FwA8CW7+R/XpNqj6m\neaIjvVSj4ZnOhEpDwbEx10cEFjdIX7kKd9j9JtrjDhR1j6EGlmIHy4XUmj66771J\n0cOBAoGBAJyXMkKKbsSGDGYoyzazVjLYzIqmC2tOnYkHHl3heEZN/LkphPuLdbcj\n2pk2wlqskZ2LQxnylJDgIIA6rJBoLvBj5Xo+9EN7uidHHv+8JGBy4FPcDNl2O5RR\nLbiaAVSQNQNm+hku9e0XH0+YFrCP+0Q8D9DGYzhupslAzJEyoz3R\n-----END RSA PRIVATE KEY-----', 'backupServer2': 'centos@10.75.44.7:/var/www/html/sbclcm-auto/', 'backup_server_credentials2': '-----BEGIN RSA PRIVATE KEY-----\nMIIEowIBAAKCAQEAvX/4YeeQcBqR2sjW18T8WbiAVdnVIs4ZNNlTEG+Ps6OFeQFm\nUBwXvtqbetitEhAAU2OT4ivuh+B20KM/WHM6r57URA1qgNK8Sk9tLUiZRvMDkDR8\nWpAEQSw0fvkO91J93q9Siu3h2uhiKtB1ARESb5DcayttXg0fr9U5hmT/mD5MJ/nC\npfE5ByuHzmWSJo9Vya+YM0UBZnja38vhfc8mAeJ0pxQVxkoL4KzYF2JJAqIzH9tw\nkJLfZbNlxQtOKRCSRWtdcCHckfS0/BISf9f0jdG9h15q3vvKc0j+dXCJny5jfgCc\nHl2+e4RYK3evvJPWQNSZ/+iMZqn1SyligpbKXQIDAQABAoIBABtfsAach73Z6LXd\nC0Px/a4MO+Wq6OH1Oajrt9cI9o4xkedP73KlDD0SoSEWybFxRErHeKZUSEmygBdV\nbaIeSxzxaaJG+dqQFoj5fkDrWtDn69zZ6BjA8wxjEVZCLgpGDU6srtTI1jZkGUIs\nCKrVx378QwrsJAlRBgHFYGDsmAtqvLetbMm272K/hz2e4jxMf08LcDx1fUgDO+hD\naMjzVmbIYNbFftLQD/yG+DgtvP7f728yoG8gNXC0shPqetHtfnwCbJ3H1ju9svGW\nDFYzrBwZZZMY0nTAWjY/DXSS1ORrq7LXSIPKf/3kobfMU67ugeC6NrEsncdIKvIE\n/yVKTrUCgYEA4iMKFeRdIWjzijg3Iie6k09vduTH+nsELDKjzHqcyPmEBisidFQA\nFMjJO8+jh+KKusqYEDp1l4qHLbtN1hatKZV6PwfcmPITA+uczZa9Z3YAKsI1GAOi\n0GUmjmoElOGc1I+k55fWAt48hWRoPd4vrlGaAw8otIdiSXHdpwdb3rsCgYEA1oZa\nH7R4j757Ny47NHIPsXsfZwyD2TTU+oOIDOPvBWN6GuU70N5ZW21529mwLKbr5e2H\n9ofMhSJQkXlg6e6F5wmj7Q0n+mGNoPeNoq7bRB1gHelODs4vAnnVNz2vCGt0uqSd\n+UoemidWKm8RFNAG8yS9uoQrk7sZpA5MYHrJBccCgYBELqxrzV8HI83Kbwiwk6n9\noIXLI0/ohg7MBLi+fnmnXxQfiAHrcShVG/UQw5pa7kNF7q/KtNWfy3TWpRLi6hNr\n5lXli0lIFDUHiZLNqhWRjFKgkc3QX8hHbTgi2HRpL11J+cWOzokIdFlrHssPXF6k\nAJafNYLga7GG034xTla04QKBgAK5Meu1HtK0WFwa+iVwTUKzjXKBdisLwKhtgwym\n2CH5YVN2FYxRRlEi0qk32kS22cfRfChlEPOfu+Yc5F4T6R9FwA8CW7+R/XpNqj6m\neaIjvVSj4ZnOhEpDwbEx10cEFjdIX7kKd9j9JtrjDhR1j6EGlmIHy4XUmj66771J\n0cOBAoGBAJyXMkKKbsSGDGYoyzazVjLYzIqmC2tOnYkHHl3heEZN/LkphPuLdbcj\n2pk2wlqskZ2LQxnylJDgIIA6rJBoLvBj5Xo+9EN7uidHHv+8JGBy4FPcDNl2O5RR\nLbiaAVSQNQNm+hku9e0XH0+YFrCP+0Q8D9DGYzhupslAzJEyoz3R\n-----END RSA PRIVATE KEY-----'}}
+2020-01-18 11:27:57,539 INFO:root:expect_code: 202
+2020-01-18 11:28:01,989 INFO:root:In Func:send_request
+2020-01-18 11:28:01,989 INFO:root:type: GET
+2020-01-18 11:28:01,989 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 11:28:01,989 INFO:root:data: {}
+2020-01-18 11:28:01,989 INFO:root:expect_code: 200
+2020-01-18 11:28:04,873 INFO:root:SBC VNF OTHER custom:backup status: STARTING
+2020-01-18 11:29:04,877 INFO:root:In Func:send_request
+2020-01-18 11:29:04,877 INFO:root:type: GET
+2020-01-18 11:29:04,877 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 11:29:04,877 INFO:root:data: {}
+2020-01-18 11:29:04,877 INFO:root:expect_code: 200
+2020-01-18 11:29:07,757 INFO:root:SBC VNF OTHER custom:backup FAILED
+2020-01-18 11:29:07,757 INFO:root:In Func:send_request
+2020-01-18 11:29:07,757 INFO:root:type: GET
+2020-01-18 11:29:07,757 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 11:29:07,757 INFO:root:data: {}
+2020-01-18 11:29:07,757 INFO:root:expect_code: 200
+2020-01-18 11:29:10,548 INFO:root:{'vnfInstanceId': 'CBAM-62563c6fb46b4267a702209b11bf6e23', 'additionalData': {'requestId': '24a8e63892e84d5798e2dcedbd320e75'}, 'isCancelPending': False, 'isAutomaticInvocation': False, 'operationName': 'custom:backup', 'operationState': 'FAILED', '_links': {'vnfInstance': {'href': 'https://100.69.127.147/vnflcm/v1/vnf_instances/CBAM-62563c6fb46b4267a702209b11bf6e23'}, 'self': {'href': 'https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs/CBAM-d1204649e5b241c3851c345b8d33ebec'}, 'list': {'href': 'https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs'}}, 'startTime': '2020-01-18T03:28:00.596367Z', 'stateEnteredTime': '2020-01-18T03:29:01.625628Z', 'operation': 'OTHER', 'id': 'CBAM-d1204649e5b241c3851c345b8d33ebec'}
+2020-01-18 12:26:00,098 INFO:root:id: 243
+2020-01-18 12:26:00,098 INFO:root:vnfdId: a429bbb6-3747-11ea-94a5-1cc1de70bde5
+2020-01-18 12:26:00,098 INFO:root:vnfProvider: Nokia
+2020-01-18 12:26:00,098 INFO:root:vnfProductName: SBC-media
+2020-01-18 12:26:00,098 INFO:root:vnfSoftwareVersion: ap100013
+2020-01-18 12:26:00,098 INFO:root:vnfdVersion: sbgw01
+2020-01-18 12:26:00,098 INFO:root:onboardingState: ONBOARDED
+2020-01-18 12:26:00,098 INFO:root:operationalState: ENABLED
+2020-01-18 12:26:00,098 INFO:root:userDefinedData: {'vimType': 'openstack', 'references': ['CBAM-ae4fff2b41e24f9082ed7cca81c0054f']}
+2020-01-18 12:26:00,098 INFO:root:_links: {'vnfd': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/243/vnfd'}, 'packageContent': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/243/package_content'}, 'self': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/243'}}
+2020-01-18 12:26:00,098 INFO:root:id: 303
+2020-01-18 12:26:00,098 INFO:root:vnfdId: d14d9c19-360f-47f5-a018-fb5ca424e80e
+2020-01-18 12:26:00,098 INFO:root:vnfProvider: Nokia
+2020-01-18 12:26:00,098 INFO:root:vnfProductName: SBC
+2020-01-18 12:26:00,098 INFO:root:vnfSoftwareVersion: sbclcm03~37.34.06
+2020-01-18 12:26:00,098 INFO:root:vnfdVersion: sbclcm03~37.34.06
+2020-01-18 12:26:00,098 INFO:root:onboardingState: ONBOARDED
+2020-01-18 12:26:00,098 INFO:root:operationalState: ENABLED
+2020-01-18 12:26:00,098 INFO:root:userDefinedData: {'vimType': 'openstack', 'references': []}
+2020-01-18 12:26:00,098 INFO:root:_links: {'vnfd': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/303/vnfd'}, 'packageContent': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/303/package_content'}, 'self': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/303'}}
+2020-01-18 12:26:00,098 INFO:root:id: 239
+2020-01-18 12:26:00,098 INFO:root:vnfdId: 38a2f54a-373f-11ea-b927-1cc1de70bde4
+2020-01-18 12:26:00,098 INFO:root:vnfProvider: Nokia
+2020-01-18 12:26:00,098 INFO:root:vnfProductName: SBC-media
+2020-01-18 12:26:00,098 INFO:root:vnfSoftwareVersion: an100053
+2020-01-18 12:26:00,098 INFO:root:vnfdVersion: sbgw01
+2020-01-18 12:26:00,098 INFO:root:onboardingState: ONBOARDED
+2020-01-18 12:26:00,098 INFO:root:operationalState: ENABLED
+2020-01-18 12:26:00,098 INFO:root:userDefinedData: {'vimType': 'openstack', 'references': []}
+2020-01-18 12:26:00,098 INFO:root:_links: {'vnfd': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/239/vnfd'}, 'packageContent': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/239/package_content'}, 'self': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/239'}}
+2020-01-18 12:26:00,098 INFO:root:id: 293
+2020-01-18 12:26:00,098 INFO:root:vnfdId: ed5d8c9f-2aa7-4dd5-ad5c-dcfb62c3c0bf
+2020-01-18 12:26:00,098 INFO:root:vnfProvider: Nokia
+2020-01-18 12:26:00,098 INFO:root:vnfProductName: SBC
+2020-01-18 12:26:00,098 INFO:root:vnfSoftwareVersion: sbclcm03~37.28.06
+2020-01-18 12:26:00,098 INFO:root:vnfdVersion: sbclcm03~37.28.06
+2020-01-18 12:26:00,098 INFO:root:onboardingState: ONBOARDED
+2020-01-18 12:26:00,098 INFO:root:operationalState: ENABLED
+2020-01-18 12:26:00,098 INFO:root:userDefinedData: {'vimType': 'openstack', 'references': []}
+2020-01-18 12:26:00,098 INFO:root:_links: {'vnfd': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/293/vnfd'}, 'packageContent': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/293/package_content'}, 'self': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/293'}}
+2020-01-18 12:26:00,098 INFO:root:Media Plane vnfdId_SU: a429bbb6-3747-11ea-94a5-1cc1de70bde5
+2020-01-18 12:26:00,098 INFO:root:Media Plane vnfSoftwareVersion for SUTOLoad: ap100013
+2020-01-18 12:26:00,098 INFO:root:Sig Plane vnfdId: d14d9c19-360f-47f5-a018-fb5ca424e80e
+2020-01-18 12:26:00,098 INFO:root:Sig Plane vnfSoftwareVersion: sbclcm03~37.34.06
+2020-01-18 12:26:00,098 INFO:root:Media Plane vnfdId: 38a2f54a-373f-11ea-b927-1cc1de70bde4
+2020-01-18 12:26:00,098 INFO:root:Media Plane vnfSoftwareVersion: an100053
+2020-01-18 12:26:00,098 INFO:root:In Func: prep_arts
+2020-01-18 12:26:00,113 INFO:root:In Func:gen_arts_sig
+2020-01-18 12:26:00,113 INFO:root:Current time is: 1579321560
+2020-01-18 12:26:00,113 INFO:root:In Func: ssh_command
+2020-01-18 12:26:00,113 INFO:root:cmd: mkdir -p /home/yact-user/shawnx/20.2/1579321560/
+2020-01-18 12:26:00,230 INFO:paramiko.transport:Connected (version 2.0, client OpenSSH_5.3)
+2020-01-18 12:26:00,847 INFO:paramiko.transport:Authentication (publickey) successful!
+2020-01-18 12:26:01,271 INFO:root:sig_dif_file: D:\Programs\JetBrains\PycharmProjects\py37projects\lcm_auto_cbam_restful\data\sig-plane-arts\SBC-signaling_R20.2.xlsm
+2020-01-18 12:26:01,271 INFO:root:sig_rmt_dif_file: /home/yact-user/shawnx/20.2/1579321560/SBC-signaling_R20.2.xlsm
+2020-01-18 12:26:01,271 INFO:root:In Func: ssh_scp_put
+2020-01-18 12:26:01,387 INFO:paramiko.transport:Connected (version 2.0, client OpenSSH_5.3)
+2020-01-18 12:26:01,973 INFO:paramiko.transport:Authentication (publickey) successful!
+2020-01-18 12:26:02,475 INFO:paramiko.transport.sftp:[chan 0] Opened sftp connection (server version 3)
+2020-01-18 12:26:02,692 INFO:paramiko.transport.sftp:[chan 1] Opened sftp connection (server version 3)
+2020-01-18 12:26:04,862 INFO:root:yact_cmd: /home/yact/YACT/yact.sh gen-by-dif /home/yact-user/shawnx/20.2/1579321560/SBC-signaling_R20.2.xlsm SBC-signaling R20.2
+2020-01-18 12:26:04,862 INFO:root:In Func: ssh_command
+2020-01-18 12:26:04,862 INFO:root:cmd: cd /home/yact-user/shawnx/20.2/1579321560/;/home/yact/YACT/yact.sh gen-by-dif /home/yact-user/shawnx/20.2/1579321560/SBC-signaling_R20.2.xlsm SBC-signaling R20.2
+2020-01-18 12:26:04,984 INFO:paramiko.transport:Connected (version 2.0, client OpenSSH_5.3)
+2020-01-18 12:26:05,562 INFO:paramiko.transport:Authentication (publickey) successful!
+2020-01-18 12:26:25,238 INFO:root:result of yact_cmd: == Generating artifacts for [sbclcm03:SBC-signaling] using /tmp/soi-7125/sbclcm03.xml into /home/yact-user/shawnx/20.2/1579321560/sbclcm03/
+---- calling generator [/home/yact/YANG_ims/plugin/artifacts/generator/SBC-signaling/R20.2/soi2bulk] for bulk:
+
+The output is stored in: /home/yact-user/shawnx/20.2/1579321560/sbclcm03/bulk/XlsprovBulkCfg.xls
+---- OK ----
+---- calling generator [/home/yact/YANG_ims/plugin/artifacts/generator/SBC-signaling/soi2valid] for valid:
+
+---- OK ----
+---- calling generator [/home/yact/YANG_ims/plugin/artifacts/generator/SBC-signaling/R20.2/soi2bulk_netconf] for bulk_netconf:
+
+---- OK ----
+---- calling generator [/home/yact/YANG_ims/plugin/artifacts/generator/SBC-signaling/R20.2/soi2scale] for scale:
+Generate scale artifact for SC 2
+Generate scale artifact for SC 3
+Generate scale artifact for SC 4
+Generate scale artifact for SC 5
+Success!
+---- OK ----
+---- calling generator [/home/yact/YANG_ims/plugin/artifacts/generator/SBC-signaling/R20.2/soi2bulk_adm] for bulk_adm:
+
+--- complete ---
+---- OK ----
+---- calling generator [/home/yact/YANG_ims/plugin/artifacts/generator/SBC-signaling/soi2package] for package:
+Success!
+---- OK ----
+---- calling generator [/home/yact/YANG_ims/plugin/artifacts/generator/SBC-signaling/soi2vsphere] for vsphere:
+DeployType is not LCM: CBAM
+Not Applicable: bypass vsphere package generation
+---- OK ----
+---- calling generator [/home/yact/YANG_ims/plugin/artifacts/generator/SBC-signaling/soi2flavor] for flavor:
+Success!
+---- OK ----
+
+2020-01-18 12:26:25,238 INFO:root:In Func: ssh_command
+2020-01-18 12:26:25,238 INFO:root:cmd: cd /home/yact-user/shawnx/20.2/1579321560/;zip -r sbclcm03.zip sbclcm03
+2020-01-18 12:26:25,375 INFO:paramiko.transport:Connected (version 2.0, client OpenSSH_5.3)
+2020-01-18 12:26:26,009 INFO:paramiko.transport:Authentication (publickey) successful!
+2020-01-18 12:26:26,532 INFO:root:result of zip sig:   adding: sbclcm03/ (stored 0%)
+  adding: sbclcm03/vsphere/ (stored 0%)
+  adding: sbclcm03/flavor/ (stored 0%)
+  adding: sbclcm03/flavor/create_flavor (deflated 81%)
+  adding: sbclcm03/flavor/soi2flavor.log (stored 0%)
+  adding: sbclcm03/bulk/ (stored 0%)
+  adding: sbclcm03/bulk/soi2bulk.log (deflated 89%)
+  adding: sbclcm03/bulk/XlsprovBulkCfg.xls (deflated 78%)
+  adding: sbclcm03/bulk_netconf/ (stored 0%)
+  adding: sbclcm03/bulk_netconf/scale/ (stored 0%)
+  adding: sbclcm03/bulk_netconf/scale/bulkconf_artifacts.zip (stored 0%)
+  adding: sbclcm03/bulk_netconf/scale/soi2scale.log (stored 0%)
+  adding: sbclcm03/bulk_netconf/netconfprov_artifact.xml (deflated 92%)
+  adding: sbclcm03/valid/ (stored 0%)
+  adding: sbclcm03/scale/ (stored 0%)
+  adding: sbclcm03/package/ (stored 0%)
+  adding: sbclcm03/package/bulk_netconf/ (stored 0%)
+  adding: sbclcm03/package/bulk_netconf/scale/ (stored 0%)
+  adding: sbclcm03/package/bulk_netconf/scale/bulkconf_artifacts.zip (stored 0%)
+  adding: sbclcm03/package/bulk_netconf/scale/soi2scale.log (stored 0%)
+  adding: sbclcm03/package/bulk_netconf/netconfprov_artifact.xml (deflated 92%)
+  adding: sbclcm03/package/pkg_tools/ (stored 0%)
+  adding: sbclcm03/package/pkg_tools/gen_vnf_pkg_manifest (deflated 70%)
+  adding: sbclcm03/package/pkg_tools/vnf_upgrade_pkg_gen (deflated 79%)
+  adding: sbclcm03/package/soi2package.log (stored 0%)
+  adding: sbclcm03/package/cbam_json/ (stored 0%)
+  adding: sbclcm03/package/cbam_json/LCM_pkg_upgrade_api4.json (stored 0%)
+  adding: sbclcm03/package/cbam_json/LCM_extensions.json (deflated 88%)
+  adding: sbclcm03/package/cbam_json/LCM_instantiate_params.json (deflated 94%)
+  adding: sbclcm03/package/Nokia_sig_SBC-VNF_Package.zip (stored 0%)
+  adding: sbclcm03/bulk_adm/ (stored 0%)
+  adding: sbclcm03/bulk_adm/fibulk.log (deflated 83%)
+  adding: sbclcm03/bulk_adm/LCM.hot.yaml (deflated 92%)
+  adding: sbclcm03/bulk_adm/csop.zip (stored 0%)
+  adding: sbclcm03/bulk_adm/cbam-extensions/ (stored 0%)
+  adding: sbclcm03/bulk_adm/cbam-extensions/lcm.vnfd.extensions.yaml (deflated 89%)
+  adding: sbclcm03/bulk_adm/lcm.vnfd.tosca.yaml (deflated 91%)
+  adding: sbclcm03/bulk_adm/csar_sbc_cbam.zip (stored 0%)
+  adding: sbclcm03/bulk_adm/LCMenv (deflated 83%)
+  adding: sbclcm03/bulk_adm/TOSCA-Metadata/ (stored 0%)
+  adding: sbclcm03/bulk_adm/TOSCA-Metadata/TOSCA.meta (deflated 30%)
+  adding: sbclcm03/bulk_adm/pre_bulkconfigdata.xls (deflated 78%)
+  adding: sbclcm03/bulk_adm/LCM_extensions.json (deflated 88%)
+  adding: sbclcm03/bulk_adm/LCM_instantiate_params.json (deflated 94%)
+  adding: sbclcm03/bulk_adm/.cert_dir/ (stored 0%)
+  adding: sbclcm03/bulk_adm/.cert_dir/openssl.cnf (deflated 71%)
+  adding: sbclcm03/bulk_adm/.cert_dir/.priv.key.pem (deflated 24%)
+  adding: sbclcm03/bulk_adm/.cert_dir/lcm.vnfd.tosca.cms (deflated 68%)
+  adding: sbclcm03/bulk_adm/.cert_dir/csr.pem (deflated 25%)
+
+2020-01-18 12:26:26,798 INFO:paramiko.transport:Connected (version 2.0, client OpenSSH_5.3)
+2020-01-18 12:26:27,398 INFO:paramiko.transport:Authentication (publickey) successful!
+2020-01-18 12:26:27,862 INFO:paramiko.transport.sftp:[chan 0] Opened sftp connection (server version 3)
+2020-01-18 12:26:28,063 INFO:paramiko.transport.sftp:[chan 1] Opened sftp connection (server version 3)
+2020-01-18 12:26:31,278 INFO:root:unzip sbclcm03.zip
+2020-01-18 12:26:31,541 INFO:root:instantiation json for instantiation created completed.
+2020-01-18 12:26:31,541 INFO:root:Copy sbclcm03\package\Nokia_sig_SBC-VNF_Package.zip to D:\Programs\JetBrains\PycharmProjects\py37projects\lcm_auto_cbam_restful\data\sig-plane\Nokia_sig_SBC-VNF_Package.zip
+2020-01-18 12:26:31,557 INFO:root:local_bulkconf_file: D:\Programs\JetBrains\PycharmProjects\py37projects\lcm_auto_cbam_restful\data\sig-plane-arts\sbclcm03\bulk_netconf\scale\bulkconf_artifacts.zip
+2020-01-18 12:26:31,557 INFO:root:rmt_bulkconf_file: /var/www/html/sbclcm-auto/bulkconf_artifacts.zip
+2020-01-18 12:26:31,557 INFO:root:ship bulkconf_artifacts.zip to remote backup server.
+2020-01-18 12:26:31,557 INFO:root:In Func: ssh_scp_put
+2020-01-18 12:26:32,164 INFO:paramiko.transport:Connected (version 2.0, client OpenSSH_7.4)
+2020-01-18 12:26:33,837 INFO:paramiko.transport:Authentication (publickey) failed.
+2020-01-18 12:26:39,489 INFO:paramiko.transport:Authentication (password) successful!
+2020-01-18 12:26:40,845 INFO:paramiko.transport.sftp:[chan 0] Opened sftp connection (server version 3)
+2020-01-18 12:26:41,648 INFO:paramiko.transport.sftp:[chan 1] Opened sftp connection (server version 3)
+2020-01-18 12:26:45,591 INFO:root:In Func: ssh_command
+2020-01-18 12:26:45,591 INFO:root:cmd: cd /var/www/html/sbclcm-auto/; chmod 777 bulkconf_artifacts.zip
+2020-01-18 12:26:46,096 INFO:paramiko.transport:Connected (version 2.0, client OpenSSH_7.4)
+2020-01-18 12:26:47,451 INFO:paramiko.transport:Authentication (publickey) failed.
+2020-01-18 12:26:53,119 INFO:paramiko.transport:Authentication (password) successful!
+2020-01-18 12:26:54,310 INFO:root:result of chmod bulkconf_artifacts.zip: 
+2020-01-18 12:26:54,310 INFO:root:vnfpkg: D:\Programs\JetBrains\PycharmProjects\py37projects\lcm_auto_cbam_restful\data\sig-plane\Nokia_sig_SBC-VNF_Package.zip
+2020-01-18 12:26:56,823 INFO:root:id in get_vnfpkg_by_swversion: 303
+2020-01-18 12:26:56,823 INFO:root:Delete existing vnf pkg of same version, id: 303
+2020-01-18 12:26:59,208 INFO:root:The vnfpkg to be deleted: {"id":"303","vnfdId":"d14d9c19-360f-47f5-a018-fb5ca424e80e","vnfProvider":"Nokia","vnfProductName":"SBC","vnfSoftwareVersion":"sbclcm03~37.34.06","vnfdVersion":"sbclcm03~37.34.06","onboardingState":"ONBOARDED","operationalState":"ENABLED","userDefinedData":{"vimType":"openstack","references":[]},"_links":{"vnfd":{"href":"https://100.69.127.147/vnfpkgm/v1/vnf_packages/303/vnfd"},"packageContent":{"href":"https://100.69.127.147/vnfpkgm/v1/vnf_packages/303/package_content"},"self":{"href":"https://100.69.127.147/vnfpkgm/v1/vnf_packages/303"}}}
+2020-01-18 12:27:02,887 INFO:root:New vnfpkg id: 308
+2020-01-18 12:27:02,887 INFO:root:New vnfpkg info: {"id":"308","onboardingState":"CREATED","operationalState":"DISABLED","userDefinedData":{"references":[]},"_links":{"vnfd":{"href":"https://100.69.127.147/vnfpkgm/v1/vnf_packages/308/vnfd"},"packageContent":{"href":"https://100.69.127.147/vnfpkgm/v1/vnf_packages/308/package_content"},"self":{"href":"https://100.69.127.147/vnfpkgm/v1/vnf_packages/308"}}}
+2020-01-18 12:27:11,115 INFO:root:VNF PKG uploaded successfully.
+2020-01-18 12:27:23,649 INFO:root:id: 243
+2020-01-18 12:27:23,649 INFO:root:vnfdId: a429bbb6-3747-11ea-94a5-1cc1de70bde5
+2020-01-18 12:27:23,649 INFO:root:vnfProvider: Nokia
+2020-01-18 12:27:23,665 INFO:root:vnfProductName: SBC-media
+2020-01-18 12:27:23,665 INFO:root:vnfSoftwareVersion: ap100013
+2020-01-18 12:27:23,665 INFO:root:vnfdVersion: sbgw01
+2020-01-18 12:27:23,665 INFO:root:onboardingState: ONBOARDED
+2020-01-18 12:27:23,665 INFO:root:operationalState: ENABLED
+2020-01-18 12:27:23,665 INFO:root:userDefinedData: {'vimType': 'openstack', 'references': ['CBAM-ae4fff2b41e24f9082ed7cca81c0054f']}
+2020-01-18 12:27:23,665 INFO:root:_links: {'vnfd': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/243/vnfd'}, 'packageContent': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/243/package_content'}, 'self': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/243'}}
+2020-01-18 12:27:23,665 INFO:root:id: 239
+2020-01-18 12:27:23,665 INFO:root:vnfdId: 38a2f54a-373f-11ea-b927-1cc1de70bde4
+2020-01-18 12:27:23,665 INFO:root:vnfProvider: Nokia
+2020-01-18 12:27:23,665 INFO:root:vnfProductName: SBC-media
+2020-01-18 12:27:23,665 INFO:root:vnfSoftwareVersion: an100053
+2020-01-18 12:27:23,665 INFO:root:vnfdVersion: sbgw01
+2020-01-18 12:27:23,665 INFO:root:onboardingState: ONBOARDED
+2020-01-18 12:27:23,665 INFO:root:operationalState: ENABLED
+2020-01-18 12:27:23,665 INFO:root:userDefinedData: {'vimType': 'openstack', 'references': []}
+2020-01-18 12:27:23,665 INFO:root:_links: {'vnfd': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/239/vnfd'}, 'packageContent': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/239/package_content'}, 'self': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/239'}}
+2020-01-18 12:27:23,665 INFO:root:id: 308
+2020-01-18 12:27:23,665 INFO:root:vnfdId: 7b07d782-407a-4d50-a814-62aa3636b65b
+2020-01-18 12:27:23,665 INFO:root:vnfProvider: Nokia
+2020-01-18 12:27:23,665 INFO:root:vnfProductName: SBC
+2020-01-18 12:27:23,665 INFO:root:vnfSoftwareVersion: sbclcm03~37.34.06
+2020-01-18 12:27:23,665 INFO:root:vnfdVersion: sbclcm03~37.34.06
+2020-01-18 12:27:23,665 INFO:root:onboardingState: ONBOARDED
+2020-01-18 12:27:23,665 INFO:root:operationalState: ENABLED
+2020-01-18 12:27:23,665 INFO:root:userDefinedData: {'vimType': 'openstack', 'references': []}
+2020-01-18 12:27:23,665 INFO:root:_links: {'vnfd': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/308/vnfd'}, 'packageContent': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/308/package_content'}, 'self': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/308'}}
+2020-01-18 12:27:23,665 INFO:root:id: 293
+2020-01-18 12:27:23,665 INFO:root:vnfdId: ed5d8c9f-2aa7-4dd5-ad5c-dcfb62c3c0bf
+2020-01-18 12:27:23,665 INFO:root:vnfProvider: Nokia
+2020-01-18 12:27:23,665 INFO:root:vnfProductName: SBC
+2020-01-18 12:27:23,665 INFO:root:vnfSoftwareVersion: sbclcm03~37.28.06
+2020-01-18 12:27:23,665 INFO:root:vnfdVersion: sbclcm03~37.28.06
+2020-01-18 12:27:23,665 INFO:root:onboardingState: ONBOARDED
+2020-01-18 12:27:23,665 INFO:root:operationalState: ENABLED
+2020-01-18 12:27:23,665 INFO:root:userDefinedData: {'vimType': 'openstack', 'references': []}
+2020-01-18 12:27:23,665 INFO:root:_links: {'vnfd': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/293/vnfd'}, 'packageContent': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/293/package_content'}, 'self': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/293'}}
+2020-01-18 12:27:26,057 INFO:root:id: 243
+2020-01-18 12:27:26,057 INFO:root:vnfdId: a429bbb6-3747-11ea-94a5-1cc1de70bde5
+2020-01-18 12:27:26,057 INFO:root:vnfProvider: Nokia
+2020-01-18 12:27:26,057 INFO:root:vnfProductName: SBC-media
+2020-01-18 12:27:26,057 INFO:root:vnfSoftwareVersion: ap100013
+2020-01-18 12:27:26,057 INFO:root:vnfdVersion: sbgw01
+2020-01-18 12:27:26,057 INFO:root:onboardingState: ONBOARDED
+2020-01-18 12:27:26,057 INFO:root:operationalState: ENABLED
+2020-01-18 12:27:26,057 INFO:root:userDefinedData: {'vimType': 'openstack', 'references': ['CBAM-ae4fff2b41e24f9082ed7cca81c0054f']}
+2020-01-18 12:27:26,057 INFO:root:_links: {'vnfd': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/243/vnfd'}, 'packageContent': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/243/package_content'}, 'self': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/243'}}
+2020-01-18 12:27:26,057 INFO:root:id: 239
+2020-01-18 12:27:26,057 INFO:root:vnfdId: 38a2f54a-373f-11ea-b927-1cc1de70bde4
+2020-01-18 12:27:26,057 INFO:root:vnfProvider: Nokia
+2020-01-18 12:27:26,057 INFO:root:vnfProductName: SBC-media
+2020-01-18 12:27:26,057 INFO:root:vnfSoftwareVersion: an100053
+2020-01-18 12:27:26,057 INFO:root:vnfdVersion: sbgw01
+2020-01-18 12:27:26,057 INFO:root:onboardingState: ONBOARDED
+2020-01-18 12:27:26,057 INFO:root:operationalState: ENABLED
+2020-01-18 12:27:26,057 INFO:root:userDefinedData: {'vimType': 'openstack', 'references': []}
+2020-01-18 12:27:26,057 INFO:root:_links: {'vnfd': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/239/vnfd'}, 'packageContent': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/239/package_content'}, 'self': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/239'}}
+2020-01-18 12:27:26,057 INFO:root:id: 308
+2020-01-18 12:27:26,057 INFO:root:vnfdId: 7b07d782-407a-4d50-a814-62aa3636b65b
+2020-01-18 12:27:26,057 INFO:root:vnfProvider: Nokia
+2020-01-18 12:27:26,057 INFO:root:vnfProductName: SBC
+2020-01-18 12:27:26,057 INFO:root:vnfSoftwareVersion: sbclcm03~37.34.06
+2020-01-18 12:27:26,057 INFO:root:vnfdVersion: sbclcm03~37.34.06
+2020-01-18 12:27:26,057 INFO:root:onboardingState: ONBOARDED
+2020-01-18 12:27:26,057 INFO:root:operationalState: ENABLED
+2020-01-18 12:27:26,057 INFO:root:userDefinedData: {'vimType': 'openstack', 'references': []}
+2020-01-18 12:27:26,057 INFO:root:_links: {'vnfd': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/308/vnfd'}, 'packageContent': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/308/package_content'}, 'self': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/308'}}
+2020-01-18 12:27:26,057 INFO:root:id: 293
+2020-01-18 12:27:26,057 INFO:root:vnfdId: ed5d8c9f-2aa7-4dd5-ad5c-dcfb62c3c0bf
+2020-01-18 12:27:26,057 INFO:root:vnfProvider: Nokia
+2020-01-18 12:27:26,057 INFO:root:vnfProductName: SBC
+2020-01-18 12:27:26,057 INFO:root:vnfSoftwareVersion: sbclcm03~37.28.06
+2020-01-18 12:27:26,057 INFO:root:vnfdVersion: sbclcm03~37.28.06
+2020-01-18 12:27:26,057 INFO:root:onboardingState: ONBOARDED
+2020-01-18 12:27:26,057 INFO:root:operationalState: ENABLED
+2020-01-18 12:27:26,057 INFO:root:userDefinedData: {'vimType': 'openstack', 'references': []}
+2020-01-18 12:27:26,057 INFO:root:_links: {'vnfd': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/293/vnfd'}, 'packageContent': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/293/package_content'}, 'self': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/293'}}
+2020-01-18 12:27:26,057 INFO:root:Media Plane vnfdId_SU: a429bbb6-3747-11ea-94a5-1cc1de70bde5
+2020-01-18 12:27:26,057 INFO:root:Media Plane vnfSoftwareVersion for SUTOLoad: ap100013
+2020-01-18 12:27:26,057 INFO:root:Media Plane vnfdId: 38a2f54a-373f-11ea-b927-1cc1de70bde4
+2020-01-18 12:27:26,057 INFO:root:Media Plane vnfSoftwareVersion: an100053
+2020-01-18 12:27:26,057 INFO:root:Sig Plane vnfdId: 7b07d782-407a-4d50-a814-62aa3636b65b
+2020-01-18 12:27:26,057 INFO:root:Sig Plane vnfSoftwareVersion: sbclcm03~37.34.06
+2020-01-18 12:27:26,057 INFO:root:In Func: sigvnf_CreateInstantiate
+2020-01-18 12:27:26,073 INFO:root:In Func:send_request
+2020-01-18 12:27:26,073 INFO:root:type: POST
+2020-01-18 12:27:26,073 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_instances
+2020-01-18 12:27:26,073 INFO:root:data: {'vnfdId': '7b07d782-407a-4d50-a814-62aa3636b65b', 'vnfInstanceName': 'sbclcm-sig-plane', 'vnfInstanceDescription': 'SBC LCM Sig-Plane VNF for Auto Test via CBAM REST APIs'}
+2020-01-18 12:27:26,073 INFO:root:expect_code: 201
+2020-01-18 12:27:31,760 INFO:root:Now at function:create_vnf
+2020-01-18 12:27:31,760 INFO:root:{"vnfInstanceDescription": "SBC LCM Sig-Plane VNF for Auto Test via CBAM REST APIs", "vnfInstanceName": "sbclcm-sig-plane", "vnfProductName": "SBC", "vnfSoftwareVersion": "sbclcm03~37.34.06", "instantiationState": "NOT_INSTANTIATED", "vimConnectionInfo": [], "vnfProvider": "Nokia", "vnfdId": "7b07d782-407a-4d50-a814-62aa3636b65b", "additionalData": {"vimType": "openstack"}, "extensions": {"v4_enum_server": "172.23.102.60/e164.arpa", "dfed": {"0": {"1": {"vnic_info": {"1": {"set_ips": {"connectivity_ip;subnet=sig_core1_v4": 0, "connectivity_ip;subnet=sig_core1_v6": 1}}}, "name": "dfed-b"}, "0": {"vnic_info": {"1": {"set_ips": {"servicetype=dfed-0;float;nitype=diam_rx;subnet=sig_core1_v6;index=0": 1, "servicetype=dfed-0;float;nitype=diam_rx;subnet=sig_core1_v4;index=0": 0}}}, "name": "dfed-a"}}, "v4_static_routes": {}, "v6_static_routes": {}, "defaults": {"binding_type": {"1": "normal"}}}, "storagevol_type": "tripleo-ceph", "vnf_name": "sbclcm03", "etsi_sol_supported": "sbc", "certificate": "", "v6_ntp_server": "2a00:8a00:6000:d040:44::e", "v6_enum_server": "", "auto_scale_config": {"quiet_period": 1800, "pm_config": {"pm_thresholds": {"VS.maxNEmemUsage": {"max": 75, "min": 30}, "VS.aveBaseCpuUsage": {"max": 75, "min": 30}}, "pm_intervals": 3}}, "ext_net_info": {"sig_core1_v6": {"subnet_id": "v441-Sig-Core1-IPV6", "cidr": "2a00:8a00:4000:7690:b::/80", "security_setting": "default", "id": "v441-Sig-Core1", "default_gateway": "2a00:8a00:4000:7690:b::1"}, "h248_net_v4": {"subnet_id": "h248_subnet", "cidr": "192.168.1.0/24", "security_setting": "default", "id": "H248_net", "default_gateway": "192.168.1.254"}, "sig_pfed_v4_duplex1": {"subnet_id": "v452-Sig-Peer1-Phy1-IPV4", "cidr": "100.69.110.144/28", "security_setting": "default", "id": "v452-Sig-Peer1-PHYSENT1", "default_gateway": "100.69.110.145"}, "sig_pfed_v4_duplex2": {"subnet_id": "v452-Sig-Peer1-Phy2-IPV4", "cidr": "100.69.110.144/28", "security_setting": "default", "id": "v452-Sig-Peer1-PHYSENT2", "default_gateway": "100.69.110.145"}, "INTERNALnet0": {"security_setting": "default"}, "sig_access_v6_duplex1": {"subnet_id": "v443-Sig-Acc1-Phy1-IPV6", "cidr": "2a00:8a00:4000:7690:d::/80", "security_setting": "default", "id": "v443-Sig-Acc1-PHYSENT1", "default_gateway": "2a00:8a00:4000:7690:d::1"}, "sig_pfed_v6_duplex2": {"subnet_id": "v452-Sig-Peer1-Phy2-IPV6", "cidr": "2a00:8a00:4000:7690:16::/80", "security_setting": "default", "id": "v452-Sig-Peer1-PHYSENT2", "default_gateway": "2a00:8a00:4000:7690:16::1"}, "sig_pfed_v6_duplex1": {"subnet_id": "v452-Sig-Peer1-Phy1-IPV6", "cidr": "2a00:8a00:4000:7690:16::/80", "security_setting": "default", "id": "v452-Sig-Peer1-PHYSENT1", "default_gateway": "2a00:8a00:4000:7690:16::1"}, "sig_access_v4_duplex1": {"subnet_id": "v443-Sig-Acc1-Phy1-IPV4", "cidr": "100.69.110.0/28", "security_setting": "default", "id": "v443-Sig-Acc1-PHYSENT1", "default_gateway": "100.69.110.1"}, "sig_access_v4_duplex2": {"subnet_id": "v443-Sig-Acc1-Phy2-IPV4", "cidr": "100.69.110.0/28", "security_setting": "default", "id": "v443-Sig-Acc1-PHYSENT2", "default_gateway": "100.69.110.1"}, "sig_core1_v4": {"subnet_id": "v441-Sig-Core1-IPV4", "cidr": "100.69.127.224/28", "security_setting": "default", "id": "v441-Sig-Core1", "default_gateway": "100.69.127.225"}, "sig_core2_v6": {"subnet_id": "v442-Sig-Core2-IPV6", "cidr": "2a00:8a00:4000:7690:c::/80", "security_setting": "default", "id": "v442-Sig-Core2", "default_gateway": "2a00:8a00:4000:7690:c::1"}, "sig_access_v6_duplex2": {"subnet_id": "v443-Sig-Acc1-Phy2-IPV6", "cidr": "2a00:8a00:4000:7690:d::/80", "security_setting": "default", "id": "v443-Sig-Acc1-PHYSENT2", "default_gateway": "2a00:8a00:4000:7690:d::1"}, "oam_v4": {"subnet_id": "v438-OAM-IPV4", "cidr": "100.69.127.128/27", "security_setting": "default", "id": "v438-OAM", "default_gateway": "100.69.127.129"}, "oam_v6": {"subnet_id": "v438-OAM-IPV6", "cidr": "2a00:8a00:4000:7690:8::/80", "security_setting": "default", "id": "v438-OAM", "default_gateway": "2a00:8a00:4000:7690:8::1"}, "sig_core2_v4": {"subnet_id": "v442-Sig-Core2-IPV4", "cidr": "100.69.127.240/28", "security_setting": "default", "id": "v442-Sig-Core2", "default_gateway": "100.69.127.241"}}, "default_action": "", "license_reference": "sbclcm03_QD_SBC_ST_Shawn_XU_88615989", "fw": {"0": {"1": {"vnic_info": {"1": {"set_ips": {"connectivity_ip;subnet=sig_access_v4_duplex1": 0, "connectivity_ip;subnet=sig_access_v6_duplex1": 1}}, "2": {"set_ips": {"connectivity_ip;subnet=sig_access_v6_duplex2": 1, "connectivity_ip;subnet=sig_access_v4_duplex2": 0}}}, "name": "fwa-b"}, "0": {"vnic_info": {"1": {"set_ips": {"servicetype=feph-0;float;nitype=published;subnet=sig_access_v6_duplex1;index=0": 1, "servicetype=ims-0;float;nitype=published;subnet=sig_access_v4_duplex1;index=0;VM=pair:sc:1:0:0": 2, "servicetype=ims-0;float;nitype=published;subnet=sig_access_v6_duplex1;index=0;VM=pair:sc:1:0:0": 3, "servicetype=feph-0;float;nitype=published;subnet=sig_access_v4_duplex1;index=0": 0}}, "2": {"set_ips": {"servicetype=ims-0;float;nitype=published;subnet=sig_access_v6_duplex2;index=1;VM=pair:sc:1:0:0": 3, "servicetype=feph-0;float;nitype=published;subnet=sig_access_v6_duplex2;index=1": 1, "servicetype=feph-0;float;nitype=published;subnet=sig_access_v4_duplex2;index=1": 0, "servicetype=ims-0;float;nitype=published;subnet=sig_access_v4_duplex2;index=1;VM=pair:sc:1:0:0": 2}}}, "name": "fwa-a"}}, "v4_static_routes": {}, "v6_static_routes": {}, "defaults": {"binding_type": {"1": "direct", "2": "direct"}}}, "v6_dns_server": "", "local_dns_domain": "sbc.nokia.com", "sc": {"v4_static_routes": {}, "1": {"1": {"vnic_info": {}, "name": "sc2-b"}, "0": {"vnic_info": {"0": {"set_ips": {"servicetype=ims-0;float;nitype=published;subnet=sig_access_v6_duplex1;index=0": 8, "servicetype=ims-2;float;nitype=published;subnet=sig_access_v6_duplex2;index=1": 14, "servicetype=ims-1;float;nitype=published;subnet=sig_access_v4_duplex1;index=0": 1, "servicetype=ims-2;float;nitype=published;subnet=sig_access_v4_duplex2;index=1": 6, "servicetype=ims-1;float;nitype=published;subnet=sig_access_v6_duplex2;index=1": 13, "servicetype=ims-0;float;nitype=published;subnet=sig_access_v6_duplex2;index=1": 12, "servicetype=ims-3;float;nitype=published;subnet=sig_access_v4_duplex2;index=1": 7, "servicetype=ims-0;float;nitype=published;subnet=sig_access_v4_duplex1;index=0": 0, "servicetype=ims-3;float;nitype=published;subnet=sig_access_v6_duplex2;index=1": 15, "servicetype=ims-1;float;nitype=published;subnet=sig_access_v6_duplex1;index=0": 9, "servicetype=ims-3;float;nitype=published;subnet=sig_access_v4_duplex1;index=0": 3, "servicetype=ims-0;float;nitype=published;subnet=sig_access_v4_duplex2;index=1": 4, "servicetype=ims-3;float;nitype=published;subnet=sig_access_v6_duplex1;index=0": 11, "servicetype=ims-2;float;nitype=published;subnet=sig_access_v6_duplex1;index=0": 10, "servicetype=ims-1;float;nitype=published;subnet=sig_access_v4_duplex2;index=1": 5, "servicetype=ims-2;float;nitype=published;subnet=sig_access_v4_duplex1;index=0": 2}}}, "name": "sc2-a"}}, "0": {"1": {"vnic_info": {}, "name": "sc1-b"}, "0": {"vnic_info": {"0": {"set_ips": {"servicetype=ims-0;float;nitype=published;subnet=sig_access_v6_duplex1;index=0": 8, "servicetype=ims-2;float;nitype=published;subnet=sig_access_v6_duplex2;index=1": 14, "servicetype=ims-1;float;nitype=published;subnet=sig_access_v4_duplex1;index=0": 1, "servicetype=ims-2;float;nitype=published;subnet=sig_access_v4_duplex2;index=1": 6, "servicetype=ims-1;float;nitype=published;subnet=sig_access_v6_duplex2;index=1": 13, "servicetype=ims-0;float;nitype=published;subnet=sig_access_v6_duplex2;index=1": 12, "servicetype=ims-3;float;nitype=published;subnet=sig_access_v4_duplex2;index=1": 7, "servicetype=ims-0;float;nitype=published;subnet=sig_access_v4_duplex1;index=0": 0, "servicetype=ims-3;float;nitype=published;subnet=sig_access_v6_duplex2;index=1": 15, "servicetype=ims-1;float;nitype=published;subnet=sig_access_v6_duplex1;index=0": 9, "servicetype=ims-3;float;nitype=published;subnet=sig_access_v4_duplex1;index=0": 3, "servicetype=ims-0;float;nitype=published;subnet=sig_access_v4_duplex2;index=1": 4, "servicetype=ims-3;float;nitype=published;subnet=sig_access_v6_duplex1;index=0": 11, "servicetype=ims-2;float;nitype=published;subnet=sig_access_v6_duplex1;index=0": 10, "servicetype=ims-1;float;nitype=published;subnet=sig_access_v4_duplex2;index=1": 5, "servicetype=ims-2;float;nitype=published;subnet=sig_access_v4_duplex1;index=0": 2}}}, "name": "sc1-a"}}, "3": {"1": {"vnic_info": {}, "name": "sc4-b"}, "0": {"vnic_info": {"0": {"set_ips": {"servicetype=ims-0;float;nitype=published;subnet=sig_access_v6_duplex1;index=0": 8, "servicetype=ims-2;float;nitype=published;subnet=sig_access_v6_duplex2;index=1": 14, "servicetype=ims-1;float;nitype=published;subnet=sig_access_v4_duplex1;index=0": 1, "servicetype=ims-2;float;nitype=published;subnet=sig_access_v4_duplex2;index=1": 6, "servicetype=ims-1;float;nitype=published;subnet=sig_access_v6_duplex2;index=1": 13, "servicetype=ims-0;float;nitype=published;subnet=sig_access_v6_duplex2;index=1": 12, "servicetype=ims-3;float;nitype=published;subnet=sig_access_v4_duplex2;index=1": 7, "servicetype=ims-0;float;nitype=published;subnet=sig_access_v4_duplex1;index=0": 0, "servicetype=ims-3;float;nitype=published;subnet=sig_access_v6_duplex2;index=1": 15, "servicetype=ims-1;float;nitype=published;subnet=sig_access_v6_duplex1;index=0": 9, "servicetype=ims-3;float;nitype=published;subnet=sig_access_v4_duplex1;index=0": 3, "servicetype=ims-0;float;nitype=published;subnet=sig_access_v4_duplex2;index=1": 4, "servicetype=ims-3;float;nitype=published;subnet=sig_access_v6_duplex1;index=0": 11, "servicetype=ims-2;float;nitype=published;subnet=sig_access_v6_duplex1;index=0": 10, "servicetype=ims-1;float;nitype=published;subnet=sig_access_v4_duplex2;index=1": 5, "servicetype=ims-2;float;nitype=published;subnet=sig_access_v4_duplex1;index=0": 2}}}, "name": "sc4-a"}}, "2": {"1": {"vnic_info": {}, "name": "sc3-b"}, "0": {"vnic_info": {"0": {"set_ips": {"servicetype=ims-0;float;nitype=published;subnet=sig_access_v6_duplex1;index=0": 8, "servicetype=ims-2;float;nitype=published;subnet=sig_access_v6_duplex2;index=1": 14, "servicetype=ims-1;float;nitype=published;subnet=sig_access_v4_duplex1;index=0": 1, "servicetype=ims-2;float;nitype=published;subnet=sig_access_v4_duplex2;index=1": 6, "servicetype=ims-1;float;nitype=published;subnet=sig_access_v6_duplex2;index=1": 13, "servicetype=ims-0;float;nitype=published;subnet=sig_access_v6_duplex2;index=1": 12, "servicetype=ims-3;float;nitype=published;subnet=sig_access_v4_duplex2;index=1": 7, "servicetype=ims-0;float;nitype=published;subnet=sig_access_v4_duplex1;index=0": 0, "servicetype=ims-3;float;nitype=published;subnet=sig_access_v6_duplex2;index=1": 15, "servicetype=ims-1;float;nitype=published;subnet=sig_access_v6_duplex1;index=0": 9, "servicetype=ims-3;float;nitype=published;subnet=sig_access_v4_duplex1;index=0": 3, "servicetype=ims-0;float;nitype=published;subnet=sig_access_v4_duplex2;index=1": 4, "servicetype=ims-3;float;nitype=published;subnet=sig_access_v6_duplex1;index=0": 11, "servicetype=ims-2;float;nitype=published;subnet=sig_access_v6_duplex1;index=0": 10, "servicetype=ims-1;float;nitype=published;subnet=sig_access_v4_duplex2;index=1": 5, "servicetype=ims-2;float;nitype=published;subnet=sig_access_v4_duplex1;index=0": 2}}}, "name": "sc3-a"}}, "4": {"1": {"vnic_info": {}, "name": "sc5-b"}, "0": {"vnic_info": {"0": {"set_ips": {"servicetype=ims-0;float;nitype=published;subnet=sig_access_v6_duplex1;index=0": 8, "servicetype=ims-2;float;nitype=published;subnet=sig_access_v6_duplex2;index=1": 14, "servicetype=ims-1;float;nitype=published;subnet=sig_access_v4_duplex1;index=0": 1, "servicetype=ims-2;float;nitype=published;subnet=sig_access_v4_duplex2;index=1": 6, "servicetype=ims-1;float;nitype=published;subnet=sig_access_v6_duplex2;index=1": 13, "servicetype=ims-0;float;nitype=published;subnet=sig_access_v6_duplex2;index=1": 12, "servicetype=ims-3;float;nitype=published;subnet=sig_access_v4_duplex2;index=1": 7, "servicetype=ims-0;float;nitype=published;subnet=sig_access_v4_duplex1;index=0": 0, "servicetype=ims-3;float;nitype=published;subnet=sig_access_v6_duplex2;index=1": 15, "servicetype=ims-1;float;nitype=published;subnet=sig_access_v6_duplex1;index=0": 9, "servicetype=ims-3;float;nitype=published;subnet=sig_access_v4_duplex1;index=0": 3, "servicetype=ims-0;float;nitype=published;subnet=sig_access_v4_duplex2;index=1": 4, "servicetype=ims-3;float;nitype=published;subnet=sig_access_v6_duplex1;index=0": 11, "servicetype=ims-2;float;nitype=published;subnet=sig_access_v6_duplex1;index=0": 10, "servicetype=ims-1;float;nitype=published;subnet=sig_access_v4_duplex2;index=1": 5, "servicetype=ims-2;float;nitype=published;subnet=sig_access_v4_duplex1;index=0": 2}}}, "name": "sc5-a"}}, "defaults": {}, "v6_static_routes": {}}, "backup_file2": "", "pfw": {"0": {"1": {"vnic_info": {"1": {"set_ips": {"connectivity_ip;subnet=sig_pfed_v6_duplex1": 1, "connectivity_ip;subnet=sig_pfed_v4_duplex1": 0}}, "2": {"set_ips": {"connectivity_ip;subnet=sig_pfed_v4_duplex2": 0, "connectivity_ip;subnet=sig_pfed_v6_duplex2": 1}}}, "name": "fwp-b"}, "0": {"vnic_info": {"1": {"set_ips": {"servicetype=pfed-0;float;nitype=published;subnet=sig_pfed_v6_duplex1;index=0": 1, "servicetype=pfed-0;float;nitype=published;subnet=sig_pfed_v4_duplex1;index=0": 0}}, "2": {"set_ips": {"servicetype=pfed-0;float;nitype=published;subnet=sig_pfed_v6_duplex2;index=1": 1, "servicetype=pfed-0;float;nitype=published;subnet=sig_pfed_v4_duplex2;index=1": 0}}}, "name": "fwp-a"}}, "v4_static_routes": {}, "v6_static_routes": {}, "defaults": {"binding_type": {"1": "direct", "2": "direct"}}}, "cloud_name_delimiter": "-", "scale_in_waiting_period": 3, "system_name": "sbclcm03", "backup_file1": "", "bgc": {"0": {"1": {"vnic_info": {"1": {"set_ips": {"connectivity_ip;subnet=h248_net_v4": 0}}}, "name": "bgc1-b"}, "0": {"vnic_info": {"1": {"set_ips": {"servicetype=h248-1;float;nitype=h248sig;subnet=h248_net_v4;index=0": 1, "servicetype=h248-0;float;nitype=h248sig;subnet=h248_net_v4;index=0": 0}}}, "name": "bgc1-a"}}, "v4_static_routes": {}, "v6_static_routes": {}, "defaults": {"binding_type": {"1": "normal"}}}, "int_vlan_id": "", "system_prefix": "sbclcm03", "lcm_keypair": "", "v4_ntp_server": "10.75.223.4", "time_zone": "UTC", "auto_scalable_aspects": ["sc_Aspect"], "local_enum_domain": "", "cfed": {"0": {"1": {"vnic_info": {"1": {"set_ips": {"connectivity_ip;subnet=sig_core1_v4": 0, "connectivity_ip;subnet=sig_core1_v6": 1}}, "2": {"set_ips": {"connectivity_ip;subnet=sig_core2_v4": 0, "connectivity_ip;subnet=sig_core2_v6": 1}}}, "name": "cfed-b"}, "0": {"vnic_info": {"1": {"set_ips": {"servicetype=cfed-0;float;nitype=published;subnet=sig_core1_v6;index=0": 1, "servicetype=cfed-0;float;nitype=published;subnet=sig_core1_v4;index=0": 0}}, "2": {"set_ips": {"servicetype=cfed-0;float;nitype=published;subnet=sig_core2_v4;index=1": 0, "servicetype=cfed-0;float;nitype=published;subnet=sig_core2_v6;index=1": 1}}}, "name": "cfed-a"}}, "v4_static_routes": {}, "v6_static_routes": {}, "defaults": {"binding_type": {"1": "normal", "2": "normal"}}}, "defaults": {"storage_zone": {"1": "", "0": ""}, "action": {"1": "install", "0": "install"}, "image": {"1": "", "0": ""}, "binding_type": "normal", "availability_zone": {"1": "", "0": ""}}, "install_config": "\"snmp_version\": \"v3\", \"hardening_info\": {\"passwordMaxAscendDescendChars\": \"2\", \"passWarnThresh\": \"7\", \"motd\": \"CgpXQVJOSU5HISAgVGhpcyBjb21wdXRlciBzeXN0ZW0gYW5kIG5ldHdvcmsgaXMgUFJJVkFURSBhbmQgUFJPUFJJRVRBUlkKYW5kIG1heSBvbmx5IGJlIGFjY2Vzc2VkIGJ5IGF1dGhvcml6ZWQgdXNlcnMuICBVbmF1dGhvcml6ZWQgdXNlIG9mIHRoaXMKY29tcHV0ZXIgc3lzdGVtIG9yIG5ldHdvcmsgaXMgc3RyaWN0bHkgcHJvaGliaXRlZCBhbmQgbWF5IGJlIHN1YmplY3QgdG8KY3JpbWluYWwgcHJvc2VjdXRpb24sIGVtcGxveWVlIGRpc2NpcGxpbmUgdXAgdG8gYW5kIGluY2x1ZGluZyBkaXNjaGFyZ2UsCm9yIHRoZSB0ZXJtaW5hdGlvbiBvZiB2ZW5kb3Ivc2VydmljZSBjb250cmFjdHMuICBUaGUgb3duZXIsIG9yIGl0cyBhZ2VudHMsCm1heSBtb25pdG9yIGFueSBhY3Rpdml0eSBvciBjb21tdW5pY2F0aW9uIG9uIHRoZSBjb21wdXRlciBzeXN0ZW0gb3IgbmV0d29yay4KVGhlIG93bmVyLCBvciBpdHMgYWdlbnRzLCBtYXkgcmV0cmlldmUgYW55IGluZm9ybWF0aW9uIHN0b3JlZCB3aXRoaW4gdGhlCmNvbXB1dGVyIHN5c3RlbSBvciBuZXR3b3JrLiAgQnkgYWNjZXNzaW5nIGFuZCB1c2luZyB0aGlzIGNvbXB1dGVyIHN5c3RlbQpvciBuZXR3b3JrLCB5b3UgYXJlIGNvbnNlbnRpbmcgdG8gc3VjaCBtb25pdG9yaW5nIGFuZCBpbmZvcm1hdGlvbiByZXRyaWV2YWwKZm9yIGxhdyBlbmZvcmNlbWVudCBhbmQgb3RoZXIgcHVycG9zZXMuICBVc2VycyBzaG91bGQgaGF2ZSBubyBleHBlY3RhdGlvbgpvZiBwcml2YWN5IGFzIHRvIGFueSBjb21tdW5pY2F0aW9uIG9uIG9yIGluZm9ybWF0aW9uIHN0b3JlZCB3aXRoaW4gdGhlCmNvbXB1dGVyIHN5c3RlbSBvciBuZXR3b3JrLCBpbmNsdWRpbmcgaW5mb3JtYXRpb24gc3RvcmVkIGxvY2FsbHkgb3IgcmVtb3RlbHkKb24gYSBoYXJkIGRyaXZlIG9yIG90aGVyIG1lZGlhIGluIHVzZSB3aXRoIHRoaXMgY29tcHV0ZXIgc3lzdGVtIG9yIG5ldHdvcmsuCg==\", \"loginIdMaxLength\": \"20\", \"passwordUseLower\": \"1\", \"passwordNumSpecMiddle\": \"0\", \"maxPasswordLength\": \"19\", \"allowedPasswordValueType\": \"a-z,A-Z,0-9\", \"accountUnusedDuration\": \"60\", \"passwordCheckMinSeqLen\": \"2\", \"dormantDuration\": \"60\", \"passwordUseNumOrSpec\": \"1\", \"warning_banner\": \"CiBXYXJuaW5nOgpUaGlzIHN5c3RlbSBpcyByZXN0cmljdGVkIHRvIGF1dGhvcml6ZWQgdXNlcnMgZm9yIGJ1c2luZXNzIHB1cnBvc2VzLgpVbmF1dGhvcml6ZWQgYWNjZXNzIGlzIGEgdmlvbGF0aW9uIG9mIHRoZSBsYXcuIFRoaXMgc2VydmljZSBtYXkgYmUgbW9uaXRvcmVkCmZvciBhZG1pbmlzdHJhdGl2ZSBhbmQgc2VjdXJpdHkgcmVhc29ucy4gQnkgcHJvY2VlZGluZywgeW91IGNvbnNlbnQgdG8gdGhpcyBtb25pdG9yaW5nLgo=\", \"tls_ca_cert\": \"\", \"passwordUseNumber\": \"\", \"internal_network_icmp_replies_max_value\": \"1000/s\", \"numberNoPwRepeats\": \"10\", \"tls_cert\": \"\", \"maxIneffectiveAttempts\": \"10\", \"passwordNoReuseDays\": \"120\", \"external_network_icmp_replies_max_value\": \"5/s\", \"tempDisableThreshold\": \"5\", \"minPasswordReset\": \"60\", \"loginIdCharSet\": \"0-9a-z\", \"ssh_key_algorithm\": \"RSA\", \"remove_telnet\": \"No\", \"remove_compiler\": \"Yes\", \"passwordLifeSpan\": \"30\", \"minPasswordResetUnit\": \"60\", \"expireAccountDuration\": \"0\", \"minDiffPassChar\": \"3\", \"ssh_key_size\": \"2048\", \"remove_tcpdump\": \"No\", \"internal_network_icmp_replies_max_limit\": \"Yes\", \"external_network_icmp_replies_max_limit\": \"Yes\", \"passwordUseSpecial\": \"0\", \"minDiffLoginChar\": \"3\", \"kernel_params\": {}, \"pre_login_banner\": \"CgpVbmF1dGhvcml6ZWQgdXNlIG9mIHRoaXMgc3lzdGVtIGlzIHByb2hpYml0ZWQgYW5kIG1heSBiZSBwcm9zZWN1dGVkCnRvIHRoZSBmdWxsZXN0IGV4dGVudCBvZiB0aGUgbGF3LiBCeSB1c2luZyB0aGlzIHN5c3RlbSwgeW91IGltcGxpY2l0bHkKYWdyZWUgdG8gbW9uaXRvcmluZyBieSBzeXN0ZW0gbWFuYWdlbWVudCBhbmQgbGF3IGVuZm9yY2VtZW50IGF1dGhvcml0aWVzLgpJZiB5b3UgZG8gbm90IGFncmVlIHdpdGggdGhlc2UgdGVybXMsIERJU0NPTk5FQ1QgTk9XLgo=\", \"passwordUseUpper\": \"1\", \"loginIdMinLength\": \"3\", \"passwordMaxSameSeqChars\": \"2\", \"minPasswordLength\": \"8\"}, \"snmp_community\": \"public\", \"other_remote_dns_domain\": \"\", \"naming_type\": \"flexible3\", \"ssh_info\": {\"client_alive_interval\": \"\", \"gateway_ports\": \"\", \"ignore_user_known_hosts\": \"\", \"protocol\": \"\", \"client_alive_count_max\": \"\", \"ignore_rhosts\": \"\", \"strict_modes\": \"\", \"max_auth_tries\": \"\", \"login_grace_time\": \"\", \"permit_empty_passwd\": \"\"}, \"default_remote_dns_domain\": \"./default\", \"default_remote_enum_domain\": \"e164.arpa/default\", \"remote_query_only\": \"no\", \"local_dns_domain\": \"sbc.nokia.com\", \"subnet_info\": {\"h248_net_v4\": {\"RequiredMinimumRXInterval\": \"\", \"interface_label\": \"bgc1\", \"redundancy_mode\": \"none\", \"detect_multiplier\": \"\", \"connectivity_address\": \"\", \"DesiredMinimumTXInterval\": \"\", \"vlan_tag\": \"\"}, \"sig_access_v4_duplex2\": {\"RequiredMinimumRXInterval\": \"\", \"interface_label\": \"acc2\", \"redundancy_mode\": \"eipm_acm\", \"detect_multiplier\": \"\", \"connectivity_address\": \"100.69.110.1/1\", \"DesiredMinimumTXInterval\": \"\", \"vlan_tag\": \"\"}, \"sig_pfed_v4_duplex2\": {\"RequiredMinimumRXInterval\": \"\", \"interface_label\": \"pr2\", \"redundancy_mode\": \"eipm_acm\", \"detect_multiplier\": \"\", \"connectivity_address\": \"100.69.110.145/1\", \"DesiredMinimumTXInterval\": \"\", \"vlan_tag\": \"\"}, \"INTERNALnet0\": {\"interface_label\": \"int0\", \"redundancy_mode\": \"iipm\", \"vlan_tag\": \"\"}, \"sig_pfed_v6_duplex2\": {\"required_minimum_rx_interval\": \"300\", \"RequiredMinimumRXInterval\": \"\", \"connectivity_address\": \"2a00:8a00:4000:7690:16::1/1\", \"redundancy_mode\": \"eipm_acm\", \"DesiredMinimumTXInterval\": \"\", \"desired_minimum_tx_interval\": \"300\", \"sysctl_v6_mtu_size\": \"1300\", \"interface_label\": \"pr2\", \"vlan_tag\": \"\", \"detect_multiplier\": \"3\"}, \"sig_pfed_v6_duplex1\": {\"required_minimum_rx_interval\": \"300\", \"RequiredMinimumRXInterval\": \"\", \"connectivity_address\": \"2a00:8a00:4000:7690:16::1/1\", \"redundancy_mode\": \"eipm_acm\", \"DesiredMinimumTXInterval\": \"\", \"desired_minimum_tx_interval\": \"300\", \"sysctl_v6_mtu_size\": \"1300\", \"interface_label\": \"pr1\", \"vlan_tag\": \"\", \"detect_multiplier\": \"3\"}, \"sig_access_v6_duplex1\": {\"required_minimum_rx_interval\": \"300\", \"RequiredMinimumRXInterval\": \"\", \"connectivity_address\": \"2a00:8a00:4000:7690:d::1/1\", \"redundancy_mode\": \"eipm_acm\", \"DesiredMinimumTXInterval\": \"\", \"desired_minimum_tx_interval\": \"300\", \"sysctl_v6_mtu_size\": \"1500\", \"interface_label\": \"acc1\", \"vlan_tag\": \"\", \"detect_multiplier\": \"3\"}, \"sig_access_v6_duplex2\": {\"required_minimum_rx_interval\": \"300\", \"RequiredMinimumRXInterval\": \"\", \"connectivity_address\": \"2a00:8a00:4000:7690:d::1/1\", \"redundancy_mode\": \"eipm_acm\", \"DesiredMinimumTXInterval\": \"\", \"desired_minimum_tx_interval\": \"300\", \"sysctl_v6_mtu_size\": \"1500\", \"interface_label\": \"acc2\", \"vlan_tag\": \"\", \"detect_multiplier\": \"3\"}, \"sig_pfed_v4_duplex1\": {\"RequiredMinimumRXInterval\": \"\", \"interface_label\": \"pr1\", \"redundancy_mode\": \"eipm_acm\", \"detect_multiplier\": \"\", \"connectivity_address\": \"100.69.110.145/1\", \"DesiredMinimumTXInterval\": \"\", \"vlan_tag\": \"\"}, \"sig_access_v4_duplex1\": {\"RequiredMinimumRXInterval\": \"\", \"interface_label\": \"acc1\", \"redundancy_mode\": \"eipm_acm\", \"detect_multiplier\": \"\", \"connectivity_address\": \"100.69.110.1/1\", \"DesiredMinimumTXInterval\": \"\", \"vlan_tag\": \"\"}, \"sig_core1_v4\": {\"required_minimum_rx_interval\": \"10\", \"RequiredMinimumRXInterval\": \"\", \"desired_minimum_tx_interval\": \"10\", \"interface_label\": \"sig1\", \"redundancy_mode\": \"eipm_arpndp\", \"detect_multiplier\": \"3\", \"connectivity_address\": \"\", \"DesiredMinimumTXInterval\": \"\", \"vlan_tag\": \"\"}, \"sig_core2_v6\": {\"required_minimum_rx_interval\": \"10\", \"RequiredMinimumRXInterval\": \"\", \"connectivity_address\": \"\", \"redundancy_mode\": \"eipm_arpndp\", \"DesiredMinimumTXInterval\": \"\", \"desired_minimum_tx_interval\": \"10\", \"sysctl_v6_mtu_size\": \"1400\", \"interface_label\": \"sig2\", \"vlan_tag\": \"\", \"detect_multiplier\": \"3\"}, \"sig_core1_v6\": {\"required_minimum_rx_interval\": \"10\", \"RequiredMinimumRXInterval\": \"\", \"connectivity_address\": \"\", \"redundancy_mode\": \"eipm_arpndp\", \"DesiredMinimumTXInterval\": \"\", \"desired_minimum_tx_interval\": \"10\", \"sysctl_v6_mtu_size\": \"1300\", \"interface_label\": \"sig1\", \"vlan_tag\": \"\", \"detect_multiplier\": \"3\"}, \"oam_v4\": {\"required_minimum_rx_interval\": \"10\", \"RequiredMinimumRXInterval\": \"\", \"desired_minimum_tx_interval\": \"10\", \"interface_label\": \"oam1\", \"redundancy_mode\": \"eipm_arpndp\", \"detect_multiplier\": \"3\", \"connectivity_address\": \"\", \"DesiredMinimumTXInterval\": \"\", \"vlan_tag\": \"\"}, \"oam_v6\": {\"required_minimum_rx_interval\": \"10\", \"RequiredMinimumRXInterval\": \"\", \"connectivity_address\": \"\", \"redundancy_mode\": \"eipm_arpndp\", \"DesiredMinimumTXInterval\": \"\", \"desired_minimum_tx_interval\": \"10\", \"sysctl_v6_mtu_size\": \"1300\", \"interface_label\": \"oam1\", \"vlan_tag\": \"\", \"detect_multiplier\": \"3\"}, \"sig_core2_v4\": {\"required_minimum_rx_interval\": \"10\", \"RequiredMinimumRXInterval\": \"\", \"desired_minimum_tx_interval\": \"10\", \"interface_label\": \"sig2\", \"redundancy_mode\": \"eipm_arpndp\", \"detect_multiplier\": \"3\", \"connectivity_address\": \"\", \"DesiredMinimumTXInterval\": \"\", \"vlan_tag\": \"\"}}, \"local_enum_domain\": \"\", \"use_sbpr\": \"yes\", \"application_name\": \"sbc\", \"svc_counts\": {\"h248\": \"2\", \"mi\": \"1\", \"dfed\": \"1\", \"ims\": \"4\", \"feph\": \"1\", \"pfed\": \"1\", \"cdr\": \"1\", \"cfed\": \"1\", \"cnfg\": \"1\", \"gos\": \"6\", \"sns\": \"1\"}, \"other_remote_enum_domain\": \"\", \"naming_delimiter\": \"-\", \"naming_parsing\": \"flexible\"", "v4_dns_server": "172.23.102.60/.", "ccf": {"0": {"1": {"vnic_info": {"1": {"set_ips": {"connectivity_ip;subnet=sig_core1_v4": 0, "connectivity_ip;subnet=sig_core1_v6": 1}}}, "name": "ccf-b"}, "0": {"vnic_info": {"1": {"set_ips": {"servicetype=cdr-0;float;nitype=default;subnet=sig_core1_v4;index=0": 0, "servicetype=cdr-0;float;nitype=default;subnet=sig_core1_v6;index=0": 1}}}, "name": "ccf-a"}}, "v4_static_routes": {}, "v6_static_routes": {}, "defaults": {"binding_type": {"1": "normal"}}}, "oam": {"0": {"1": {"vnic_info": {"1": {"set_ips": {"servicetype=mi-0;fixed;nitype=default;subnet=oam_v4;index=0": 0}}}, "name": "oam-b"}, "0": {"vnic_info": {"1": {"set_ips": {"servicetype=cnfg-0;float;nitype=default;subnet=oam_v4;index=0": 2, "servicetype=mi-0;fixed;nitype=default;subnet=oam_v4;index=0": 0, "servicetype=mi-0;float;nitype=default;subnet=oam_v4;index=0": 1}}}, "name": "oam-a"}}, "v4_static_routes": {}, "v6_static_routes": {}, "defaults": {"binding_type": {"1": "normal"}}}}, "vnfdVersion": "sbclcm03~37.34.06", "vnfConfigurableProperties": {"operation_triggers": {"auto_backup": {"periodInSeconds": 86220, "enabled": true}, "auto_scale": {"periodInSeconds": 600, "enabled": true}}}, "_links": {"custom:ip_manage": {"href": "https://100.69.127.147/vnflcm/v1/vnf_instances/CBAM-4a0a43a997744f798881ed65237087ff/custom/ip_manage"}, "custom:upgrade_2_activate": {"href": "https://100.69.127.147/vnflcm/v1/vnf_instances/CBAM-4a0a43a997744f798881ed65237087ff/custom/upgrade_2_activate"}, "custom:add_subnet": {"href": "https://100.69.127.147/vnflcm/v1/vnf_instances/CBAM-4a0a43a997744f798881ed65237087ff/custom/add_subnet"}, "custom:upgrade_1_apply": {"href": "https://100.69.127.147/vnflcm/v1/vnf_instances/CBAM-4a0a43a997744f798881ed65237087ff/custom/upgrade_1_apply"}, "custom:upgrade_3_commit": {"href": "https://100.69.127.147/vnflcm/v1/vnf_instances/CBAM-4a0a43a997744f798881ed65237087ff/custom/upgrade_3_commit"}, "self": {"href": "https://100.69.127.147/vnflcm/v1/vnf_instances/CBAM-4a0a43a997744f798881ed65237087ff"}, "instantiate": {"href": "https://100.69.127.147/vnflcm/v1/vnf_instances/CBAM-4a0a43a997744f798881ed65237087ff/instantiate"}, "list": {"href": "https://100.69.127.147/vnflcm/v1/vnf_instances"}, "modifyInfo": {"href": "https://100.69.127.147/vnflcm/v1/vnf_instances/CBAM-4a0a43a997744f798881ed65237087ff"}, "custom:connect_SBC_Media_VNF": {"href": "https://100.69.127.147/vnflcm/v1/vnf_instances/CBAM-4a0a43a997744f798881ed65237087ff/custom/connect_SBC_Media_VNF"}, "custom:DB_Restore": {"href": "https://100.69.127.147/vnflcm/v1/vnf_instances/CBAM-4a0a43a997744f798881ed65237087ff/custom/DB_Restore"}, "custom:backup": {"href": "https://100.69.127.147/vnflcm/v1/vnf_instances/CBAM-4a0a43a997744f798881ed65237087ff/custom/backup"}, "custom:upgrade_precheck": {"href": "https://100.69.127.147/vnflcm/v1/vnf_instances/CBAM-4a0a43a997744f798881ed65237087ff/custom/upgrade_precheck"}, "custom:disconnect_SBC_Media_VNF": {"href": "https://100.69.127.147/vnflcm/v1/vnf_instances/CBAM-4a0a43a997744f798881ed65237087ff/custom/disconnect_SBC_Media_VNF"}, "custom:update_known_subnets": {"href": "https://100.69.127.147/vnflcm/v1/vnf_instances/CBAM-4a0a43a997744f798881ed65237087ff/custom/update_known_subnets"}, "custom:del_subnet": {"href": "https://100.69.127.147/vnflcm/v1/vnf_instances/CBAM-4a0a43a997744f798881ed65237087ff/custom/del_subnet"}, "custom:upgrade_archive": {"href": "https://100.69.127.147/vnflcm/v1/vnf_instances/CBAM-4a0a43a997744f798881ed65237087ff/custom/upgrade_archive"}, "delete": {"href": "https://100.69.127.147/vnflcm/v1/vnf_instances/CBAM-4a0a43a997744f798881ed65237087ff"}}, "vnfPkgId": "308", "id": "CBAM-4a0a43a997744f798881ed65237087ff", "metadata": {}}
+2020-01-18 12:27:31,779 INFO:root:create_vnf:id: CBAM-4a0a43a997744f798881ed65237087ff
+2020-01-18 12:27:31,782 INFO:root:In Func:send_request
+2020-01-18 12:27:31,782 INFO:root:type: POST
+2020-01-18 12:27:31,783 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_instances/CBAM-4a0a43a997744f798881ed65237087ff/instantiate
+2020-01-18 12:27:31,784 INFO:root:data: {'apiVersion': 4.0, 'flavourId': 'default', 'extVirtualLinks': [{'resourceId': 'h248_subnet', 'vimConnectionId': 'vim_id', 'extCps': [{'cpConfig': [{'cpProtocolData': [{'layerProtocol': 'IP_OVER_ETHERNET', 'ipOverEthernet': {'ipAddresses': [{'fixedAddresses': ['192.168.1.1'], 'subnetId': 'h248_subnet', 'type': 'IPV4'}, {'fixedAddresses': ['192.168.1.3'], 'subnetId': 'h248_subnet', 'type': 'IPV4'}]}}]}], 'cpdId': 'bgc_a_external1_ECP'}, {'cpConfig': [{'cpProtocolData': [{'layerProtocol': 'IP_OVER_ETHERNET', 'ipOverEthernet': {'ipAddresses': [{'fixedAddresses': ['192.168.1.2'], 'subnetId': 'h248_subnet', 'type': 'IPV4'}]}}]}], 'cpdId': 'bgc_b_external1_ECP'}], 'id': 'h248_subnet'}, {'resourceId': 'v443-Sig-Acc1-Phy1-IPV6', 'vimConnectionId': 'vim_id', 'extCps': [{'cpConfig': [{'cpProtocolData': [{'layerProtocol': 'IP_OVER_ETHERNET', 'ipOverEthernet': {'ipAddresses': [{'fixedAddresses': ['100.69.110.5'], 'subnetId': 'v443-Sig-Acc1-Phy1-IPV4', 'type': 'IPV4'}, {'fixedAddresses': ['2a00:8a00:4000:7690:d::5'], 'subnetId': 'v443-Sig-Acc1-Phy1-IPV6', 'type': 'IPV6'}, {'fixedAddresses': ['100.69.110.7'], 'subnetId': 'v443-Sig-Acc1-Phy1-IPV4', 'type': 'IPV4'}, {'fixedAddresses': ['2a00:8a00:4000:7690:d::7'], 'subnetId': 'v443-Sig-Acc1-Phy1-IPV6', 'type': 'IPV6'}]}}]}], 'cpdId': 'fw_a_external1_ECP'}, {'cpConfig': [{'cpProtocolData': [{'layerProtocol': 'IP_OVER_ETHERNET', 'ipOverEthernet': {'ipAddresses': [{'fixedAddresses': ['100.69.110.6'], 'subnetId': 'v443-Sig-Acc1-Phy1-IPV4', 'type': 'IPV4'}, {'fixedAddresses': ['2a00:8a00:4000:7690:d::6'], 'subnetId': 'v443-Sig-Acc1-Phy1-IPV6', 'type': 'IPV6'}]}}]}], 'cpdId': 'fw_b_external1_ECP'}], 'id': 'v443-Sig-Acc1-Phy1-IPV6'}, {'resourceId': 'v443-Sig-Acc1-Phy2-IPV6', 'vimConnectionId': 'vim_id', 'extCps': [{'cpConfig': [{'cpProtocolData': [{'layerProtocol': 'IP_OVER_ETHERNET', 'ipOverEthernet': {'ipAddresses': [{'fixedAddresses': ['100.69.110.5'], 'subnetId': 'v443-Sig-Acc1-Phy2-IPV4', 'type': 'IPV4'}, {'fixedAddresses': ['2a00:8a00:4000:7690:d::5'], 'subnetId': 'v443-Sig-Acc1-Phy2-IPV6', 'type': 'IPV6'}, {'fixedAddresses': ['100.69.110.7'], 'subnetId': 'v443-Sig-Acc1-Phy2-IPV4', 'type': 'IPV4'}, {'fixedAddresses': ['2a00:8a00:4000:7690:d::7'], 'subnetId': 'v443-Sig-Acc1-Phy2-IPV6', 'type': 'IPV6'}]}}]}], 'cpdId': 'fw_a_external2_ECP'}, {'cpConfig': [{'cpProtocolData': [{'layerProtocol': 'IP_OVER_ETHERNET', 'ipOverEthernet': {'ipAddresses': [{'fixedAddresses': ['100.69.110.6'], 'subnetId': 'v443-Sig-Acc1-Phy2-IPV4', 'type': 'IPV4'}, {'fixedAddresses': ['2a00:8a00:4000:7690:d::6'], 'subnetId': 'v443-Sig-Acc1-Phy2-IPV6', 'type': 'IPV6'}]}}]}], 'cpdId': 'fw_b_external2_ECP'}], 'id': 'v443-Sig-Acc1-Phy2-IPV6'}, {'resourceId': 'v438-OAM-IPV4', 'vimConnectionId': 'vim_id', 'extCps': [{'cpConfig': [{'cpProtocolData': [{'layerProtocol': 'IP_OVER_ETHERNET', 'ipOverEthernet': {'ipAddresses': [{'fixedAddresses': ['100.69.127.133'], 'subnetId': 'v438-OAM-IPV4', 'type': 'IPV4'}, {'fixedAddresses': ['100.69.127.135'], 'subnetId': 'v438-OAM-IPV4', 'type': 'IPV4'}, {'fixedAddresses': ['100.69.127.136'], 'subnetId': 'v438-OAM-IPV4', 'type': 'IPV4'}]}}]}], 'cpdId': 'oam_a_external1_ECP'}, {'cpConfig': [{'cpProtocolData': [{'layerProtocol': 'IP_OVER_ETHERNET', 'ipOverEthernet': {'ipAddresses': [{'fixedAddresses': ['100.69.127.134'], 'subnetId': 'v438-OAM-IPV4', 'type': 'IPV4'}]}}]}], 'cpdId': 'oam_b_external1_ECP'}], 'id': 'v438-OAM-IPV4'}, {'resourceId': 'v441-Sig-Core1-IPV6', 'vimConnectionId': 'vim_id', 'extCps': [{'cpConfig': [{'cpProtocolData': [{'layerProtocol': 'IP_OVER_ETHERNET', 'ipOverEthernet': {'ipAddresses': [{'fixedAddresses': ['100.69.127.231'], 'subnetId': 'v441-Sig-Core1-IPV4', 'type': 'IPV4'}, {'fixedAddresses': ['2a00:8a00:4000:7690:b::7'], 'subnetId': 'v441-Sig-Core1-IPV6', 'type': 'IPV6'}]}}]}], 'cpdId': 'cfed_a_external1_ECP'}, {'cpConfig': [{'cpProtocolData': [{'layerProtocol': 'IP_OVER_ETHERNET', 'ipOverEthernet': {'ipAddresses': [{'fixedAddresses': ['100.69.127.232'], 'subnetId': 'v441-Sig-Core1-IPV4', 'type': 'IPV4'}, {'fixedAddresses': ['2a00:8a00:4000:7690:b::8'], 'subnetId': 'v441-Sig-Core1-IPV6', 'type': 'IPV6'}]}}]}], 'cpdId': 'cfed_b_external1_ECP'}], 'id': 'v441-Sig-Core1-IPV6'}, {'resourceId': 'v442-Sig-Core2-IPV6', 'vimConnectionId': 'vim_id', 'extCps': [{'cpConfig': [{'cpProtocolData': [{'layerProtocol': 'IP_OVER_ETHERNET', 'ipOverEthernet': {'ipAddresses': [{'fixedAddresses': ['100.69.127.245'], 'subnetId': 'v442-Sig-Core2-IPV4', 'type': 'IPV4'}, {'fixedAddresses': ['2a00:8a00:4000:7690:c::5'], 'subnetId': 'v442-Sig-Core2-IPV6', 'type': 'IPV6'}]}}]}], 'cpdId': 'cfed_a_external2_ECP'}, {'cpConfig': [{'cpProtocolData': [{'layerProtocol': 'IP_OVER_ETHERNET', 'ipOverEthernet': {'ipAddresses': [{'fixedAddresses': ['100.69.127.246'], 'subnetId': 'v442-Sig-Core2-IPV4', 'type': 'IPV4'}, {'fixedAddresses': ['2a00:8a00:4000:7690:c::6'], 'subnetId': 'v442-Sig-Core2-IPV6', 'type': 'IPV6'}]}}]}], 'cpdId': 'cfed_b_external2_ECP'}], 'id': 'v442-Sig-Core2-IPV6'}, {'resourceId': 'v441-Sig-Core1-IPV6', 'vimConnectionId': 'vim_id', 'extCps': [{'cpConfig': [{'cpProtocolData': [{'layerProtocol': 'IP_OVER_ETHERNET', 'ipOverEthernet': {'ipAddresses': [{'fixedAddresses': ['100.69.127.233'], 'subnetId': 'v441-Sig-Core1-IPV4', 'type': 'IPV4'}, {'fixedAddresses': ['2a00:8a00:4000:7690:b::9'], 'subnetId': 'v441-Sig-Core1-IPV6', 'type': 'IPV6'}]}}]}], 'cpdId': 'dfed_a_external1_ECP'}, {'cpConfig': [{'cpProtocolData': [{'layerProtocol': 'IP_OVER_ETHERNET', 'ipOverEthernet': {'ipAddresses': [{'fixedAddresses': ['100.69.127.234'], 'subnetId': 'v441-Sig-Core1-IPV4', 'type': 'IPV4'}, {'fixedAddresses': ['2a00:8a00:4000:7690:b::10'], 'subnetId': 'v441-Sig-Core1-IPV6', 'type': 'IPV6'}]}}]}], 'cpdId': 'dfed_b_external1_ECP'}], 'id': 'v441-Sig-Core1-IPV6'}, {'resourceId': 'v452-Sig-Peer1-Phy1-IPV6', 'vimConnectionId': 'vim_id', 'extCps': [{'cpConfig': [{'cpProtocolData': [{'layerProtocol': 'IP_OVER_ETHERNET', 'ipOverEthernet': {'ipAddresses': [{'fixedAddresses': ['100.69.110.149'], 'subnetId': 'v452-Sig-Peer1-Phy1-IPV4', 'type': 'IPV4'}, {'fixedAddresses': ['2a00:8a00:4000:7690:16::5'], 'subnetId': 'v452-Sig-Peer1-Phy1-IPV6', 'type': 'IPV6'}]}}]}], 'cpdId': 'pfw_a_external1_ECP'}, {'cpConfig': [{'cpProtocolData': [{'layerProtocol': 'IP_OVER_ETHERNET', 'ipOverEthernet': {'ipAddresses': [{'fixedAddresses': ['100.69.110.150'], 'subnetId': 'v452-Sig-Peer1-Phy1-IPV4', 'type': 'IPV4'}, {'fixedAddresses': ['2a00:8a00:4000:7690:16::6'], 'subnetId': 'v452-Sig-Peer1-Phy1-IPV6', 'type': 'IPV6'}]}}]}], 'cpdId': 'pfw_b_external1_ECP'}], 'id': 'v452-Sig-Peer1-Phy1-IPV6'}, {'resourceId': 'v452-Sig-Peer1-Phy2-IPV6', 'vimConnectionId': 'vim_id', 'extCps': [{'cpConfig': [{'cpProtocolData': [{'layerProtocol': 'IP_OVER_ETHERNET', 'ipOverEthernet': {'ipAddresses': [{'fixedAddresses': ['100.69.110.149'], 'subnetId': 'v452-Sig-Peer1-Phy2-IPV4', 'type': 'IPV4'}, {'fixedAddresses': ['2a00:8a00:4000:7690:16::5'], 'subnetId': 'v452-Sig-Peer1-Phy2-IPV6', 'type': 'IPV6'}]}}]}], 'cpdId': 'pfw_a_external2_ECP'}, {'cpConfig': [{'cpProtocolData': [{'layerProtocol': 'IP_OVER_ETHERNET', 'ipOverEthernet': {'ipAddresses': [{'fixedAddresses': ['100.69.110.150'], 'subnetId': 'v452-Sig-Peer1-Phy2-IPV4', 'type': 'IPV4'}, {'fixedAddresses': ['2a00:8a00:4000:7690:16::6'], 'subnetId': 'v452-Sig-Peer1-Phy2-IPV6', 'type': 'IPV6'}]}}]}], 'cpdId': 'pfw_b_external2_ECP'}], 'id': 'v452-Sig-Peer1-Phy2-IPV6'}, {'resourceId': 'v441-Sig-Core1-IPV6', 'vimConnectionId': 'vim_id', 'extCps': [{'cpConfig': [{'cpProtocolData': [{'layerProtocol': 'IP_OVER_ETHERNET', 'ipOverEthernet': {'ipAddresses': [{'fixedAddresses': ['100.69.127.229'], 'subnetId': 'v441-Sig-Core1-IPV4', 'type': 'IPV4'}, {'fixedAddresses': ['2a00:8a00:4000:7690:b::5'], 'subnetId': 'v441-Sig-Core1-IPV6', 'type': 'IPV6'}]}}]}], 'cpdId': 'ccf_a_external1_ECP'}, {'cpConfig': [{'cpProtocolData': [{'layerProtocol': 'IP_OVER_ETHERNET', 'ipOverEthernet': {'ipAddresses': [{'fixedAddresses': ['100.69.127.230'], 'subnetId': 'v441-Sig-Core1-IPV4', 'type': 'IPV4'}, {'fixedAddresses': ['2a00:8a00:4000:7690:b::6'], 'subnetId': 'v441-Sig-Core1-IPV6', 'type': 'IPV6'}]}}]}], 'cpdId': 'ccf_b_external1_ECP'}], 'id': 'v441-Sig-Core1-IPV6'}], 'additionalParams': {'backup_file1': '', 'backup_file2': '', 'backup_server_credentials1': '', 'backup_server_credentials2': '', 'bulk_conf_url': 'http://10.75.44.7/sbclcm-auto/bulkconf_artifacts.zip', 'skip_health_check': 'No', 'upgrade_file': '', 'upgrade_server_credentials': ''}, 'grantlessMode': True, 'softwareImages': [{'vnfdSoftwareImageId': 'bgc_a', 'vimConnectionId': 'vim_id', 'vimSoftwareImageId': 'nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2'}, {'vnfdSoftwareImageId': 'bgc_b', 'vimConnectionId': 'vim_id', 'vimSoftwareImageId': 'nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2'}, {'vnfdSoftwareImageId': 'fw_a', 'vimConnectionId': 'vim_id', 'vimSoftwareImageId': 'nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2'}, {'vnfdSoftwareImageId': 'fw_b', 'vimConnectionId': 'vim_id', 'vimSoftwareImageId': 'nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2'}, {'vnfdSoftwareImageId': 'oam_a', 'vimConnectionId': 'vim_id', 'vimSoftwareImageId': 'nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2'}, {'vnfdSoftwareImageId': 'oam_b', 'vimConnectionId': 'vim_id', 'vimSoftwareImageId': 'nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2'}, {'vnfdSoftwareImageId': 'cfed_a', 'vimConnectionId': 'vim_id', 'vimSoftwareImageId': 'nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2'}, {'vnfdSoftwareImageId': 'cfed_b', 'vimConnectionId': 'vim_id', 'vimSoftwareImageId': 'nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2'}, {'vnfdSoftwareImageId': 'dfed_a', 'vimConnectionId': 'vim_id', 'vimSoftwareImageId': 'nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2'}, {'vnfdSoftwareImageId': 'dfed_b', 'vimConnectionId': 'vim_id', 'vimSoftwareImageId': 'nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2'}, {'vnfdSoftwareImageId': 'pfw_a', 'vimConnectionId': 'vim_id', 'vimSoftwareImageId': 'nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2'}, {'vnfdSoftwareImageId': 'pfw_b', 'vimConnectionId': 'vim_id', 'vimSoftwareImageId': 'nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2'}, {'vnfdSoftwareImageId': 'sc_a', 'vimConnectionId': 'vim_id', 'vimSoftwareImageId': 'nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2'}, {'vnfdSoftwareImageId': 'sc_b', 'vimConnectionId': 'vim_id', 'vimSoftwareImageId': 'nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2'}, {'vnfdSoftwareImageId': 'ccf_a', 'vimConnectionId': 'vim_id', 'vimSoftwareImageId': 'nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2'}, {'vnfdSoftwareImageId': 'ccf_b', 'vimConnectionId': 'vim_id', 'vimSoftwareImageId': 'nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2'}], 'extManagedVirtualLinks': [], 'zones': [{'vimConnectionId': 'vim_id', 'zoneId': 'Host-Group_Lsriov_z1', 'id': '0'}, {'vimConnectionId': 'vim_id', 'zoneId': 'Host-Group_Lsriov_z2', 'id': '1'}, {'vimConnectionId': 'vim_id', 'zoneId': 'nova', 'id': 'storage0'}, {'vimConnectionId': 'vim_id', 'zoneId': 'nova', 'id': 'storage1'}], 'vimConnectionInfo': [{'interfaceInfo': {'endpoint': 'https://10.75.12.196:13000/v3'}, 'vimType': 'OPENSTACK_V3', 'accessInfo': {'username': 'cb0078sa', 'password': 'LabAcc0unt', 'project': 'CB0078', 'userDomain': 'Default', 'projectDomain': 'default', 'region': 'regionOne'}, 'id': 'vim_id'}], 'computeResourceFlavours': [{'vimConnectionId': 'vim_id', 'vnfdVirtualComputeDescId': 'oam_a', 'vimFlavourId': 'CAU-2-8-21-8'}, {'vimConnectionId': 'vim_id', 'vnfdVirtualComputeDescId': 'oam_b', 'vimFlavourId': 'CAU-2-8-21-8'}, {'vimConnectionId': 'vim_id', 'vnfdVirtualComputeDescId': 'sc_a', 'vimFlavourId': 'CAU-4-24-15-1'}, {'vimConnectionId': 'vim_id', 'vnfdVirtualComputeDescId': 'sc_b', 'vimFlavourId': 'CAU-4-24-15-1'}, {'vimConnectionId': 'vim_id', 'vnfdVirtualComputeDescId': 'fw_a', 'vimFlavourId': 'CAU-8-16-15-1'}, {'vimConnectionId': 'vim_id', 'vnfdVirtualComputeDescId': 'fw_b', 'vimFlavourId': 'CAU-8-16-15-1'}, {'vimConnectionId': 'vim_id', 'vnfdVirtualComputeDescId': 'pfw_a', 'vimFlavourId': 'CAU-8-16-15-1'}, {'vimConnectionId': 'vim_id', 'vnfdVirtualComputeDescId': 'pfw_b', 'vimFlavourId': 'CAU-8-16-15-1'}, {'vimConnectionId': 'vim_id', 'vnfdVirtualComputeDescId': 'bgc_a', 'vimFlavourId': 'CAU-2-8-15-1'}, {'vimConnectionId': 'vim_id', 'vnfdVirtualComputeDescId': 'bgc_b', 'vimFlavourId': 'CAU-2-8-15-1'}, {'vimConnectionId': 'vim_id', 'vnfdVirtualComputeDescId': 'cfed_a', 'vimFlavourId': 'CAU-8-32-15-1'}, {'vimConnectionId': 'vim_id', 'vnfdVirtualComputeDescId': 'cfed_b', 'vimFlavourId': 'CAU-8-32-15-1'}, {'vimConnectionId': 'vim_id', 'vnfdVirtualComputeDescId': 'dfed_a', 'vimFlavourId': 'CAU-4-16-15-1'}, {'vimConnectionId': 'vim_id', 'vnfdVirtualComputeDescId': 'dfed_b', 'vimFlavourId': 'CAU-4-16-15-1'}, {'vimConnectionId': 'vim_id', 'vnfdVirtualComputeDescId': 'ccf_a', 'vimFlavourId': 'CAU-4-8-15-1'}, {'vimConnectionId': 'vim_id', 'vnfdVirtualComputeDescId': 'ccf_b', 'vimFlavourId': 'CAU-4-8-15-1'}], 'instantiationLevelId': 'default'}
+2020-01-18 12:27:31,785 INFO:root:expect_code: 202
+2020-01-18 12:27:36,388 INFO:root:In Func:send_request
+2020-01-18 12:27:36,388 INFO:root:type: GET
+2020-01-18 12:27:36,389 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_instances/CBAM-4a0a43a997744f798881ed65237087ff
+2020-01-18 12:27:36,389 INFO:root:data: {}
+2020-01-18 12:27:36,389 INFO:root:expect_code: 200
+2020-01-18 12:27:39,124 INFO:root:In Func:send_request
+2020-01-18 12:27:39,125 INFO:root:type: GET
+2020-01-18 12:27:39,125 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 12:27:39,125 INFO:root:data: {}
+2020-01-18 12:27:39,126 INFO:root:expect_code: 200
+2020-01-18 12:27:41,898 INFO:root:SBC VNF INSTANTIATE  status: STARTING
+2020-01-18 12:28:41,903 INFO:root:In Func:send_request
+2020-01-18 12:28:41,904 INFO:root:type: GET
+2020-01-18 12:28:41,906 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 12:28:41,909 INFO:root:data: {}
+2020-01-18 12:28:41,911 INFO:root:expect_code: 200
+2020-01-18 12:28:44,793 INFO:root:SBC VNF INSTANTIATE  PROCESSING
+2020-01-18 12:28:44,794 INFO:root:Wait for 60 secs...
+2020-01-18 12:29:44,803 INFO:root:In Func:send_request
+2020-01-18 12:29:44,806 INFO:root:type: GET
+2020-01-18 12:29:44,807 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 12:29:44,808 INFO:root:data: {}
+2020-01-18 12:29:44,808 INFO:root:expect_code: 200
+2020-01-18 12:29:47,585 INFO:root:SBC VNF INSTANTIATE  PROCESSING
+2020-01-18 12:29:47,586 INFO:root:Wait for 60 secs...
+2020-01-18 12:30:47,590 INFO:root:In Func:send_request
+2020-01-18 12:30:47,590 INFO:root:type: GET
+2020-01-18 12:30:47,590 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-18 12:30:47,590 INFO:root:data: {}
+2020-01-18 12:30:47,591 INFO:root:expect_code: 200
+2020-01-18 12:30:50,412 INFO:root:SBC VNF INSTANTIATE  PROCESSING
+2020-01-18 12:30:50,412 INFO:root:Wait for 60 secs...

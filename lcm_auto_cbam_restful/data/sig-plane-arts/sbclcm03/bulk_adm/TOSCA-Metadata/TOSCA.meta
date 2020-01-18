@@ -1,8 +1,0 @@
-TOSCA-Meta-File-Version: 1.0
-CSAR-Version: 1.1
-Created-By: Nokia
-Entry-Definitions: lcm.vnfd.tosca.yaml
-Entry-Manifest: lcm.vnfd.tosca.mf
-Entry-Change-Log: ChangeLog.txt
-Entry-Licenses: Licenses
-
