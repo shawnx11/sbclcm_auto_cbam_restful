@@ -127,4 +127,10 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# newly added
 /projects/
+.idea/
+cbam_robot/
+requests/
+lcm_auto_cbam_restful/sbclcm_auto.log
