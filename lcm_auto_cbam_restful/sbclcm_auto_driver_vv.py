@@ -4148,7 +4148,7 @@ if __name__ == '__main__':
     # sigvnf_GenArts()
 
     # TS_sigvnf_tests_td()
-    TS_sigvnf_tests_cim()
+    # TS_sigvnf_tests_cim()
     # TS_sigvnf_tests_cimcb()
     # TS_sigvnf_tests_mcdb()
     # TS_sigvnf_tests_bkup_rt_creds()
@@ -4170,7 +4170,7 @@ if __name__ == '__main__':
     # TS_sigvnf_tests_td()
     # TS_sigvnf_tests_cimcsb()
 
-    # TS_sigvnf_tests_heal_m()
+    TS_sigvnf_tests_heal_m()
     # TS_sigvnf_tests_heal_s()
 
     # TS_sigvnf_tests_heal_s_r()

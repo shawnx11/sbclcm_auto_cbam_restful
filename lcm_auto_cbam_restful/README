@@ -70,19 +70,20 @@ To-do:
     - backout
     - rollback                          - done
 2. change to pl043                      - done
-3. use yaml file for configuration
-4. load shipping, upload
-5. add cancel
-6. class re-org                         - done
+3. class re-org                         - done
     SBCVnf
         --> SigVnf
         --> MediaVnf
     SBCVnfLcmTestDriver
         --> SigVnfLcmTestDriver
         --> MediaVnfLcmTestDriver
-7. media artifact generator
+4. media artifact generator
+5. use yaml file for configuration
+6. load shipping, upload
+7. add class LcmUtils
 
 ##############################################
 v7:
 To-do:
-1. data visualization
+1. add cancel
+2. data visualization
