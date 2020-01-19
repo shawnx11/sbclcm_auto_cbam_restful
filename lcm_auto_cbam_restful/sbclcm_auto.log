@@ -6228,3 +6228,127 @@ Success!
 2020-01-19 12:41:52,165 INFO:root:expect_code: 200
 2020-01-19 12:41:55,073 INFO:root:SBC VNF HEAL  PROCESSING
 2020-01-19 12:41:55,073 INFO:root:Wait for 60 secs...
+2020-01-19 12:42:55,086 INFO:root:In Func:send_request
+2020-01-19 12:42:55,086 INFO:root:type: GET
+2020-01-19 12:42:55,086 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 12:42:55,086 INFO:root:data: {}
+2020-01-19 12:42:55,086 INFO:root:expect_code: 200
+2020-01-19 12:42:57,965 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 12:42:57,965 INFO:root:Wait for 60 secs...
+2020-01-19 12:43:57,971 INFO:root:In Func:send_request
+2020-01-19 12:43:57,971 INFO:root:type: GET
+2020-01-19 12:43:57,971 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 12:43:57,971 INFO:root:data: {}
+2020-01-19 12:43:57,971 INFO:root:expect_code: 200
+2020-01-19 12:44:00,872 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 12:44:00,888 INFO:root:Wait for 60 secs...
+2020-01-19 12:45:00,894 INFO:root:In Func:send_request
+2020-01-19 12:45:00,894 INFO:root:type: GET
+2020-01-19 12:45:00,894 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 12:45:00,894 INFO:root:data: {}
+2020-01-19 12:45:00,894 INFO:root:expect_code: 200
+2020-01-19 12:45:03,691 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 12:45:03,691 INFO:root:Wait for 60 secs...
+2020-01-19 12:46:03,706 INFO:root:In Func:send_request
+2020-01-19 12:46:03,706 INFO:root:type: GET
+2020-01-19 12:46:03,706 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 12:46:03,706 INFO:root:data: {}
+2020-01-19 12:46:03,706 INFO:root:expect_code: 200
+2020-01-19 12:46:06,712 INFO:root:SBC VNF HEAL  COMPLETED
+2020-01-19 12:46:06,712 INFO:root:Multiple Heal: healNum:7;healList:['SC_RRG.4.NOKIA-LCP-VMA', 'CCF_RRG.0.NOKIA-LCP-VMB', 'OAM.NOKIA-LCP-VMB', 'SC_RRG.1.NOKIA-LCP-VMA', 'DFED_RRG.0.NOKIA-LCP-VMB', 'SC_RRG.0.NOKIA-LCP-VMA', 'PFW_RRG.0.NOKIA-LCP-VMA']
+2020-01-19 12:46:06,712 INFO:root:Start to Heal: ['SC_RRG.4.NOKIA-LCP-VMA', 'CCF_RRG.0.NOKIA-LCP-VMB', 'OAM.NOKIA-LCP-VMB', 'SC_RRG.1.NOKIA-LCP-VMA', 'DFED_RRG.0.NOKIA-LCP-VMB', 'SC_RRG.0.NOKIA-LCP-VMA', 'PFW_RRG.0.NOKIA-LCP-VMA']
+2020-01-19 12:46:06,712 INFO:root:In Func:send_request
+2020-01-19 12:46:06,712 INFO:root:type: POST
+2020-01-19 12:46:06,712 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_instances/CBAM-af68639d46324930b248d53203d25f83/heal
+2020-01-19 12:46:06,712 INFO:root:data: {'cause': "Sig Plane Multiple VM Heal: ['SC_RRG.4.NOKIA-LCP-VMA', 'CCF_RRG.0.NOKIA-LCP-VMB', 'OAM.NOKIA-LCP-VMB', 'SC_RRG.1.NOKIA-LCP-VMA', 'DFED_RRG.0.NOKIA-LCP-VMB', 'SC_RRG.0.NOKIA-LCP-VMA', 'PFW_RRG.0.NOKIA-LCP-VMA']", 'vnfcInstanceIds': ['SC_RRG.4.NOKIA-LCP-VMA', 'CCF_RRG.0.NOKIA-LCP-VMB', 'OAM.NOKIA-LCP-VMB', 'SC_RRG.1.NOKIA-LCP-VMA', 'DFED_RRG.0.NOKIA-LCP-VMB', 'SC_RRG.0.NOKIA-LCP-VMA', 'PFW_RRG.0.NOKIA-LCP-VMA'], 'additionalParams': {'monitorRetries': 90, 'monitorDelay': 20}}
+2020-01-19 12:46:06,712 INFO:root:expect_code: 202
+2020-01-19 12:46:11,148 INFO:root:In Func:send_request
+2020-01-19 12:46:11,164 INFO:root:type: GET
+2020-01-19 12:46:11,164 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 12:46:11,164 INFO:root:data: {}
+2020-01-19 12:46:11,164 INFO:root:expect_code: 200
+2020-01-19 12:46:13,983 INFO:root:SBC VNF HEAL  status: STARTING
+2020-01-19 12:47:13,992 INFO:root:In Func:send_request
+2020-01-19 12:47:13,992 INFO:root:type: GET
+2020-01-19 12:47:13,992 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 12:47:13,992 INFO:root:data: {}
+2020-01-19 12:47:13,992 INFO:root:expect_code: 200
+2020-01-19 12:47:16,963 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 12:47:16,963 INFO:root:Wait for 60 secs...
+2020-01-19 12:48:16,974 INFO:root:In Func:send_request
+2020-01-19 12:48:16,974 INFO:root:type: GET
+2020-01-19 12:48:16,974 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 12:48:16,974 INFO:root:data: {}
+2020-01-19 12:48:16,974 INFO:root:expect_code: 200
+2020-01-19 12:48:19,878 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 12:48:19,878 INFO:root:Wait for 60 secs...
+2020-01-19 12:49:19,892 INFO:root:In Func:send_request
+2020-01-19 12:49:19,892 INFO:root:type: GET
+2020-01-19 12:49:19,892 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 12:49:19,892 INFO:root:data: {}
+2020-01-19 12:49:19,892 INFO:root:expect_code: 200
+2020-01-19 12:49:22,950 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 12:49:22,951 INFO:root:Wait for 60 secs...
+2020-01-19 12:50:22,958 INFO:root:In Func:send_request
+2020-01-19 12:50:22,960 INFO:root:type: GET
+2020-01-19 12:50:22,960 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 12:50:22,960 INFO:root:data: {}
+2020-01-19 12:50:22,961 INFO:root:expect_code: 200
+2020-01-19 12:50:25,786 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 12:50:25,786 INFO:root:Wait for 60 secs...
+2020-01-19 12:51:25,794 INFO:root:In Func:send_request
+2020-01-19 12:51:25,794 INFO:root:type: GET
+2020-01-19 12:51:25,794 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 12:51:25,794 INFO:root:data: {}
+2020-01-19 12:51:25,794 INFO:root:expect_code: 200
+2020-01-19 12:51:28,710 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 12:51:28,710 INFO:root:Wait for 60 secs...
+2020-01-19 12:52:28,715 INFO:root:In Func:send_request
+2020-01-19 12:52:28,715 INFO:root:type: GET
+2020-01-19 12:52:28,715 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 12:52:28,715 INFO:root:data: {}
+2020-01-19 12:52:28,715 INFO:root:expect_code: 200
+2020-01-19 12:52:31,763 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 12:52:31,763 INFO:root:Wait for 60 secs...
+2020-01-19 12:53:31,771 INFO:root:In Func:send_request
+2020-01-19 12:53:31,771 INFO:root:type: GET
+2020-01-19 12:53:31,771 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 12:53:31,771 INFO:root:data: {}
+2020-01-19 12:53:31,771 INFO:root:expect_code: 200
+2020-01-19 12:53:34,863 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 12:53:34,863 INFO:root:Wait for 60 secs...
+2020-01-19 12:54:34,868 INFO:root:In Func:send_request
+2020-01-19 12:54:34,868 INFO:root:type: GET
+2020-01-19 12:54:34,868 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 12:54:34,868 INFO:root:data: {}
+2020-01-19 12:54:34,868 INFO:root:expect_code: 200
+2020-01-19 12:54:37,772 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 12:54:37,772 INFO:root:Wait for 60 secs...
+2020-01-19 12:55:37,775 INFO:root:In Func:send_request
+2020-01-19 12:55:37,775 INFO:root:type: GET
+2020-01-19 12:55:37,775 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 12:55:37,775 INFO:root:data: {}
+2020-01-19 12:55:37,775 INFO:root:expect_code: 200
+2020-01-19 12:55:40,692 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 12:55:40,692 INFO:root:Wait for 60 secs...
+2020-01-19 12:56:40,706 INFO:root:In Func:send_request
+2020-01-19 12:56:40,706 INFO:root:type: GET
+2020-01-19 12:56:40,706 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 12:56:40,706 INFO:root:data: {}
+2020-01-19 12:56:40,706 INFO:root:expect_code: 200
+2020-01-19 12:56:43,482 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 12:56:43,482 INFO:root:Wait for 60 secs...
+2020-01-19 12:57:43,496 INFO:root:In Func:send_request
+2020-01-19 12:57:43,496 INFO:root:type: GET
+2020-01-19 12:57:43,496 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 12:57:43,496 INFO:root:data: {}
+2020-01-19 12:57:43,496 INFO:root:expect_code: 200
+2020-01-19 12:57:46,396 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 12:57:46,396 INFO:root:Wait for 60 secs...
+2020-01-19 12:58:46,404 INFO:root:In Func:send_request
+2020-01-19 12:58:46,404 INFO:root:type: GET
+2020-01-19 12:58:46,404 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 12:58:46,404 INFO:root:data: {}
+2020-01-19 12:58:46,404 INFO:root:expect_code: 200
+2020-01-19 12:58:49,288 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 12:58:49,288 INFO:root:Wait for 60 secs...
