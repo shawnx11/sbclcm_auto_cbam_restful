@@ -4662,3 +4662,1569 @@ Success!
 2020-01-18 20:30:16,110 INFO:root:expect_code: 200
 2020-01-18 20:30:18,936 INFO:root:SBC VNF INSTANTIATE  PROCESSING
 2020-01-18 20:30:18,937 INFO:root:Wait for 60 secs...
+2020-01-19 09:05:28,524 INFO:root:id: 243
+2020-01-19 09:05:28,524 INFO:root:vnfdId: a429bbb6-3747-11ea-94a5-1cc1de70bde5
+2020-01-19 09:05:28,539 INFO:root:vnfProvider: Nokia
+2020-01-19 09:05:28,539 INFO:root:vnfProductName: SBC-media
+2020-01-19 09:05:28,539 INFO:root:vnfSoftwareVersion: ap100013
+2020-01-19 09:05:28,539 INFO:root:vnfdVersion: sbgw01
+2020-01-19 09:05:28,539 INFO:root:onboardingState: ONBOARDED
+2020-01-19 09:05:28,539 INFO:root:operationalState: ENABLED
+2020-01-19 09:05:28,539 INFO:root:userDefinedData: {'vimType': 'openstack', 'references': ['CBAM-ae4fff2b41e24f9082ed7cca81c0054f']}
+2020-01-19 09:05:28,539 INFO:root:_links: {'vnfd': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/243/vnfd'}, 'packageContent': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/243/package_content'}, 'self': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/243'}}
+2020-01-19 09:05:28,539 INFO:root:id: 323
+2020-01-19 09:05:28,539 INFO:root:vnfdId: ad76fe58-5833-4bc1-b859-210f12cf7029
+2020-01-19 09:05:28,539 INFO:root:vnfProvider: Nokia
+2020-01-19 09:05:28,539 INFO:root:vnfProductName: SBC
+2020-01-19 09:05:28,539 INFO:root:vnfSoftwareVersion: sbclcm03~37.34.06
+2020-01-19 09:05:28,539 INFO:root:vnfdVersion: sbclcm03~37.34.06
+2020-01-19 09:05:28,539 INFO:root:onboardingState: ONBOARDED
+2020-01-19 09:05:28,539 INFO:root:operationalState: ENABLED
+2020-01-19 09:05:28,539 INFO:root:userDefinedData: {'vimType': 'openstack', 'references': ['CBAM-af68639d46324930b248d53203d25f83']}
+2020-01-19 09:05:28,539 INFO:root:_links: {'vnfd': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/323/vnfd'}, 'packageContent': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/323/package_content'}, 'self': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/323'}}
+2020-01-19 09:05:28,539 INFO:root:id: 239
+2020-01-19 09:05:28,539 INFO:root:vnfdId: 38a2f54a-373f-11ea-b927-1cc1de70bde4
+2020-01-19 09:05:28,539 INFO:root:vnfProvider: Nokia
+2020-01-19 09:05:28,539 INFO:root:vnfProductName: SBC-media
+2020-01-19 09:05:28,539 INFO:root:vnfSoftwareVersion: an100053
+2020-01-19 09:05:28,539 INFO:root:vnfdVersion: sbgw01
+2020-01-19 09:05:28,539 INFO:root:onboardingState: ONBOARDED
+2020-01-19 09:05:28,539 INFO:root:operationalState: ENABLED
+2020-01-19 09:05:28,539 INFO:root:userDefinedData: {'vimType': 'openstack', 'references': []}
+2020-01-19 09:05:28,539 INFO:root:_links: {'vnfd': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/239/vnfd'}, 'packageContent': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/239/package_content'}, 'self': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/239'}}
+2020-01-19 09:05:28,555 INFO:root:id: 293
+2020-01-19 09:05:28,555 INFO:root:vnfdId: ed5d8c9f-2aa7-4dd5-ad5c-dcfb62c3c0bf
+2020-01-19 09:05:28,555 INFO:root:vnfProvider: Nokia
+2020-01-19 09:05:28,555 INFO:root:vnfProductName: SBC
+2020-01-19 09:05:28,555 INFO:root:vnfSoftwareVersion: sbclcm03~37.28.06
+2020-01-19 09:05:28,555 INFO:root:vnfdVersion: sbclcm03~37.28.06
+2020-01-19 09:05:28,555 INFO:root:onboardingState: ONBOARDED
+2020-01-19 09:05:28,555 INFO:root:operationalState: ENABLED
+2020-01-19 09:05:28,555 INFO:root:userDefinedData: {'vimType': 'openstack', 'references': []}
+2020-01-19 09:05:28,555 INFO:root:_links: {'vnfd': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/293/vnfd'}, 'packageContent': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/293/package_content'}, 'self': {'href': 'https://100.69.127.147/vnfpkgm/v1/vnf_packages/293'}}
+2020-01-19 09:05:28,555 INFO:root:Media Plane vnfdId_SU: a429bbb6-3747-11ea-94a5-1cc1de70bde5
+2020-01-19 09:05:28,555 INFO:root:Media Plane vnfSoftwareVersion for SUTOLoad: ap100013
+2020-01-19 09:05:28,555 INFO:root:Sig Plane vnfdId: ad76fe58-5833-4bc1-b859-210f12cf7029
+2020-01-19 09:05:28,555 INFO:root:Sig Plane vnfSoftwareVersion: sbclcm03~37.34.06
+2020-01-19 09:05:28,555 INFO:root:Media Plane vnfdId: 38a2f54a-373f-11ea-b927-1cc1de70bde4
+2020-01-19 09:05:28,555 INFO:root:Media Plane vnfSoftwareVersion: an100053
+2020-01-19 09:05:28,555 INFO:root:In Func: sigvnf_Heal_Multiple
+2020-01-19 09:05:28,555 INFO:root:In Func: setup_sigDriver
+2020-01-19 09:05:30,899 INFO:root:get_vnf_id: sig vnf id: CBAM-af68639d46324930b248d53203d25f83
+2020-01-19 09:05:30,899 INFO:root:wait_processing
+2020-01-19 09:05:30,899 INFO:root:In Func:send_request
+2020-01-19 09:05:30,899 INFO:root:type: GET
+2020-01-19 09:05:30,899 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 09:05:30,899 INFO:root:data: {}
+2020-01-19 09:05:30,899 INFO:root:expect_code: 200
+2020-01-19 09:05:33,465 INFO:root:In Func:send_request
+2020-01-19 09:05:33,465 INFO:root:type: GET
+2020-01-19 09:05:33,465 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_instances/CBAM-af68639d46324930b248d53203d25f83
+2020-01-19 09:05:33,465 INFO:root:data: {}
+2020-01-19 09:05:33,480 INFO:root:expect_code: 200
+2020-01-19 09:05:36,930 INFO:root:vnfcInstanceId_List: ['DFED_RRG.0.NOKIA-LCP-VMB', 'DFED_RRG.0.NOKIA-LCP-VMA', 'CCF_RRG.0.NOKIA-LCP-VMB', 'CCF_RRG.0.NOKIA-LCP-VMA', 'OAM.NOKIA-LCP-VMB', 'OAM.NOKIA-LCP-VMA', 'PFW_RRG.0.NOKIA-LCP-VMB', 'PFW_RRG.0.NOKIA-LCP-VMA', 'CFED_RRG.0.NOKIA-LCP-VMB', 'CFED_RRG.0.NOKIA-LCP-VMA', 'FW_RRG.0.NOKIA-LCP-VMB', 'FW_RRG.0.NOKIA-LCP-VMA', 'SC_RRG.1.NOKIA-LCP-VMB', 'SC_RRG.1.NOKIA-LCP-VMA', 'SC_RRG.0.NOKIA-LCP-VMB', 'SC_RRG.0.NOKIA-LCP-VMA', 'SC_RRG.3.NOKIA-LCP-VMB', 'SC_RRG.3.NOKIA-LCP-VMA', 'SC_RRG.2.NOKIA-LCP-VMB', 'SC_RRG.2.NOKIA-LCP-VMA', 'SC_RRG.4.NOKIA-LCP-VMB', 'SC_RRG.4.NOKIA-LCP-VMA', 'BGC_RRG.0.NOKIA-LCP-VMB', 'BGC_RRG.0.NOKIA-LCP-VMA']
+2020-01-19 09:05:36,930 INFO:root:vnfcInstanceId_List:['DFED_RRG.0.NOKIA-LCP-VMB', 'DFED_RRG.0.NOKIA-LCP-VMA', 'CCF_RRG.0.NOKIA-LCP-VMB', 'CCF_RRG.0.NOKIA-LCP-VMA', 'OAM.NOKIA-LCP-VMB', 'OAM.NOKIA-LCP-VMA', 'PFW_RRG.0.NOKIA-LCP-VMB', 'PFW_RRG.0.NOKIA-LCP-VMA', 'CFED_RRG.0.NOKIA-LCP-VMB', 'CFED_RRG.0.NOKIA-LCP-VMA', 'FW_RRG.0.NOKIA-LCP-VMB', 'FW_RRG.0.NOKIA-LCP-VMA', 'SC_RRG.1.NOKIA-LCP-VMB', 'SC_RRG.1.NOKIA-LCP-VMA', 'SC_RRG.0.NOKIA-LCP-VMB', 'SC_RRG.0.NOKIA-LCP-VMA', 'SC_RRG.3.NOKIA-LCP-VMB', 'SC_RRG.3.NOKIA-LCP-VMA', 'SC_RRG.2.NOKIA-LCP-VMB', 'SC_RRG.2.NOKIA-LCP-VMA', 'SC_RRG.4.NOKIA-LCP-VMB', 'SC_RRG.4.NOKIA-LCP-VMA', 'BGC_RRG.0.NOKIA-LCP-VMB', 'BGC_RRG.0.NOKIA-LCP-VMA']
+2020-01-19 09:05:36,930 INFO:root:Multiple Heal: healNum:2;healList:['SC_RRG.4.NOKIA-LCP-VMA', 'CCF_RRG.0.NOKIA-LCP-VMB']
+2020-01-19 09:05:36,930 INFO:root:Start to Heal: ['SC_RRG.4.NOKIA-LCP-VMA', 'CCF_RRG.0.NOKIA-LCP-VMB']
+2020-01-19 09:05:36,930 INFO:root:In Func:send_request
+2020-01-19 09:05:36,930 INFO:root:type: POST
+2020-01-19 09:05:36,930 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_instances/CBAM-af68639d46324930b248d53203d25f83/heal
+2020-01-19 09:05:36,930 INFO:root:data: {'cause': "Sig Plane Multiple VM Heal: ['SC_RRG.4.NOKIA-LCP-VMA', 'CCF_RRG.0.NOKIA-LCP-VMB']", 'vnfcInstanceIds': ['SC_RRG.4.NOKIA-LCP-VMA', 'CCF_RRG.0.NOKIA-LCP-VMB'], 'additionalParams': {'monitorRetries': 90, 'monitorDelay': 20}}
+2020-01-19 09:05:36,930 INFO:root:expect_code: 202
+2020-01-19 09:05:41,156 INFO:root:In Func:send_request
+2020-01-19 09:05:41,156 INFO:root:type: GET
+2020-01-19 09:05:41,156 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 09:05:41,156 INFO:root:data: {}
+2020-01-19 09:05:41,156 INFO:root:expect_code: 200
+2020-01-19 09:05:43,753 INFO:root:SBC VNF HEAL  status: STARTING
+2020-01-19 09:06:43,759 INFO:root:In Func:send_request
+2020-01-19 09:06:43,759 INFO:root:type: GET
+2020-01-19 09:06:43,759 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 09:06:43,759 INFO:root:data: {}
+2020-01-19 09:06:43,759 INFO:root:expect_code: 200
+2020-01-19 09:06:46,493 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 09:06:46,493 INFO:root:Wait for 60 secs...
+2020-01-19 09:07:46,500 INFO:root:In Func:send_request
+2020-01-19 09:07:46,500 INFO:root:type: GET
+2020-01-19 09:07:46,500 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 09:07:46,500 INFO:root:data: {}
+2020-01-19 09:07:46,500 INFO:root:expect_code: 200
+2020-01-19 09:07:49,153 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 09:07:49,153 INFO:root:Wait for 60 secs...
+2020-01-19 09:08:49,164 INFO:root:In Func:send_request
+2020-01-19 09:08:49,164 INFO:root:type: GET
+2020-01-19 09:08:49,164 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 09:08:49,164 INFO:root:data: {}
+2020-01-19 09:08:49,164 INFO:root:expect_code: 200
+2020-01-19 09:08:51,924 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 09:08:51,924 INFO:root:Wait for 60 secs...
+2020-01-19 09:09:51,924 INFO:root:In Func:send_request
+2020-01-19 09:09:51,924 INFO:root:type: GET
+2020-01-19 09:09:51,924 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 09:09:51,924 INFO:root:data: {}
+2020-01-19 09:09:51,924 INFO:root:expect_code: 200
+2020-01-19 09:09:54,582 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 09:09:54,582 INFO:root:Wait for 60 secs...
+2020-01-19 09:10:54,584 INFO:root:In Func:send_request
+2020-01-19 09:10:54,584 INFO:root:type: GET
+2020-01-19 09:10:54,584 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 09:10:54,584 INFO:root:data: {}
+2020-01-19 09:10:54,584 INFO:root:expect_code: 200
+2020-01-19 09:10:57,187 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 09:10:57,187 INFO:root:Wait for 60 secs...
+2020-01-19 09:11:57,193 INFO:root:In Func:send_request
+2020-01-19 09:11:57,193 INFO:root:type: GET
+2020-01-19 09:11:57,193 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 09:11:57,193 INFO:root:data: {}
+2020-01-19 09:11:57,193 INFO:root:expect_code: 200
+2020-01-19 09:11:59,813 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 09:11:59,813 INFO:root:Wait for 60 secs...
+2020-01-19 09:12:59,828 INFO:root:In Func:send_request
+2020-01-19 09:12:59,828 INFO:root:type: GET
+2020-01-19 09:12:59,828 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 09:12:59,828 INFO:root:data: {}
+2020-01-19 09:12:59,828 INFO:root:expect_code: 200
+2020-01-19 09:13:02,407 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 09:13:02,407 INFO:root:Wait for 60 secs...
+2020-01-19 09:14:02,417 INFO:root:In Func:send_request
+2020-01-19 09:14:02,417 INFO:root:type: GET
+2020-01-19 09:14:02,417 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 09:14:02,417 INFO:root:data: {}
+2020-01-19 09:14:02,417 INFO:root:expect_code: 200
+2020-01-19 09:14:05,090 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 09:14:05,090 INFO:root:Wait for 60 secs...
+2020-01-19 09:15:05,090 INFO:root:In Func:send_request
+2020-01-19 09:15:05,090 INFO:root:type: GET
+2020-01-19 09:15:05,090 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 09:15:05,090 INFO:root:data: {}
+2020-01-19 09:15:05,090 INFO:root:expect_code: 200
+2020-01-19 09:15:08,001 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 09:15:08,001 INFO:root:Wait for 60 secs...
+2020-01-19 09:16:08,009 INFO:root:In Func:send_request
+2020-01-19 09:16:08,009 INFO:root:type: GET
+2020-01-19 09:16:08,009 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 09:16:08,009 INFO:root:data: {}
+2020-01-19 09:16:08,009 INFO:root:expect_code: 200
+2020-01-19 09:16:10,711 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 09:16:10,726 INFO:root:Wait for 60 secs...
+2020-01-19 09:17:10,736 INFO:root:In Func:send_request
+2020-01-19 09:17:10,736 INFO:root:type: GET
+2020-01-19 09:17:10,736 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 09:17:10,736 INFO:root:data: {}
+2020-01-19 09:17:10,736 INFO:root:expect_code: 200
+2020-01-19 09:17:13,340 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 09:17:13,340 INFO:root:Wait for 60 secs...
+2020-01-19 09:18:13,352 INFO:root:In Func:send_request
+2020-01-19 09:18:13,352 INFO:root:type: GET
+2020-01-19 09:18:13,352 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 09:18:13,352 INFO:root:data: {}
+2020-01-19 09:18:13,352 INFO:root:expect_code: 200
+2020-01-19 09:18:16,014 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 09:18:16,014 INFO:root:Wait for 60 secs...
+2020-01-19 09:19:16,029 INFO:root:In Func:send_request
+2020-01-19 09:19:16,029 INFO:root:type: GET
+2020-01-19 09:19:16,029 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 09:19:16,029 INFO:root:data: {}
+2020-01-19 09:19:16,029 INFO:root:expect_code: 200
+2020-01-19 09:19:18,659 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 09:19:18,659 INFO:root:Wait for 60 secs...
+2020-01-19 09:20:18,672 INFO:root:In Func:send_request
+2020-01-19 09:20:18,672 INFO:root:type: GET
+2020-01-19 09:20:18,672 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 09:20:18,672 INFO:root:data: {}
+2020-01-19 09:20:18,672 INFO:root:expect_code: 200
+2020-01-19 09:20:22,011 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 09:20:22,011 INFO:root:Wait for 60 secs...
+2020-01-19 09:21:22,030 INFO:root:In Func:send_request
+2020-01-19 09:21:22,030 INFO:root:type: GET
+2020-01-19 09:21:22,030 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 09:21:22,030 INFO:root:data: {}
+2020-01-19 09:21:22,030 INFO:root:expect_code: 200
+2020-01-19 09:21:24,716 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 09:21:24,716 INFO:root:Wait for 60 secs...
+2020-01-19 09:22:24,736 INFO:root:In Func:send_request
+2020-01-19 09:22:24,736 INFO:root:type: GET
+2020-01-19 09:22:24,736 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 09:22:24,736 INFO:root:data: {}
+2020-01-19 09:22:24,736 INFO:root:expect_code: 200
+2020-01-19 09:22:27,413 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 09:22:27,413 INFO:root:Wait for 60 secs...
+2020-01-19 09:23:27,429 INFO:root:In Func:send_request
+2020-01-19 09:23:27,429 INFO:root:type: GET
+2020-01-19 09:23:27,429 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 09:23:27,429 INFO:root:data: {}
+2020-01-19 09:23:27,429 INFO:root:expect_code: 200
+2020-01-19 09:23:30,027 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 09:23:30,027 INFO:root:Wait for 60 secs...
+2020-01-19 09:24:30,034 INFO:root:In Func:send_request
+2020-01-19 09:24:30,034 INFO:root:type: GET
+2020-01-19 09:24:30,034 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 09:24:30,034 INFO:root:data: {}
+2020-01-19 09:24:30,034 INFO:root:expect_code: 200
+2020-01-19 09:24:32,799 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 09:24:32,799 INFO:root:Wait for 60 secs...
+2020-01-19 09:25:32,800 INFO:root:In Func:send_request
+2020-01-19 09:25:32,800 INFO:root:type: GET
+2020-01-19 09:25:32,800 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 09:25:32,800 INFO:root:data: {}
+2020-01-19 09:25:32,800 INFO:root:expect_code: 200
+2020-01-19 09:25:35,424 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 09:25:35,424 INFO:root:Wait for 60 secs...
+2020-01-19 09:26:35,429 INFO:root:In Func:send_request
+2020-01-19 09:26:35,429 INFO:root:type: GET
+2020-01-19 09:26:35,429 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 09:26:35,429 INFO:root:data: {}
+2020-01-19 09:26:35,429 INFO:root:expect_code: 200
+2020-01-19 09:26:38,071 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 09:26:38,071 INFO:root:Wait for 60 secs...
+2020-01-19 09:27:38,077 INFO:root:In Func:send_request
+2020-01-19 09:27:38,077 INFO:root:type: GET
+2020-01-19 09:27:38,077 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 09:27:38,077 INFO:root:data: {}
+2020-01-19 09:27:38,077 INFO:root:expect_code: 200
+2020-01-19 09:27:40,747 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 09:27:40,747 INFO:root:Wait for 60 secs...
+2020-01-19 09:28:40,759 INFO:root:In Func:send_request
+2020-01-19 09:28:40,759 INFO:root:type: GET
+2020-01-19 09:28:40,759 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 09:28:40,759 INFO:root:data: {}
+2020-01-19 09:28:40,759 INFO:root:expect_code: 200
+2020-01-19 09:28:43,350 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 09:28:43,350 INFO:root:Wait for 60 secs...
+2020-01-19 09:29:43,363 INFO:root:In Func:send_request
+2020-01-19 09:29:43,363 INFO:root:type: GET
+2020-01-19 09:29:43,363 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 09:29:43,363 INFO:root:data: {}
+2020-01-19 09:29:43,363 INFO:root:expect_code: 200
+2020-01-19 09:29:45,942 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 09:29:45,942 INFO:root:Wait for 60 secs...
+2020-01-19 09:30:45,946 INFO:root:In Func:send_request
+2020-01-19 09:30:45,946 INFO:root:type: GET
+2020-01-19 09:30:45,946 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 09:30:45,946 INFO:root:data: {}
+2020-01-19 09:30:45,946 INFO:root:expect_code: 200
+2020-01-19 09:30:48,669 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 09:30:48,669 INFO:root:Wait for 60 secs...
+2020-01-19 09:31:48,677 INFO:root:In Func:send_request
+2020-01-19 09:31:48,677 INFO:root:type: GET
+2020-01-19 09:31:48,677 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 09:31:48,677 INFO:root:data: {}
+2020-01-19 09:31:48,677 INFO:root:expect_code: 200
+2020-01-19 09:31:51,499 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 09:31:51,499 INFO:root:Wait for 60 secs...
+2020-01-19 09:32:51,512 INFO:root:In Func:send_request
+2020-01-19 09:32:51,512 INFO:root:type: GET
+2020-01-19 09:32:51,512 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 09:32:51,512 INFO:root:data: {}
+2020-01-19 09:32:51,512 INFO:root:expect_code: 200
+2020-01-19 09:32:54,270 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 09:32:54,270 INFO:root:Wait for 60 secs...
+2020-01-19 09:33:54,278 INFO:root:In Func:send_request
+2020-01-19 09:33:54,278 INFO:root:type: GET
+2020-01-19 09:33:54,278 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 09:33:54,278 INFO:root:data: {}
+2020-01-19 09:33:54,278 INFO:root:expect_code: 200
+2020-01-19 09:33:56,938 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 09:33:56,938 INFO:root:Wait for 60 secs...
+2020-01-19 09:34:56,940 INFO:root:In Func:send_request
+2020-01-19 09:34:56,940 INFO:root:type: GET
+2020-01-19 09:34:56,940 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 09:34:56,940 INFO:root:data: {}
+2020-01-19 09:34:56,940 INFO:root:expect_code: 200
+2020-01-19 09:34:59,714 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 09:34:59,714 INFO:root:Wait for 60 secs...
+2020-01-19 09:35:59,722 INFO:root:In Func:send_request
+2020-01-19 09:35:59,722 INFO:root:type: GET
+2020-01-19 09:35:59,722 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 09:35:59,722 INFO:root:data: {}
+2020-01-19 09:35:59,722 INFO:root:expect_code: 200
+2020-01-19 09:36:02,347 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 09:36:02,347 INFO:root:Wait for 60 secs...
+2020-01-19 09:37:02,357 INFO:root:In Func:send_request
+2020-01-19 09:37:02,357 INFO:root:type: GET
+2020-01-19 09:37:02,357 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 09:37:02,357 INFO:root:data: {}
+2020-01-19 09:37:02,357 INFO:root:expect_code: 200
+2020-01-19 09:37:04,969 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 09:37:04,984 INFO:root:Wait for 60 secs...
+2020-01-19 09:38:04,993 INFO:root:In Func:send_request
+2020-01-19 09:38:04,993 INFO:root:type: GET
+2020-01-19 09:38:04,993 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 09:38:04,993 INFO:root:data: {}
+2020-01-19 09:38:04,993 INFO:root:expect_code: 200
+2020-01-19 09:38:07,675 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 09:38:07,675 INFO:root:Wait for 60 secs...
+2020-01-19 09:39:07,691 INFO:root:In Func:send_request
+2020-01-19 09:39:07,691 INFO:root:type: GET
+2020-01-19 09:39:07,691 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 09:39:07,692 INFO:root:data: {}
+2020-01-19 09:39:07,692 INFO:root:expect_code: 200
+2020-01-19 09:39:11,079 INFO:root:SBC VNF HEAL  COMPLETED
+2020-01-19 09:39:11,079 INFO:root:Multiple Heal: healNum:3;healList:['SC_RRG.4.NOKIA-LCP-VMA', 'CCF_RRG.0.NOKIA-LCP-VMB', 'OAM.NOKIA-LCP-VMB']
+2020-01-19 09:39:11,079 INFO:root:Start to Heal: ['SC_RRG.4.NOKIA-LCP-VMA', 'CCF_RRG.0.NOKIA-LCP-VMB', 'OAM.NOKIA-LCP-VMB']
+2020-01-19 09:39:11,079 INFO:root:In Func:send_request
+2020-01-19 09:39:11,079 INFO:root:type: POST
+2020-01-19 09:39:11,079 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_instances/CBAM-af68639d46324930b248d53203d25f83/heal
+2020-01-19 09:39:11,079 INFO:root:data: {'cause': "Sig Plane Multiple VM Heal: ['SC_RRG.4.NOKIA-LCP-VMA', 'CCF_RRG.0.NOKIA-LCP-VMB', 'OAM.NOKIA-LCP-VMB']", 'vnfcInstanceIds': ['SC_RRG.4.NOKIA-LCP-VMA', 'CCF_RRG.0.NOKIA-LCP-VMB', 'OAM.NOKIA-LCP-VMB'], 'additionalParams': {'monitorRetries': 90, 'monitorDelay': 20}}
+2020-01-19 09:39:11,079 INFO:root:expect_code: 202
+2020-01-19 09:39:15,266 INFO:root:In Func:send_request
+2020-01-19 09:39:15,266 INFO:root:type: GET
+2020-01-19 09:39:15,266 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 09:39:15,266 INFO:root:data: {}
+2020-01-19 09:39:15,266 INFO:root:expect_code: 200
+2020-01-19 09:39:17,844 INFO:root:SBC VNF HEAL  status: STARTING
+2020-01-19 09:40:17,855 INFO:root:In Func:send_request
+2020-01-19 09:40:17,855 INFO:root:type: GET
+2020-01-19 09:40:17,855 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 09:40:17,855 INFO:root:data: {}
+2020-01-19 09:40:17,855 INFO:root:expect_code: 200
+2020-01-19 09:40:20,458 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 09:40:20,458 INFO:root:Wait for 60 secs...
+2020-01-19 09:41:20,472 INFO:root:In Func:send_request
+2020-01-19 09:41:20,472 INFO:root:type: GET
+2020-01-19 09:41:20,472 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 09:41:20,472 INFO:root:data: {}
+2020-01-19 09:41:20,472 INFO:root:expect_code: 200
+2020-01-19 09:41:23,123 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 09:41:23,123 INFO:root:Wait for 60 secs...
+2020-01-19 09:42:23,127 INFO:root:In Func:send_request
+2020-01-19 09:42:23,127 INFO:root:type: GET
+2020-01-19 09:42:23,127 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 09:42:23,127 INFO:root:data: {}
+2020-01-19 09:42:23,127 INFO:root:expect_code: 200
+2020-01-19 09:42:25,807 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 09:42:25,807 INFO:root:Wait for 60 secs...
+2020-01-19 09:43:25,817 INFO:root:In Func:send_request
+2020-01-19 09:43:25,817 INFO:root:type: GET
+2020-01-19 09:43:25,817 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 09:43:25,817 INFO:root:data: {}
+2020-01-19 09:43:25,817 INFO:root:expect_code: 200
+2020-01-19 09:43:28,519 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 09:43:28,534 INFO:root:Wait for 60 secs...
+2020-01-19 09:44:28,541 INFO:root:In Func:send_request
+2020-01-19 09:44:28,541 INFO:root:type: GET
+2020-01-19 09:44:28,541 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 09:44:28,541 INFO:root:data: {}
+2020-01-19 09:44:28,541 INFO:root:expect_code: 200
+2020-01-19 09:44:31,112 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 09:44:31,128 INFO:root:Wait for 60 secs...
+2020-01-19 09:45:31,131 INFO:root:In Func:send_request
+2020-01-19 09:45:31,131 INFO:root:type: GET
+2020-01-19 09:45:31,131 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 09:45:31,131 INFO:root:data: {}
+2020-01-19 09:45:31,131 INFO:root:expect_code: 200
+2020-01-19 09:45:33,813 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 09:45:33,813 INFO:root:Wait for 60 secs...
+2020-01-19 09:46:33,818 INFO:root:In Func:send_request
+2020-01-19 09:46:33,818 INFO:root:type: GET
+2020-01-19 09:46:33,818 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 09:46:33,818 INFO:root:data: {}
+2020-01-19 09:46:33,818 INFO:root:expect_code: 200
+2020-01-19 09:46:36,418 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 09:46:36,418 INFO:root:Wait for 60 secs...
+2020-01-19 09:47:36,429 INFO:root:In Func:send_request
+2020-01-19 09:47:36,429 INFO:root:type: GET
+2020-01-19 09:47:36,429 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 09:47:36,429 INFO:root:data: {}
+2020-01-19 09:47:36,429 INFO:root:expect_code: 200
+2020-01-19 09:47:39,038 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 09:47:39,038 INFO:root:Wait for 60 secs...
+2020-01-19 09:48:39,041 INFO:root:In Func:send_request
+2020-01-19 09:48:39,041 INFO:root:type: GET
+2020-01-19 09:48:39,041 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 09:48:39,041 INFO:root:data: {}
+2020-01-19 09:48:39,041 INFO:root:expect_code: 200
+2020-01-19 09:48:41,724 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 09:48:41,724 INFO:root:Wait for 60 secs...
+2020-01-19 09:49:41,734 INFO:root:In Func:send_request
+2020-01-19 09:49:41,734 INFO:root:type: GET
+2020-01-19 09:49:41,734 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 09:49:41,734 INFO:root:data: {}
+2020-01-19 09:49:41,734 INFO:root:expect_code: 200
+2020-01-19 09:49:44,417 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 09:49:44,417 INFO:root:Wait for 60 secs...
+2020-01-19 09:50:44,417 INFO:root:In Func:send_request
+2020-01-19 09:50:44,418 INFO:root:type: GET
+2020-01-19 09:50:44,419 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 09:50:44,419 INFO:root:data: {}
+2020-01-19 09:50:44,419 INFO:root:expect_code: 200
+2020-01-19 09:50:47,125 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 09:50:47,126 INFO:root:Wait for 60 secs...
+2020-01-19 09:51:47,127 INFO:root:In Func:send_request
+2020-01-19 09:51:47,127 INFO:root:type: GET
+2020-01-19 09:51:47,128 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 09:51:47,128 INFO:root:data: {}
+2020-01-19 09:51:47,128 INFO:root:expect_code: 200
+2020-01-19 09:51:49,813 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 09:51:49,813 INFO:root:Wait for 60 secs...
+2020-01-19 09:52:49,816 INFO:root:In Func:send_request
+2020-01-19 09:52:49,816 INFO:root:type: GET
+2020-01-19 09:52:49,816 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 09:52:49,817 INFO:root:data: {}
+2020-01-19 09:52:49,817 INFO:root:expect_code: 200
+2020-01-19 09:52:52,455 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 09:52:52,455 INFO:root:Wait for 60 secs...
+2020-01-19 09:53:52,459 INFO:root:In Func:send_request
+2020-01-19 09:53:52,459 INFO:root:type: GET
+2020-01-19 09:53:52,459 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 09:53:52,459 INFO:root:data: {}
+2020-01-19 09:53:52,460 INFO:root:expect_code: 200
+2020-01-19 09:53:55,247 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 09:53:55,247 INFO:root:Wait for 60 secs...
+2020-01-19 09:54:55,251 INFO:root:In Func:send_request
+2020-01-19 09:54:55,251 INFO:root:type: GET
+2020-01-19 09:54:55,251 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 09:54:55,252 INFO:root:data: {}
+2020-01-19 09:54:55,252 INFO:root:expect_code: 200
+2020-01-19 09:54:57,859 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 09:54:57,860 INFO:root:Wait for 60 secs...
+2020-01-19 09:55:57,864 INFO:root:In Func:send_request
+2020-01-19 09:55:57,865 INFO:root:type: GET
+2020-01-19 09:55:57,866 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 09:55:57,867 INFO:root:data: {}
+2020-01-19 09:55:57,868 INFO:root:expect_code: 200
+2020-01-19 09:56:00,490 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 09:56:00,490 INFO:root:Wait for 60 secs...
+2020-01-19 09:57:00,495 INFO:root:In Func:send_request
+2020-01-19 09:57:00,497 INFO:root:type: GET
+2020-01-19 09:57:00,498 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 09:57:00,499 INFO:root:data: {}
+2020-01-19 09:57:00,500 INFO:root:expect_code: 200
+2020-01-19 09:57:03,251 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 09:57:03,252 INFO:root:Wait for 60 secs...
+2020-01-19 09:58:03,254 INFO:root:In Func:send_request
+2020-01-19 09:58:03,254 INFO:root:type: GET
+2020-01-19 09:58:03,254 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 09:58:03,255 INFO:root:data: {}
+2020-01-19 09:58:03,255 INFO:root:expect_code: 200
+2020-01-19 09:58:05,885 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 09:58:05,886 INFO:root:Wait for 60 secs...
+2020-01-19 09:59:05,889 INFO:root:In Func:send_request
+2020-01-19 09:59:05,890 INFO:root:type: GET
+2020-01-19 09:59:05,892 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 09:59:05,893 INFO:root:data: {}
+2020-01-19 09:59:05,895 INFO:root:expect_code: 200
+2020-01-19 09:59:08,589 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 09:59:08,589 INFO:root:Wait for 60 secs...
+2020-01-19 10:00:08,592 INFO:root:In Func:send_request
+2020-01-19 10:00:08,594 INFO:root:type: GET
+2020-01-19 10:00:08,595 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 10:00:08,597 INFO:root:data: {}
+2020-01-19 10:00:08,599 INFO:root:expect_code: 200
+2020-01-19 10:00:11,499 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 10:00:11,500 INFO:root:Wait for 60 secs...
+2020-01-19 10:01:11,501 INFO:root:In Func:send_request
+2020-01-19 10:01:11,501 INFO:root:type: GET
+2020-01-19 10:01:11,501 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 10:01:11,501 INFO:root:data: {}
+2020-01-19 10:01:11,501 INFO:root:expect_code: 200
+2020-01-19 10:01:14,126 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 10:01:14,127 INFO:root:Wait for 60 secs...
+2020-01-19 10:02:14,130 INFO:root:In Func:send_request
+2020-01-19 10:02:14,132 INFO:root:type: GET
+2020-01-19 10:02:14,134 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 10:02:14,136 INFO:root:data: {}
+2020-01-19 10:02:14,138 INFO:root:expect_code: 200
+2020-01-19 10:02:16,733 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 10:02:16,733 INFO:root:Wait for 60 secs...
+2020-01-19 10:03:16,735 INFO:root:In Func:send_request
+2020-01-19 10:03:16,735 INFO:root:type: GET
+2020-01-19 10:03:16,735 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 10:03:16,736 INFO:root:data: {}
+2020-01-19 10:03:16,736 INFO:root:expect_code: 200
+2020-01-19 10:03:19,413 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 10:03:19,413 INFO:root:Wait for 60 secs...
+2020-01-19 10:04:19,418 INFO:root:In Func:send_request
+2020-01-19 10:04:19,419 INFO:root:type: GET
+2020-01-19 10:04:19,419 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 10:04:19,420 INFO:root:data: {}
+2020-01-19 10:04:19,420 INFO:root:expect_code: 200
+2020-01-19 10:04:22,049 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 10:04:22,049 INFO:root:Wait for 60 secs...
+2020-01-19 10:05:22,051 INFO:root:In Func:send_request
+2020-01-19 10:05:22,051 INFO:root:type: GET
+2020-01-19 10:05:22,051 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 10:05:22,052 INFO:root:data: {}
+2020-01-19 10:05:22,052 INFO:root:expect_code: 200
+2020-01-19 10:05:24,656 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 10:05:24,657 INFO:root:Wait for 60 secs...
+2020-01-19 10:06:24,657 INFO:root:In Func:send_request
+2020-01-19 10:06:24,658 INFO:root:type: GET
+2020-01-19 10:06:24,659 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 10:06:24,659 INFO:root:data: {}
+2020-01-19 10:06:24,660 INFO:root:expect_code: 200
+2020-01-19 10:06:27,305 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 10:06:27,306 INFO:root:Wait for 60 secs...
+2020-01-19 10:07:27,307 INFO:root:In Func:send_request
+2020-01-19 10:07:27,307 INFO:root:type: GET
+2020-01-19 10:07:27,307 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 10:07:27,308 INFO:root:data: {}
+2020-01-19 10:07:27,308 INFO:root:expect_code: 200
+2020-01-19 10:07:29,979 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 10:07:29,979 INFO:root:Wait for 60 secs...
+2020-01-19 10:08:29,981 INFO:root:In Func:send_request
+2020-01-19 10:08:29,981 INFO:root:type: GET
+2020-01-19 10:08:29,982 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 10:08:29,983 INFO:root:data: {}
+2020-01-19 10:08:29,983 INFO:root:expect_code: 200
+2020-01-19 10:08:32,803 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 10:08:32,803 INFO:root:Wait for 60 secs...
+2020-01-19 10:09:32,805 INFO:root:In Func:send_request
+2020-01-19 10:09:32,806 INFO:root:type: GET
+2020-01-19 10:09:32,807 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 10:09:32,808 INFO:root:data: {}
+2020-01-19 10:09:32,810 INFO:root:expect_code: 200
+2020-01-19 10:09:35,485 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 10:09:35,486 INFO:root:Wait for 60 secs...
+2020-01-19 10:10:35,489 INFO:root:In Func:send_request
+2020-01-19 10:10:35,491 INFO:root:type: GET
+2020-01-19 10:10:35,494 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 10:10:35,494 INFO:root:data: {}
+2020-01-19 10:10:35,495 INFO:root:expect_code: 200
+2020-01-19 10:10:38,094 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 10:10:38,094 INFO:root:Wait for 60 secs...
+2020-01-19 10:11:38,099 INFO:root:In Func:send_request
+2020-01-19 10:11:38,102 INFO:root:type: GET
+2020-01-19 10:11:38,104 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 10:11:38,105 INFO:root:data: {}
+2020-01-19 10:11:38,106 INFO:root:expect_code: 200
+2020-01-19 10:11:40,724 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 10:11:40,725 INFO:root:Wait for 60 secs...
+2020-01-19 10:12:40,729 INFO:root:In Func:send_request
+2020-01-19 10:12:40,732 INFO:root:type: GET
+2020-01-19 10:12:40,734 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 10:12:40,736 INFO:root:data: {}
+2020-01-19 10:12:40,737 INFO:root:expect_code: 200
+2020-01-19 10:12:43,372 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 10:12:43,372 INFO:root:Wait for 60 secs...
+2020-01-19 10:13:43,376 INFO:root:In Func:send_request
+2020-01-19 10:13:43,376 INFO:root:type: GET
+2020-01-19 10:13:43,377 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 10:13:43,377 INFO:root:data: {}
+2020-01-19 10:13:43,378 INFO:root:expect_code: 200
+2020-01-19 10:13:45,989 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 10:13:45,989 INFO:root:Wait for 60 secs...
+2020-01-19 10:14:45,995 INFO:root:In Func:send_request
+2020-01-19 10:14:45,995 INFO:root:type: GET
+2020-01-19 10:14:45,995 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 10:14:45,996 INFO:root:data: {}
+2020-01-19 10:14:45,996 INFO:root:expect_code: 200
+2020-01-19 10:14:48,595 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 10:14:48,595 INFO:root:Wait for 60 secs...
+2020-01-19 10:15:48,597 INFO:root:In Func:send_request
+2020-01-19 10:15:48,599 INFO:root:type: GET
+2020-01-19 10:15:48,600 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 10:15:48,602 INFO:root:data: {}
+2020-01-19 10:15:48,604 INFO:root:expect_code: 200
+2020-01-19 10:15:51,211 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 10:15:51,211 INFO:root:Wait for 60 secs...
+2020-01-19 10:16:51,214 INFO:root:In Func:send_request
+2020-01-19 10:16:51,214 INFO:root:type: GET
+2020-01-19 10:16:51,215 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 10:16:51,216 INFO:root:data: {}
+2020-01-19 10:16:51,216 INFO:root:expect_code: 200
+2020-01-19 10:16:53,841 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 10:16:53,841 INFO:root:Wait for 60 secs...
+2020-01-19 10:17:53,843 INFO:root:In Func:send_request
+2020-01-19 10:17:53,844 INFO:root:type: GET
+2020-01-19 10:17:53,846 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 10:17:53,847 INFO:root:data: {}
+2020-01-19 10:17:53,848 INFO:root:expect_code: 200
+2020-01-19 10:17:56,526 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 10:17:56,526 INFO:root:Wait for 60 secs...
+2020-01-19 10:18:56,530 INFO:root:In Func:send_request
+2020-01-19 10:18:56,530 INFO:root:type: GET
+2020-01-19 10:18:56,530 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 10:18:56,530 INFO:root:data: {}
+2020-01-19 10:18:56,531 INFO:root:expect_code: 200
+2020-01-19 10:18:59,158 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 10:18:59,158 INFO:root:Wait for 60 secs...
+2020-01-19 10:19:59,161 INFO:root:In Func:send_request
+2020-01-19 10:19:59,161 INFO:root:type: GET
+2020-01-19 10:19:59,161 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 10:19:59,162 INFO:root:data: {}
+2020-01-19 10:19:59,162 INFO:root:expect_code: 200
+2020-01-19 10:20:01,857 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 10:20:01,858 INFO:root:Wait for 60 secs...
+2020-01-19 10:21:01,859 INFO:root:In Func:send_request
+2020-01-19 10:21:01,860 INFO:root:type: GET
+2020-01-19 10:21:01,860 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 10:21:01,862 INFO:root:data: {}
+2020-01-19 10:21:01,863 INFO:root:expect_code: 200
+2020-01-19 10:21:04,469 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 10:21:04,470 INFO:root:Wait for 60 secs...
+2020-01-19 10:22:04,471 INFO:root:In Func:send_request
+2020-01-19 10:22:04,473 INFO:root:type: GET
+2020-01-19 10:22:04,474 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 10:22:04,477 INFO:root:data: {}
+2020-01-19 10:22:04,479 INFO:root:expect_code: 200
+2020-01-19 10:22:07,318 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 10:22:07,319 INFO:root:Wait for 60 secs...
+2020-01-19 10:23:07,321 INFO:root:In Func:send_request
+2020-01-19 10:23:07,321 INFO:root:type: GET
+2020-01-19 10:23:07,322 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 10:23:07,322 INFO:root:data: {}
+2020-01-19 10:23:07,323 INFO:root:expect_code: 200
+2020-01-19 10:23:10,142 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 10:23:10,143 INFO:root:Wait for 60 secs...
+2020-01-19 10:24:10,146 INFO:root:In Func:send_request
+2020-01-19 10:24:10,146 INFO:root:type: GET
+2020-01-19 10:24:10,146 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 10:24:10,146 INFO:root:data: {}
+2020-01-19 10:24:10,146 INFO:root:expect_code: 200
+2020-01-19 10:24:13,134 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 10:24:13,135 INFO:root:Wait for 60 secs...
+2020-01-19 10:25:13,137 INFO:root:In Func:send_request
+2020-01-19 10:25:13,137 INFO:root:type: GET
+2020-01-19 10:25:13,137 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 10:25:13,137 INFO:root:data: {}
+2020-01-19 10:25:13,138 INFO:root:expect_code: 200
+2020-01-19 10:25:15,873 INFO:root:SBC VNF HEAL  COMPLETED
+2020-01-19 10:25:15,874 INFO:root:Multiple Heal: healNum:4;healList:['SC_RRG.4.NOKIA-LCP-VMA', 'CCF_RRG.0.NOKIA-LCP-VMB', 'OAM.NOKIA-LCP-VMB', 'SC_RRG.1.NOKIA-LCP-VMA']
+2020-01-19 10:25:15,874 INFO:root:Start to Heal: ['SC_RRG.4.NOKIA-LCP-VMA', 'CCF_RRG.0.NOKIA-LCP-VMB', 'OAM.NOKIA-LCP-VMB', 'SC_RRG.1.NOKIA-LCP-VMA']
+2020-01-19 10:25:15,875 INFO:root:In Func:send_request
+2020-01-19 10:25:15,875 INFO:root:type: POST
+2020-01-19 10:25:15,875 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_instances/CBAM-af68639d46324930b248d53203d25f83/heal
+2020-01-19 10:25:15,876 INFO:root:data: {'cause': "Sig Plane Multiple VM Heal: ['SC_RRG.4.NOKIA-LCP-VMA', 'CCF_RRG.0.NOKIA-LCP-VMB', 'OAM.NOKIA-LCP-VMB', 'SC_RRG.1.NOKIA-LCP-VMA']", 'vnfcInstanceIds': ['SC_RRG.4.NOKIA-LCP-VMA', 'CCF_RRG.0.NOKIA-LCP-VMB', 'OAM.NOKIA-LCP-VMB', 'SC_RRG.1.NOKIA-LCP-VMA'], 'additionalParams': {'monitorRetries': 90, 'monitorDelay': 20}}
+2020-01-19 10:25:15,877 INFO:root:expect_code: 202
+2020-01-19 10:25:20,132 INFO:root:In Func:send_request
+2020-01-19 10:25:20,132 INFO:root:type: GET
+2020-01-19 10:25:20,133 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 10:25:20,133 INFO:root:data: {}
+2020-01-19 10:25:20,133 INFO:root:expect_code: 200
+2020-01-19 10:25:22,948 INFO:root:SBC VNF HEAL  status: STARTING
+2020-01-19 10:26:22,950 INFO:root:In Func:send_request
+2020-01-19 10:26:22,950 INFO:root:type: GET
+2020-01-19 10:26:22,951 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 10:26:22,951 INFO:root:data: {}
+2020-01-19 10:26:22,952 INFO:root:expect_code: 200
+2020-01-19 10:26:25,856 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 10:26:25,856 INFO:root:Wait for 60 secs...
+2020-01-19 10:27:25,862 INFO:root:In Func:send_request
+2020-01-19 10:27:25,863 INFO:root:type: GET
+2020-01-19 10:27:25,864 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 10:27:25,865 INFO:root:data: {}
+2020-01-19 10:27:25,866 INFO:root:expect_code: 200
+2020-01-19 10:27:28,682 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 10:27:28,682 INFO:root:Wait for 60 secs...
+2020-01-19 10:28:28,688 INFO:root:In Func:send_request
+2020-01-19 10:28:28,688 INFO:root:type: GET
+2020-01-19 10:28:28,689 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 10:28:28,689 INFO:root:data: {}
+2020-01-19 10:28:28,690 INFO:root:expect_code: 200
+2020-01-19 10:28:31,556 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 10:28:31,557 INFO:root:Wait for 60 secs...
+2020-01-19 10:29:31,564 INFO:root:In Func:send_request
+2020-01-19 10:29:31,564 INFO:root:type: GET
+2020-01-19 10:29:31,564 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 10:29:31,564 INFO:root:data: {}
+2020-01-19 10:29:31,564 INFO:root:expect_code: 200
+2020-01-19 10:29:34,381 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 10:29:34,381 INFO:root:Wait for 60 secs...
+2020-01-19 10:30:34,389 INFO:root:In Func:send_request
+2020-01-19 10:30:34,389 INFO:root:type: GET
+2020-01-19 10:30:34,389 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 10:30:34,390 INFO:root:data: {}
+2020-01-19 10:30:34,390 INFO:root:expect_code: 200
+2020-01-19 10:30:37,136 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 10:30:37,136 INFO:root:Wait for 60 secs...
+2020-01-19 10:31:37,143 INFO:root:In Func:send_request
+2020-01-19 10:31:37,143 INFO:root:type: GET
+2020-01-19 10:31:37,143 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 10:31:37,144 INFO:root:data: {}
+2020-01-19 10:31:37,144 INFO:root:expect_code: 200
+2020-01-19 10:31:39,774 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 10:31:39,775 INFO:root:Wait for 60 secs...
+2020-01-19 10:32:39,778 INFO:root:In Func:send_request
+2020-01-19 10:32:39,778 INFO:root:type: GET
+2020-01-19 10:32:39,778 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 10:32:39,778 INFO:root:data: {}
+2020-01-19 10:32:39,779 INFO:root:expect_code: 200
+2020-01-19 10:32:42,561 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 10:32:42,562 INFO:root:Wait for 60 secs...
+2020-01-19 10:33:42,566 INFO:root:In Func:send_request
+2020-01-19 10:33:42,566 INFO:root:type: GET
+2020-01-19 10:33:42,566 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 10:33:42,567 INFO:root:data: {}
+2020-01-19 10:33:42,567 INFO:root:expect_code: 200
+2020-01-19 10:33:45,287 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 10:33:45,288 INFO:root:Wait for 60 secs...
+2020-01-19 10:34:45,291 INFO:root:In Func:send_request
+2020-01-19 10:34:45,291 INFO:root:type: GET
+2020-01-19 10:34:45,291 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 10:34:45,292 INFO:root:data: {}
+2020-01-19 10:34:45,292 INFO:root:expect_code: 200
+2020-01-19 10:34:47,922 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 10:34:47,923 INFO:root:Wait for 60 secs...
+2020-01-19 10:35:47,926 INFO:root:In Func:send_request
+2020-01-19 10:35:47,926 INFO:root:type: GET
+2020-01-19 10:35:47,927 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 10:35:47,927 INFO:root:data: {}
+2020-01-19 10:35:47,927 INFO:root:expect_code: 200
+2020-01-19 10:35:50,523 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 10:35:50,524 INFO:root:Wait for 60 secs...
+2020-01-19 10:36:50,527 INFO:root:In Func:send_request
+2020-01-19 10:36:50,527 INFO:root:type: GET
+2020-01-19 10:36:50,527 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 10:36:50,528 INFO:root:data: {}
+2020-01-19 10:36:50,528 INFO:root:expect_code: 200
+2020-01-19 10:36:53,240 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 10:36:53,240 INFO:root:Wait for 60 secs...
+2020-01-19 10:37:53,242 INFO:root:In Func:send_request
+2020-01-19 10:37:53,242 INFO:root:type: GET
+2020-01-19 10:37:53,242 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 10:37:53,242 INFO:root:data: {}
+2020-01-19 10:37:53,243 INFO:root:expect_code: 200
+2020-01-19 10:37:55,850 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 10:37:55,851 INFO:root:Wait for 60 secs...
+2020-01-19 10:38:55,854 INFO:root:In Func:send_request
+2020-01-19 10:38:55,854 INFO:root:type: GET
+2020-01-19 10:38:55,854 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 10:38:55,855 INFO:root:data: {}
+2020-01-19 10:38:55,855 INFO:root:expect_code: 200
+2020-01-19 10:38:58,856 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 10:38:58,857 INFO:root:Wait for 60 secs...
+2020-01-19 10:39:58,859 INFO:root:In Func:send_request
+2020-01-19 10:39:58,859 INFO:root:type: GET
+2020-01-19 10:39:58,859 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 10:39:58,860 INFO:root:data: {}
+2020-01-19 10:39:58,860 INFO:root:expect_code: 200
+2020-01-19 10:40:01,842 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 10:40:01,842 INFO:root:Wait for 60 secs...
+2020-01-19 10:41:01,845 INFO:root:In Func:send_request
+2020-01-19 10:41:01,847 INFO:root:type: GET
+2020-01-19 10:41:01,849 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 10:41:01,850 INFO:root:data: {}
+2020-01-19 10:41:01,851 INFO:root:expect_code: 200
+2020-01-19 10:41:04,714 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 10:41:04,714 INFO:root:Wait for 60 secs...
+2020-01-19 10:42:04,716 INFO:root:In Func:send_request
+2020-01-19 10:42:04,716 INFO:root:type: GET
+2020-01-19 10:42:04,717 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 10:42:04,717 INFO:root:data: {}
+2020-01-19 10:42:04,717 INFO:root:expect_code: 200
+2020-01-19 10:42:07,506 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 10:42:07,507 INFO:root:Wait for 60 secs...
+2020-01-19 10:43:07,508 INFO:root:In Func:send_request
+2020-01-19 10:43:07,508 INFO:root:type: GET
+2020-01-19 10:43:07,508 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 10:43:07,509 INFO:root:data: {}
+2020-01-19 10:43:07,509 INFO:root:expect_code: 200
+2020-01-19 10:43:10,179 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 10:43:10,179 INFO:root:Wait for 60 secs...
+2020-01-19 10:44:10,180 INFO:root:In Func:send_request
+2020-01-19 10:44:10,181 INFO:root:type: GET
+2020-01-19 10:44:10,181 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 10:44:10,181 INFO:root:data: {}
+2020-01-19 10:44:10,181 INFO:root:expect_code: 200
+2020-01-19 10:44:13,010 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 10:44:13,010 INFO:root:Wait for 60 secs...
+2020-01-19 10:45:13,013 INFO:root:In Func:send_request
+2020-01-19 10:45:13,013 INFO:root:type: GET
+2020-01-19 10:45:13,013 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 10:45:13,014 INFO:root:data: {}
+2020-01-19 10:45:13,014 INFO:root:expect_code: 200
+2020-01-19 10:45:15,602 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 10:45:15,603 INFO:root:Wait for 60 secs...
+2020-01-19 10:46:15,606 INFO:root:In Func:send_request
+2020-01-19 10:46:15,606 INFO:root:type: GET
+2020-01-19 10:46:15,606 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 10:46:15,607 INFO:root:data: {}
+2020-01-19 10:46:15,607 INFO:root:expect_code: 200
+2020-01-19 10:46:18,225 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 10:46:18,225 INFO:root:Wait for 60 secs...
+2020-01-19 10:47:18,228 INFO:root:In Func:send_request
+2020-01-19 10:47:18,228 INFO:root:type: GET
+2020-01-19 10:47:18,228 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 10:47:18,228 INFO:root:data: {}
+2020-01-19 10:47:18,229 INFO:root:expect_code: 200
+2020-01-19 10:47:21,344 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 10:47:21,344 INFO:root:Wait for 60 secs...
+2020-01-19 10:48:21,347 INFO:root:In Func:send_request
+2020-01-19 10:48:21,347 INFO:root:type: GET
+2020-01-19 10:48:21,348 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 10:48:21,348 INFO:root:data: {}
+2020-01-19 10:48:21,348 INFO:root:expect_code: 200
+2020-01-19 10:48:23,954 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 10:48:23,954 INFO:root:Wait for 60 secs...
+2020-01-19 10:49:23,958 INFO:root:In Func:send_request
+2020-01-19 10:49:23,958 INFO:root:type: GET
+2020-01-19 10:49:23,959 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 10:49:23,959 INFO:root:data: {}
+2020-01-19 10:49:23,959 INFO:root:expect_code: 200
+2020-01-19 10:49:26,537 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 10:49:26,537 INFO:root:Wait for 60 secs...
+2020-01-19 10:50:26,539 INFO:root:In Func:send_request
+2020-01-19 10:50:26,539 INFO:root:type: GET
+2020-01-19 10:50:26,539 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 10:50:26,539 INFO:root:data: {}
+2020-01-19 10:50:26,539 INFO:root:expect_code: 200
+2020-01-19 10:50:29,239 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 10:50:29,240 INFO:root:Wait for 60 secs...
+2020-01-19 10:51:29,242 INFO:root:In Func:send_request
+2020-01-19 10:51:29,242 INFO:root:type: GET
+2020-01-19 10:51:29,242 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 10:51:29,242 INFO:root:data: {}
+2020-01-19 10:51:29,243 INFO:root:expect_code: 200
+2020-01-19 10:51:31,968 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 10:51:31,968 INFO:root:Wait for 60 secs...
+2020-01-19 10:52:31,969 INFO:root:In Func:send_request
+2020-01-19 10:52:31,969 INFO:root:type: GET
+2020-01-19 10:52:31,970 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 10:52:31,970 INFO:root:data: {}
+2020-01-19 10:52:31,970 INFO:root:expect_code: 200
+2020-01-19 10:52:34,769 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 10:52:34,769 INFO:root:Wait for 60 secs...
+2020-01-19 10:53:34,771 INFO:root:In Func:send_request
+2020-01-19 10:53:34,772 INFO:root:type: GET
+2020-01-19 10:53:34,772 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 10:53:34,773 INFO:root:data: {}
+2020-01-19 10:53:34,774 INFO:root:expect_code: 200
+2020-01-19 10:53:37,583 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 10:53:37,583 INFO:root:Wait for 60 secs...
+2020-01-19 10:54:37,585 INFO:root:In Func:send_request
+2020-01-19 10:54:37,585 INFO:root:type: GET
+2020-01-19 10:54:37,586 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 10:54:37,588 INFO:root:data: {}
+2020-01-19 10:54:37,592 INFO:root:expect_code: 200
+2020-01-19 10:54:40,489 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 10:54:40,490 INFO:root:Wait for 60 secs...
+2020-01-19 10:55:40,490 INFO:root:In Func:send_request
+2020-01-19 10:55:40,490 INFO:root:type: GET
+2020-01-19 10:55:40,491 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 10:55:40,491 INFO:root:data: {}
+2020-01-19 10:55:40,491 INFO:root:expect_code: 200
+2020-01-19 10:55:43,296 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 10:55:43,296 INFO:root:Wait for 60 secs...
+2020-01-19 10:56:43,298 INFO:root:In Func:send_request
+2020-01-19 10:56:43,298 INFO:root:type: GET
+2020-01-19 10:56:43,298 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 10:56:43,298 INFO:root:data: {}
+2020-01-19 10:56:43,299 INFO:root:expect_code: 200
+2020-01-19 10:56:46,122 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 10:56:46,123 INFO:root:Wait for 60 secs...
+2020-01-19 10:57:46,123 INFO:root:In Func:send_request
+2020-01-19 10:57:46,124 INFO:root:type: GET
+2020-01-19 10:57:46,125 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 10:57:46,126 INFO:root:data: {}
+2020-01-19 10:57:46,126 INFO:root:expect_code: 200
+2020-01-19 10:57:48,922 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 10:57:48,923 INFO:root:Wait for 60 secs...
+2020-01-19 10:58:48,925 INFO:root:In Func:send_request
+2020-01-19 10:58:48,925 INFO:root:type: GET
+2020-01-19 10:58:48,926 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 10:58:48,926 INFO:root:data: {}
+2020-01-19 10:58:48,926 INFO:root:expect_code: 200
+2020-01-19 10:58:51,492 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 10:58:51,492 INFO:root:Wait for 60 secs...
+2020-01-19 10:59:51,492 INFO:root:In Func:send_request
+2020-01-19 10:59:51,492 INFO:root:type: GET
+2020-01-19 10:59:51,492 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 10:59:51,493 INFO:root:data: {}
+2020-01-19 10:59:51,493 INFO:root:expect_code: 200
+2020-01-19 10:59:54,180 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 10:59:54,181 INFO:root:Wait for 60 secs...
+2020-01-19 11:00:54,182 INFO:root:In Func:send_request
+2020-01-19 11:00:54,182 INFO:root:type: GET
+2020-01-19 11:00:54,182 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 11:00:54,183 INFO:root:data: {}
+2020-01-19 11:00:54,183 INFO:root:expect_code: 200
+2020-01-19 11:00:56,908 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 11:00:56,908 INFO:root:Wait for 60 secs...
+2020-01-19 11:01:56,911 INFO:root:In Func:send_request
+2020-01-19 11:01:56,911 INFO:root:type: GET
+2020-01-19 11:01:56,912 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 11:01:56,912 INFO:root:data: {}
+2020-01-19 11:01:56,912 INFO:root:expect_code: 200
+2020-01-19 11:01:59,529 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 11:01:59,529 INFO:root:Wait for 60 secs...
+2020-01-19 11:02:59,543 INFO:root:In Func:send_request
+2020-01-19 11:02:59,543 INFO:root:type: GET
+2020-01-19 11:02:59,543 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 11:02:59,543 INFO:root:data: {}
+2020-01-19 11:02:59,543 INFO:root:expect_code: 200
+2020-01-19 11:03:02,152 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 11:03:02,152 INFO:root:Wait for 60 secs...
+2020-01-19 11:04:02,155 INFO:root:In Func:send_request
+2020-01-19 11:04:02,155 INFO:root:type: GET
+2020-01-19 11:04:02,155 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 11:04:02,155 INFO:root:data: {}
+2020-01-19 11:04:02,155 INFO:root:expect_code: 200
+2020-01-19 11:04:04,784 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 11:04:04,785 INFO:root:Wait for 60 secs...
+2020-01-19 11:05:04,788 INFO:root:In Func:send_request
+2020-01-19 11:05:04,789 INFO:root:type: GET
+2020-01-19 11:05:04,789 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 11:05:04,789 INFO:root:data: {}
+2020-01-19 11:05:04,790 INFO:root:expect_code: 200
+2020-01-19 11:05:07,406 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 11:05:07,407 INFO:root:Wait for 60 secs...
+2020-01-19 11:06:07,420 INFO:root:In Func:send_request
+2020-01-19 11:06:07,420 INFO:root:type: GET
+2020-01-19 11:06:07,420 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 11:06:07,420 INFO:root:data: {}
+2020-01-19 11:06:07,420 INFO:root:expect_code: 200
+2020-01-19 11:06:10,082 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 11:06:10,082 INFO:root:Wait for 60 secs...
+2020-01-19 11:07:10,085 INFO:root:In Func:send_request
+2020-01-19 11:07:10,085 INFO:root:type: GET
+2020-01-19 11:07:10,085 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 11:07:10,085 INFO:root:data: {}
+2020-01-19 11:07:10,085 INFO:root:expect_code: 200
+2020-01-19 11:07:12,709 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 11:07:12,709 INFO:root:Wait for 60 secs...
+2020-01-19 11:08:12,721 INFO:root:In Func:send_request
+2020-01-19 11:08:12,721 INFO:root:type: GET
+2020-01-19 11:08:12,721 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 11:08:12,721 INFO:root:data: {}
+2020-01-19 11:08:12,721 INFO:root:expect_code: 200
+2020-01-19 11:08:15,315 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 11:08:15,315 INFO:root:Wait for 60 secs...
+2020-01-19 11:09:15,329 INFO:root:In Func:send_request
+2020-01-19 11:09:15,329 INFO:root:type: GET
+2020-01-19 11:09:15,329 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 11:09:15,329 INFO:root:data: {}
+2020-01-19 11:09:15,329 INFO:root:expect_code: 200
+2020-01-19 11:09:18,004 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 11:09:18,005 INFO:root:Wait for 60 secs...
+2020-01-19 11:10:18,007 INFO:root:In Func:send_request
+2020-01-19 11:10:18,007 INFO:root:type: GET
+2020-01-19 11:10:18,007 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 11:10:18,007 INFO:root:data: {}
+2020-01-19 11:10:18,008 INFO:root:expect_code: 200
+2020-01-19 11:10:20,614 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 11:10:20,615 INFO:root:Wait for 60 secs...
+2020-01-19 11:11:20,618 INFO:root:In Func:send_request
+2020-01-19 11:11:20,618 INFO:root:type: GET
+2020-01-19 11:11:20,618 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 11:11:20,618 INFO:root:data: {}
+2020-01-19 11:11:20,618 INFO:root:expect_code: 200
+2020-01-19 11:11:23,324 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 11:11:23,324 INFO:root:Wait for 60 secs...
+2020-01-19 11:12:23,331 INFO:root:In Func:send_request
+2020-01-19 11:12:23,331 INFO:root:type: GET
+2020-01-19 11:12:23,331 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 11:12:23,331 INFO:root:data: {}
+2020-01-19 11:12:23,331 INFO:root:expect_code: 200
+2020-01-19 11:12:26,054 INFO:root:SBC VNF HEAL  COMPLETED
+2020-01-19 11:12:26,054 INFO:root:Multiple Heal: healNum:5;healList:['SC_RRG.4.NOKIA-LCP-VMA', 'CCF_RRG.0.NOKIA-LCP-VMB', 'OAM.NOKIA-LCP-VMB', 'SC_RRG.1.NOKIA-LCP-VMA', 'DFED_RRG.0.NOKIA-LCP-VMB']
+2020-01-19 11:12:26,054 INFO:root:Start to Heal: ['SC_RRG.4.NOKIA-LCP-VMA', 'CCF_RRG.0.NOKIA-LCP-VMB', 'OAM.NOKIA-LCP-VMB', 'SC_RRG.1.NOKIA-LCP-VMA', 'DFED_RRG.0.NOKIA-LCP-VMB']
+2020-01-19 11:12:26,054 INFO:root:In Func:send_request
+2020-01-19 11:12:26,054 INFO:root:type: POST
+2020-01-19 11:12:26,054 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_instances/CBAM-af68639d46324930b248d53203d25f83/heal
+2020-01-19 11:12:26,054 INFO:root:data: {'cause': "Sig Plane Multiple VM Heal: ['SC_RRG.4.NOKIA-LCP-VMA', 'CCF_RRG.0.NOKIA-LCP-VMB', 'OAM.NOKIA-LCP-VMB', 'SC_RRG.1.NOKIA-LCP-VMA', 'DFED_RRG.0.NOKIA-LCP-VMB']", 'vnfcInstanceIds': ['SC_RRG.4.NOKIA-LCP-VMA', 'CCF_RRG.0.NOKIA-LCP-VMB', 'OAM.NOKIA-LCP-VMB', 'SC_RRG.1.NOKIA-LCP-VMA', 'DFED_RRG.0.NOKIA-LCP-VMB'], 'additionalParams': {'monitorRetries': 90, 'monitorDelay': 20}}
+2020-01-19 11:12:26,054 INFO:root:expect_code: 202
+2020-01-19 11:12:30,410 INFO:root:In Func:send_request
+2020-01-19 11:12:30,410 INFO:root:type: GET
+2020-01-19 11:12:30,410 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 11:12:30,410 INFO:root:data: {}
+2020-01-19 11:12:30,410 INFO:root:expect_code: 200
+2020-01-19 11:12:33,210 INFO:root:SBC VNF HEAL  status: STARTING
+2020-01-19 11:13:33,238 INFO:root:In Func:send_request
+2020-01-19 11:13:33,238 INFO:root:type: GET
+2020-01-19 11:13:33,238 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 11:13:33,238 INFO:root:data: {}
+2020-01-19 11:13:33,238 INFO:root:expect_code: 200
+2020-01-19 11:13:36,086 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 11:13:36,086 INFO:root:Wait for 60 secs...
+2020-01-19 11:14:36,087 INFO:root:In Func:send_request
+2020-01-19 11:14:36,087 INFO:root:type: GET
+2020-01-19 11:14:36,087 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 11:14:36,087 INFO:root:data: {}
+2020-01-19 11:14:36,087 INFO:root:expect_code: 200
+2020-01-19 11:14:38,899 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 11:14:38,899 INFO:root:Wait for 60 secs...
+2020-01-19 11:15:38,911 INFO:root:In Func:send_request
+2020-01-19 11:15:38,911 INFO:root:type: GET
+2020-01-19 11:15:38,911 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 11:15:38,911 INFO:root:data: {}
+2020-01-19 11:15:38,911 INFO:root:expect_code: 200
+2020-01-19 11:15:41,852 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 11:15:41,852 INFO:root:Wait for 60 secs...
+2020-01-19 11:16:41,852 INFO:root:In Func:send_request
+2020-01-19 11:16:41,852 INFO:root:type: GET
+2020-01-19 11:16:41,853 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 11:16:41,853 INFO:root:data: {}
+2020-01-19 11:16:41,853 INFO:root:expect_code: 200
+2020-01-19 11:16:44,467 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 11:16:44,467 INFO:root:Wait for 60 secs...
+2020-01-19 11:17:44,467 INFO:root:In Func:send_request
+2020-01-19 11:17:44,467 INFO:root:type: GET
+2020-01-19 11:17:44,468 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 11:17:44,468 INFO:root:data: {}
+2020-01-19 11:17:44,468 INFO:root:expect_code: 200
+2020-01-19 11:17:47,067 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 11:17:47,067 INFO:root:Wait for 60 secs...
+2020-01-19 11:18:47,074 INFO:root:In Func:send_request
+2020-01-19 11:18:47,074 INFO:root:type: GET
+2020-01-19 11:18:47,074 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 11:18:47,075 INFO:root:data: {}
+2020-01-19 11:18:47,075 INFO:root:expect_code: 200
+2020-01-19 11:18:49,768 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 11:18:49,769 INFO:root:Wait for 60 secs...
+2020-01-19 11:19:49,777 INFO:root:In Func:send_request
+2020-01-19 11:19:49,777 INFO:root:type: GET
+2020-01-19 11:19:49,777 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 11:19:49,777 INFO:root:data: {}
+2020-01-19 11:19:49,778 INFO:root:expect_code: 200
+2020-01-19 11:19:52,356 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 11:19:52,356 INFO:root:Wait for 60 secs...
+2020-01-19 11:20:52,365 INFO:root:In Func:send_request
+2020-01-19 11:20:52,365 INFO:root:type: GET
+2020-01-19 11:20:52,366 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 11:20:52,366 INFO:root:data: {}
+2020-01-19 11:20:52,366 INFO:root:expect_code: 200
+2020-01-19 11:20:54,979 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 11:20:54,980 INFO:root:Wait for 60 secs...
+2020-01-19 11:21:54,989 INFO:root:In Func:send_request
+2020-01-19 11:21:54,989 INFO:root:type: GET
+2020-01-19 11:21:54,989 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 11:21:54,990 INFO:root:data: {}
+2020-01-19 11:21:54,990 INFO:root:expect_code: 200
+2020-01-19 11:21:57,535 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 11:21:57,535 INFO:root:Wait for 60 secs...
+2020-01-19 11:22:57,548 INFO:root:In Func:send_request
+2020-01-19 11:22:57,548 INFO:root:type: GET
+2020-01-19 11:22:57,548 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 11:22:57,548 INFO:root:data: {}
+2020-01-19 11:22:57,548 INFO:root:expect_code: 200
+2020-01-19 11:23:00,202 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 11:23:00,203 INFO:root:Wait for 60 secs...
+2020-01-19 11:24:00,209 INFO:root:In Func:send_request
+2020-01-19 11:24:00,209 INFO:root:type: GET
+2020-01-19 11:24:00,210 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 11:24:00,210 INFO:root:data: {}
+2020-01-19 11:24:00,210 INFO:root:expect_code: 200
+2020-01-19 11:24:02,886 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 11:24:02,886 INFO:root:Wait for 60 secs...
+2020-01-19 11:25:02,890 INFO:root:In Func:send_request
+2020-01-19 11:25:02,890 INFO:root:type: GET
+2020-01-19 11:25:02,891 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 11:25:02,891 INFO:root:data: {}
+2020-01-19 11:25:02,891 INFO:root:expect_code: 200
+2020-01-19 11:25:05,509 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 11:25:05,510 INFO:root:Wait for 60 secs...
+2020-01-19 11:26:05,514 INFO:root:In Func:send_request
+2020-01-19 11:26:05,514 INFO:root:type: GET
+2020-01-19 11:26:05,514 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 11:26:05,514 INFO:root:data: {}
+2020-01-19 11:26:05,514 INFO:root:expect_code: 200
+2020-01-19 11:26:08,205 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 11:26:08,206 INFO:root:Wait for 60 secs...
+2020-01-19 11:27:08,209 INFO:root:In Func:send_request
+2020-01-19 11:27:08,209 INFO:root:type: GET
+2020-01-19 11:27:08,209 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 11:27:08,210 INFO:root:data: {}
+2020-01-19 11:27:08,210 INFO:root:expect_code: 200
+2020-01-19 11:27:10,908 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 11:27:10,909 INFO:root:Wait for 60 secs...
+2020-01-19 11:28:10,912 INFO:root:In Func:send_request
+2020-01-19 11:28:10,912 INFO:root:type: GET
+2020-01-19 11:28:10,912 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 11:28:10,912 INFO:root:data: {}
+2020-01-19 11:28:10,912 INFO:root:expect_code: 200
+2020-01-19 11:28:13,594 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 11:28:13,594 INFO:root:Wait for 60 secs...
+2020-01-19 11:29:13,610 INFO:root:In Func:send_request
+2020-01-19 11:29:13,610 INFO:root:type: GET
+2020-01-19 11:29:13,610 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 11:29:13,610 INFO:root:data: {}
+2020-01-19 11:29:13,610 INFO:root:expect_code: 200
+2020-01-19 11:29:16,309 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 11:29:16,309 INFO:root:Wait for 60 secs...
+2020-01-19 11:30:16,313 INFO:root:In Func:send_request
+2020-01-19 11:30:16,313 INFO:root:type: GET
+2020-01-19 11:30:16,313 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 11:30:16,313 INFO:root:data: {}
+2020-01-19 11:30:16,313 INFO:root:expect_code: 200
+2020-01-19 11:30:19,030 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 11:30:19,030 INFO:root:Wait for 60 secs...
+2020-01-19 11:31:19,042 INFO:root:In Func:send_request
+2020-01-19 11:31:19,042 INFO:root:type: GET
+2020-01-19 11:31:19,042 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 11:31:19,042 INFO:root:data: {}
+2020-01-19 11:31:19,042 INFO:root:expect_code: 200
+2020-01-19 11:31:21,699 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 11:31:21,699 INFO:root:Wait for 60 secs...
+2020-01-19 11:32:21,710 INFO:root:In Func:send_request
+2020-01-19 11:32:21,710 INFO:root:type: GET
+2020-01-19 11:32:21,710 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 11:32:21,710 INFO:root:data: {}
+2020-01-19 11:32:21,710 INFO:root:expect_code: 200
+2020-01-19 11:32:24,411 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 11:32:24,411 INFO:root:Wait for 60 secs...
+2020-01-19 11:33:24,415 INFO:root:In Func:send_request
+2020-01-19 11:33:24,415 INFO:root:type: GET
+2020-01-19 11:33:24,415 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 11:33:24,415 INFO:root:data: {}
+2020-01-19 11:33:24,415 INFO:root:expect_code: 200
+2020-01-19 11:33:27,086 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 11:33:27,086 INFO:root:Wait for 60 secs...
+2020-01-19 11:34:27,088 INFO:root:In Func:send_request
+2020-01-19 11:34:27,088 INFO:root:type: GET
+2020-01-19 11:34:27,088 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 11:34:27,088 INFO:root:data: {}
+2020-01-19 11:34:27,091 INFO:root:expect_code: 200
+2020-01-19 11:34:29,791 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 11:34:29,791 INFO:root:Wait for 60 secs...
+2020-01-19 11:35:29,796 INFO:root:In Func:send_request
+2020-01-19 11:35:29,796 INFO:root:type: GET
+2020-01-19 11:35:29,796 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 11:35:29,796 INFO:root:data: {}
+2020-01-19 11:35:29,796 INFO:root:expect_code: 200
+2020-01-19 11:35:32,629 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 11:35:32,629 INFO:root:Wait for 60 secs...
+2020-01-19 11:36:32,640 INFO:root:In Func:send_request
+2020-01-19 11:36:32,640 INFO:root:type: GET
+2020-01-19 11:36:32,640 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 11:36:32,640 INFO:root:data: {}
+2020-01-19 11:36:32,640 INFO:root:expect_code: 200
+2020-01-19 11:36:35,307 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 11:36:35,307 INFO:root:Wait for 60 secs...
+2020-01-19 11:37:35,312 INFO:root:In Func:send_request
+2020-01-19 11:37:35,312 INFO:root:type: GET
+2020-01-19 11:37:35,312 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 11:37:35,312 INFO:root:data: {}
+2020-01-19 11:37:35,312 INFO:root:expect_code: 200
+2020-01-19 11:37:38,008 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 11:37:38,008 INFO:root:Wait for 60 secs...
+2020-01-19 11:38:38,013 INFO:root:In Func:send_request
+2020-01-19 11:38:38,014 INFO:root:type: GET
+2020-01-19 11:38:38,014 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 11:38:38,014 INFO:root:data: {}
+2020-01-19 11:38:38,014 INFO:root:expect_code: 200
+2020-01-19 11:38:40,597 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 11:38:40,597 INFO:root:Wait for 60 secs...
+2020-01-19 11:39:40,614 INFO:root:In Func:send_request
+2020-01-19 11:39:40,614 INFO:root:type: GET
+2020-01-19 11:39:40,614 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 11:39:40,614 INFO:root:data: {}
+2020-01-19 11:39:40,614 INFO:root:expect_code: 200
+2020-01-19 11:39:43,234 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 11:39:43,234 INFO:root:Wait for 60 secs...
+2020-01-19 11:40:43,237 INFO:root:In Func:send_request
+2020-01-19 11:40:43,237 INFO:root:type: GET
+2020-01-19 11:40:43,237 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 11:40:43,237 INFO:root:data: {}
+2020-01-19 11:40:43,237 INFO:root:expect_code: 200
+2020-01-19 11:40:45,836 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 11:40:45,836 INFO:root:Wait for 60 secs...
+2020-01-19 11:41:45,841 INFO:root:In Func:send_request
+2020-01-19 11:41:45,841 INFO:root:type: GET
+2020-01-19 11:41:45,841 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 11:41:45,841 INFO:root:data: {}
+2020-01-19 11:41:45,841 INFO:root:expect_code: 200
+2020-01-19 11:41:48,446 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 11:41:48,446 INFO:root:Wait for 60 secs...
+2020-01-19 11:42:48,469 INFO:root:In Func:send_request
+2020-01-19 11:42:48,469 INFO:root:type: GET
+2020-01-19 11:42:48,469 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 11:42:48,469 INFO:root:data: {}
+2020-01-19 11:42:48,469 INFO:root:expect_code: 200
+2020-01-19 11:42:51,150 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 11:42:51,150 INFO:root:Wait for 60 secs...
+2020-01-19 11:43:51,156 INFO:root:In Func:send_request
+2020-01-19 11:43:51,156 INFO:root:type: GET
+2020-01-19 11:43:51,156 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 11:43:51,156 INFO:root:data: {}
+2020-01-19 11:43:51,156 INFO:root:expect_code: 200
+2020-01-19 11:43:53,840 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 11:43:53,840 INFO:root:Wait for 60 secs...
+2020-01-19 11:44:53,854 INFO:root:In Func:send_request
+2020-01-19 11:44:53,854 INFO:root:type: GET
+2020-01-19 11:44:53,854 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 11:44:53,854 INFO:root:data: {}
+2020-01-19 11:44:53,854 INFO:root:expect_code: 200
+2020-01-19 11:44:56,551 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 11:44:56,551 INFO:root:Wait for 60 secs...
+2020-01-19 11:45:56,566 INFO:root:In Func:send_request
+2020-01-19 11:45:56,566 INFO:root:type: GET
+2020-01-19 11:45:56,566 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 11:45:56,566 INFO:root:data: {}
+2020-01-19 11:45:56,566 INFO:root:expect_code: 200
+2020-01-19 11:45:59,169 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 11:45:59,169 INFO:root:Wait for 60 secs...
+2020-01-19 11:46:59,171 INFO:root:In Func:send_request
+2020-01-19 11:46:59,171 INFO:root:type: GET
+2020-01-19 11:46:59,171 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 11:46:59,171 INFO:root:data: {}
+2020-01-19 11:46:59,171 INFO:root:expect_code: 200
+2020-01-19 11:47:01,947 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 11:47:01,947 INFO:root:Wait for 60 secs...
+2020-01-19 11:48:01,958 INFO:root:In Func:send_request
+2020-01-19 11:48:01,958 INFO:root:type: GET
+2020-01-19 11:48:01,958 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 11:48:01,958 INFO:root:data: {}
+2020-01-19 11:48:01,958 INFO:root:expect_code: 200
+2020-01-19 11:48:04,584 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 11:48:04,584 INFO:root:Wait for 60 secs...
+2020-01-19 11:49:04,586 INFO:root:In Func:send_request
+2020-01-19 11:49:04,586 INFO:root:type: GET
+2020-01-19 11:49:04,586 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 11:49:04,586 INFO:root:data: {}
+2020-01-19 11:49:04,586 INFO:root:expect_code: 200
+2020-01-19 11:49:07,259 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 11:49:07,259 INFO:root:Wait for 60 secs...
+2020-01-19 11:50:07,260 INFO:root:In Func:send_request
+2020-01-19 11:50:07,260 INFO:root:type: GET
+2020-01-19 11:50:07,260 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 11:50:07,260 INFO:root:data: {}
+2020-01-19 11:50:07,260 INFO:root:expect_code: 200
+2020-01-19 11:50:09,877 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 11:50:09,877 INFO:root:Wait for 60 secs...
+2020-01-19 11:51:09,878 INFO:root:In Func:send_request
+2020-01-19 11:51:09,879 INFO:root:type: GET
+2020-01-19 11:51:09,881 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 11:51:09,881 INFO:root:data: {}
+2020-01-19 11:51:09,882 INFO:root:expect_code: 200
+2020-01-19 11:51:12,656 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 11:51:12,656 INFO:root:Wait for 60 secs...
+2020-01-19 11:52:12,666 INFO:root:In Func:send_request
+2020-01-19 11:52:12,666 INFO:root:type: GET
+2020-01-19 11:52:12,666 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 11:52:12,666 INFO:root:data: {}
+2020-01-19 11:52:12,666 INFO:root:expect_code: 200
+2020-01-19 11:52:15,286 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 11:52:15,286 INFO:root:Wait for 60 secs...
+2020-01-19 11:53:15,292 INFO:root:In Func:send_request
+2020-01-19 11:53:15,292 INFO:root:type: GET
+2020-01-19 11:53:15,292 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 11:53:15,292 INFO:root:data: {}
+2020-01-19 11:53:15,292 INFO:root:expect_code: 200
+2020-01-19 11:53:17,897 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 11:53:17,897 INFO:root:Wait for 60 secs...
+2020-01-19 11:54:17,898 INFO:root:In Func:send_request
+2020-01-19 11:54:17,898 INFO:root:type: GET
+2020-01-19 11:54:17,898 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 11:54:17,898 INFO:root:data: {}
+2020-01-19 11:54:17,898 INFO:root:expect_code: 200
+2020-01-19 11:54:20,674 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 11:54:20,674 INFO:root:Wait for 60 secs...
+2020-01-19 11:55:20,688 INFO:root:In Func:send_request
+2020-01-19 11:55:20,688 INFO:root:type: GET
+2020-01-19 11:55:20,688 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 11:55:20,688 INFO:root:data: {}
+2020-01-19 11:55:20,688 INFO:root:expect_code: 200
+2020-01-19 11:55:23,396 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 11:55:23,396 INFO:root:Wait for 60 secs...
+2020-01-19 11:56:23,411 INFO:root:In Func:send_request
+2020-01-19 11:56:23,411 INFO:root:type: GET
+2020-01-19 11:56:23,411 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 11:56:23,411 INFO:root:data: {}
+2020-01-19 11:56:23,411 INFO:root:expect_code: 200
+2020-01-19 11:56:26,093 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 11:56:26,093 INFO:root:Wait for 60 secs...
+2020-01-19 11:57:26,096 INFO:root:In Func:send_request
+2020-01-19 11:57:26,096 INFO:root:type: GET
+2020-01-19 11:57:26,096 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 11:57:26,096 INFO:root:data: {}
+2020-01-19 11:57:26,096 INFO:root:expect_code: 200
+2020-01-19 11:57:28,670 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 11:57:28,670 INFO:root:Wait for 60 secs...
+2020-01-19 11:58:28,672 INFO:root:In Func:send_request
+2020-01-19 11:58:28,672 INFO:root:type: GET
+2020-01-19 11:58:28,672 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 11:58:28,672 INFO:root:data: {}
+2020-01-19 11:58:28,672 INFO:root:expect_code: 200
+2020-01-19 11:58:31,360 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 11:58:31,360 INFO:root:Wait for 60 secs...
+2020-01-19 11:59:31,372 INFO:root:In Func:send_request
+2020-01-19 11:59:31,372 INFO:root:type: GET
+2020-01-19 11:59:31,372 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 11:59:31,372 INFO:root:data: {}
+2020-01-19 11:59:31,372 INFO:root:expect_code: 200
+2020-01-19 11:59:33,900 INFO:root:SBC VNF HEAL  COMPLETED
+2020-01-19 11:59:33,900 INFO:root:Multiple Heal: healNum:6;healList:['SC_RRG.4.NOKIA-LCP-VMA', 'CCF_RRG.0.NOKIA-LCP-VMB', 'OAM.NOKIA-LCP-VMB', 'SC_RRG.1.NOKIA-LCP-VMA', 'DFED_RRG.0.NOKIA-LCP-VMB', 'SC_RRG.0.NOKIA-LCP-VMA']
+2020-01-19 11:59:33,900 INFO:root:Start to Heal: ['SC_RRG.4.NOKIA-LCP-VMA', 'CCF_RRG.0.NOKIA-LCP-VMB', 'OAM.NOKIA-LCP-VMB', 'SC_RRG.1.NOKIA-LCP-VMA', 'DFED_RRG.0.NOKIA-LCP-VMB', 'SC_RRG.0.NOKIA-LCP-VMA']
+2020-01-19 11:59:33,900 INFO:root:In Func:send_request
+2020-01-19 11:59:33,900 INFO:root:type: POST
+2020-01-19 11:59:33,900 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_instances/CBAM-af68639d46324930b248d53203d25f83/heal
+2020-01-19 11:59:33,900 INFO:root:data: {'cause': "Sig Plane Multiple VM Heal: ['SC_RRG.4.NOKIA-LCP-VMA', 'CCF_RRG.0.NOKIA-LCP-VMB', 'OAM.NOKIA-LCP-VMB', 'SC_RRG.1.NOKIA-LCP-VMA', 'DFED_RRG.0.NOKIA-LCP-VMB', 'SC_RRG.0.NOKIA-LCP-VMA']", 'vnfcInstanceIds': ['SC_RRG.4.NOKIA-LCP-VMA', 'CCF_RRG.0.NOKIA-LCP-VMB', 'OAM.NOKIA-LCP-VMB', 'SC_RRG.1.NOKIA-LCP-VMA', 'DFED_RRG.0.NOKIA-LCP-VMB', 'SC_RRG.0.NOKIA-LCP-VMA'], 'additionalParams': {'monitorRetries': 90, 'monitorDelay': 20}}
+2020-01-19 11:59:33,900 INFO:root:expect_code: 202
+2020-01-19 11:59:38,172 INFO:root:In Func:send_request
+2020-01-19 11:59:38,172 INFO:root:type: GET
+2020-01-19 11:59:38,172 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 11:59:38,172 INFO:root:data: {}
+2020-01-19 11:59:38,172 INFO:root:expect_code: 200
+2020-01-19 11:59:43,053 INFO:root:SBC VNF HEAL  status: STARTING
+2020-01-19 12:00:43,054 INFO:root:In Func:send_request
+2020-01-19 12:00:43,054 INFO:root:type: GET
+2020-01-19 12:00:43,054 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 12:00:43,054 INFO:root:data: {}
+2020-01-19 12:00:43,054 INFO:root:expect_code: 200
+2020-01-19 12:00:45,724 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 12:00:45,724 INFO:root:Wait for 60 secs...
+2020-01-19 12:01:45,728 INFO:root:In Func:send_request
+2020-01-19 12:01:45,728 INFO:root:type: GET
+2020-01-19 12:01:45,728 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 12:01:45,728 INFO:root:data: {}
+2020-01-19 12:01:45,728 INFO:root:expect_code: 200
+2020-01-19 12:01:48,348 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 12:01:48,348 INFO:root:Wait for 60 secs...
+2020-01-19 12:02:48,351 INFO:root:In Func:send_request
+2020-01-19 12:02:48,351 INFO:root:type: GET
+2020-01-19 12:02:48,351 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 12:02:48,351 INFO:root:data: {}
+2020-01-19 12:02:48,351 INFO:root:expect_code: 200
+2020-01-19 12:02:51,032 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 12:02:51,032 INFO:root:Wait for 60 secs...
+2020-01-19 12:03:51,043 INFO:root:In Func:send_request
+2020-01-19 12:03:51,043 INFO:root:type: GET
+2020-01-19 12:03:51,043 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 12:03:51,043 INFO:root:data: {}
+2020-01-19 12:03:51,043 INFO:root:expect_code: 200
+2020-01-19 12:03:53,631 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 12:03:53,631 INFO:root:Wait for 60 secs...
+2020-01-19 12:04:53,639 INFO:root:In Func:send_request
+2020-01-19 12:04:53,639 INFO:root:type: GET
+2020-01-19 12:04:53,639 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 12:04:53,639 INFO:root:data: {}
+2020-01-19 12:04:53,639 INFO:root:expect_code: 200
+2020-01-19 12:04:56,382 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 12:04:56,383 INFO:root:Wait for 60 secs...
+2020-01-19 12:05:56,398 INFO:root:In Func:send_request
+2020-01-19 12:05:56,398 INFO:root:type: GET
+2020-01-19 12:05:56,398 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 12:05:56,398 INFO:root:data: {}
+2020-01-19 12:05:56,398 INFO:root:expect_code: 200
+2020-01-19 12:05:59,019 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 12:05:59,019 INFO:root:Wait for 60 secs...
+2020-01-19 12:06:59,019 INFO:root:In Func:send_request
+2020-01-19 12:06:59,020 INFO:root:type: GET
+2020-01-19 12:06:59,021 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 12:06:59,021 INFO:root:data: {}
+2020-01-19 12:06:59,022 INFO:root:expect_code: 200
+2020-01-19 12:07:01,620 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 12:07:01,621 INFO:root:Wait for 60 secs...
+2020-01-19 12:08:01,622 INFO:root:In Func:send_request
+2020-01-19 12:08:01,622 INFO:root:type: GET
+2020-01-19 12:08:01,622 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 12:08:01,622 INFO:root:data: {}
+2020-01-19 12:08:01,622 INFO:root:expect_code: 200
+2020-01-19 12:08:04,364 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 12:08:04,364 INFO:root:Wait for 60 secs...
+2020-01-19 12:09:04,373 INFO:root:In Func:send_request
+2020-01-19 12:09:04,373 INFO:root:type: GET
+2020-01-19 12:09:04,373 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 12:09:04,373 INFO:root:data: {}
+2020-01-19 12:09:04,373 INFO:root:expect_code: 200
+2020-01-19 12:09:07,080 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 12:09:07,080 INFO:root:Wait for 60 secs...
+2020-01-19 12:10:07,085 INFO:root:In Func:send_request
+2020-01-19 12:10:07,085 INFO:root:type: GET
+2020-01-19 12:10:07,085 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 12:10:07,086 INFO:root:data: {}
+2020-01-19 12:10:07,086 INFO:root:expect_code: 200
+2020-01-19 12:10:29,809 WARNING:urllib3.connectionpool:Retrying (Retry(total=9, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProxyError('Cannot connect to proxy.', NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x07A50DB0>: Failed to establish a new connection: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond'))': /vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 12:10:31,356 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 12:10:31,357 INFO:root:Wait for 60 secs...
+2020-01-19 12:11:31,362 INFO:root:In Func:send_request
+2020-01-19 12:11:31,362 INFO:root:type: GET
+2020-01-19 12:11:31,362 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 12:11:31,362 INFO:root:data: {}
+2020-01-19 12:11:31,362 INFO:root:expect_code: 200
+2020-01-19 12:11:34,044 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 12:11:34,044 INFO:root:Wait for 60 secs...
+2020-01-19 12:12:34,050 INFO:root:In Func:send_request
+2020-01-19 12:12:34,050 INFO:root:type: GET
+2020-01-19 12:12:34,050 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 12:12:34,050 INFO:root:data: {}
+2020-01-19 12:12:34,050 INFO:root:expect_code: 200
+2020-01-19 12:12:36,754 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 12:12:36,754 INFO:root:Wait for 60 secs...
+2020-01-19 12:13:36,759 INFO:root:In Func:send_request
+2020-01-19 12:13:36,760 INFO:root:type: GET
+2020-01-19 12:13:36,761 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 12:13:36,761 INFO:root:data: {}
+2020-01-19 12:13:36,762 INFO:root:expect_code: 200
+2020-01-19 12:13:39,454 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 12:13:39,454 INFO:root:Wait for 60 secs...
+2020-01-19 12:14:39,459 INFO:root:In Func:send_request
+2020-01-19 12:14:39,459 INFO:root:type: GET
+2020-01-19 12:14:39,459 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 12:14:39,460 INFO:root:data: {}
+2020-01-19 12:14:39,460 INFO:root:expect_code: 200
+2020-01-19 12:14:42,159 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 12:14:42,160 INFO:root:Wait for 60 secs...
+2020-01-19 12:15:42,164 INFO:root:In Func:send_request
+2020-01-19 12:15:42,164 INFO:root:type: GET
+2020-01-19 12:15:42,164 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 12:15:42,164 INFO:root:data: {}
+2020-01-19 12:15:42,164 INFO:root:expect_code: 200
+2020-01-19 12:15:44,866 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 12:15:44,872 INFO:root:Wait for 60 secs...
+2020-01-19 12:16:44,885 INFO:root:In Func:send_request
+2020-01-19 12:16:44,886 INFO:root:type: GET
+2020-01-19 12:16:44,887 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 12:16:44,887 INFO:root:data: {}
+2020-01-19 12:16:44,887 INFO:root:expect_code: 200
+2020-01-19 12:16:47,552 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 12:16:47,552 INFO:root:Wait for 60 secs...
+2020-01-19 12:17:47,560 INFO:root:In Func:send_request
+2020-01-19 12:17:47,560 INFO:root:type: GET
+2020-01-19 12:17:47,560 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 12:17:47,560 INFO:root:data: {}
+2020-01-19 12:17:47,560 INFO:root:expect_code: 200
+2020-01-19 12:17:50,157 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 12:17:50,157 INFO:root:Wait for 60 secs...
+2020-01-19 12:18:50,174 INFO:root:In Func:send_request
+2020-01-19 12:18:50,174 INFO:root:type: GET
+2020-01-19 12:18:50,174 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 12:18:50,174 INFO:root:data: {}
+2020-01-19 12:18:50,174 INFO:root:expect_code: 200
+2020-01-19 12:18:52,867 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 12:18:52,868 INFO:root:Wait for 60 secs...
+2020-01-19 12:19:52,885 INFO:root:In Func:send_request
+2020-01-19 12:19:52,888 INFO:root:type: GET
+2020-01-19 12:19:52,889 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 12:19:52,889 INFO:root:data: {}
+2020-01-19 12:19:52,889 INFO:root:expect_code: 200
+2020-01-19 12:19:55,566 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 12:19:55,566 INFO:root:Wait for 60 secs...
+2020-01-19 12:20:55,569 INFO:root:In Func:send_request
+2020-01-19 12:20:55,569 INFO:root:type: GET
+2020-01-19 12:20:55,569 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 12:20:55,569 INFO:root:data: {}
+2020-01-19 12:20:55,569 INFO:root:expect_code: 200
+2020-01-19 12:20:58,173 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 12:20:58,173 INFO:root:Wait for 60 secs...
+2020-01-19 12:21:58,186 INFO:root:In Func:send_request
+2020-01-19 12:21:58,186 INFO:root:type: GET
+2020-01-19 12:21:58,186 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 12:21:58,186 INFO:root:data: {}
+2020-01-19 12:21:58,186 INFO:root:expect_code: 200
+2020-01-19 12:22:00,811 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 12:22:00,811 INFO:root:Wait for 60 secs...
+2020-01-19 12:23:00,824 INFO:root:In Func:send_request
+2020-01-19 12:23:00,824 INFO:root:type: GET
+2020-01-19 12:23:00,824 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 12:23:00,824 INFO:root:data: {}
+2020-01-19 12:23:00,824 INFO:root:expect_code: 200
+2020-01-19 12:23:03,579 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 12:23:03,579 INFO:root:Wait for 60 secs...
+2020-01-19 12:24:03,587 INFO:root:In Func:send_request
+2020-01-19 12:24:03,587 INFO:root:type: GET
+2020-01-19 12:24:03,587 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 12:24:03,588 INFO:root:data: {}
+2020-01-19 12:24:03,588 INFO:root:expect_code: 200
+2020-01-19 12:24:06,202 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 12:24:06,202 INFO:root:Wait for 60 secs...
+2020-01-19 12:25:06,204 INFO:root:In Func:send_request
+2020-01-19 12:25:06,206 INFO:root:type: GET
+2020-01-19 12:25:06,207 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 12:25:06,209 INFO:root:data: {}
+2020-01-19 12:25:06,209 INFO:root:expect_code: 200
+2020-01-19 12:25:08,911 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 12:25:08,911 INFO:root:Wait for 60 secs...
+2020-01-19 12:26:08,914 INFO:root:In Func:send_request
+2020-01-19 12:26:08,915 INFO:root:type: GET
+2020-01-19 12:26:08,915 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 12:26:08,915 INFO:root:data: {}
+2020-01-19 12:26:08,916 INFO:root:expect_code: 200
+2020-01-19 12:26:11,589 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 12:26:11,589 INFO:root:Wait for 60 secs...
+2020-01-19 12:27:11,595 INFO:root:In Func:send_request
+2020-01-19 12:27:11,595 INFO:root:type: GET
+2020-01-19 12:27:11,595 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 12:27:11,595 INFO:root:data: {}
+2020-01-19 12:27:11,595 INFO:root:expect_code: 200
+2020-01-19 12:27:14,191 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 12:27:14,191 INFO:root:Wait for 60 secs...
+2020-01-19 12:28:14,193 INFO:root:In Func:send_request
+2020-01-19 12:28:14,193 INFO:root:type: GET
+2020-01-19 12:28:14,193 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 12:28:14,193 INFO:root:data: {}
+2020-01-19 12:28:14,193 INFO:root:expect_code: 200
+2020-01-19 12:28:16,807 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 12:28:16,807 INFO:root:Wait for 60 secs...
+2020-01-19 12:29:16,813 INFO:root:In Func:send_request
+2020-01-19 12:29:16,813 INFO:root:type: GET
+2020-01-19 12:29:16,813 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 12:29:16,813 INFO:root:data: {}
+2020-01-19 12:29:16,813 INFO:root:expect_code: 200
+2020-01-19 12:29:20,232 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 12:29:20,232 INFO:root:Wait for 60 secs...
+2020-01-19 12:30:20,243 INFO:root:In Func:send_request
+2020-01-19 12:30:20,243 INFO:root:type: GET
+2020-01-19 12:30:20,243 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 12:30:20,243 INFO:root:data: {}
+2020-01-19 12:30:20,243 INFO:root:expect_code: 200
+2020-01-19 12:30:23,133 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 12:30:23,133 INFO:root:Wait for 60 secs...
+2020-01-19 12:31:23,135 INFO:root:In Func:send_request
+2020-01-19 12:31:23,135 INFO:root:type: GET
+2020-01-19 12:31:23,135 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 12:31:23,135 INFO:root:data: {}
+2020-01-19 12:31:23,135 INFO:root:expect_code: 200
+2020-01-19 12:31:26,038 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 12:31:26,038 INFO:root:Wait for 60 secs...
+2020-01-19 12:32:26,052 INFO:root:In Func:send_request
+2020-01-19 12:32:26,052 INFO:root:type: GET
+2020-01-19 12:32:26,052 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 12:32:26,052 INFO:root:data: {}
+2020-01-19 12:32:26,052 INFO:root:expect_code: 200
+2020-01-19 12:32:28,949 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 12:32:28,949 INFO:root:Wait for 60 secs...
+2020-01-19 12:33:28,953 INFO:root:In Func:send_request
+2020-01-19 12:33:28,953 INFO:root:type: GET
+2020-01-19 12:33:28,953 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 12:33:28,953 INFO:root:data: {}
+2020-01-19 12:33:28,953 INFO:root:expect_code: 200
+2020-01-19 12:33:31,845 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 12:33:31,845 INFO:root:Wait for 60 secs...
+2020-01-19 12:34:31,876 INFO:root:In Func:send_request
+2020-01-19 12:34:31,876 INFO:root:type: GET
+2020-01-19 12:34:31,876 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 12:34:31,876 INFO:root:data: {}
+2020-01-19 12:34:31,876 INFO:root:expect_code: 200
+2020-01-19 12:34:34,753 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 12:34:34,753 INFO:root:Wait for 60 secs...
+2020-01-19 12:35:34,767 INFO:root:In Func:send_request
+2020-01-19 12:35:34,767 INFO:root:type: GET
+2020-01-19 12:35:34,767 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 12:35:34,767 INFO:root:data: {}
+2020-01-19 12:35:34,767 INFO:root:expect_code: 200
+2020-01-19 12:35:37,664 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 12:35:37,664 INFO:root:Wait for 60 secs...
+2020-01-19 12:36:37,673 INFO:root:In Func:send_request
+2020-01-19 12:36:37,673 INFO:root:type: GET
+2020-01-19 12:36:37,673 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 12:36:37,673 INFO:root:data: {}
+2020-01-19 12:36:37,673 INFO:root:expect_code: 200
+2020-01-19 12:36:40,493 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 12:36:40,493 INFO:root:Wait for 60 secs...
+2020-01-19 12:37:40,510 INFO:root:In Func:send_request
+2020-01-19 12:37:40,510 INFO:root:type: GET
+2020-01-19 12:37:40,510 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 12:37:40,510 INFO:root:data: {}
+2020-01-19 12:37:40,510 INFO:root:expect_code: 200
+2020-01-19 12:37:43,396 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 12:37:43,396 INFO:root:Wait for 60 secs...
+2020-01-19 12:38:43,401 INFO:root:In Func:send_request
+2020-01-19 12:38:43,401 INFO:root:type: GET
+2020-01-19 12:38:43,401 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 12:38:43,401 INFO:root:data: {}
+2020-01-19 12:38:43,401 INFO:root:expect_code: 200
+2020-01-19 12:38:46,275 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 12:38:46,275 INFO:root:Wait for 60 secs...
+2020-01-19 12:39:46,277 INFO:root:In Func:send_request
+2020-01-19 12:39:46,277 INFO:root:type: GET
+2020-01-19 12:39:46,277 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 12:39:46,277 INFO:root:data: {}
+2020-01-19 12:39:46,277 INFO:root:expect_code: 200
+2020-01-19 12:39:49,181 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 12:39:49,181 INFO:root:Wait for 60 secs...
+2020-01-19 12:40:49,192 INFO:root:In Func:send_request
+2020-01-19 12:40:49,192 INFO:root:type: GET
+2020-01-19 12:40:49,192 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 12:40:49,192 INFO:root:data: {}
+2020-01-19 12:40:49,192 INFO:root:expect_code: 200
+2020-01-19 12:40:52,153 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 12:40:52,153 INFO:root:Wait for 60 secs...
+2020-01-19 12:41:52,165 INFO:root:In Func:send_request
+2020-01-19 12:41:52,165 INFO:root:type: GET
+2020-01-19 12:41:52,165 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-19 12:41:52,165 INFO:root:data: {}
+2020-01-19 12:41:52,165 INFO:root:expect_code: 200
+2020-01-19 12:41:55,073 INFO:root:SBC VNF HEAL  PROCESSING
+2020-01-19 12:41:55,073 INFO:root:Wait for 60 secs...
