@@ -90,6 +90,9 @@ def log(msg, level=logging.INFO):
     if level == logging.INFO:
         logger.info(msg)
 
+def log_print(msg):
+    print(msg)
+
 def print_response(response):
     print('response: ', response)
     print('response.headers: ', response.headers)
@@ -340,8 +343,280 @@ class LcmUtils(object):
     # run specific sripts
     # ...
     def __init__(self):
-        self.sig_oam_vip    = ''
-        self.sig_oama_ip    = ''
+        # # pl043
+        # self.sig_oam_vip    = '100.69.127.135'
+        # self.sig_oama_ip    = '100.69.127.133'
+        # self.sig_oamb_ip    = '100.69.127.134'
+        # pl011
+        self.sig_oam_vip    = '10.75.44.24'
+        self.sig_oama_ip    = '10.75.44.22'
+        self.sig_oamb_ip    = '10.75.44.23'
+        self.sig_oam_login  = 'root'
+        self.sig_oam_passwd = 'newsys'
+        self.sig_host_dict  = {}
+
+    def prep_local_known_hosts(self, ip=''):
+        """
+        # Need to rm the entry in known_hosts file on local pc.
+        :param ip: oam IP or scm IP
+        """
+        log('In Func:' + sys._getframe().f_code.co_name)
+        log('Rmove the existing entry of IP: {0} in /c/Users/shawnx/.ssh/known_hosts.'.format(ip))
+        # known_hosts_file = r'/c/Users/shawnx/.ssh/known_hosts'
+        known_hosts_file = r'C:\Users\shawnx\.ssh\known_hosts'
+        tmp_list = []
+        try:
+            with open(known_hosts_file, 'r') as f:
+                tmp_list = f.readlines()
+            for val in tmp_list:
+                if ip in val:
+                    tmp_list.remove(val)
+            with open(known_hosts_file, 'w') as f:
+                f.writelines(tmp_list)
+        except Exception:
+            traceback.print_exc()
+
+    def get_sig_host_dict(self):
+        """
+        Get a dict of flexible name to host name map
+        Set sig_host_dict
+        Example:
+            {'sbclcm03-oam-a': 'sbclcm03-s00c01h0',
+            'sbclcm03-sc1-a': 'sbclcm03-s00c02h0',
+            'sbclcm03-cfed-a': 'sbclcm03-s00c03h0',
+            'sbclcm03-bgc1-a': 'sbclcm03-s00c04h0',
+            'sbclcm03-fwa-a': 'sbclcm03-s00c05h0',
+            'sbclcm03-ccf-a': 'sbclcm03-s00c06h0',
+            'sbclcm03-fwp-a': 'sbclcm03-s00c07h0',
+            'sbclcm03-dfed-a': 'sbclcm03-s00c08h0',
+            'sbclcm03-oam-b': 'sbclcm03-s01c01h0',
+            'sbclcm03-sc1-b': 'sbclcm03-s01c02h0',
+            'sbclcm03-cfed-b': 'sbclcm03-s01c03h0',
+            'sbclcm03-bgc1-b': 'sbclcm03-s01c04h0',
+            'sbclcm03-fwa-b': 'sbclcm03-s01c05h0',
+            'sbclcm03-ccf-b': 'sbclcm03-s01c06h0',
+            'sbclcm03-fwp-b': 'sbclcm03-s01c07h0',
+            'sbclcm03-dfed-b': 'sbclcm03-s01c08h0'}
+        """
+        self.sig_host_dict = {}
+        mtce_host_file = '/var/opt/lib/mtce/data/mtce_host.data'
+        ip = self.sig_oama_ip
+        login = self.sig_oam_login
+        passwd = self.sig_oam_passwd
+        sshtype = 'passwd'
+        cmd = 'cat ' + mtce_host_file
+        result = ssh_command(cmd, ip, login, passwd, sshtype)
+        log(str(result))
+        if 'APPLICATION: sbc' not in result:
+            log('Failed to get data in {0}.'.format(mtce_host_file))
+            exit(1)
+        data = result.split('\n')
+        for line in data:
+            if '_GUEST' in line:
+                tmp_list = line.split(';')
+                val = tmp_list[0]
+                key = tmp_list[12]
+                self.sig_host_dict[key] = val
+        if self.sig_host_dict == {}:
+            log('Failed to get sig_host_dict. Error out.')
+            exit(1)
+        log(str(self.sig_host_dict))
+
+    def run_remcli_cmd(self, remcli_cmd='su 0 0 0'):
+        """
+        Get REMcli output per cmd
+        :param remcli_cmd: the cmd feed to REMcli
+        Example:
+        # 4143 or AC:  query All Cars
+        # 4443 or DC:  query All Degraded Cars
+        # 6163 or ac:  query All Cars on a service member
+        # 6173 or as:  status of All Service members
+        # 6463 or dc:  query Degraded Cars on a service member
+        # 6466 or df:  status of DiskFull service members
+        # 7063 or pc:  Print Counters for inits and switchovers
+        # 7263 or rc:  Reset Counters for inits and switchovers
+        # 7068 or ph:  Print Heartbeat loss counters
+        # 7273 or rs:  REMc Switchover. Sends cmd to ACT REMc
+        # 7375 or su:  status of diskless service members, used by SU
+        # 7376 or sv:  Software Version of all service members (or use 8386)
+        """
+        ip      = self.sig_oam_vip
+        login   = self.sig_oam_login
+        passwd  = self.sig_oam_passwd
+        sshtype = 'passwd'
+        cmd = '/opt/LSS/bin/REMcli ' + remcli_cmd
+        result = ssh_command(cmd, ip, login, passwd, sshtype)
+        log(str(result))
+
+    def oam_switchover(self):
+        """
+        For oam switchover, need to use oam external fixed IP,
+        as there would be 'client_loop: send disconnect: Connection reset by peer'
+        if using external floating IP
+        """
+        ip      = self.sig_oama_ip
+        login   = self.sig_oam_login
+        passwd  = self.sig_oam_passwd
+        sshtype = 'passwd'
+        cmd = '/opt/LSS/sbin/MIcmd state vc'
+        result = ssh_command(cmd, ip, login, passwd, sshtype)
+        log(str(result))
+        cmd = '/opt/LSS/sbin/MIcmd switch'
+        result = ssh_command(cmd, ip, login, passwd, sshtype)
+        log(str(result))
+        str_success = 'MI virtual cluster switched over successfully'
+        if str_success in result:
+            log(str_success)
+        else:
+            # For now, just ignore the switchover failure
+            # TODO: check failure str and retry switchover again
+            log('MIcmd switchover failed.')
+
+    def oam_failover(self):
+        """
+        1. check which oam side is A
+        2. reboot oam A
+        """
+        ip      = self.sig_oama_ip
+        login   = self.sig_oam_login
+        passwd  = self.sig_oam_passwd
+        sshtype = 'passwd'
+        cmd = '/opt/LSS/sbin/MIcmd state vc'
+        result = ssh_command(cmd, ip, login, passwd, sshtype)
+        log(str(result))
+        cmd = '/opt/LSS/bin/MIvmstate'
+        result = ssh_command(cmd, ip, login, passwd, sshtype)
+        log(str(result))
+        if 'A' in result:
+            log('OAM-A state: A')
+        elif 'S' in result:
+            log('OAM-A state: S')
+            ip = self.sig_oamb_ip
+        else:
+            log('OAM-A state not A or S. Need to check in system. Error out.')
+            exit(1)
+        cmd = 'reboot'
+        result = ssh_command(cmd, ip, login, passwd, sshtype)
+        log('Wait 300s for system to be stablized.')
+        time.sleep(300)
+        cmd = '/opt/LSS/sbin/MIcmd state vc'
+        result = ssh_command(cmd, ip, login, passwd, sshtype)
+        log(str(result))
+
+    def oam_reboot(self, oam_side='A'):
+        """
+        Reboot oam, side A or B: oam-a or oam-b
+        :param oam_side: 'A' or 'B
+        """
+        if oam_side == 'A':
+            ip = self.sig_oama_ip
+        elif oam_side == 'B':
+            ip = self.sig_oamb_ip
+        else:
+            log('oam_side only supports A or B. Error out.')
+            exit(1)
+        login   = self.sig_oam_login
+        passwd  = self.sig_oam_passwd
+        sshtype = 'passwd'
+        cmd = '/opt/LSS/sbin/MIcmd state vc'
+        result = ssh_command(cmd, ip, login, passwd, sshtype)
+        log(str(result))
+        cmd = 'reboot'
+        result = ssh_command(cmd, ip, login, passwd, sshtype)
+        log('Wait 300s for system to be stablized.')
+        time.sleep(300)
+        cmd = '/opt/LSS/sbin/MIcmd state vc'
+        result = ssh_command(cmd, ip, login, passwd, sshtype)
+        log(str(result))
+
+    def vm_reboot(self, hostname='oam-a'):
+        """
+        Reboot specific vm
+        First login oam
+        Then ssh hostbname reboot
+        :param hostname: flexible host name
+        """
+        ip = self.sig_oam_vip
+        login = self.sig_oam_login
+        passwd = self.sig_oam_passwd
+        sshtype = 'passwd'
+        self.get_sig_host_dict()
+        # get full flexible host name
+        hname = None
+        for name in self.sig_host_dict.keys():
+            if hostname in name:
+                hname = name
+        if hname:
+            cmd = 'ssh ' + hname + ' reboot'
+            result = ssh_command(cmd, ip, login, passwd, sshtype)
+            # output is like:
+            # cmd: ssh sbclcm03-sc1-a reboot
+            # Connection to sbclcm03-sc1-a closed by remote host.
+            log(str(result))
+        else:
+            log('Failed to get hostname of the VM to be rebooted. Error out.')
+            exit(1)
+
+    def health_check(self):
+        """
+        Run health on oam
+        """
+        ip      = self.sig_oam_vip
+        login   = self.sig_oam_login
+        passwd  = self.sig_oam_passwd
+        sshtype = 'passwd'
+        cmd = '/opt/LSS/sbin/health --test all'
+        result = ssh_command(cmd, ip, login, passwd, sshtype)
+        log(str(result))
+
+    def sbc_health_check(self):
+        """
+        Run health on oam
+        """
+        ip      = self.sig_oam_vip
+        login   = self.sig_oam_login
+        passwd  = self.sig_oam_passwd
+        sshtype = 'passwd'
+        cmd = '/opt/LSS/sbin/sbc_health --test all'
+        result = ssh_command(cmd, ip, login, passwd, sshtype)
+        log(str(result))
+
+    def sig_health_check(self):
+        """
+        Run health on oam
+        """
+        ip      = self.sig_oam_vip
+        login   = self.sig_oam_login
+        passwd  = self.sig_oam_passwd
+        sshtype = 'passwd'
+        cmd = '/opt/LSS/sbin/sbc_health --test sp'
+        result = ssh_command(cmd, ip, login, passwd, sshtype)
+        log(str(result))
+
+    def media_health_check(self):
+        """
+        Run health on oam
+        """
+        ip      = self.sig_oam_vip
+        login   = self.sig_oam_login
+        passwd  = self.sig_oam_passwd
+        sshtype = 'passwd'
+        cmd = '/opt/LSS/sbin/sbc_health --test mp'
+        result = ssh_command(cmd, ip, login, passwd, sshtype)
+        log(str(result))
+
+    def sig_quick_health_check(self):
+        """
+        Run health on oam
+        """
+        ip      = self.sig_oam_vip
+        login   = self.sig_oam_login
+        passwd  = self.sig_oam_passwd
+        sshtype = 'passwd'
+        cmd = '/opt/LSS/sbin/sbc_health --test sp quick'
+        result = ssh_command(cmd, ip, login, passwd, sshtype)
+        log(str(result))
+
 
 ########################################################################################################################
 # VNF Packages
@@ -1726,7 +2001,8 @@ class MediaVnfLcmTestDriver(SBCVnfLcmTestDriver):
         """
         log('In Func:' + sys._getframe().f_code.co_name)
         log('Rmove the existing entry of SCM VIP in /c/Users/shawnx/.ssh/known_hosts.')
-        known_hosts_file = r'/c/Users/shawnx/.ssh/known_hosts'
+        # known_hosts_file = r'/c/Users/shawnx/.ssh/known_hosts'
+        known_hosts_file = r'C:\Users\shawnx\.ssh\known_hosts'
         tmp_list = []
         try:
             with open(known_hosts_file, 'r') as f:
@@ -4170,13 +4446,14 @@ if __name__ == '__main__':
     # TS_sigvnf_tests_td()
     # TS_sigvnf_tests_cimcsb()
 
-    TS_sigvnf_tests_heal_m()
+    # TS_sigvnf_tests_heal_m()
     # TS_sigvnf_tests_heal_s()
 
     # TS_sigvnf_tests_heal_s_r()
-    # TS_sigvnf_tests_heal_s_r_mt()
+    TS_sigvnf_tests_heal_s_r_mt()
 
-    # TS_sigvnf_tests_br()
+    TS_sigvnf_tests_bkup()
+    TS_sigvnf_tests_br()
 
     # TS_sigvnf_tests_dr()
     # TS_sigvnf_tests_dr_http12()
