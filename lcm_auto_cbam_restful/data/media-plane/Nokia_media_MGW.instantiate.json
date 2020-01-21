@@ -30,7 +30,7 @@
   "softwareImages": [
     {  
       "vnfdSoftwareImageId": "image",
-      "resourceId": "nokia-mgw-rhel7.7-3.10.0-1062.4.1.an100053.x86_64.qcow2"
+      "resourceId": "nokia-mgw-rhel7.7-3.10.0-1062.4.1.ap100016.x86_64.qcow2"
     }
   ],
   "grantlessMode": true,
@@ -38,11 +38,11 @@
   "flavourId": "scalable",
   "vims": [
     {
-      "interfaceEndpoint": "https://10.75.225.228:13000",
+      "interfaceEndpoint": "https://10.75.12.196:13000",
       "accessInfo": {
-        "tenant": "a321_SBC",
-        "username": "a321_shawnx",
-        "password": "a321sbc"
+        "tenant": "CB0078",
+        "username": "cb0078sa",
+        "password": "LabAcc0unt"
       },
       "interfaceInfo": {
         "region": "regionOne"
@@ -52,7 +52,7 @@
   ],
   "additionalParams": {
     "inject_well_known_temp_key": "yes",
-    "Scripturl": "http://100.69.127.146/sbclcm-auto/bulk.zip"
+    "Scripturl": "http://10.75.44.7/sbclcm-auto/bulk.zip"
   },
   "instantiationLevelId": "default",
   "extVirtualLinks": [
@@ -62,24 +62,24 @@
           "cpdId": "pim_A_voice1_ipv6_ecp",
           "addresses": [
             {
-                "subnetId": "BearAc1-1-V6",
-                "ip": "2a00:8a00:6000:d040:2f::5"
+                "subnetId": "v448-Bear-Access1-Phy1-IPV6",
+                "ip": "2a00:8a00:4000:7690:12::5"
             }
             ,{
-                "subnetId": "BearAc1-1-V6",
-                "ip": "2a00:8a00:6000:d040:2f::7"
+                "subnetId": "v448-Bear-Access1-Phy1-IPV6",
+                "ip": "2a00:8a00:4000:7690:12::7"
             }
             ,{
-                "subnetId": "BearAc1-1-V6",
-                "ip": "2a00:8a00:6000:d040:2f::9"
+                "subnetId": "v448-Bear-Access1-Phy1-IPV6",
+                "ip": "2a00:8a00:4000:7690:12::9"
             }
             ,{
-                "subnetId": "BearAc1-1-V6",
-                "ip": "2a00:8a00:6000:d040:2f::11"
+                "subnetId": "v448-Bear-Access1-Phy1-IPV6",
+                "ip": "2a00:8a00:4000:7690:12::11"
             }
             ,{
-                "subnetId": "BearAc1-1-V6",
-                "ip": "2a00:8a00:6000:d040:2f::13"
+                "subnetId": "v448-Bear-Access1-Phy1-IPV6",
+                "ip": "2a00:8a00:4000:7690:12::13"
             }
           ]
         }
@@ -87,29 +87,29 @@
           "cpdId": "pim_B_voice1_ipv6_ecp",
           "addresses": [
             {
-                "subnetId": "BearAc1-1-V6",
-                "ip": "2a00:8a00:6000:d040:2f::6"
+                "subnetId": "v448-Bear-Access1-Phy1-IPV6",
+                "ip": "2a00:8a00:4000:7690:12::6"
             }
             ,{
-                "subnetId": "BearAc1-1-V6",
-                "ip": "2a00:8a00:6000:d040:2f::8"
+                "subnetId": "v448-Bear-Access1-Phy1-IPV6",
+                "ip": "2a00:8a00:4000:7690:12::8"
             }
             ,{
-                "subnetId": "BearAc1-1-V6",
-                "ip": "2a00:8a00:6000:d040:2f::10"
+                "subnetId": "v448-Bear-Access1-Phy1-IPV6",
+                "ip": "2a00:8a00:4000:7690:12::10"
             }
             ,{
-                "subnetId": "BearAc1-1-V6",
-                "ip": "2a00:8a00:6000:d040:2f::12"
+                "subnetId": "v448-Bear-Access1-Phy1-IPV6",
+                "ip": "2a00:8a00:4000:7690:12::12"
             }
             ,{
-                "subnetId": "BearAc1-1-V6",
-                "ip": "2a00:8a00:6000:d040:2f::14"
+                "subnetId": "v448-Bear-Access1-Phy1-IPV6",
+                "ip": "2a00:8a00:4000:7690:12::14"
             }
           ]
         }
       ],
-      "resourceId": "Bear-Access1-1"
+      "resourceId": "v448-Bear-Access1-PHYSENT1"
     }
     ,{
       "extCps": [
@@ -117,24 +117,24 @@
           "cpdId": "pim_A_voice2_ipv6_ecp",
           "addresses": [
             {
-                "subnetId": "BearCo1-1-V6",
-                "ip": "2a00:8a00:6000:d040:3b::5"
+                "subnetId": "v450-Bear-Core1-Phy1-IPV6",
+                "ip": "2a00:8a00:4000:7690:14::5"
             }
             ,{
-                "subnetId": "BearCo1-1-V6",
-                "ip": "2a00:8a00:6000:d040:3b::7"
+                "subnetId": "v450-Bear-Core1-Phy1-IPV6",
+                "ip": "2a00:8a00:4000:7690:14::7"
             }
             ,{
-                "subnetId": "BearCo1-1-V6",
-                "ip": "2a00:8a00:6000:d040:3b::9"
+                "subnetId": "v450-Bear-Core1-Phy1-IPV6",
+                "ip": "2a00:8a00:4000:7690:14::9"
             }
             ,{
-                "subnetId": "BearCo1-1-V6",
-                "ip": "2a00:8a00:6000:d040:3b::11"
+                "subnetId": "v450-Bear-Core1-Phy1-IPV6",
+                "ip": "2a00:8a00:4000:7690:14::11"
             }
             ,{
-                "subnetId": "BearCo1-1-V6",
-                "ip": "2a00:8a00:6000:d040:3b::13"
+                "subnetId": "v450-Bear-Core1-Phy1-IPV6",
+                "ip": "2a00:8a00:4000:7690:14::13"
             }
           ]
         }
@@ -142,29 +142,29 @@
           "cpdId": "pim_B_voice2_ipv6_ecp",
           "addresses": [
             {
-                "subnetId": "BearCo1-1-V6",
-                "ip": "2a00:8a00:6000:d040:3b::6"
+                "subnetId": "v450-Bear-Core1-Phy1-IPV6",
+                "ip": "2a00:8a00:4000:7690:14::6"
             }
             ,{
-                "subnetId": "BearCo1-1-V6",
-                "ip": "2a00:8a00:6000:d040:3b::8"
+                "subnetId": "v450-Bear-Core1-Phy1-IPV6",
+                "ip": "2a00:8a00:4000:7690:14::8"
             }
             ,{
-                "subnetId": "BearCo1-1-V6",
-                "ip": "2a00:8a00:6000:d040:3b::10"
+                "subnetId": "v450-Bear-Core1-Phy1-IPV6",
+                "ip": "2a00:8a00:4000:7690:14::10"
             }
             ,{
-                "subnetId": "BearCo1-1-V6",
-                "ip": "2a00:8a00:6000:d040:3b::12"
+                "subnetId": "v450-Bear-Core1-Phy1-IPV6",
+                "ip": "2a00:8a00:4000:7690:14::12"
             }
             ,{
-                "subnetId": "BearCo1-1-V6",
-                "ip": "2a00:8a00:6000:d040:3b::14"
+                "subnetId": "v450-Bear-Core1-Phy1-IPV6",
+                "ip": "2a00:8a00:4000:7690:14::14"
             }
           ]
         }
       ],
-      "resourceId": "Bear-Core1-1"
+      "resourceId": "v450-Bear-Core1-PHYSENT1"
     }
     ,{
       "extCps": [
@@ -172,24 +172,24 @@
           "cpdId": "mate_pim_A_voice1_ipv6_ecp",
           "addresses": [
             {
-                "subnetId": "BearAc1-2-V6",
-                "ip": "2a00:8a00:6000:d040:2f::5"
+                "subnetId": "v448-Bear-Access1-Phy2-IPV6",
+                "ip": "2a00:8a00:4000:7690:12::5"
             }
             ,{
-                "subnetId": "BearAc1-2-V6",
-                "ip": "2a00:8a00:6000:d040:2f::7"
+                "subnetId": "v448-Bear-Access1-Phy2-IPV6",
+                "ip": "2a00:8a00:4000:7690:12::7"
             }
             ,{
-                "subnetId": "BearAc1-2-V6",
-                "ip": "2a00:8a00:6000:d040:2f::9"
+                "subnetId": "v448-Bear-Access1-Phy2-IPV6",
+                "ip": "2a00:8a00:4000:7690:12::9"
             }
             ,{
-                "subnetId": "BearAc1-2-V6",
-                "ip": "2a00:8a00:6000:d040:2f::11"
+                "subnetId": "v448-Bear-Access1-Phy2-IPV6",
+                "ip": "2a00:8a00:4000:7690:12::11"
             }
             ,{
-                "subnetId": "BearAc1-2-V6",
-                "ip": "2a00:8a00:6000:d040:2f::13"
+                "subnetId": "v448-Bear-Access1-Phy2-IPV6",
+                "ip": "2a00:8a00:4000:7690:12::13"
             }
           ]
         }
@@ -197,29 +197,29 @@
           "cpdId": "mate_pim_B_voice1_ipv6_ecp",
           "addresses": [
             {
-                "subnetId": "BearAc1-2-V6",
-                "ip": "2a00:8a00:6000:d040:2f::6"
+                "subnetId": "v448-Bear-Access1-Phy2-IPV6",
+                "ip": "2a00:8a00:4000:7690:12::6"
             }
             ,{
-                "subnetId": "BearAc1-2-V6",
-                "ip": "2a00:8a00:6000:d040:2f::8"
+                "subnetId": "v448-Bear-Access1-Phy2-IPV6",
+                "ip": "2a00:8a00:4000:7690:12::8"
             }
             ,{
-                "subnetId": "BearAc1-2-V6",
-                "ip": "2a00:8a00:6000:d040:2f::10"
+                "subnetId": "v448-Bear-Access1-Phy2-IPV6",
+                "ip": "2a00:8a00:4000:7690:12::10"
             }
             ,{
-                "subnetId": "BearAc1-2-V6",
-                "ip": "2a00:8a00:6000:d040:2f::12"
+                "subnetId": "v448-Bear-Access1-Phy2-IPV6",
+                "ip": "2a00:8a00:4000:7690:12::12"
             }
             ,{
-                "subnetId": "BearAc1-2-V6",
-                "ip": "2a00:8a00:6000:d040:2f::14"
+                "subnetId": "v448-Bear-Access1-Phy2-IPV6",
+                "ip": "2a00:8a00:4000:7690:12::14"
             }
           ]
         }
       ],
-      "resourceId": "Bear-Access1-2"
+      "resourceId": "v448-Bear-Access1-PHYSENT2"
     }
     ,{
       "extCps": [
@@ -227,24 +227,24 @@
           "cpdId": "mate_pim_A_voice2_ipv6_ecp",
           "addresses": [
             {
-                "subnetId": "BearCo1-2-V6",
-                "ip": "2a00:8a00:6000:d040:3b::5"
+                "subnetId": "v450-Bear-Core1-Phy2-IPV6",
+                "ip": "2a00:8a00:4000:7690:14::5"
             }
             ,{
-                "subnetId": "BearCo1-2-V6",
-                "ip": "2a00:8a00:6000:d040:3b::7"
+                "subnetId": "v450-Bear-Core1-Phy2-IPV6",
+                "ip": "2a00:8a00:4000:7690:14::7"
             }
             ,{
-                "subnetId": "BearCo1-2-V6",
-                "ip": "2a00:8a00:6000:d040:3b::9"
+                "subnetId": "v450-Bear-Core1-Phy2-IPV6",
+                "ip": "2a00:8a00:4000:7690:14::9"
             }
             ,{
-                "subnetId": "BearCo1-2-V6",
-                "ip": "2a00:8a00:6000:d040:3b::11"
+                "subnetId": "v450-Bear-Core1-Phy2-IPV6",
+                "ip": "2a00:8a00:4000:7690:14::11"
             }
             ,{
-                "subnetId": "BearCo1-2-V6",
-                "ip": "2a00:8a00:6000:d040:3b::13"
+                "subnetId": "v450-Bear-Core1-Phy2-IPV6",
+                "ip": "2a00:8a00:4000:7690:14::13"
             }
           ]
         }
@@ -252,29 +252,29 @@
           "cpdId": "mate_pim_B_voice2_ipv6_ecp",
           "addresses": [
             {
-                "subnetId": "BearCo1-2-V6",
-                "ip": "2a00:8a00:6000:d040:3b::6"
+                "subnetId": "v450-Bear-Core1-Phy2-IPV6",
+                "ip": "2a00:8a00:4000:7690:14::6"
             }
             ,{
-                "subnetId": "BearCo1-2-V6",
-                "ip": "2a00:8a00:6000:d040:3b::8"
+                "subnetId": "v450-Bear-Core1-Phy2-IPV6",
+                "ip": "2a00:8a00:4000:7690:14::8"
             }
             ,{
-                "subnetId": "BearCo1-2-V6",
-                "ip": "2a00:8a00:6000:d040:3b::10"
+                "subnetId": "v450-Bear-Core1-Phy2-IPV6",
+                "ip": "2a00:8a00:4000:7690:14::10"
             }
             ,{
-                "subnetId": "BearCo1-2-V6",
-                "ip": "2a00:8a00:6000:d040:3b::12"
+                "subnetId": "v450-Bear-Core1-Phy2-IPV6",
+                "ip": "2a00:8a00:4000:7690:14::12"
             }
             ,{
-                "subnetId": "BearCo1-2-V6",
-                "ip": "2a00:8a00:6000:d040:3b::14"
+                "subnetId": "v450-Bear-Core1-Phy2-IPV6",
+                "ip": "2a00:8a00:4000:7690:14::14"
             }
           ]
         }
       ],
-      "resourceId": "Bear-Core1-2"
+      "resourceId": "v450-Bear-Core1-PHYSENT2"
     }
     , {
       "extCps": [
@@ -305,8 +305,8 @@
           "cpdId": "scm_10_oam_ipv4_ecp",
           "addresses": [
             {
-              "subnetId": "OAM-V4",
-              "ip": "10.75.44.10"
+              "subnetId": "v438-OAM-IPV4",
+              "ip": "100.69.127.150"
             }
           ]
          }
@@ -314,8 +314,8 @@
           "cpdId": "scm_10_oam_ipv6_ecp",
           "addresses": [
             {
-              "subnetId": "OAM-V6",
-              "ip": "2a00:8a00:6000:d040:44::20"
+              "subnetId": "v438-OAM-IPV6",
+              "ip": "2a00:8a00:4000:7690:8::13"
             }
           ]
         }
@@ -323,8 +323,8 @@
           "cpdId": "scm_11_oam_ipv4_ecp",
           "addresses": [
             {
-              "subnetId": "OAM-V4",
-              "ip": "10.75.44.11"
+              "subnetId": "v438-OAM-IPV4",
+              "ip": "100.69.127.151"
             }
           ]
          }
@@ -332,13 +332,13 @@
           "cpdId": "scm_11_oam_ipv6_ecp",
           "addresses": [
             {
-              "subnetId": "OAM-V6",
-              "ip": "2a00:8a00:6000:d040:44::21"
+              "subnetId": "v438-OAM-IPV6",
+              "ip": "2a00:8a00:4000:7690:8::14"
             }
           ]
         }
       ], 
-      "resourceId": "OAM"
+      "resourceId": "v438-OAM"
     }
 ]
 }

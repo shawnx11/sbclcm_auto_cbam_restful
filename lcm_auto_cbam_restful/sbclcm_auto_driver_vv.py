@@ -77,12 +77,14 @@ media_vnfdId_SU = ''
 # mediaVersion = 'an100052'
 # mediaVersion_SU = 'an100053'
 # R20.2
-# sigVersion = '37.28.06'
-# sigVersion_SU = '37.34.06'
-sigVersion = '37.34.06'
-sigVersion_SU = '37.34.06.0020'
-mediaVersion = 'an100053'
-mediaVersion_SU = 'ap100013'
+sigVersion = '37.28.06'
+sigVersion_SU = '37.34.06'
+# sigVersion = '37.34.06'
+# sigVersion_SU = '37.34.06.0020'
+# mediaVersion = 'an100053'
+# mediaVersion_SU = 'ap100013'
+mediaVersion = 'ap100016'
+mediaVersion_SU = 'ap100017'
 
 ########################################################################################################################
 # Util Functions
@@ -240,7 +242,6 @@ def get_token():
     s.mount('https://', HTTPAdapter(max_retries=10))
     address = cbam_url + '/auth/realms/cbam/protocol/openid-connect/token'
     try:
-        # response = s.post(address, data=data, headers=headers, timeout=240, verify=False)
         response = s.post(address, data=data, headers=headers, timeout=240, verify=False, proxies=proxies)
     except requests.exceptions.RequestException as e:
         print(e)
@@ -277,19 +278,15 @@ def send_request(type='GET', url='', data=None, expect_code=200, timeout=180, re
     try:
         if type == 'GET':
             headers = {"Authorization": token_bear}
-            # response = s.get(url, headers=headers, timeout=timeout, verify=False)
             response = s.get(url, headers=headers, timeout=timeout, verify=False, proxies=proxies)
         if type == 'POST':
             headers = {"Authorization": token_bear, "Content-Type": "application/json"}
-            # response = s.post(url, headers=headers, json=data, timeout=timeout, verify=False)
             response = s.post(url, headers=headers, json=data, timeout=timeout, verify=False, proxies=proxies)
         if type == 'DELETE':
             headers = {"Authorization": token_bear}
-            # response = s.delete(url, headers=headers, timeout=timeout, verify=False)
             response = s.delete(url, headers=headers, timeout=timeout, verify=False, proxies=proxies)
         if type == 'PATCH':
             headers = {"Authorization": token_bear, "Content-Type": "application/json"}
-            # response = s.patch(url, headers=headers, json=data, timeout=timeout, verify=False)
             response = s.patch(url, headers=headers, json=data, timeout=timeout, verify=False, proxies=proxies)
     except requests.exceptions.RequestException as e:
         print(e)
@@ -309,11 +306,9 @@ def get_vnfs():
     token_bear = get_token()
     headers = {'Authorization': token_bear}
     address = cbam_url + '/vnflcm/v1' + '/vnf_instances'
-    # response = requests.get(address, headers=headers, verify=False)
     response = requests.get(address, headers=headers, verify=False, proxies=proxies)
     data = json.loads(response.text)
     for vnf in data:
-        # print('\n Now is: ', vnf['name'])
         for i, j in vnf.items():
             print(i, ':', j)
 
@@ -321,7 +316,6 @@ def get_vnf_packages():
     token_bear = get_token()
     headers = {'Authorization': token_bear}
     address = cbam_url + '/vnfpkgm/v1' + '/vnf_packages'
-    # response = requests.get(address, headers=headers, verify=False)
     response = requests.get(address, headers=headers, verify=False, proxies=proxies)
     dump_response_data(response, 'get_vnf_packages')
 
@@ -1498,8 +1492,8 @@ class SigVnfLcmTestDriver(SBCVnfLcmTestDriver):
         self.sig_oama_ip = '100.69.127.133'
         self.sig_oam_login = 'root'
         self.sig_oam_passwd = 'newsys'
-        # self.fixed_scm_ip = '100.69.127.150,100.69.127.151'
-        self.fixed_scm_ip = '10.75.44.10,10.75.44.11'
+        self.fixed_scm_ip = '100.69.127.150,100.69.127.151'
+        # self.fixed_scm_ip = '10.75.44.10,10.75.44.11'
         self.restore_media_plane = 'ALL'
         self.cssu_zip = 'cssu_archive.zip'
         self.backup_zip = 'backup.zip'
@@ -1737,13 +1731,13 @@ class MediaVnfLcmTestDriver(SBCVnfLcmTestDriver):
         self.vnf_name = 'sbgw01'
         # self.vnf_type = 'media'
         # pl043
-        # self.scma_ip = '100.69.127.150'
-        # self.scmb_ip = '100.69.127.151'
-        # self.scm_vip = '100.69.127.152'
+        self.scma_ip = '100.69.127.150'
+        self.scmb_ip = '100.69.127.151'
+        self.scm_vip = '100.69.127.152'
         # pl011
-        self.scma_ip = '10.75.44.10'
-        self.scmb_ip = '10.75.44.11'
-        self.scm_vip = '10.75.44.12'
+        # self.scma_ip = '10.75.44.10'
+        # self.scmb_ip = '10.75.44.11'
+        # self.scm_vip = '10.75.44.12'
         self.backup_zip = 'BACKUP_C.ZIP'
         self.lcm_user = 'cloud-user'
         self.appl_user = 'diag'
@@ -1756,7 +1750,10 @@ class MediaVnfLcmTestDriver(SBCVnfLcmTestDriver):
         self.stbySCM_list = []
         self.stbyALL_list = []
         self.su_to_image = 'nokia-mgw-rhel7.7-3.10.0-1062.4.1.ap100013.x86_64.qcow2'
-        self.backup_url = 'http://100.69.127.146/sbclcm-auto/BACKUP_C.ZIP'
+        #pl011
+        self.backup_url = 'http://10.75.44.7/sbclcm-auto/BACKUP_C.ZIP'
+        # pl043
+        # self.backup_url = 'http://100.69.127.146/sbclcm-auto/BACKUP_C.ZIP'
         # Following are additionalParams for various operations
         # For backup:
         self.additinalParams_Backup_Local = {
@@ -2021,12 +2018,12 @@ class MediaVnfLcmTestDriver(SBCVnfLcmTestDriver):
 # type : ['instantiation', 'su', 'dr', 'cssu']
 # rel : load release to artifacts to be generated, to be passed to yact tool
 # server_type: httpserver1, httpserver2, httpserver12, bkupserver1, bkupserver2, bkupserver12
-default_rel = 'R20.2'
-# default_rel = 'R20.0'
+# default_rel = 'R20.2'
+default_rel = 'R20.0'
 toload_rel = 'R20.2'
 server_type_list =['httpserver1', 'httpserver2', 'httpserver12', 'bkupserver1', 'bkupserver2', 'bkupserver12']
-sig_dif_name = 'SBC-signaling_R20.2.xlsm'
-# sig_dif_name = 'SBC-signaling_R20.0.xlsm'
+# sig_dif_name = 'SBC-signaling_R20.2.xlsm'
+sig_dif_name = 'SBC-signaling_R20.0.xlsm'
 sig_dr_dif_name = 'SBC-signaling_R20.2-dr.xlsm'
 sig_su_dif_name = 'SBC-signaling_R20.2-su.xlsm'
 sig_cssu_dif_name = 'SBC-signaling_R20.2-cssu.xlsm'
@@ -2079,8 +2076,22 @@ class SigVnfArtsGenerator(object):
         self.backup_server_passwd = 'newsys'
         # pl043
         # self.backup_server_dir = '/root/lcm-data/httpserver/sbclcm-auto/'
+        # self.bulk_conf_url      = 'http://100.69.127.146/sbclcm-auto/bulkconf_artifacts.zip'
+        # self.backup_file1_http  = 'http://100.69.127.146/sbclcm-auto/backup.zip'
+        # self.backup_file2_http  = 'http://100.69.127.146/sbclcm-auto/backup.zip'
+        # self.backup_file1_creds = 'centos@100.69.127.146:/root/lcm-data/httpserver/sbclcm-auto/backup.zip'
+        # self.backup_file2_creds = 'centos@100.69.127.146:/root/lcm-data/httpserver/sbclcm-auto/backup.zip'
+        # self.upgrade_file_http  = 'http://100.69.127.146/sbclcm-auto/cssu_archive.zip'
+        # self.upgrade_file_creds = 'centos@100.69.127.146:/root/lcm-data/httpserver/sbclcm-auto/cssu_archive.zip'
         # pl011
-        self.backup_server_dir = '/var/www/html/sbclcm-auto/'
+        self.backup_server_dir  = '/var/www/html/sbclcm-auto/'
+        self.bulk_conf_url      = 'http://10.75.44.7/sbclcm-auto/bulkconf_artifacts.zip'
+        self.backup_file1_http  = 'http://10.75.44.7/sbclcm-auto/backup.zip'
+        self.backup_file2_http  = 'http://10.75.44.7/sbclcm-auto/backup.zip'
+        self.backup_file1_creds = 'centos@10.75.44.7:/var/www/html/sbclcm-auto/backup.zip'
+        self.backup_file2_creds = 'centos@10.75.44.7:/var/www/html/sbclcm-auto/backup.zip'
+        self.upgrade_file_http  = "http://10.75.44.7/sbclcm-auto/cssu_archive.zip"
+        self.upgrade_file_creds = 'centos@10.75.44.7:/var/www/html/sbclcm-auto/cssu_archive.zip'
         self.backup_file_name = 'backup.zip'
         self.ssh_type = 'passwd'
         self.backup_file = self.backup_server_dir + self.backup_file_name
@@ -2090,15 +2101,14 @@ class SigVnfArtsGenerator(object):
             "backup_file2": "",
             "backup_server_credentials1": "",
             "backup_server_credentials2": "",
-            "bulk_conf_url": "http://10.75.44.7/sbclcm-auto/bulkconf_artifacts.zip",
-            # "bulk_conf_url": "http://100.69.127.146/sbclcm-auto/bulkconf_artifacts.zip",
+            "bulk_conf_url": self.bulk_conf_url,
             "skip_health_check": "No",
             "upgrade_file": "",
             "upgrade_server_credentials": ""
         }
         self.ap_dr_instantiation = {
-            "backup_file1": "http://100.69.127.146/sbclcm-auto/backup.zip",
-            "backup_file2": "http://100.69.127.146/sbclcm-auto/backup.zip",
+            "backup_file1": self.backup_file1_http,
+            "backup_file2": self.backup_file2_http,
             "backup_server_credentials1": "",
             "backup_server_credentials2": "",
             "bulk_conf_url": "",
@@ -2107,7 +2117,7 @@ class SigVnfArtsGenerator(object):
             "upgrade_server_credentials": ""
         }
         self.ap_dr_instantiation_http1 = {
-            "backup_file1": "http://100.69.127.146/sbclcm-auto/backup.zip",
+            "backup_file1": self.backup_file1_http,
             "backup_file2": "",
             "backup_server_credentials1": "",
             "backup_server_credentials2": "",
@@ -2118,7 +2128,7 @@ class SigVnfArtsGenerator(object):
         }
         self.ap_dr_instantiation_http2 = {
             "backup_file1": "",
-            "backup_file2": "http://100.69.127.146/sbclcm-auto/backup.zip",
+            "backup_file2": self.backup_file2_http,
             "backup_server_credentials1": "",
             "backup_server_credentials2": "",
             "bulk_conf_url": "",
@@ -2127,8 +2137,8 @@ class SigVnfArtsGenerator(object):
             "upgrade_server_credentials": ""
         }
         self.ap_dr_instantiation_http12 = {
-            "backup_file1": "http://100.69.127.146/sbclcm-auto/backup.zip",
-            "backup_file2": "http://100.69.127.146/sbclcm-auto/backup.zip",
+            "backup_file1": self.backup_file1_http,
+            "backup_file2": self.backup_file2_http,
             "backup_server_credentials1": "",
             "backup_server_credentials2": "",
             "bulk_conf_url": "",
@@ -2137,7 +2147,7 @@ class SigVnfArtsGenerator(object):
             "upgrade_server_credentials": ""
         }
         self.ap_dr_instantiation_creds1 = {
-            "backup_file1": "centos@100.69.127.146:/root/lcm-data/httpserver/sbclcm-auto/backup.zip",
+            "backup_file1": self.backup_file1_creds,
             "backup_file2": "",
             "backup_server_credentials1": backup_server_creds,
             "backup_server_credentials2": "",
@@ -2148,7 +2158,7 @@ class SigVnfArtsGenerator(object):
         }
         self.ap_dr_instantiation_creds2 = {
             "backup_file1": "",
-            "backup_file2": "centos@100.69.127.146:/root/lcm-data/httpserver/sbclcm-auto/backup.zip",
+            "backup_file2": self.backup_file2_creds,
             "backup_server_credentials1": "",
             "backup_server_credentials2": backup_server_creds,
             "bulk_conf_url": "",
@@ -2157,8 +2167,8 @@ class SigVnfArtsGenerator(object):
             "upgrade_server_credentials": ""
         }
         self.ap_dr_instantiation_creds12 = {
-            "backup_file1": "centos@100.69.127.146:/root/lcm-data/httpserver/sbclcm-auto/backup.zip",
-            "backup_file2": "centos@100.69.127.146:/root/lcm-data/httpserver/sbclcm-auto/backup.zip",
+            "backup_file1": self.backup_file1_creds,
+            "backup_file2": self.backup_file2_creds,
             "backup_server_credentials1": backup_server_creds,
             "backup_server_credentials2": backup_server_creds,
             "bulk_conf_url": "",
@@ -2173,8 +2183,7 @@ class SigVnfArtsGenerator(object):
             "backup_server_credentials2": "",
             "bulk_conf_url": "",
             "skip_health_check": "No",
-            # "upgrade_file": "http://100.69.127.146/sbclcm-auto/cssu_archive.zip",
-            "upgrade_file": "http://10.75.44.7/sbclcm-auto/cssu_archive.zip",
+            "upgrade_file": self.upgrade_file_http,
             "upgrade_server_credentials": ""
         }
         self.ap_cssu_instantiation_creds1 = {
@@ -2184,8 +2193,7 @@ class SigVnfArtsGenerator(object):
             "backup_server_credentials2": "",
             "bulk_conf_url": "",
             "skip_health_check": "No",
-            # "upgrade_file": "centos@100.69.127.146:/root/lcm-data/httpserver/sbclcm-auto/cssu_archive.zip",
-            "upgrade_file": "centos@10.75.44.7:/var/www/html/sbclcm-auto/cssu_archive.zip",
+            "upgrade_file": self.upgrade_file_creds,
             "upgrade_server_credentials": backup_server_creds
         }
 
@@ -2525,11 +2533,11 @@ def sigvnf_GenArtsDR():
     sigArts.prep_arts()
 
 def sigvnf_GenArtsSU():
-    sigArts = SigVnfArtsGenerator(type='su', rel=default_rel)
+    sigArts = SigVnfArtsGenerator(type='su', rel=toload_rel)
     sigArts.prep_arts()
 
 def sigvnf_GenArtsCSSU():
-    sigArts = SigVnfArtsGenerator(type='cssu', rel=default_rel)
+    sigArts = SigVnfArtsGenerator(type='cssu', rel=toload_rel)
     sigArts.prep_arts()
 
 def sigvnf_GenArts():
@@ -2694,7 +2702,7 @@ class MediaVnfArtsGenerator(object):
             interact.expect(prompt)
         else:
             interact.send(cmd)
-            interact.expect(PROMPT)
+            interact.expect(prompt)
 
     def run_mmyact(self):
         try:
@@ -4422,6 +4430,10 @@ if __name__ == '__main__':
     # Following are for sig VNF tests
     ##################################
     # sigvnf_GenArts()
+    # sigvnf_GenArtsInstantiation()
+    # sigvnf_GenArtsDR()
+    sigvnf_GenArtsSU()
+    # sigvnf_GenArtsCSSU()
 
     # TS_sigvnf_tests_td()
     # TS_sigvnf_tests_cim()
@@ -4450,10 +4462,10 @@ if __name__ == '__main__':
     # TS_sigvnf_tests_heal_s()
 
     # TS_sigvnf_tests_heal_s_r()
-    TS_sigvnf_tests_heal_s_r_mt()
-
-    TS_sigvnf_tests_bkup()
-    TS_sigvnf_tests_br()
+    # TS_sigvnf_tests_heal_s_r_mt()
+    #
+    # TS_sigvnf_tests_bkup()
+    # TS_sigvnf_tests_br()
 
     # TS_sigvnf_tests_dr()
     # TS_sigvnf_tests_dr_http12()

@@ -6,70 +6,70 @@
       "value":  {
       "vnf_name": "sbgw01",
       "vnf_id": "10000",
-      "key_name": "cb0078sa",
+      "key_name": "a321",
       "vm_char": "vm",
       "bgw_id": "1",
       "platform": "OpenStack",
       "boot_resource": "boot-from-image",
     
       "vm_flavor": {
-        "10": "SCM-4"
-        ,"11": "SCM-4"
-        ,"19": "PIM-8"
-        ,"20": "PIM-8"
-        ,"17": "PIM-8"
-        ,"18": "PIM-8"
-        ,"15": "PIM-8"
-        ,"16": "PIM-8"
-        ,"13": "PIM-8"
-        ,"14": "PIM-8"
-        ,"7": "PIM-8"
-        ,"8": "PIM-8"
-        ,"1": "MCM-12"
-        ,"2": "MCM-12"
-        ,"3": "MCM-12"
-        ,"4": "MCM-12"
-        ,"5": "MCM-12"
+        "10": "sbcscm"
+        ,"11": "sbcscm"
+        ,"19": "sbcpim"
+        ,"20": "sbcpim"
+        ,"17": "sbcpim"
+        ,"18": "sbcpim"
+        ,"15": "sbcpim"
+        ,"16": "sbcpim"
+        ,"13": "sbcpim"
+        ,"14": "sbcpim"
+        ,"7": "sbcpim"
+        ,"8": "sbcpim"
+        ,"1": "sbcmcm"
+        ,"2": "sbcmcm"
+        ,"3": "sbcmcm"
+        ,"4": "sbcmcm"
+        ,"5": "sbcmcm"
       },
 
       "vm_sw_image": {
-        "10": "nokia-mgw-rhel7.7-3.10.0-1062.4.1.ap100009.x86_64.qcow2"
-        ,"11": "nokia-mgw-rhel7.7-3.10.0-1062.4.1.ap100009.x86_64.qcow2"
-        ,"19": "nokia-mgw-rhel7.7-3.10.0-1062.4.1.ap100009.x86_64.qcow2"
-        ,"20": "nokia-mgw-rhel7.7-3.10.0-1062.4.1.ap100009.x86_64.qcow2"
-        ,"17": "nokia-mgw-rhel7.7-3.10.0-1062.4.1.ap100009.x86_64.qcow2"
-        ,"18": "nokia-mgw-rhel7.7-3.10.0-1062.4.1.ap100009.x86_64.qcow2"
-        ,"15": "nokia-mgw-rhel7.7-3.10.0-1062.4.1.ap100009.x86_64.qcow2"
-        ,"16": "nokia-mgw-rhel7.7-3.10.0-1062.4.1.ap100009.x86_64.qcow2"
-        ,"13": "nokia-mgw-rhel7.7-3.10.0-1062.4.1.ap100009.x86_64.qcow2"
-        ,"14": "nokia-mgw-rhel7.7-3.10.0-1062.4.1.ap100009.x86_64.qcow2"
-        ,"7": "nokia-mgw-rhel7.7-3.10.0-1062.4.1.ap100009.x86_64.qcow2"
-        ,"8": "nokia-mgw-rhel7.7-3.10.0-1062.4.1.ap100009.x86_64.qcow2"
-        ,"1": "nokia-mgw-rhel7.7-3.10.0-1062.4.1.ap100009.x86_64.qcow2"
-        ,"2": "nokia-mgw-rhel7.7-3.10.0-1062.4.1.ap100009.x86_64.qcow2"
-        ,"3": "nokia-mgw-rhel7.7-3.10.0-1062.4.1.ap100009.x86_64.qcow2"
-        ,"4": "nokia-mgw-rhel7.7-3.10.0-1062.4.1.ap100009.x86_64.qcow2"
-        ,"5": "nokia-mgw-rhel7.7-3.10.0-1062.4.1.ap100009.x86_64.qcow2"
+        "10": "nokia-mgw-rhel7.7-3.10.0-1062.4.1.an100053.x86_64.qcow2"
+        ,"11": "nokia-mgw-rhel7.7-3.10.0-1062.4.1.an100053.x86_64.qcow2"
+        ,"19": "nokia-mgw-rhel7.7-3.10.0-1062.4.1.an100053.x86_64.qcow2"
+        ,"20": "nokia-mgw-rhel7.7-3.10.0-1062.4.1.an100053.x86_64.qcow2"
+        ,"17": "nokia-mgw-rhel7.7-3.10.0-1062.4.1.an100053.x86_64.qcow2"
+        ,"18": "nokia-mgw-rhel7.7-3.10.0-1062.4.1.an100053.x86_64.qcow2"
+        ,"15": "nokia-mgw-rhel7.7-3.10.0-1062.4.1.an100053.x86_64.qcow2"
+        ,"16": "nokia-mgw-rhel7.7-3.10.0-1062.4.1.an100053.x86_64.qcow2"
+        ,"13": "nokia-mgw-rhel7.7-3.10.0-1062.4.1.an100053.x86_64.qcow2"
+        ,"14": "nokia-mgw-rhel7.7-3.10.0-1062.4.1.an100053.x86_64.qcow2"
+        ,"7": "nokia-mgw-rhel7.7-3.10.0-1062.4.1.an100053.x86_64.qcow2"
+        ,"8": "nokia-mgw-rhel7.7-3.10.0-1062.4.1.an100053.x86_64.qcow2"
+        ,"1": "nokia-mgw-rhel7.7-3.10.0-1062.4.1.an100053.x86_64.qcow2"
+        ,"2": "nokia-mgw-rhel7.7-3.10.0-1062.4.1.an100053.x86_64.qcow2"
+        ,"3": "nokia-mgw-rhel7.7-3.10.0-1062.4.1.an100053.x86_64.qcow2"
+        ,"4": "nokia-mgw-rhel7.7-3.10.0-1062.4.1.an100053.x86_64.qcow2"
+        ,"5": "nokia-mgw-rhel7.7-3.10.0-1062.4.1.an100053.x86_64.qcow2"
       },
      
       "vm_compute_avail_zone": {
-        "10": "Host-Group_Lsriov_z1"
-        ,"11": "Host-Group_Lsriov_z2"
-        ,"19": "Host-Group_Lsriov_z1"
-        ,"20": "Host-Group_Lsriov_z2"
-        ,"17": "Host-Group_Lsriov_z1"
-        ,"18": "Host-Group_Lsriov_z2"
-        ,"15": "Host-Group_Lsriov_z1"
-        ,"16": "Host-Group_Lsriov_z2"
-        ,"13": "Host-Group_Lsriov_z1"
-        ,"14": "Host-Group_Lsriov_z2"
-        ,"7": "Host-Group_Lsriov_z1"
-        ,"8": "Host-Group_Lsriov_z2"
-        ,"1": "Host-Group_Lsriov_z1"
-        ,"2": "Host-Group_Lsriov_z2"
-        ,"3": "Host-Group_Lsriov_z1"
-        ,"4": "Host-Group_Lsriov_z2"
-        ,"5": "Host-Group_Lsriov_z1"
+        "10": "zone1"
+        ,"11": "zone2"
+        ,"19": "zone1"
+        ,"20": "zone2"
+        ,"17": "zone1"
+        ,"18": "zone2"
+        ,"15": "zone1"
+        ,"16": "zone2"
+        ,"13": "zone1"
+        ,"14": "zone2"
+        ,"7": "zone1"
+        ,"8": "zone2"
+        ,"1": "zone1"
+        ,"2": "zone2"
+        ,"3": "zone1"
+        ,"4": "zone1"
+        ,"5": "zone1"
       },
       "vm_block_storage_avail_zone": {
         "10": "nova"
@@ -174,327 +174,327 @@
               "subnet": "h248_subnet",
               "fixed_ips": ["192.168.1.101", "192.168.1.102"],
               "vip_ip": [
-                "192.168.1.100/24"
+                "192.168.1.100"
               ]
             }
             ,"allowed_address_pairs": [
-              {"ip_address": "192.168.1.100/24"}
+              {"ip_address": "192.168.1.100"}
             ]
                                        }
           ,"OAM": {
-            "network": "v438-OAM"
+            "network": "OAM"
             ,"ipv4": {
-              "subnet": "v438-OAM-IPV4",
-              "fixed_ips": ["100.69.127.150", "100.69.127.151"],
-              "cidr": "100.69.127.134/27",
-              "gw": "100.69.127.129",
+              "subnet": "OAM-V4",
+              "fixed_ips": ["10.75.44.10", "10.75.44.11"],
+              "cidr": "10.75.44.10/27",
+              "gw": "10.75.44.1",
               "vip_ip": [
-                "100.69.127.152/27"
+                "10.75.44.12"
               ]
             }
             ,"ipv6": {
-              "subnet": "v438-OAM-IPV6",
-              "fixed_ips": ["2a00:8a00:4000:7690:8::13", "2a00:8a00:4000:7690:8::14"],
-              "cidr": "2a00:8a00:4000:7690:8::13/80",
-              "gw": "2a00:8a00:4000:7690:8::1",
+              "subnet": "OAM-V6",
+              "fixed_ips": ["2a00:8a00:6000:d040:44::20", "2a00:8a00:6000:d040:44::21"],
+              "cidr": "2a00:8a00:6000:d040:44::20/80",
+              "gw": "2a00:8a00:6000:d040:44::1",
               "vip_ip": [
-                "2a00:8a00:4000:7690:8::15/80"
+                "2a00:8a00:6000:d040:44::22"
               ]
             }
             ,"allowed_address_pairs": [
-              {"ip_address": "100.69.127.152/27"}
-              ,{"ip_address": "2a00:8a00:4000:7690:8::15/80"}
+              {"ip_address": "10.75.44.12"}
+              ,{"ip_address": "2a00:8a00:6000:d040:44::22"}
             ]
                                        }
         },
 
         "PIM1": [
           {
-            "network": "v448-Bear-Access1-PHYSENT1"
+            "network": "Bear-Access1-1"
             ,"ipv6": {
-              "fixed_ips": ["2a00:8a00:4000:7690:12::5", "2a00:8a00:4000:7690:12::6"],
+              "fixed_ips": ["2a00:8a00:6000:d040:2f::5", "2a00:8a00:6000:d040:2f::6"],
               "vip_ip": [
-                "2a00:8a00:4000:7690:12::15/80"
+                "2a00:8a00:6000:d040:2f::15"
               ],
-              "subnet": "v448-Bear-Access1-Phy1-IPV6"
+              "subnet": "BearAc1-1-V6"
             }
             ,"allowed_address_pairs": [
-              {"ip_address": "2a00:8a00:4000:7690:12::15/80"}
+              {"ip_address": "2a00:8a00:6000:d040:2f::15"}
             ]
           }
           ,{
-            "network": "v450-Bear-Core1-PHYSENT1"
+            "network": "Bear-Core1-1"
             ,"ipv6": {
-              "fixed_ips": ["2a00:8a00:4000:7690:14::5", "2a00:8a00:4000:7690:14::6"],
+              "fixed_ips": ["2a00:8a00:6000:d040:3b::5", "2a00:8a00:6000:d040:3b::6"],
               "vip_ip": [
-                "2a00:8a00:4000:7690:14::15/80"
+                "2a00:8a00:6000:d040:3b::15"
               ],
-              "subnet": "v450-Bear-Core1-Phy1-IPV6"
+              "subnet": "BearCo1-1-V6"
             }
             ,"allowed_address_pairs": [
-              {"ip_address": "2a00:8a00:4000:7690:14::15/80"}
+              {"ip_address": "2a00:8a00:6000:d040:3b::15"}
             ]
           }
         ]
         ,"PIM2": [
           {
-            "network": "v448-Bear-Access1-PHYSENT1"
+            "network": "Bear-Access1-1"
             ,"ipv6": {
-              "fixed_ips": ["2a00:8a00:4000:7690:12::7", "2a00:8a00:4000:7690:12::8"],
+              "fixed_ips": ["2a00:8a00:6000:d040:2f::7", "2a00:8a00:6000:d040:2f::8"],
               "vip_ip": [
-                "2a00:8a00:4000:7690:12::16/80"
+                "2a00:8a00:6000:d040:2f::16"
               ],
-              "subnet": "v448-Bear-Access1-Phy1-IPV6"
+              "subnet": "BearAc1-1-V6"
             }
             ,"allowed_address_pairs": [
-              {"ip_address": "2a00:8a00:4000:7690:12::16/80"}
+              {"ip_address": "2a00:8a00:6000:d040:2f::16"}
             ]
           }
           ,{
-            "network": "v450-Bear-Core1-PHYSENT1"
+            "network": "Bear-Core1-1"
             ,"ipv6": {
-              "fixed_ips": ["2a00:8a00:4000:7690:14::7", "2a00:8a00:4000:7690:14::8"],
+              "fixed_ips": ["2a00:8a00:6000:d040:3b::7", "2a00:8a00:6000:d040:3b::8"],
               "vip_ip": [
-                "2a00:8a00:4000:7690:14::16/80"
+                "2a00:8a00:6000:d040:3b::16"
               ],
-              "subnet": "v450-Bear-Core1-Phy1-IPV6"
+              "subnet": "BearCo1-1-V6"
             }
             ,"allowed_address_pairs": [
-              {"ip_address": "2a00:8a00:4000:7690:14::16/80"}
+              {"ip_address": "2a00:8a00:6000:d040:3b::16"}
             ]
           }
         ]
         ,"PIM3": [
           {
-            "network": "v448-Bear-Access1-PHYSENT1"
+            "network": "Bear-Access1-1"
             ,"ipv6": {
-              "fixed_ips": ["2a00:8a00:4000:7690:12::9", "2a00:8a00:4000:7690:12::10"],
+              "fixed_ips": ["2a00:8a00:6000:d040:2f::9", "2a00:8a00:6000:d040:2f::10"],
               "vip_ip": [
-                "2a00:8a00:4000:7690:12::17/80"
+                "2a00:8a00:6000:d040:2f::17"
               ],
-              "subnet": "v448-Bear-Access1-Phy1-IPV6"
+              "subnet": "BearAc1-1-V6"
             }
             ,"allowed_address_pairs": [
-              {"ip_address": "2a00:8a00:4000:7690:12::17/80"}
+              {"ip_address": "2a00:8a00:6000:d040:2f::17"}
             ]
           }
           ,{
-            "network": "v450-Bear-Core1-PHYSENT1"
+            "network": "Bear-Core1-1"
             ,"ipv6": {
-              "fixed_ips": ["2a00:8a00:4000:7690:14::9", "2a00:8a00:4000:7690:14::10"],
+              "fixed_ips": ["2a00:8a00:6000:d040:3b::9", "2a00:8a00:6000:d040:3b::10"],
               "vip_ip": [
-                "2a00:8a00:4000:7690:14::17/80"
+                "2a00:8a00:6000:d040:3b::17"
               ],
-              "subnet": "v450-Bear-Core1-Phy1-IPV6"
+              "subnet": "BearCo1-1-V6"
             }
             ,"allowed_address_pairs": [
-              {"ip_address": "2a00:8a00:4000:7690:14::17/80"}
+              {"ip_address": "2a00:8a00:6000:d040:3b::17"}
             ]
           }
         ]
         ,"PIM4": [
           {
-            "network": "v448-Bear-Access1-PHYSENT1"
+            "network": "Bear-Access1-1"
             ,"ipv6": {
-              "fixed_ips": ["2a00:8a00:4000:7690:12::11", "2a00:8a00:4000:7690:12::12"],
+              "fixed_ips": ["2a00:8a00:6000:d040:2f::11", "2a00:8a00:6000:d040:2f::12"],
               "vip_ip": [
-                "2a00:8a00:4000:7690:12::18/80"
+                "2a00:8a00:6000:d040:2f::18"
               ],
-              "subnet": "v448-Bear-Access1-Phy1-IPV6"
+              "subnet": "BearAc1-1-V6"
             }
             ,"allowed_address_pairs": [
-              {"ip_address": "2a00:8a00:4000:7690:12::18/80"}
+              {"ip_address": "2a00:8a00:6000:d040:2f::18"}
             ]
           }
           ,{
-            "network": "v450-Bear-Core1-PHYSENT1"
+            "network": "Bear-Core1-1"
             ,"ipv6": {
-              "fixed_ips": ["2a00:8a00:4000:7690:14::11", "2a00:8a00:4000:7690:14::12"],
+              "fixed_ips": ["2a00:8a00:6000:d040:3b::11", "2a00:8a00:6000:d040:3b::12"],
               "vip_ip": [
-                "2a00:8a00:4000:7690:14::18/80"
+                "2a00:8a00:6000:d040:3b::18"
               ],
-              "subnet": "v450-Bear-Core1-Phy1-IPV6"
+              "subnet": "BearCo1-1-V6"
             }
             ,"allowed_address_pairs": [
-              {"ip_address": "2a00:8a00:4000:7690:14::18/80"}
+              {"ip_address": "2a00:8a00:6000:d040:3b::18"}
             ]
           }
         ]
         ,"PIM5": [
           {
-            "network": "v448-Bear-Access1-PHYSENT1"
+            "network": "Bear-Access1-1"
             ,"ipv6": {
-              "fixed_ips": ["2a00:8a00:4000:7690:12::13", "2a00:8a00:4000:7690:12::14"],
+              "fixed_ips": ["2a00:8a00:6000:d040:2f::13", "2a00:8a00:6000:d040:2f::14"],
               "vip_ip": [
-                "2a00:8a00:4000:7690:12::19/80"
+                "2a00:8a00:6000:d040:2f::19"
               ],
-              "subnet": "v448-Bear-Access1-Phy1-IPV6"
+              "subnet": "BearAc1-1-V6"
             }
             ,"allowed_address_pairs": [
-              {"ip_address": "2a00:8a00:4000:7690:12::19/80"}
+              {"ip_address": "2a00:8a00:6000:d040:2f::19"}
             ]
           }
           ,{
-            "network": "v450-Bear-Core1-PHYSENT1"
+            "network": "Bear-Core1-1"
             ,"ipv6": {
-              "fixed_ips": ["2a00:8a00:4000:7690:14::13", "2a00:8a00:4000:7690:14::14"],
+              "fixed_ips": ["2a00:8a00:6000:d040:3b::13", "2a00:8a00:6000:d040:3b::14"],
               "vip_ip": [
-                "2a00:8a00:4000:7690:14::19/80"
+                "2a00:8a00:6000:d040:3b::19"
               ],
-              "subnet": "v450-Bear-Core1-Phy1-IPV6"
+              "subnet": "BearCo1-1-V6"
             }
             ,"allowed_address_pairs": [
-              {"ip_address": "2a00:8a00:4000:7690:14::19/80"}
+              {"ip_address": "2a00:8a00:6000:d040:3b::19"}
             ]
           }
         ]
     
         ,"mate_PIM1": [
           {
-            "network": "v448-Bear-Access1-PHYSENT2"
+            "network": "Bear-Access1-2"
             ,"ipv6": {
-              "fixed_ips": ["2a00:8a00:4000:7690:12::5", "2a00:8a00:4000:7690:12::6"],
+              "fixed_ips": ["2a00:8a00:6000:d040:2f::5", "2a00:8a00:6000:d040:2f::6"],
               "vip_ip": [
-                "2a00:8a00:4000:7690:12::15/80"
+                "2a00:8a00:6000:d040:2f::15"
               ],
-              "subnet": "v448-Bear-Access1-Phy2-IPV6"
+              "subnet": "BearAc1-2-V6"
             }
             ,"allowed_address_pairs": [
-              {"ip_address": "2a00:8a00:4000:7690:12::15/80"}
+              {"ip_address": "2a00:8a00:6000:d040:2f::15"}
             ]
           }
  
           ,{
-            "network": "v450-Bear-Core1-PHYSENT2"
+            "network": "Bear-Core1-2"
             ,"ipv6": {
-              "fixed_ips": ["2a00:8a00:4000:7690:14::5", "2a00:8a00:4000:7690:14::6"],
+              "fixed_ips": ["2a00:8a00:6000:d040:3b::5", "2a00:8a00:6000:d040:3b::6"],
               "vip_ip": [
-                "2a00:8a00:4000:7690:14::15/80"
+                "2a00:8a00:6000:d040:3b::15"
               ],
-              "subnet": "v450-Bear-Core1-Phy2-IPV6"
+              "subnet": "BearCo1-2-V6"
             }
             ,"allowed_address_pairs": [
-              {"ip_address": "2a00:8a00:4000:7690:14::15/80"}
+              {"ip_address": "2a00:8a00:6000:d040:3b::15"}
             ]
           }
  
         ]
         ,"mate_PIM2": [
           {
-            "network": "v448-Bear-Access1-PHYSENT2"
+            "network": "Bear-Access1-2"
             ,"ipv6": {
-              "fixed_ips": ["2a00:8a00:4000:7690:12::7", "2a00:8a00:4000:7690:12::8"],
+              "fixed_ips": ["2a00:8a00:6000:d040:2f::7", "2a00:8a00:6000:d040:2f::8"],
               "vip_ip": [
-                "2a00:8a00:4000:7690:12::16/80"
+                "2a00:8a00:6000:d040:2f::16"
               ],
-              "subnet": "v448-Bear-Access1-Phy2-IPV6"
+              "subnet": "BearAc1-2-V6"
             }
             ,"allowed_address_pairs": [
-              {"ip_address": "2a00:8a00:4000:7690:12::16/80"}
+              {"ip_address": "2a00:8a00:6000:d040:2f::16"}
             ]
           }
  
           ,{
-            "network": "v450-Bear-Core1-PHYSENT2"
+            "network": "Bear-Core1-2"
             ,"ipv6": {
-              "fixed_ips": ["2a00:8a00:4000:7690:14::7", "2a00:8a00:4000:7690:14::8"],
+              "fixed_ips": ["2a00:8a00:6000:d040:3b::7", "2a00:8a00:6000:d040:3b::8"],
               "vip_ip": [
-                "2a00:8a00:4000:7690:14::16/80"
+                "2a00:8a00:6000:d040:3b::16"
               ],
-              "subnet": "v450-Bear-Core1-Phy2-IPV6"
+              "subnet": "BearCo1-2-V6"
             }
             ,"allowed_address_pairs": [
-              {"ip_address": "2a00:8a00:4000:7690:14::16/80"}
+              {"ip_address": "2a00:8a00:6000:d040:3b::16"}
             ]
           }
  
         ]
         ,"mate_PIM3": [
           {
-            "network": "v448-Bear-Access1-PHYSENT2"
+            "network": "Bear-Access1-2"
             ,"ipv6": {
-              "fixed_ips": ["2a00:8a00:4000:7690:12::9", "2a00:8a00:4000:7690:12::10"],
+              "fixed_ips": ["2a00:8a00:6000:d040:2f::9", "2a00:8a00:6000:d040:2f::10"],
               "vip_ip": [
-                "2a00:8a00:4000:7690:12::17/80"
+                "2a00:8a00:6000:d040:2f::17"
               ],
-              "subnet": "v448-Bear-Access1-Phy2-IPV6"
+              "subnet": "BearAc1-2-V6"
             }
             ,"allowed_address_pairs": [
-              {"ip_address": "2a00:8a00:4000:7690:12::17/80"}
+              {"ip_address": "2a00:8a00:6000:d040:2f::17"}
             ]
           }
  
           ,{
-            "network": "v450-Bear-Core1-PHYSENT2"
+            "network": "Bear-Core1-2"
             ,"ipv6": {
-              "fixed_ips": ["2a00:8a00:4000:7690:14::9", "2a00:8a00:4000:7690:14::10"],
+              "fixed_ips": ["2a00:8a00:6000:d040:3b::9", "2a00:8a00:6000:d040:3b::10"],
               "vip_ip": [
-                "2a00:8a00:4000:7690:14::17/80"
+                "2a00:8a00:6000:d040:3b::17"
               ],
-              "subnet": "v450-Bear-Core1-Phy2-IPV6"
+              "subnet": "BearCo1-2-V6"
             }
             ,"allowed_address_pairs": [
-              {"ip_address": "2a00:8a00:4000:7690:14::17/80"}
+              {"ip_address": "2a00:8a00:6000:d040:3b::17"}
             ]
           }
  
         ]
         ,"mate_PIM4": [
           {
-            "network": "v448-Bear-Access1-PHYSENT2"
+            "network": "Bear-Access1-2"
             ,"ipv6": {
-              "fixed_ips": ["2a00:8a00:4000:7690:12::11", "2a00:8a00:4000:7690:12::12"],
+              "fixed_ips": ["2a00:8a00:6000:d040:2f::11", "2a00:8a00:6000:d040:2f::12"],
               "vip_ip": [
-                "2a00:8a00:4000:7690:12::18/80"
+                "2a00:8a00:6000:d040:2f::18"
               ],
-              "subnet": "v448-Bear-Access1-Phy2-IPV6"
+              "subnet": "BearAc1-2-V6"
             }
             ,"allowed_address_pairs": [
-              {"ip_address": "2a00:8a00:4000:7690:12::18/80"}
+              {"ip_address": "2a00:8a00:6000:d040:2f::18"}
             ]
           }
  
           ,{
-            "network": "v450-Bear-Core1-PHYSENT2"
+            "network": "Bear-Core1-2"
             ,"ipv6": {
-              "fixed_ips": ["2a00:8a00:4000:7690:14::11", "2a00:8a00:4000:7690:14::12"],
+              "fixed_ips": ["2a00:8a00:6000:d040:3b::11", "2a00:8a00:6000:d040:3b::12"],
               "vip_ip": [
-                "2a00:8a00:4000:7690:14::18/80"
+                "2a00:8a00:6000:d040:3b::18"
               ],
-              "subnet": "v450-Bear-Core1-Phy2-IPV6"
+              "subnet": "BearCo1-2-V6"
             }
             ,"allowed_address_pairs": [
-              {"ip_address": "2a00:8a00:4000:7690:14::18/80"}
+              {"ip_address": "2a00:8a00:6000:d040:3b::18"}
             ]
           }
  
         ]
         ,"mate_PIM5": [
           {
-            "network": "v448-Bear-Access1-PHYSENT2"
+            "network": "Bear-Access1-2"
             ,"ipv6": {
-              "fixed_ips": ["2a00:8a00:4000:7690:12::13", "2a00:8a00:4000:7690:12::14"],
+              "fixed_ips": ["2a00:8a00:6000:d040:2f::13", "2a00:8a00:6000:d040:2f::14"],
               "vip_ip": [
-                "2a00:8a00:4000:7690:12::19/80"
+                "2a00:8a00:6000:d040:2f::19"
               ],
-              "subnet": "v448-Bear-Access1-Phy2-IPV6"
+              "subnet": "BearAc1-2-V6"
             }
             ,"allowed_address_pairs": [
-              {"ip_address": "2a00:8a00:4000:7690:12::19/80"}
+              {"ip_address": "2a00:8a00:6000:d040:2f::19"}
             ]
           }
  
           ,{
-            "network": "v450-Bear-Core1-PHYSENT2"
+            "network": "Bear-Core1-2"
             ,"ipv6": {
-              "fixed_ips": ["2a00:8a00:4000:7690:14::13", "2a00:8a00:4000:7690:14::14"],
+              "fixed_ips": ["2a00:8a00:6000:d040:3b::13", "2a00:8a00:6000:d040:3b::14"],
               "vip_ip": [
-                "2a00:8a00:4000:7690:14::19/80"
+                "2a00:8a00:6000:d040:3b::19"
               ],
-              "subnet": "v450-Bear-Core1-Phy2-IPV6"
+              "subnet": "BearCo1-2-V6"
             }
             ,"allowed_address_pairs": [
-              {"ip_address": "2a00:8a00:4000:7690:14::19/80"}
+              {"ip_address": "2a00:8a00:6000:d040:3b::19"}
             ]
           }
  
@@ -539,12 +539,12 @@
   {
       "name": "minimum_configuration",
       "value": [
-          "create ip if en.scm.1 100.69.127.152 255.255.255.224 oam network 0"
+          "create ip if en.scm.1 10.75.44.12 255.255.255.224 oam network 0"
           ,"remove ip if 192.168.1.1 all"
-          ,"create route default 100.69.127.129 1 strict 0"
-          ,"create ipv6 if en.scm.1 2a00:8a00:4000:7690:8::15 80 oam network 0"
+          ,"create route default 10.75.44.1 1 strict 0"
+          ,"create ipv6 if en.scm.1 2a00:8a00:6000:d040:44::22 80 oam network 0"
           ,"wait time 3000"
-          ,"create ipv6 route default 2a00:8a00:4000:7690:8::1 1"
+          ,"create ipv6 route default 2a00:8a00:6000:d040:44::1 1"
           ,"define ip filtering disable force"
           ,"define ipv6 filtering state disable"
           ,"diag create snmp usm ioam ioamsnmpuser"
@@ -552,7 +552,7 @@
           ,"main create snmp vacm view all 1 0x80 included"
           ,"main create snmp vacm access public 3 authpriv all all all"
           ,"define snmp version disable disable enable"
-          ,"create snmp target addr COMCore5 100.69.127.135 162 \"snmptypetag\" ioamsnmpparams"
+          ,"create snmp target addr COMCore5 10.75.44.24 162 \"snmptypetag\" ioamsnmpparams"
           ,"create snmp target params ioamsnmpparams ioamsnmpuser authpriv"
           ,"create snmp notify type ALL snmptypetag trap"
           ,"save"

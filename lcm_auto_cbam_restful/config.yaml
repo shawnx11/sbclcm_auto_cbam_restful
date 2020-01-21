@@ -1,0 +1,18 @@
+version: '6'
+
+common:
+  cbam_url: &cbam_url 'https://100.69.127.147'
+  client_id: &client_id 'cbam_rest'
+  client_secret: &client_secret '26fe9a4a-5836-42a1-9ef5-fb0404675d60'
+  gui_client_id: &gui_client_id 'lcm'
+  gui_client_passwd: &gui_client_passwd '-Assured11'
+  proxies: &proxies
+    http: 'cnproxy.int.nokia-sbell.com:8080'
+    https: 'cnproxy.int.nokia-sbell.com:8080'
+
+sig_plane:
+  vnf_name: 'sbclcm03'
+
+
+media_plane:
+  vnf_name: 'sbgw01'

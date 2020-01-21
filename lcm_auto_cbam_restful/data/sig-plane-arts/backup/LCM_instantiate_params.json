@@ -223,9 +223,9 @@
             ]
         }, 
         {
-            "resourceId": "v438-OAM-IPV4", 
+            "resourceId": "v438-OAM-IPV6", 
             "vimConnectionId": "vim_id", 
-            "id": "v438-OAM-IPV4", 
+            "id": "v438-OAM-IPV6", 
             "extCps": [
                 {
                     "cpConfig": [
@@ -255,6 +255,27 @@
                                                 ], 
                                                 "subnetId": "v438-OAM-IPV4", 
                                                 "type": "IPV4"
+                                            }, 
+                                            {
+                                                "fixedAddresses": [
+                                                    "2a00:8a00:4000:7690:8::6"
+                                                ], 
+                                                "subnetId": "v438-OAM-IPV6", 
+                                                "type": "IPV6"
+                                            }, 
+                                            {
+                                                "fixedAddresses": [
+                                                    "2a00:8a00:4000:7690:8::7"
+                                                ], 
+                                                "subnetId": "v438-OAM-IPV6", 
+                                                "type": "IPV6"
+                                            }, 
+                                            {
+                                                "fixedAddresses": [
+                                                    "2a00:8a00:4000:7690:8::5"
+                                                ], 
+                                                "subnetId": "v438-OAM-IPV6", 
+                                                "type": "IPV6"
                                             }
                                         ]
                                     }
@@ -278,6 +299,13 @@
                                                 ], 
                                                 "subnetId": "v438-OAM-IPV4", 
                                                 "type": "IPV4"
+                                            }, 
+                                            {
+                                                "fixedAddresses": [
+                                                    "2a00:8a00:4000:7690:8::8"
+                                                ], 
+                                                "subnetId": "v438-OAM-IPV6", 
+                                                "type": "IPV6"
                                             }
                                         ]
                                     }
@@ -705,6 +733,11 @@
             "vimConnectionId": "vim_id"
         }, 
         {
+            "vnfdSoftwareImageId": "oam_b", 
+            "vimSoftwareImageId": "nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2", 
+            "vimConnectionId": "vim_id"
+        }, 
+        {
             "vnfdSoftwareImageId": "dfed_b", 
             "vimSoftwareImageId": "nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2", 
             "vimConnectionId": "vim_id"
@@ -730,22 +763,12 @@
             "vimConnectionId": "vim_id"
         }, 
         {
+            "vnfdSoftwareImageId": "fw_b", 
+            "vimSoftwareImageId": "nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2", 
+            "vimConnectionId": "vim_id"
+        }, 
+        {
             "vnfdSoftwareImageId": "pfw_b", 
-            "vimSoftwareImageId": "nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2", 
-            "vimConnectionId": "vim_id"
-        }, 
-        {
-            "vnfdSoftwareImageId": "oam_b", 
-            "vimSoftwareImageId": "nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2", 
-            "vimConnectionId": "vim_id"
-        }, 
-        {
-            "vnfdSoftwareImageId": "sc_a", 
-            "vimSoftwareImageId": "nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2", 
-            "vimConnectionId": "vim_id"
-        }, 
-        {
-            "vnfdSoftwareImageId": "pfw_a", 
             "vimSoftwareImageId": "nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2", 
             "vimConnectionId": "vim_id"
         }, 
@@ -755,12 +778,17 @@
             "vimConnectionId": "vim_id"
         }, 
         {
-            "vnfdSoftwareImageId": "fw_b", 
+            "vnfdSoftwareImageId": "sc_a", 
             "vimSoftwareImageId": "nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2", 
             "vimConnectionId": "vim_id"
         }, 
         {
             "vnfdSoftwareImageId": "bgc_a", 
+            "vimSoftwareImageId": "nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2", 
+            "vimConnectionId": "vim_id"
+        }, 
+        {
+            "vnfdSoftwareImageId": "pfw_a", 
             "vimSoftwareImageId": "nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2", 
             "vimConnectionId": "vim_id"
         }, 
@@ -854,13 +882,13 @@
             "vimConnectionId": "vim_id"
         }, 
         {
-            "vimFlavourId": "CAU-2-8-21-8", 
-            "vnfdVirtualComputeDescId": "oam_b", 
+            "vimFlavourId": "CAU-8-16-15-1", 
+            "vnfdVirtualComputeDescId": "fw_b", 
             "vimConnectionId": "vim_id"
         }, 
         {
-            "vimFlavourId": "CAU-4-24-15-1", 
-            "vnfdVirtualComputeDescId": "sc_a", 
+            "vimFlavourId": "CAU-2-8-21-8", 
+            "vnfdVirtualComputeDescId": "oam_b", 
             "vimConnectionId": "vim_id"
         }, 
         {
@@ -874,18 +902,18 @@
             "vimConnectionId": "vim_id"
         }, 
         {
-            "vimFlavourId": "CAU-8-16-15-1", 
-            "vnfdVirtualComputeDescId": "fw_b", 
-            "vimConnectionId": "vim_id"
-        }, 
-        {
-            "vimFlavourId": "CAU-4-16-15-1", 
-            "vnfdVirtualComputeDescId": "dfed_b", 
+            "vimFlavourId": "CAU-4-24-15-1", 
+            "vnfdVirtualComputeDescId": "sc_a", 
             "vimConnectionId": "vim_id"
         }, 
         {
             "vimFlavourId": "CAU-2-8-15-1", 
             "vnfdVirtualComputeDescId": "bgc_a", 
+            "vimConnectionId": "vim_id"
+        }, 
+        {
+            "vimFlavourId": "CAU-4-16-15-1", 
+            "vnfdVirtualComputeDescId": "dfed_b", 
             "vimConnectionId": "vim_id"
         }, 
         {

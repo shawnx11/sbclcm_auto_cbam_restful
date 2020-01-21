@@ -223,9 +223,9 @@
       ]
     },
     {
-      "resourceId": "v438-OAM-IPV4",
+      "resourceId": "v438-OAM-IPV6",
       "vimConnectionId": "vim_id",
-      "id": "v438-OAM-IPV4",
+      "id": "v438-OAM-IPV6",
       "extCps": [
         {
           "cpConfig": [
@@ -255,6 +255,27 @@
                         ],
                         "subnetId": "v438-OAM-IPV4",
                         "type": "IPV4"
+                      },
+                      {
+                        "fixedAddresses": [
+                          "2a00:8a00:4000:7690:8::6"
+                        ],
+                        "subnetId": "v438-OAM-IPV6",
+                        "type": "IPV6"
+                      },
+                      {
+                        "fixedAddresses": [
+                          "2a00:8a00:4000:7690:8::7"
+                        ],
+                        "subnetId": "v438-OAM-IPV6",
+                        "type": "IPV6"
+                      },
+                      {
+                        "fixedAddresses": [
+                          "2a00:8a00:4000:7690:8::5"
+                        ],
+                        "subnetId": "v438-OAM-IPV6",
+                        "type": "IPV6"
                       }
                     ]
                   }
@@ -278,6 +299,13 @@
                         ],
                         "subnetId": "v438-OAM-IPV4",
                         "type": "IPV4"
+                      },
+                      {
+                        "fixedAddresses": [
+                          "2a00:8a00:4000:7690:8::8"
+                        ],
+                        "subnetId": "v438-OAM-IPV6",
+                        "type": "IPV6"
                       }
                     ]
                   }
@@ -705,6 +733,11 @@
       "vimConnectionId": "vim_id"
     },
     {
+      "vnfdSoftwareImageId": "oam_b",
+      "vimSoftwareImageId": "nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2",
+      "vimConnectionId": "vim_id"
+    },
+    {
       "vnfdSoftwareImageId": "dfed_b",
       "vimSoftwareImageId": "nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2",
       "vimConnectionId": "vim_id"
@@ -730,22 +763,12 @@
       "vimConnectionId": "vim_id"
     },
     {
+      "vnfdSoftwareImageId": "fw_b",
+      "vimSoftwareImageId": "nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2",
+      "vimConnectionId": "vim_id"
+    },
+    {
       "vnfdSoftwareImageId": "pfw_b",
-      "vimSoftwareImageId": "nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2",
-      "vimConnectionId": "vim_id"
-    },
-    {
-      "vnfdSoftwareImageId": "oam_b",
-      "vimSoftwareImageId": "nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2",
-      "vimConnectionId": "vim_id"
-    },
-    {
-      "vnfdSoftwareImageId": "sc_a",
-      "vimSoftwareImageId": "nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2",
-      "vimConnectionId": "vim_id"
-    },
-    {
-      "vnfdSoftwareImageId": "pfw_a",
       "vimSoftwareImageId": "nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2",
       "vimConnectionId": "vim_id"
     },
@@ -755,12 +778,17 @@
       "vimConnectionId": "vim_id"
     },
     {
-      "vnfdSoftwareImageId": "fw_b",
+      "vnfdSoftwareImageId": "sc_a",
       "vimSoftwareImageId": "nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2",
       "vimConnectionId": "vim_id"
     },
     {
       "vnfdSoftwareImageId": "bgc_a",
+      "vimSoftwareImageId": "nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2",
+      "vimConnectionId": "vim_id"
+    },
+    {
+      "vnfdSoftwareImageId": "pfw_a",
       "vimSoftwareImageId": "nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2",
       "vimConnectionId": "vim_id"
     },
@@ -854,13 +882,13 @@
       "vimConnectionId": "vim_id"
     },
     {
-      "vimFlavourId": "CAU-2-8-21-8",
-      "vnfdVirtualComputeDescId": "oam_b",
+      "vimFlavourId": "CAU-8-16-15-1",
+      "vnfdVirtualComputeDescId": "fw_b",
       "vimConnectionId": "vim_id"
     },
     {
-      "vimFlavourId": "CAU-4-24-15-1",
-      "vnfdVirtualComputeDescId": "sc_a",
+      "vimFlavourId": "CAU-2-8-21-8",
+      "vnfdVirtualComputeDescId": "oam_b",
       "vimConnectionId": "vim_id"
     },
     {
@@ -874,18 +902,18 @@
       "vimConnectionId": "vim_id"
     },
     {
-      "vimFlavourId": "CAU-8-16-15-1",
-      "vnfdVirtualComputeDescId": "fw_b",
-      "vimConnectionId": "vim_id"
-    },
-    {
-      "vimFlavourId": "CAU-4-16-15-1",
-      "vnfdVirtualComputeDescId": "dfed_b",
+      "vimFlavourId": "CAU-4-24-15-1",
+      "vnfdVirtualComputeDescId": "sc_a",
       "vimConnectionId": "vim_id"
     },
     {
       "vimFlavourId": "CAU-2-8-15-1",
       "vnfdVirtualComputeDescId": "bgc_a",
+      "vimConnectionId": "vim_id"
+    },
+    {
+      "vimFlavourId": "CAU-4-16-15-1",
+      "vnfdVirtualComputeDescId": "dfed_b",
       "vimConnectionId": "vim_id"
     },
     {
@@ -900,10 +928,10 @@
     }
   ],
   "additionalParams": {
-    "backup_file1": "http://100.69.127.146/sbclcm-auto/backup.zip",
-    "backup_file2": "",
-    "backup_server_credentials1": "",
-    "backup_server_credentials2": "",
+    "backup_file1": "centos@10.75.44.7:/var/www/html/sbclcm-auto/backup.zip",
+    "backup_file2": "centos@10.75.44.7:/var/www/html/sbclcm-auto/backup.zip",
+    "backup_server_credentials1": "-----BEGIN RSA PRIVATE KEY-----\nMIIEowIBAAKCAQEAvX/4YeeQcBqR2sjW18T8WbiAVdnVIs4ZNNlTEG+Ps6OFeQFm\nUBwXvtqbetitEhAAU2OT4ivuh+B20KM/WHM6r57URA1qgNK8Sk9tLUiZRvMDkDR8\nWpAEQSw0fvkO91J93q9Siu3h2uhiKtB1ARESb5DcayttXg0fr9U5hmT/mD5MJ/nC\npfE5ByuHzmWSJo9Vya+YM0UBZnja38vhfc8mAeJ0pxQVxkoL4KzYF2JJAqIzH9tw\nkJLfZbNlxQtOKRCSRWtdcCHckfS0/BISf9f0jdG9h15q3vvKc0j+dXCJny5jfgCc\nHl2+e4RYK3evvJPWQNSZ/+iMZqn1SyligpbKXQIDAQABAoIBABtfsAach73Z6LXd\nC0Px/a4MO+Wq6OH1Oajrt9cI9o4xkedP73KlDD0SoSEWybFxRErHeKZUSEmygBdV\nbaIeSxzxaaJG+dqQFoj5fkDrWtDn69zZ6BjA8wxjEVZCLgpGDU6srtTI1jZkGUIs\nCKrVx378QwrsJAlRBgHFYGDsmAtqvLetbMm272K/hz2e4jxMf08LcDx1fUgDO+hD\naMjzVmbIYNbFftLQD/yG+DgtvP7f728yoG8gNXC0shPqetHtfnwCbJ3H1ju9svGW\nDFYzrBwZZZMY0nTAWjY/DXSS1ORrq7LXSIPKf/3kobfMU67ugeC6NrEsncdIKvIE\n/yVKTrUCgYEA4iMKFeRdIWjzijg3Iie6k09vduTH+nsELDKjzHqcyPmEBisidFQA\nFMjJO8+jh+KKusqYEDp1l4qHLbtN1hatKZV6PwfcmPITA+uczZa9Z3YAKsI1GAOi\n0GUmjmoElOGc1I+k55fWAt48hWRoPd4vrlGaAw8otIdiSXHdpwdb3rsCgYEA1oZa\nH7R4j757Ny47NHIPsXsfZwyD2TTU+oOIDOPvBWN6GuU70N5ZW21529mwLKbr5e2H\n9ofMhSJQkXlg6e6F5wmj7Q0n+mGNoPeNoq7bRB1gHelODs4vAnnVNz2vCGt0uqSd\n+UoemidWKm8RFNAG8yS9uoQrk7sZpA5MYHrJBccCgYBELqxrzV8HI83Kbwiwk6n9\noIXLI0/ohg7MBLi+fnmnXxQfiAHrcShVG/UQw5pa7kNF7q/KtNWfy3TWpRLi6hNr\n5lXli0lIFDUHiZLNqhWRjFKgkc3QX8hHbTgi2HRpL11J+cWOzokIdFlrHssPXF6k\nAJafNYLga7GG034xTla04QKBgAK5Meu1HtK0WFwa+iVwTUKzjXKBdisLwKhtgwym\n2CH5YVN2FYxRRlEi0qk32kS22cfRfChlEPOfu+Yc5F4T6R9FwA8CW7+R/XpNqj6m\neaIjvVSj4ZnOhEpDwbEx10cEFjdIX7kKd9j9JtrjDhR1j6EGlmIHy4XUmj66771J\n0cOBAoGBAJyXMkKKbsSGDGYoyzazVjLYzIqmC2tOnYkHHl3heEZN/LkphPuLdbcj\n2pk2wlqskZ2LQxnylJDgIIA6rJBoLvBj5Xo+9EN7uidHHv+8JGBy4FPcDNl2O5RR\nLbiaAVSQNQNm+hku9e0XH0+YFrCP+0Q8D9DGYzhupslAzJEyoz3R\n-----END RSA PRIVATE KEY-----",
+    "backup_server_credentials2": "-----BEGIN RSA PRIVATE KEY-----\nMIIEowIBAAKCAQEAvX/4YeeQcBqR2sjW18T8WbiAVdnVIs4ZNNlTEG+Ps6OFeQFm\nUBwXvtqbetitEhAAU2OT4ivuh+B20KM/WHM6r57URA1qgNK8Sk9tLUiZRvMDkDR8\nWpAEQSw0fvkO91J93q9Siu3h2uhiKtB1ARESb5DcayttXg0fr9U5hmT/mD5MJ/nC\npfE5ByuHzmWSJo9Vya+YM0UBZnja38vhfc8mAeJ0pxQVxkoL4KzYF2JJAqIzH9tw\nkJLfZbNlxQtOKRCSRWtdcCHckfS0/BISf9f0jdG9h15q3vvKc0j+dXCJny5jfgCc\nHl2+e4RYK3evvJPWQNSZ/+iMZqn1SyligpbKXQIDAQABAoIBABtfsAach73Z6LXd\nC0Px/a4MO+Wq6OH1Oajrt9cI9o4xkedP73KlDD0SoSEWybFxRErHeKZUSEmygBdV\nbaIeSxzxaaJG+dqQFoj5fkDrWtDn69zZ6BjA8wxjEVZCLgpGDU6srtTI1jZkGUIs\nCKrVx378QwrsJAlRBgHFYGDsmAtqvLetbMm272K/hz2e4jxMf08LcDx1fUgDO+hD\naMjzVmbIYNbFftLQD/yG+DgtvP7f728yoG8gNXC0shPqetHtfnwCbJ3H1ju9svGW\nDFYzrBwZZZMY0nTAWjY/DXSS1ORrq7LXSIPKf/3kobfMU67ugeC6NrEsncdIKvIE\n/yVKTrUCgYEA4iMKFeRdIWjzijg3Iie6k09vduTH+nsELDKjzHqcyPmEBisidFQA\nFMjJO8+jh+KKusqYEDp1l4qHLbtN1hatKZV6PwfcmPITA+uczZa9Z3YAKsI1GAOi\n0GUmjmoElOGc1I+k55fWAt48hWRoPd4vrlGaAw8otIdiSXHdpwdb3rsCgYEA1oZa\nH7R4j757Ny47NHIPsXsfZwyD2TTU+oOIDOPvBWN6GuU70N5ZW21529mwLKbr5e2H\n9ofMhSJQkXlg6e6F5wmj7Q0n+mGNoPeNoq7bRB1gHelODs4vAnnVNz2vCGt0uqSd\n+UoemidWKm8RFNAG8yS9uoQrk7sZpA5MYHrJBccCgYBELqxrzV8HI83Kbwiwk6n9\noIXLI0/ohg7MBLi+fnmnXxQfiAHrcShVG/UQw5pa7kNF7q/KtNWfy3TWpRLi6hNr\n5lXli0lIFDUHiZLNqhWRjFKgkc3QX8hHbTgi2HRpL11J+cWOzokIdFlrHssPXF6k\nAJafNYLga7GG034xTla04QKBgAK5Meu1HtK0WFwa+iVwTUKzjXKBdisLwKhtgwym\n2CH5YVN2FYxRRlEi0qk32kS22cfRfChlEPOfu+Yc5F4T6R9FwA8CW7+R/XpNqj6m\neaIjvVSj4ZnOhEpDwbEx10cEFjdIX7kKd9j9JtrjDhR1j6EGlmIHy4XUmj66771J\n0cOBAoGBAJyXMkKKbsSGDGYoyzazVjLYzIqmC2tOnYkHHl3heEZN/LkphPuLdbcj\n2pk2wlqskZ2LQxnylJDgIIA6rJBoLvBj5Xo+9EN7uidHHv+8JGBy4FPcDNl2O5RR\nLbiaAVSQNQNm+hku9e0XH0+YFrCP+0Q8D9DGYzhupslAzJEyoz3R\n-----END RSA PRIVATE KEY-----",
     "bulk_conf_url": "",
     "skip_health_check": "No",
     "upgrade_file": "",

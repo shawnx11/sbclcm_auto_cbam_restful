@@ -225,7 +225,7 @@
       "id": "v443-Sig-Acc1-Phy2-IPV6"
     },
     {
-      "resourceId": "v438-OAM-IPV4",
+      "resourceId": "v438-OAM-IPV6",
       "vimConnectionId": "vim_id",
       "extCps": [
         {
@@ -256,6 +256,27 @@
                         ],
                         "subnetId": "v438-OAM-IPV4",
                         "type": "IPV4"
+                      },
+                      {
+                        "fixedAddresses": [
+                          "2a00:8a00:4000:7690:8::6"
+                        ],
+                        "subnetId": "v438-OAM-IPV6",
+                        "type": "IPV6"
+                      },
+                      {
+                        "fixedAddresses": [
+                          "2a00:8a00:4000:7690:8::7"
+                        ],
+                        "subnetId": "v438-OAM-IPV6",
+                        "type": "IPV6"
+                      },
+                      {
+                        "fixedAddresses": [
+                          "2a00:8a00:4000:7690:8::5"
+                        ],
+                        "subnetId": "v438-OAM-IPV6",
+                        "type": "IPV6"
                       }
                     ]
                   }
@@ -279,6 +300,13 @@
                         ],
                         "subnetId": "v438-OAM-IPV4",
                         "type": "IPV4"
+                      },
+                      {
+                        "fixedAddresses": [
+                          "2a00:8a00:4000:7690:8::8"
+                        ],
+                        "subnetId": "v438-OAM-IPV6",
+                        "type": "IPV6"
                       }
                     ]
                   }
@@ -289,7 +317,7 @@
           "cpdId": "oam_b_external1_ECP"
         }
       ],
-      "id": "v438-OAM-IPV4"
+      "id": "v438-OAM-IPV6"
     },
     {
       "resourceId": "v441-Sig-Core1-IPV6",
