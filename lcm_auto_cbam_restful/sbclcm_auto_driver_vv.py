@@ -4,9 +4,11 @@ import requests
 from requests.adapters import HTTPAdapter
 import urllib3
 import json
+import yaml
 import time
 import os
 import sys
+import platform
 import subprocess
 import random
 import paramiko
@@ -16,7 +18,6 @@ import shutil
 import zipfile
 import openpyxl
 from openpyxl import load_workbook
-import winpexpect
 from paramiko_expect import SSHClientInteraction
 
 # pip install requrired 3rd party modules:
@@ -25,30 +26,13 @@ from paramiko_expect import SSHClientInteraction
 # pip3 install openpyxl
 # pip3 install pexpect
 # Note: pexpect doesn't work for windows, use winpexpect instead
-# pip3 install winpexpect
 # pip3 install paramiko-expect
 
 ########################################################################################################################
 # Globals
-# Following is for cbam 10.75.44.20, CBAM19.5, on PL node-011
-# cbam_url = 'https://10.75.44.20'
-# client_id = 'cbam_rest'
-# client_secret = 'ed5683fb-2af7-45b5-be63-78b4e4c37bf5'
-# gui_client_id = 'lcm'
-# gui_client_passwd = '-Assured11'
-# proxies = {}
 
-# Following is for cbam 100.69.127.147, CBAM19.5, on PL node-043
-cbam_url = 'https://100.69.127.147'
-client_id = 'cbam_rest'
-client_secret = '26fe9a4a-5836-42a1-9ef5-fb0404675d60'
-gui_client_id = 'lcm'
-gui_client_passwd = '-Assured11'
-#For pl043, needs to setup proxies if running driver on local pc
-proxies = {
-  "http": "cnproxy.int.nokia-sbell.com:8080",
-  "https": "cnproxy.int.nokia-sbell.com:8080",
-}
+global logger
+logger = logging.getLogger()
 
 working_dir = r'D:\Programs\JetBrains\PycharmProjects\py37projects\lcm_auto_cbam_restful'
 sig_data_dir = working_dir + r'\data\sig-plane'
@@ -57,37 +41,337 @@ sig_arts_dir = working_dir + r'\data\sig-plane-arts'
 media_arts_dir = working_dir + r'\data\media-plane-arts'
 log_file = working_dir + r'\sbclcm_auto.log'
 
-global logger
-logger = logging.getLogger()
-
-vnflcm_base_path = cbam_url + '/vnflcm/v1'
-vnfpkgm_base_path = cbam_url + '/vnfpkgm/v1'
-
-operationState_list = ['STARTING', 'FAILED', 'ROLLED_BACK', 'PROCESSING', 'COMPLETED']
-operation_list = ['MODIFY_INFO', 'INSTANTIATE', 'TERMINATE', 'SCALE', 'OTHER']
-
 sig_vnfdId = ''
 media_vnfdId = ''
 sig_vnfdId_SU = ''
 media_vnfdId_SU = ''
 
-# # R20.0
-# sigVersion = '37.28.06'
-# sigVersion_SU = '37.28.06.0020'
-# mediaVersion = 'an100052'
-# mediaVersion_SU = 'an100053'
-# R20.2
-sigVersion = '37.28.06'
-sigVersion_SU = '37.34.06'
-# sigVersion = '37.34.06'
-# sigVersion_SU = '37.34.06.0020'
-# mediaVersion = 'an100053'
-# mediaVersion_SU = 'ap100013'
-mediaVersion = 'ap100016'
-mediaVersion_SU = 'ap100017'
+config_file = 'config.yaml'
+
+def setup_globals():
+    global cbam_url, client_id, client_secret, gui_client_id, gui_client_passwd, proxies
+    global vnflcm_base_path, vnfpkgm_base_path
+    global operationState_list, operation_list
+    global sigVersion, sigVersion_SU, mediaVersion, mediaVersion_SU
+    global requests_types, requests_retcode
+    global os_username, os_passwd
+    global vnf_type_list
+    global sig_vnfpkg_name_baseload, sig_vnfpkg_name_drbaseload, \
+        sig_vnfpkg_name_sutoload, sig_vnfpkg_name_cssutoload, sig_vnfpkg_supported_type
+    global media_vnfpkg_name_baseload, media_vnfpkg_name_sutoload, media_vnfpkg_supported_type
+    global wkk, ssh_type
+    global backup_server_ip, backup_server_login, backup_server_passwd, backup_server_dir, \
+        backup_server1, backup_server2, backup_server_creds, backup_server_login_pubkey, \
+        local_private_key, backup_server_login_passwd, backup_server_passwd_passwd
+
+    global sig_vnf_name, sig_oam_vip, sig_oama_ip, sig_oamb_ip, sig_oam_login, sig_oam_passwd
+    global sig_default_rel, sig_toload_rel, sig_arts_type
+    global sig_yact_server_ip, sig_yact_user, sig_yact_passwd, sig_yact_dir
+    global sig_dif_name, sig_dr_dif_name, sig_su_dif_name, sig_cssu_dif_name
+    global sig_vnfpkg_name, sig_dr_vnfpkg_name, sig_su_vnfpkg_name, sig_cssu_vnfpkg_name
+    global sig_server_type_list
+    global sig_instantiation_json_file, sig_dr_instantiation_json_file, sig_cssu_instantiation_json_file
+    global sig_bulk_conf_url
+    global sig_backup_file1_http, sig_backup_file2_http, sig_backup_file1_creds, sig_backup_file2_creds
+    global sig_upgrade_file_http, sig_upgrade_file_creds
+    global sig_fixed_scm_ip, sig_restore_media_plane
+    global sig_backup_zip, sig_cssu_zip, sig_backup_file_name, sig_local_backup_dir
+    global sig_su_deft_url, sig_su_deft_key, sig_su_to_image, sig_su_to_version
+
+    global media_vnf_name, media_scma_ip, media_scmb_ip, media_scm_vip
+    global media_dif_name, media_su_dif_name
+    global media_arts_type
+    global media_yact_server_ip, media_yact_user, media_yact_passwd, media_yact_dir, media_openrc_file
+    global media_inject_well_known_temp_key, media_script_url
+    global media_vnfpkg_name, media_su_vnfpkg_name
+    global media_extension_json_file, media_dr_extension_json_file, \
+        media_instantiation_json_file, media_dr_instantiation_json_file
+    global media_local_backup_dir, media_backup_zip
+    global media_lcm_user, media_appl_user, media_appl_passwd
+    global media_su_to_image, media_backup_url
+
+    global system
+    system = platform.system()
+    if system == 'Windows':
+        log('Windows system.')
+    elif system == 'Linux':
+        log('Linux system.')
+    else:
+        log('Only Windows and Linux system supported. Error out.')
+        exit(1)
+
+    try:
+        os.chdir(working_dir)
+        data = load_yaml_data(file=config_file)
+
+        data_com = data['common']
+        data_sig = data['sig_plane']
+        data_med = data['media_plane']
+
+        cbam_url            = data_com['cbam_url']
+        client_id           = data_com['client_id']
+        client_secret       = data_com['client_secret']
+        gui_client_id       = data_com['gui_client_id']
+        gui_client_passwd   = data_com['gui_client_passwd']
+        proxies             = data_com['proxies']
+
+        vnflcm_base_path    = data_com['vnflcm_base_path']
+        vnfpkgm_base_path   = data_com['vnfpkgm_base_path']
+
+        operationState_list = data_com['operationState_list']
+        operation_list      = data_com['operation_list']
+
+        sigVersion          = data_com['sigVersion']
+        sigVersion_SU       = data_com['sigVersion_SU']
+        mediaVersion        = data_com['mediaVersion']
+        mediaVersion_SU     = data_com['mediaVersion_SU']
+
+        requests_types      = data_com['requests_types']
+        requests_retcode    = data_com['requests_retcode']
+
+        os_username         = data_com['os_username']
+        os_passwd           = data_com['os_passwd']
+
+        vnf_type_list       = data_com['vnf_type_list']
+
+        sig_vnfpkg_name_baseload    = data_com['sig_vnfpkg_name_baseload']
+        sig_vnfpkg_name_drbaseload  = data_com['sig_vnfpkg_name_drbaseload']
+        sig_vnfpkg_name_sutoload    = data_com['sig_vnfpkg_name_sutoload']
+        sig_vnfpkg_name_cssutoload  = data_com['sig_vnfpkg_name_cssutoload']
+        sig_vnfpkg_supported_type   = data_com['sig_vnfpkg_supported_type']
+
+        media_vnfpkg_name_baseload  = data_com['media_vnfpkg_name_baseload']
+        media_vnfpkg_name_sutoload  = data_com['media_vnfpkg_name_sutoload']
+        media_vnfpkg_supported_type = data_com['media_vnfpkg_supported_type']
+
+        wkk                         = data_com['wkk']
+        ssh_type                    = data_com['ssh_type']
+
+        backup_server_ip            = data_com['backup_server_ip']
+        backup_server_login         = data_com['backup_server_login']
+        backup_server_passwd        = data_com['backup_server_passwd']
+        backup_server_dir           = data_com['backup_server_dir']
+        backup_server1              = data_com['backup_server1']
+        backup_server2              = data_com['backup_server2']
+        backup_server_creds         = data_com['backup_server_creds']
+        backup_server_login_pubkey  = data_com['backup_server_login_pubkey']
+        local_private_key           = data_com['local_private_key']
+        backup_server_login_passwd  = data_com['backup_server_login_passwd']
+        backup_server_passwd_passwd = data_com['backup_server_passwd_passwd']
+
+        sig_vnf_name        = data_sig['sig_vnf_name']
+        sig_oam_vip         = data_sig['sig_oam_vip']
+        sig_oama_ip         = data_sig['sig_oama_ip']
+        sig_oamb_ip         = data_sig['sig_oamb_ip']
+        sig_oam_login       = data_sig['sig_oam_login']
+        sig_oam_passwd      = data_sig['sig_oam_passwd']
+
+        sig_default_rel     = data_sig['sig_default_rel']
+        sig_toload_rel      = data_sig['sig_toload_rel']
+        sig_arts_type       = data_sig['sig_arts_type']
+
+        sig_yact_server_ip  = data_sig['sig_yact_server_ip']
+        sig_yact_user       = data_sig['sig_yact_user']
+        sig_yact_passwd     = data_sig['sig_yact_passwd']
+        sig_yact_dir        = data_sig['sig_yact_dir']
+
+        sig_dif_name        = data_sig['sig_dif_name']
+        sig_dr_dif_name     = data_sig['sig_dr_dif_name']
+        sig_su_dif_name     = data_sig['sig_su_dif_name']
+        sig_cssu_dif_name   = data_sig['sig_cssu_dif_name']
+
+        sig_vnfpkg_name     = data_sig['sig_vnfpkg_name']
+        sig_dr_vnfpkg_name  = data_sig['sig_dr_vnfpkg_name']
+        sig_su_vnfpkg_name  = data_sig['sig_su_vnfpkg_name']
+        sig_cssu_vnfpkg_name    = data_sig['sig_cssu_vnfpkg_name']
+        sig_server_type_list    = data_sig['sig_server_type_list']
+
+        sig_instantiation_json_file         = data_sig['sig_instantiation_json_file']
+        sig_dr_instantiation_json_file      = data_sig['sig_dr_instantiation_json_file']
+        sig_cssu_instantiation_json_file    = data_sig['sig_cssu_instantiation_json_file']
+
+        sig_bulk_conf_url       = data_sig['sig_bulk_conf_url']
+        sig_backup_file1_http   = data_sig['sig_backup_file1_http']
+        sig_backup_file2_http   = data_sig['sig_backup_file2_http']
+        sig_backup_file1_creds  = data_sig['sig_backup_file1_creds']
+        sig_backup_file2_creds  = data_sig['sig_backup_file2_creds']
+        sig_upgrade_file_http   = data_sig['sig_upgrade_file_http']
+        sig_upgrade_file_creds  = data_sig['sig_upgrade_file_creds']
+
+        sig_fixed_scm_ip        = data_sig['sig_fixed_scm_ip']
+        sig_restore_media_plane = data_sig['sig_restore_media_plane']
+
+        sig_backup_zip          = data_sig['sig_backup_zip']
+        sig_cssu_zip            = data_sig['sig_cssu_zip']
+        sig_backup_file_name    = data_sig['sig_backup_file_name']
+        sig_local_backup_dir    = data_sig['sig_local_backup_dir']
+
+        sig_su_deft_url         = data_sig['sig_su_deft_url']
+        sig_su_deft_key         = data_sig['sig_su_deft_key']
+        sig_su_to_image         = data_sig['sig_su_to_image']
+        sig_su_to_version       = data_sig['sig_su_to_version']
+
+        media_vnf_name          = data_med['media_vnf_name']
+        media_scma_ip           = data_med['media_scma_ip']
+        media_scmb_ip           = data_med['media_scmb_ip']
+        media_scm_vip           = data_med['media_scm_vip']
+
+        media_dif_name          = data_med['media_dif_name']
+        media_su_dif_name       = data_med['media_su_dif_name']
+        media_arts_type         = data_med['media_arts_type']
+
+        media_yact_server_ip    = data_med['media_yact_server_ip']
+        media_yact_user         = data_med['media_yact_user']
+        media_yact_passwd       = data_med['media_yact_passwd']
+        media_yact_dir          = data_med['media_yact_dir']
+        media_openrc_file       = data_med['media_openrc_file']
+
+        media_inject_well_known_temp_key    = data_med['media_inject_well_known_temp_key']
+        media_script_url                    = data_med['media_script_url']
+
+        media_vnfpkg_name       = data_med['media_vnfpkg_name']
+        media_su_vnfpkg_name    = data_med['media_su_vnfpkg_name']
+
+        media_extension_json_file           = data_med['media_extension_json_file']
+        media_dr_extension_json_file        = data_med['media_dr_extension_json_file']
+        media_instantiation_json_file       = data_med['media_instantiation_json_file']
+        media_dr_instantiation_json_file    = data_med['media_dr_instantiation_json_file']
+
+        media_local_backup_dir  = data_med['media_local_backup_dir']
+        media_backup_zip        = data_med['media_backup_zip']
+
+        media_lcm_user          = data_med['media_lcm_user']
+        media_appl_user         = data_med['media_appl_user']
+        media_appl_passwd       = data_med['media_appl_passwd']
+
+        media_su_to_image       = data_med['media_su_to_image']
+        media_backup_url        = data_med['media_backup_url']
+
+    except Exception:
+        traceback.print_exc()
+    finally:
+        dump_globals()
+        log('setup_globals completed.')
+
+def dump_globals():
+    log('Start of dumping globals:')
+    log('common data:')
+    log('cbam_url: ' + cbam_url)
+    log('client_id: ' + client_id)
+    log('client_secret: ' + client_secret)
+    log('gui_client_id: ' + gui_client_id)
+    log('gui_client_passwd: ' + gui_client_passwd)
+    log('proxies: ' + str(proxies))
+    log('vnflcm_base_path: ' + vnflcm_base_path)
+    log('vnfpkgm_base_path: ' + vnfpkgm_base_path)
+    log('operationState_list: ' + str(operationState_list))
+    log('operation_list: ' + str(operation_list))
+    log('sigVersion: ' + sigVersion)
+    log('sigVersion_SU:' + sigVersion_SU)
+    log('mediaVersion: ' + mediaVersion)
+    log('mediaVersion_SU: ' + mediaVersion_SU)
+    log('requests_types: ' + str(requests_types))
+    log('requests_retcode:' + str(requests_retcode))
+    log('os_username: ' + os_username)
+    log('os_passwd: ' + os_passwd)
+    log('vnf_type_list: ' + str(vnf_type_list))
+    log('sig_vnfpkg_name_baseload: ' + sig_vnfpkg_name_baseload)
+    log('sig_vnfpkg_name_drbaseload: ' + sig_vnfpkg_name_drbaseload)
+    log('sig_vnfpkg_name_sutoload: ' + sig_vnfpkg_name_sutoload)
+    log('sig_vnfpkg_name_cssutoload: ' + sig_vnfpkg_name_cssutoload)
+    log('sig_vnfpkg_supported_type; ' + str(sig_vnfpkg_supported_type))
+    log('media_vnfpkg_name_baseload: ' + media_vnfpkg_name_baseload)
+    log('media_vnfpkg_name_sutoload: ' + media_vnfpkg_name_sutoload)
+    log('media_vnfpkg_supported_type: ' + str(media_vnfpkg_supported_type))
+    log('wkk: ' + wkk)
+    log('ssh_type: ' + ssh_type)
+    log('backup_server_ip: ' + backup_server_ip)
+    log('backup_server_login: ' + backup_server_login)
+    log('backup_server_passwd: ' + backup_server_passwd)
+    log('backup_server_dir: ' + backup_server_dir)
+    log('backup_server1: ' + backup_server1)
+    log('backup_server2: ' + backup_server2)
+    log('backup_server_creds: ' + backup_server_creds)
+    log('backup_server_login_pubkey: ' + backup_server_login_pubkey)
+    log('local_private_key: ' + local_private_key)
+    log('backup_server_login_passwd: ' + backup_server_login_passwd)
+    log('backup_server_passwd_passwd: ' + backup_server_passwd_passwd)
+    log('sig_plane data:')
+    log('sig_vnf_name: ' + sig_vnf_name)
+    log('sig_oam_vip: ' + sig_oam_vip)
+    log('sig_oama_ip: ' + sig_oama_ip)
+    log('sig_oamb_ip: ' + sig_oamb_ip)
+    log('sig_oam_login: ' + sig_oam_login)
+    log('sig_oam_passwd: ' + sig_oam_passwd)
+    log('sig_default_rel: ' + sig_default_rel)
+    log('sig_toload_rel: ' + sig_toload_rel)
+    log('sig_arts_type: ' + str(sig_arts_type))
+    log('sig_yact_server_ip: ' + sig_yact_server_ip)
+    log('sig_yact_user: ' + sig_yact_user)
+    log('sig_yact_passwd: ' + str(sig_yact_passwd))
+    log('sig_yact_dir: ' + sig_yact_dir)
+    log('sig_dif_name: ' + sig_dif_name)
+    log('sig_dr_dif_name: ' + sig_dr_dif_name)
+    log('sig_su_dif_name: ' + sig_su_dif_name)
+    log('sig_cssu_dif_name: ' + sig_cssu_dif_name)
+    log('sig_vnfpkg_name: ' + sig_vnfpkg_name)
+    log('sig_dr_vnfpkg_name: ' + sig_dr_vnfpkg_name)
+    log('sig_su_vnfpkg_name: ' + sig_su_vnfpkg_name)
+    log('sig_cssu_vnfpkg_name: ' + sig_cssu_vnfpkg_name)
+    log('sig_server_type_list: ' + str(sig_server_type_list))
+    log('sig_instantiation_json_file: ' + sig_instantiation_json_file)
+    log('sig_dr_instantiation_json_file: ' + sig_dr_instantiation_json_file)
+    log('sig_cssu_instantiation_json_file: ' + sig_cssu_instantiation_json_file)
+    log('sig_bulk_conf_url: ' + sig_bulk_conf_url)
+    log('sig_backup_file1_http: ' + sig_backup_file1_http)
+    log('sig_backup_file2_http: ' + sig_backup_file2_http)
+    log('sig_backup_file1_creds: ' + sig_backup_file1_creds)
+    log('sig_backup_file2_creds: ' + sig_backup_file2_creds)
+    log('sig_upgrade_file_http: ' + sig_upgrade_file_http)
+    log('sig_upgrade_file_creds: ' + sig_upgrade_file_creds)
+    log('sig_fixed_scm_ip: ' + sig_fixed_scm_ip)
+    log('sig_restore_media_plane: ' + sig_restore_media_plane)
+    log('sig_backup_zip: ' + sig_backup_zip)
+    log('sig_cssu_zip: ' + sig_cssu_zip)
+    log('sig_backup_file_name: ' + sig_backup_file_name)
+    log('sig_local_backup_dir: ' + sig_local_backup_dir)
+    log('sig_su_deft_url: ' + sig_su_deft_url)
+    log('sig_su_deft_key: ' + str(sig_su_deft_key))
+    log('sig_su_to_image: ' + sig_su_to_image)
+    log('sig_su_to_version: ' + sig_su_to_version)
+    log('media_plane data:')
+    log('media_vnf_name: ' + media_vnf_name)
+    log('media_scma_ip: ' + media_scma_ip)
+    log('media_scmb_ip: ' + media_scmb_ip)
+    log('media_scm_vip: ' + media_scm_vip)
+    log('media_dif_name: ' + media_dif_name)
+    log('media_su_dif_name: ' + media_su_dif_name)
+    log('media_arts_type: ' + str(media_arts_type))
+    log('media_yact_server_ip: ' + media_yact_server_ip)
+    log('media_yact_user: ' + media_yact_user)
+    log('media_yact_passwd: ' + media_yact_passwd)
+    log('media_yact_dir:' + media_yact_dir)
+    log('media_openrc_file: ' + media_openrc_file)
+    log('media_inject_well_known_temp_key: ' + media_inject_well_known_temp_key)
+    log('media_script_url: ' + media_script_url)
+    log('media_vnfpkg_name: ' + media_vnfpkg_name)
+    log('media_su_vnfpkg_name: ' + media_su_vnfpkg_name)
+    log('media_extension_json_file: ' + media_extension_json_file)
+    log('media_dr_extension_json_file: ' + media_dr_extension_json_file)
+    log('media_instantiation_json_file: ' + media_instantiation_json_file)
+    log('media_dr_instantiation_json_file: ' + media_dr_instantiation_json_file)
+    log('media_local_backup_dir: ' + media_local_backup_dir)
+    log('media_backup_zip: ' + media_backup_zip)
+    log('media_lcm_user: ' + media_lcm_user)
+    log('media_appl_user: ' + media_appl_user)
+    log('media_appl_passwd: ' + media_appl_passwd)
+    log('media_su_to_image: ' + media_su_to_image)
+    log('media_backup_url: ' + media_backup_url)
+    log('End of dumping globals.')
 
 ########################################################################################################################
 # Util Functions
+
 def log(msg, level=logging.INFO):
     if level == logging.INFO:
         logger.info(msg)
@@ -124,6 +408,23 @@ def dump_response_data(response, funcname):
     log('Now at function:' + funcname)
     log(response.text)
 
+def load_yaml_data(file=None):
+    if file is None:
+        log('Please specify the yaml file.')
+        exit(1)
+    with open(file, 'r') as f:
+        data = f.read()
+    data = yaml.load(data)
+    return data
+
+def dunp_yaml_data(data='', file=''):
+    if data and file:
+        with open(file, 'w') as f:
+            yaml.dump(data, f)
+    else:
+        log('No data to dump. Error out.')
+        exit(1)
+
 def ssh_command(cmd, ip, login, pass_key, type):
     log('In Func: ' + sys._getframe().f_code.co_name)
     log('cmd: ' + cmd)
@@ -148,7 +449,6 @@ def ssh_command_passwd(cmd, ip, login, passwd):
     res, err = stdout.read(), stderr.read()
     result = res if res else err
     ssh.close()
-    # print(result.decode())
     return result.decode()
 
 def ssh_command_pubkey(cmd, ip, login, privkey):
@@ -160,7 +460,6 @@ def ssh_command_pubkey(cmd, ip, login, privkey):
     res, err = stdout.read(), stderr.read()
     result = res if res else err
     ssh.close()
-    # print(result.decode())
     return result.decode()
 
 def ssh_scp_put(ip, login, passwd, local_file, remote_file):
@@ -256,7 +555,7 @@ def get_token():
         log('Func get_token failed. Response: None.')
         return None
 
-requests_types = ['GET', 'POST', 'DELETE', 'PATCH']
+# requests_types = ['GET', 'POST', 'DELETE', 'PATCH']
 def send_request(type='GET', url='', data=None, expect_code=200, timeout=180, retries=10, func=''):
     log('In Func:' + sys._getframe().f_code.co_name)
     response = None
@@ -337,16 +636,11 @@ class LcmUtils(object):
     # run specific sripts
     # ...
     def __init__(self):
-        # # pl043
-        # self.sig_oam_vip    = '100.69.127.135'
-        # self.sig_oama_ip    = '100.69.127.133'
-        # self.sig_oamb_ip    = '100.69.127.134'
-        # pl011
-        self.sig_oam_vip    = '10.75.44.24'
-        self.sig_oama_ip    = '10.75.44.22'
-        self.sig_oamb_ip    = '10.75.44.23'
-        self.sig_oam_login  = 'root'
-        self.sig_oam_passwd = 'newsys'
+        self.sig_oam_vip    = sig_oam_vip
+        self.sig_oama_ip    = sig_oama_ip
+        self.sig_oamb_ip    = sig_oamb_ip
+        self.sig_oam_login  = sig_oam_login
+        self.sig_oam_passwd = sig_oam_passwd
         self.sig_host_dict  = {}
 
     def prep_local_known_hosts(self, ip=''):
@@ -356,7 +650,6 @@ class LcmUtils(object):
         """
         log('In Func:' + sys._getframe().f_code.co_name)
         log('Rmove the existing entry of IP: {0} in /c/Users/shawnx/.ssh/known_hosts.'.format(ip))
-        # known_hosts_file = r'/c/Users/shawnx/.ssh/known_hosts'
         known_hosts_file = r'C:\Users\shawnx\.ssh\known_hosts'
         tmp_list = []
         try:
@@ -615,24 +908,14 @@ class LcmUtils(object):
 ########################################################################################################################
 # VNF Packages
 
-sig_vnfpkg_name_baseload    = r'\Nokia_sig_SBC-VNF_Package.zip'
-sig_vnfpkg_name_drbaseload  = r'\Nokia_sig_SBC-VNF_Package-DR.zip'
-sig_vnfpkg_name_sutoload    = r'\Nokia_sig_SBC-VNF_Package-SUToLoad.zip'
-sig_vnfpkg_name_cssutoload  = r'\Nokia_sig_SBC-VNF_Package-CSSUToLoad.zip'
-sig_vnfpkg_supported_type   = ['instantiation', 'su', 'dr', 'cssu']
-
-media_vnfpkg_name_baseload    = r'\Nokia_media_MGW_VNF_Package.zip'
-media_vnfpkg_name_sutoload    = r'\Nokia_media_MGW_VNF_Package-SUToLoad.zip'
-media_vnfpkg_supported_type   = ['instantiation', 'su']
-
 class VnfPkgs(object):
     def __init__(self):
-        self.sig_vnfpkg_baseload    = sig_data_dir + sig_vnfpkg_name_baseload
-        self.sig_vnfpkg_drbaseload  = sig_data_dir + sig_vnfpkg_name_drbaseload
-        self.sig_vnfpkg_sutoload    = sig_data_dir + sig_vnfpkg_name_sutoload
-        self.sig_vnfpkg_cssutoload  = sig_data_dir + sig_vnfpkg_name_cssutoload
-        self.media_vnfpkg_baseload  = media_data_dir + media_vnfpkg_name_baseload
-        self.media_vnfpkg_sutoload  = media_data_dir + media_vnfpkg_name_sutoload
+        self.sig_vnfpkg_baseload    = sig_data_dir + '\\' + sig_vnfpkg_name_baseload
+        self.sig_vnfpkg_drbaseload  = sig_data_dir + '\\' + sig_vnfpkg_name_drbaseload
+        self.sig_vnfpkg_sutoload    = sig_data_dir + '\\' + sig_vnfpkg_name_sutoload
+        self.sig_vnfpkg_cssutoload  = sig_data_dir + '\\' + sig_vnfpkg_name_cssutoload
+        self.media_vnfpkg_baseload  = media_data_dir + '\\' + media_vnfpkg_name_baseload
+        self.media_vnfpkg_sutoload  = media_data_dir + '\\' + media_vnfpkg_name_sutoload
         self.vnfpkgs_list = []
 
     def get_vnfpkgs(self):
@@ -640,7 +923,6 @@ class VnfPkgs(object):
         token_bear = get_token()
         headers = {'Authorization': token_bear}
         address = cbam_url + '/vnfpkgm/v1' + '/vnf_packages'
-        # response = requests.get(address, headers=headers, verify=False)
         response = requests.get(address, headers=headers, verify=False, proxies=proxies)
         data = json.loads(response.text)
         if len(data) != 0:
@@ -668,7 +950,7 @@ class VnfPkgs(object):
             for vp in self.vnfpkgs_list:
                 vp.print_vnfpkg()
 
-    def upload_vnfpkg(self, sig_media='sig', version = sigVersion, type='instantiation'):
+    def upload_vnfpkg(self, sig_media='sig', version = '', type='instantiation'):
         vnfpkg = ''
         id = ''
         if sig_media not in ['sig', 'media']:
@@ -710,7 +992,6 @@ class VnfPkgs(object):
         # First POST vnf_packages to generate one new vnf pkg
         headers = {'Authorization': token_bear}
         address = cbam_url + '/vnfpkgm/v1' + '/vnf_packages'
-        # response = requests.post(address, headers=headers, verify=False)
         response = requests.post(address, headers=headers, verify=False, proxies=proxies)
         if response.status_code != 201:
             log('vnfpkg creation failed.')
@@ -722,14 +1003,12 @@ class VnfPkgs(object):
         #Then PUT content to content of new vnf pkg
         address = cbam_url + '/vnfpkgm/v1' + '/vnf_packages/' + id + '/package_content'
         headers = {'Authorization': token_bear, 'Content-Type': 'application/octet-stream'}
-        # response = requests.put(address, data=open(vnfpkg, 'rb'), headers=headers, verify=False)
         response = requests.put(address, data=open(vnfpkg, 'rb'), headers=headers, verify=False, proxies=proxies)
         if response.status_code != 202:
             log('vnfpkg content upload failed.')
             # Here need to delete the newly created vnf pkg
             headers = {'Authorization': token_bear}
             address = cbam_url + '/vnfpkgm/v1' + '/vnf_packages/' + id
-            # requests.delete(address, headers=headers, verify=False)
             requests.delete(address, headers=headers, verify=False, proxies=proxies)
             exit(1)
         log('VNF PKG uploaded successfully.')
@@ -750,11 +1029,8 @@ class VnfPkgs(object):
         token_bear = get_token()
         headers = {'Authorization': token_bear}
         address = cbam_url + '/vnfpkgm/v1' + '/vnf_packages/' + id
-        # response = requests.get(address, headers=headers, verify=False)
         response = requests.get(address, headers=headers, verify=False, proxies=proxies)
-        # data = json.loads(response.text)
         log('The vnfpkg to be deleted: ' + response.text)
-        # requests.delete(address, headers=headers, verify=False)
         requests.delete(address, headers=headers, verify=False, proxies=proxies)
 
 # VNF Package
@@ -842,8 +1118,6 @@ def mediavnf_DeleteVnfpkg(swVersion):
 
 ########################################################################################################################
 # SBC VNF
-
-vnf_type_list = ['sig', 'media']
 
 class SBCVnf(object):
     def __init__(self, vnfdId, apiVersion, name, description):
@@ -1054,11 +1328,6 @@ class SBCVnf(object):
         return self.opStatus
 
 
-# Signaling plane VNF
-sigvnf_instantiate_file = sig_data_dir + r'\LCM_instantiate_params.json'
-sigvnf_cssu_instantiate_file = sig_data_dir + r'\cssu_LCM_instantiate_params.json'
-sigvnf_dr_instantiate_file = sig_data_dir + r'\dr_LCM_instantiate_params.json'
-
 class SigVnf(SBCVnf):
     def __init__(self, vnfdId, apiVersion='4', name='sbclcm-sig-plane',
                  description='SBC LCM Sig-Plane VNF for Auto Test via CBAM REST APIs'):
@@ -1068,9 +1337,9 @@ class SigVnf(SBCVnf):
         self.vnfdId = vnfdId
         self.id = ''
         self.vnf_type = 'sig'
-        self.instantiate_file = sigvnf_instantiate_file
-        self.cssu_instantiate_file = sigvnf_cssu_instantiate_file
-        self.dr_instantiate_file = sigvnf_dr_instantiate_file
+        self.instantiate_file       = sig_data_dir + '\\' + sig_instantiation_json_file
+        self.dr_instantiate_file    = sig_data_dir + '\\' + sig_dr_instantiation_json_file
+        self.cssu_instantiate_file  = sig_data_dir + '\\' + sig_cssu_instantiation_json_file
 
     def set_vnflcm_apis(self):
         super().set_vnflcm_apis()
@@ -1154,12 +1423,6 @@ class SigVnf(SBCVnf):
                                 expect_code=202, func=sys._getframe().f_code.co_name)
 
 
-# Media plane VNF
-mediavnf_extension_file         = media_data_dir + r'\Nokia_media_MGW.extensions.json'
-mediavnf_instantiate_file       = media_data_dir + r'\Nokia_media_MGW.instantiate.json'
-mediavnf_dr_extension_file      = media_data_dir + r'\DR.extensions.json'
-mediavnf_dr_instantiate_file    = media_data_dir + r'\DR.instantiate.json'
-
 class MediaVnf(SBCVnf):
     def __init__(self, vnfdId, apiVersion='3', name='sbclcm-media-plane',
                  description='SBC LCM Media-Plane VNF for Auto Test via CBAM REST APIs'):
@@ -1170,17 +1433,13 @@ class MediaVnf(SBCVnf):
         self.apiVersion= apiVersion
         self.id = ''
         self.vnf_type = 'media'
-        # self.scaleLevel_pim = 1
-        # self.maxScaleLevel_pim = 5
-        # self.scaleLevel_mcm = 1
-        # self.maxScaleLevel_mcm = 5
         self.vmName_List = []
         self.vmHeal_List = []
         self.name2slot_Map = {}
-        self.extension_file = mediavnf_extension_file
-        self.dr_extension_file = mediavnf_dr_extension_file
-        self.instantiate_file = mediavnf_instantiate_file
-        self.dr_instantiate_file = mediavnf_dr_instantiate_file
+        self.extension_file = media_data_dir + '\\' + media_extension_json_file
+        self.dr_extension_file = media_data_dir + '\\' + media_dr_extension_json_file
+        self.instantiate_file = media_data_dir + '\\' + media_instantiation_json_file
+        self.dr_instantiate_file = media_data_dir + '\\' + media_dr_instantiation_json_file
 
     def set_vnflcm_apis(self):
         super().set_vnflcm_apis()
@@ -1314,14 +1573,6 @@ class MediaVnf(SBCVnf):
                                 expect_code=202, func=sys._getframe().f_code.co_name)
 
 ########################################################################################################################
-
-# backup server credentials
-# backup server on node pl043:
-# backup_server_creds = '-----BEGIN RSA PRIVATE KEY-----\nMIIEpAIBAAKCAQEAr1iY4OHT0ErzjL20X+DrRIBoUzrGHCMadETKGBb1UtVrPCW7\nc5LUQyg87Q+A1rFW2Kb0TLJoxjUMGj+w261huPfLx1XAOQTyjg6fXu8hdQxRj/73\n1+CKjwLjCetoIQBwjP64VENsAAlr8cA+kd0IoCYc5WAmB8rfbUpDwtp0U+5Vts+c\n5iPyI/WN7lST5nF2DL3K9vn9i0crdI4BfM76FHlpeNd3o8NdFpr3zlo270Q5ge1Z\nLUmuEukX6/wSnkKLdxEHKofsKhF4xpCjT8Z1I78XK7ZNJK4+UY8pC7Y9KStEFa72\n1n9S+RZXOeRASjfGXLzWqzHP0CkqANGoDeIEzwIDAQABAoIBAHWy+9Of4oUjen4T\nbLsbB/FQXDbZ8dc7POukrR8kcgHrHfMexMfcXDzECrl5uZrjKQ9+aef9rdS2EOyh\nqf6bUEhPlOq1xbTAfGwcpp+b1pJx9WG53PV8VKWQY4PqD1hvqh0KcgKlyx3vNRTu\nXVGd08dkLetN8dkzNWxv+DIYXxNif/VQTOXxgHLOeTqBWGXRdSYnn5q6cF5T3DfZ\n1CMyROIIbfdfWjPxaWTSouywhaLvGrxcP/itTgENjSbU3nPH4FPh1GbyBZVmTH+y\n7QADJR+7fgTk/cKCRoKZFa6OgAZKarTBIcdG/ssMEGttU6piLdF9yI4f0W8L+9VM\nxeKgoKECgYEA4pRbk4j159mDNNiLpxUHLldakVUBqC0mj3x9I5Bl7X5ChEjKfUJg\noejmc+CffYDvBnqt5ArLYkujOua6/WSfv3FKS0LqSlBwic+JsKiqGvuwlhk6l92r\nL6Hc5ieOCmP05yPtMS2y7Lo95e0NptkLsp96ihwYzc4xHjHm7xqgUNECgYEAxh01\nYM9t41iEs7vL7DBHD7v4e1ZRZf06SXaweBQYmglX07yOvapJhQogFQPsADoQkUyn\n1nPYuCIOxSopGv6CWnP+ikXLQ8EVTdUWCgwJB/PmXRU8WUshwSNaVzD4v+WtEoxr\nWHNdxFO4a/MEivQaZwoqD6RvZiR1OjLa8e/fY58CgYEAyyOh2utPNNfRh56hzmHO\n92BABc6F1sbsLHa7Jxh+Geg6MKmmSZkqU98gRkHcHERtiIySvMJkyDLyHIvil+4Q\nPy6OIl3S+l+WFigo1WbSY7DGCDyESMXnhaQEDaDm+y/U0SpnrNDA+vabKjpXJACy\nOSo8TfiU0GeNp/mrhzGDDBECgYEAulufaoG1DLannap6GKMRNWvMQbjguN+LhK9x\nMIM24S8IvtQQMbmNjugHZb1aspvsGcHR35j5s7vVyQHvyMTAOfYC6m7c1c87Cwv2\nv1yy4hg8CjN/oT9bcSKgSIR4eYrDUz9jesCK47MdN+5Rx6P3chXNmwlDAQIqg6Ry\n8EKEEGECgYBrWdK37phlWkvePk+rp7Cwj9/cFpCyVUi0mm/zKSNhOE4ZFA2gCP/J\n38EHWJur0iafvl2v6z2VbgE7fWT/LKAvZVsYFvnhfdDMVxzrWE3d3Txitw7VZWWS\nH2/305hZrV71vI5Po/4uQ7E9XU/Nhy0yBrdmZYH5hQNxzaFc6YszVg==\n-----END RSA PRIVATE KEY-----'
-
-# backup server on node pl011:
-backup_server_creds = '-----BEGIN RSA PRIVATE KEY-----\nMIIEowIBAAKCAQEAvX/4YeeQcBqR2sjW18T8WbiAVdnVIs4ZNNlTEG+Ps6OFeQFm\nUBwXvtqbetitEhAAU2OT4ivuh+B20KM/WHM6r57URA1qgNK8Sk9tLUiZRvMDkDR8\nWpAEQSw0fvkO91J93q9Siu3h2uhiKtB1ARESb5DcayttXg0fr9U5hmT/mD5MJ/nC\npfE5ByuHzmWSJo9Vya+YM0UBZnja38vhfc8mAeJ0pxQVxkoL4KzYF2JJAqIzH9tw\nkJLfZbNlxQtOKRCSRWtdcCHckfS0/BISf9f0jdG9h15q3vvKc0j+dXCJny5jfgCc\nHl2+e4RYK3evvJPWQNSZ/+iMZqn1SyligpbKXQIDAQABAoIBABtfsAach73Z6LXd\nC0Px/a4MO+Wq6OH1Oajrt9cI9o4xkedP73KlDD0SoSEWybFxRErHeKZUSEmygBdV\nbaIeSxzxaaJG+dqQFoj5fkDrWtDn69zZ6BjA8wxjEVZCLgpGDU6srtTI1jZkGUIs\nCKrVx378QwrsJAlRBgHFYGDsmAtqvLetbMm272K/hz2e4jxMf08LcDx1fUgDO+hD\naMjzVmbIYNbFftLQD/yG+DgtvP7f728yoG8gNXC0shPqetHtfnwCbJ3H1ju9svGW\nDFYzrBwZZZMY0nTAWjY/DXSS1ORrq7LXSIPKf/3kobfMU67ugeC6NrEsncdIKvIE\n/yVKTrUCgYEA4iMKFeRdIWjzijg3Iie6k09vduTH+nsELDKjzHqcyPmEBisidFQA\nFMjJO8+jh+KKusqYEDp1l4qHLbtN1hatKZV6PwfcmPITA+uczZa9Z3YAKsI1GAOi\n0GUmjmoElOGc1I+k55fWAt48hWRoPd4vrlGaAw8otIdiSXHdpwdb3rsCgYEA1oZa\nH7R4j757Ny47NHIPsXsfZwyD2TTU+oOIDOPvBWN6GuU70N5ZW21529mwLKbr5e2H\n9ofMhSJQkXlg6e6F5wmj7Q0n+mGNoPeNoq7bRB1gHelODs4vAnnVNz2vCGt0uqSd\n+UoemidWKm8RFNAG8yS9uoQrk7sZpA5MYHrJBccCgYBELqxrzV8HI83Kbwiwk6n9\noIXLI0/ohg7MBLi+fnmnXxQfiAHrcShVG/UQw5pa7kNF7q/KtNWfy3TWpRLi6hNr\n5lXli0lIFDUHiZLNqhWRjFKgkc3QX8hHbTgi2HRpL11J+cWOzokIdFlrHssPXF6k\nAJafNYLga7GG034xTla04QKBgAK5Meu1HtK0WFwa+iVwTUKzjXKBdisLwKhtgwym\n2CH5YVN2FYxRRlEi0qk32kS22cfRfChlEPOfu+Yc5F4T6R9FwA8CW7+R/XpNqj6m\neaIjvVSj4ZnOhEpDwbEx10cEFjdIX7kKd9j9JtrjDhR1j6EGlmIHy4XUmj66771J\n0cOBAoGBAJyXMkKKbsSGDGYoyzazVjLYzIqmC2tOnYkHHl3heEZN/LkphPuLdbcj\n2pk2wlqskZ2LQxnylJDgIIA6rJBoLvBj5Xo+9EN7uidHHv+8JGBy4FPcDNl2O5RR\nLbiaAVSQNQNm+hku9e0XH0+YFrCP+0Q8D9DGYzhupslAzJEyoz3R\n-----END RSA PRIVATE KEY-----'
-
 # SBC VNF LCM Tests
 class SBCVnfLcmTestDriver(object):
     def __init__(self, sbcvnf):
@@ -1331,24 +1582,18 @@ class SBCVnfLcmTestDriver(object):
         self.vnf_name = ''
         # vnf_type is 'sig' or 'media'
         self.vnf_type = self.sbcvnf.vnf_type
-        self.wkk = 'wkk.pem'
+        self.wkk = wkk
         # centos is for pubkey login
-        self.backup_server_login_pubkey = 'centos'
-        self.local_private_key = r'C:\Users\shawnx\.ssh\id_rsa'
+        self.backup_server_login_pubkey = backup_server_login_pubkey
+        self.local_private_key = local_private_key
         # root is for passwd login
-        self.backup_server_login_passwd = 'root'
-        self.backup_server_passwd_passwd = 'newsys'
-        self.ssh_type = 'passwd'
-        # backup server on pl043
-        # self.backup_server_ip = '100.69.127.146'
-        # self.backup_server_dir = '/root/lcm-data/httpserver/sbclcm-auto/'
-        # self.backup_server1 = 'centos@100.69.127.146:/root/lcm-data/httpserver/sbclcm-auto/'
-        # self.backup_server2 = 'centos@100.69.127.146:/root/lcm-data/httpserver/sbclcm-auto/'
-        # backup server on pl011
-        self.backup_server_ip = '10.75.44.7'
-        self.backup_server_dir = '/var/www/html/sbclcm-auto/'
-        self.backup_server1 = 'centos@10.75.44.7:/var/www/html/sbclcm-auto/'
-        self.backup_server2 = 'centos@10.75.44.7:/var/www/html/sbclcm-auto/'
+        self.backup_server_login_passwd = backup_server_login_passwd
+        self.backup_server_passwd_passwd = backup_server_passwd_passwd
+        self.ssh_type = ssh_type
+        self.backup_server_ip = backup_server_ip
+        self.backup_server_dir = backup_server_dir
+        self.backup_server1 = backup_server1
+        self.backup_server2 = backup_server2
         self.backup_server_creds1 = backup_server_creds
         self.backup_server_creds2 = self.backup_server_creds1
 
@@ -1366,7 +1611,6 @@ class SBCVnfLcmTestDriver(object):
     def get_vnf_id(self):
         token_bear = get_token()
         headers = {'Authorization': token_bear}
-        # response = requests.get(self.getvnfs, headers=headers, verify=False)
         response = requests.get(self.getvnfs, headers=headers, verify=False, proxies=proxies)
         if response.status_code == 200:
             data = json.loads(response.text)
@@ -1488,29 +1732,18 @@ class SigVnfLcmTestDriver(SBCVnfLcmTestDriver):
     def __init__(self, sbcvnf):
         super().__init__(sbcvnf)
         # self.vnf_type = 'sig'
-        self.vnf_name = 'sbclcm03'
-        self.sig_oama_ip = '100.69.127.133'
-        self.sig_oam_login = 'root'
-        self.sig_oam_passwd = 'newsys'
-        self.fixed_scm_ip = '100.69.127.150,100.69.127.151'
-        # self.fixed_scm_ip = '10.75.44.10,10.75.44.11'
-        self.restore_media_plane = 'ALL'
-        self.cssu_zip = 'cssu_archive.zip'
-        self.backup_zip = 'backup.zip'
-        # pl011
-        self.su_deft_url = 'http://10.75.44.7/deftC_R37.28.XX_R37.34.XX.zip'
-        self.su_deft_key = '11058'
-        self.su_to_image = 'nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2'
-        self.su_to_version = 'R37.34.06'
-        # pl043
-        # self.su_deft_url = 'http://100.69.127.146/sbclcm-auto/deftC_R37.28.XX_R37.34.XX.zip'
-        # self.su_deft_key = '11058'
-        # self.su_to_image = 'nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2'
-        # self.su_to_version = 'R37.34.06'
-        # self.su_deft_url = 'http://100.69.127.146/sbclcm-auto/deft_R37.34.XX_R37.34.XX.zip'
-        # self.su_deft_key = '11111'
-        # self.su_to_image = 'nokia-SBC_sig-RHEL7-R37.34.06.0020.x86_64.qcow2'
-        # self.su_to_version = 'R37.34.06.0020'
+        self.vnf_name = sig_vnf_name
+        self.sig_oama_ip = sig_oama_ip
+        self.sig_oam_login = sig_oam_login
+        self.sig_oam_passwd = sig_oam_passwd
+        self.fixed_scm_ip = sig_fixed_scm_ip
+        self.restore_media_plane = sig_restore_media_plane
+        self.cssu_zip = sig_cssu_zip
+        self.backup_zip = sig_backup_zip
+        self.su_deft_url = sig_su_deft_url
+        self.su_deft_key = sig_su_deft_key
+        self.su_to_image = sig_su_to_image
+        self.su_to_version = sig_su_to_version
         # Following are additionalParams for various operations
         self.additinalParams_Backup_Local = {
             'backupServer1': '',
@@ -1556,9 +1789,9 @@ class SigVnfLcmTestDriver(SBCVnfLcmTestDriver):
         }
         self.additinalParams_Connection = {
             'FixedScmIpAddress': self.fixed_scm_ip,
-            'LcmUser': 'cloud-user',
-            'ApplUser': 'diag',
-            'ApplUserPw': '-assured'
+            'LcmUser': media_lcm_user,
+            'ApplUser': media_appl_user,
+            'ApplUserPw': media_appl_passwd
         }
         self.additinalParams_Disconnection = {
             'FixedScmIpAddress': self.fixed_scm_ip,
@@ -1728,20 +1961,14 @@ class MediaVnfLcmTestDriver(SBCVnfLcmTestDriver):
         super().__init__(sbcvnf)
         self.sbcvnf = sbcvnf
         self.vnf_id = ''
-        self.vnf_name = 'sbgw01'
-        # self.vnf_type = 'media'
-        # pl043
-        self.scma_ip = '100.69.127.150'
-        self.scmb_ip = '100.69.127.151'
-        self.scm_vip = '100.69.127.152'
-        # pl011
-        # self.scma_ip = '10.75.44.10'
-        # self.scmb_ip = '10.75.44.11'
-        # self.scm_vip = '10.75.44.12'
-        self.backup_zip = 'BACKUP_C.ZIP'
-        self.lcm_user = 'cloud-user'
-        self.appl_user = 'diag'
-        self.appl_passwd = '-assured'
+        self.vnf_name = media_vnf_name
+        self.scma_ip = media_scma_ip
+        self.scmb_ip = media_scmb_ip
+        self.scm_vip = media_scm_vip
+        self.backup_zip = media_backup_zip
+        self.lcm_user = media_lcm_user
+        self.appl_user = media_appl_user
+        self.appl_passwd = media_appl_passwd
         self.vm_slot_dict = {'ACTIVE-MCM': [], 'STANDBY-MCM': [],
                   'ACTIVE-PIM': [], 'STANDBY-PIM': [],
                   'ACTIVE-SCM': [], 'STANDBY-SCM': []}
@@ -1749,13 +1976,9 @@ class MediaVnfLcmTestDriver(SBCVnfLcmTestDriver):
         self.stbyMCM_list = []
         self.stbySCM_list = []
         self.stbyALL_list = []
-        self.su_to_image = 'nokia-mgw-rhel7.7-3.10.0-1062.4.1.ap100013.x86_64.qcow2'
-        #pl011
-        self.backup_url = 'http://10.75.44.7/sbclcm-auto/BACKUP_C.ZIP'
-        # pl043
-        # self.backup_url = 'http://100.69.127.146/sbclcm-auto/BACKUP_C.ZIP'
+        self.su_to_image = media_su_to_image
+        self.backup_url = media_backup_url
         # Following are additionalParams for various operations
-        # For backup:
         self.additinalParams_Backup_Local = {
             'backup_server1': '',
             'backup_server_credentials1': '',
@@ -1979,26 +2202,10 @@ class MediaVnfLcmTestDriver(SBCVnfLcmTestDriver):
 
     def prep_local_known_hosts(self):
         """
-        # Need to rm the entry in known_hosts file on local pc otherwise there would be issue like:
-        # shawnx@CV0103852N0 MINGW64 ~
-        # $ ssh diag@10.75.44.12
-        # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-        # @    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
-        # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-        # IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
-        # Someone could be eavesdropping on you right now (man-in-the-middle attack)!
-        # It is also possible that a host key has just been changed.
-        # The fingerprint for the ECDSA key sent by the remote host is
-        # SHA256:1S8NQMpoVP/EWC6pIBYD7UC+wBzrRSea5GUnFoeJwTc.
-        # Please contact your system administrator.
-        # Add correct host key in /c/Users/shawnx/.ssh/known_hosts to get rid of this message.
-        # Offending ECDSA key in /c/Users/shawnx/.ssh/known_hosts:19
-        # ECDSA host key for 10.75.44.12 has changed and you have requested strict checking.
-        # Host key verification failed.
+        # Need to rm the entry in known_hosts file on local pc otherwise there would be error
         """
         log('In Func:' + sys._getframe().f_code.co_name)
         log('Rmove the existing entry of SCM VIP in /c/Users/shawnx/.ssh/known_hosts.')
-        # known_hosts_file = r'/c/Users/shawnx/.ssh/known_hosts'
         known_hosts_file = r'C:\Users\shawnx\.ssh\known_hosts'
         tmp_list = []
         try:
@@ -2014,38 +2221,17 @@ class MediaVnfLcmTestDriver(SBCVnfLcmTestDriver):
 
 ########################################################################################################################
 # Signaling plane VNF artifact generator
-
-# type : ['instantiation', 'su', 'dr', 'cssu']
-# rel : load release to artifacts to be generated, to be passed to yact tool
-# server_type: httpserver1, httpserver2, httpserver12, bkupserver1, bkupserver2, bkupserver12
-# default_rel = 'R20.2'
-default_rel = 'R20.0'
-toload_rel = 'R20.2'
-server_type_list =['httpserver1', 'httpserver2', 'httpserver12', 'bkupserver1', 'bkupserver2', 'bkupserver12']
-# sig_dif_name = 'SBC-signaling_R20.2.xlsm'
-sig_dif_name = 'SBC-signaling_R20.0.xlsm'
-sig_dr_dif_name = 'SBC-signaling_R20.2-dr.xlsm'
-sig_su_dif_name = 'SBC-signaling_R20.2-su.xlsm'
-sig_cssu_dif_name = 'SBC-signaling_R20.2-cssu.xlsm'
-
 class SigVnfArtsGenerator(object):
     # server_type is required for DR, CSSU
-    def __init__(self, type='instantiation', rel=default_rel, server_type=None):
+    def __init__(self, type='instantiation', rel='', server_type=None):
         self.type = type
         self.rel = rel
         self.server_type = server_type
-        # self.torel = torel
-        self.arts_type = ['instantiation', 'su', 'dr', 'cssu']
-        # self.rel = 'R20.0'
-        # self.torel = 'R20.0'
-        self.yact_server_ip = '135.252.41.216'
-        self.yact_user = 'yact-user'
-        self.yact_passwd = '123456'
-        self.yact_dir = '/home/yact-user/shawnx/20.2/'
-        # self.sig_dif_name = 'SBC-signaling_R20.2-sbclcm03.xlsm'
-        # self.sig_dr_dif_name = 'SBC-signaling_R20.2-sbclcm03-dr.xlsm'
-        # self.sig_su_dif_name = 'SBC-signaling_R20.2-sbclcm03-su.xlsm'
-        # self.sig_cssu_dif_name = 'SBC-signaling_R20.2-sbclcm03-cssu.xlsm'
+        self.arts_type = sig_arts_type
+        self.yact_server_ip = sig_yact_server_ip
+        self.yact_user = sig_yact_user
+        self.yact_passwd = sig_yact_passwd
+        self.yact_dir = sig_yact_dir
         self.sig_dif_name = sig_dif_name
         self.sig_dr_dif_name = sig_dr_dif_name
         self.sig_su_dif_name = sig_su_dif_name
@@ -2056,46 +2242,32 @@ class SigVnfArtsGenerator(object):
             'dr': self.sig_dr_dif_name,
             'su': self.sig_su_dif_name
         }
-        self.sig_ne_name = 'sbclcm03'
+        self.sig_ne_name = sig_vnf_name
         self.sig_zip = self.sig_ne_name + '.zip'
         self.sig_dif_file = sig_arts_dir + '\\' + self.sig_dif_name
-        self.sig_vnfpkg_name = 'Nokia_sig_SBC-VNF_Package.zip'
-        self.sig_dr_vnfpkg_name = 'Nokia_sig_SBC-VNF_Package-DR.zip'
-        self.sig_su_vnfpkg_name = 'Nokia_sig_SBC-VNF_Package-SUToLoad.zip'
-        self.sig_cssu_vnfpkg_name = 'Nokia_sig_SBC-VNF_Package-CSSUToLoad.zip'
-        # orig_instantiation_json_file = 'orig_LCM_instantiate_params.json'
-        self.instantiation_json_file = 'LCM_instantiate_params.json'
-        self.dr_instantiation_json_file = 'dr_LCM_instantiate_params.json'
-        self.cssu_instantiation_json_file = 'cssu_LCM_instantiate_params.json'
-        self.os_passwd = 'LabAcc0unt'
-        # pl043
-        # self.backup_server_ip = '100.69.127.146'
-        # pl011
-        self.backup_server_ip = '10.75.44.7'
-        self.backup_server_login = 'root'
-        self.backup_server_passwd = 'newsys'
-        # pl043
-        # self.backup_server_dir = '/root/lcm-data/httpserver/sbclcm-auto/'
-        # self.bulk_conf_url      = 'http://100.69.127.146/sbclcm-auto/bulkconf_artifacts.zip'
-        # self.backup_file1_http  = 'http://100.69.127.146/sbclcm-auto/backup.zip'
-        # self.backup_file2_http  = 'http://100.69.127.146/sbclcm-auto/backup.zip'
-        # self.backup_file1_creds = 'centos@100.69.127.146:/root/lcm-data/httpserver/sbclcm-auto/backup.zip'
-        # self.backup_file2_creds = 'centos@100.69.127.146:/root/lcm-data/httpserver/sbclcm-auto/backup.zip'
-        # self.upgrade_file_http  = 'http://100.69.127.146/sbclcm-auto/cssu_archive.zip'
-        # self.upgrade_file_creds = 'centos@100.69.127.146:/root/lcm-data/httpserver/sbclcm-auto/cssu_archive.zip'
-        # pl011
-        self.backup_server_dir  = '/var/www/html/sbclcm-auto/'
-        self.bulk_conf_url      = 'http://10.75.44.7/sbclcm-auto/bulkconf_artifacts.zip'
-        self.backup_file1_http  = 'http://10.75.44.7/sbclcm-auto/backup.zip'
-        self.backup_file2_http  = 'http://10.75.44.7/sbclcm-auto/backup.zip'
-        self.backup_file1_creds = 'centos@10.75.44.7:/var/www/html/sbclcm-auto/backup.zip'
-        self.backup_file2_creds = 'centos@10.75.44.7:/var/www/html/sbclcm-auto/backup.zip'
-        self.upgrade_file_http  = "http://10.75.44.7/sbclcm-auto/cssu_archive.zip"
-        self.upgrade_file_creds = 'centos@10.75.44.7:/var/www/html/sbclcm-auto/cssu_archive.zip'
-        self.backup_file_name = 'backup.zip'
-        self.ssh_type = 'passwd'
+        self.sig_vnfpkg_name = sig_vnfpkg_name
+        self.sig_dr_vnfpkg_name = sig_dr_vnfpkg_name
+        self.sig_su_vnfpkg_name = sig_su_vnfpkg_name
+        self.sig_cssu_vnfpkg_name = sig_cssu_vnfpkg_name
+        self.instantiation_json_file = sig_instantiation_json_file
+        self.dr_instantiation_json_file = sig_dr_instantiation_json_file
+        self.cssu_instantiation_json_file = sig_cssu_instantiation_json_file
+        self.os_passwd = os_passwd
+        self.backup_server_ip = backup_server_ip
+        self.backup_server_login = backup_server_login
+        self.backup_server_passwd = backup_server_passwd
+        self.backup_server_dir  = backup_server_dir
+        self.bulk_conf_url      = sig_bulk_conf_url
+        self.backup_file1_http  = sig_backup_file1_http
+        self.backup_file2_http  = sig_backup_file2_http
+        self.backup_file1_creds = sig_backup_file1_creds
+        self.backup_file2_creds = sig_backup_file2_creds
+        self.upgrade_file_http  = sig_upgrade_file_http
+        self.upgrade_file_creds = sig_upgrade_file_creds
+        self.backup_file_name = sig_backup_file_name
+        self.ssh_type = ssh_type
         self.backup_file = self.backup_server_dir + self.backup_file_name
-        self.local_backup_dir = 'backup'
+        self.local_backup_dir = sig_local_backup_dir
         self.ap_instantiation = {
             "backup_file1": "",
             "backup_file2": "",
@@ -2197,9 +2369,6 @@ class SigVnfArtsGenerator(object):
             "upgrade_server_credentials": backup_server_creds
         }
 
-    # Supported type: ['instantiation', 'su', 'dr', 'cssu']
-    # rel is needed to handle SU case, SU TO load may be different release
-    # def gen_arts_sig(type='instantiation', rel='R20.0'):
     def gen_arts_sig(self):
         log('In Func:' + sys._getframe().f_code.co_name)
         os.chdir(sig_arts_dir)
@@ -2307,7 +2476,6 @@ class SigVnfArtsGenerator(object):
                              self.ssh_type)
         log('result of chmod bulkconf_artifacts.zip: ' + result)
 
-    # def cp_vnf_pkg(type='instantiation'):
     def cp_vnf_pkg(self):
         # cp the Nokia_sig_SBC-VNF_Package.zip to data\sig-plane
         # to correct name
@@ -2330,13 +2498,14 @@ class SigVnfArtsGenerator(object):
         log('Copy ' + srcfile + ' to ' + dstfile)
         shutil.copyfile(srcfile, dstfile)
 
-    # json load, dump
-    # with open(file_name, 'r') as f:
-    #     data = json.load(f)
-    # with open('output.json', 'w') as f:
-    #     json.dump(data, f)
-    # def prep_instantiation_json(type='instantiation'):
     def prep_instantiation_json(self):
+        """
+        # json load, dump
+        # with open(file_name, 'r') as f:
+        #     data = json.load(f)
+        # with open('output.json', 'w') as f:
+        #     json.dump(data, f)
+        """
         os.chdir(sig_arts_dir)
         if not os.path.exists(self.sig_ne_name):
             log('artifacts dir not exist. Exit.')
@@ -2346,11 +2515,10 @@ class SigVnfArtsGenerator(object):
 
         # dr and cssu need to populate backup server by server_type
         if self.type in ['dr', 'cssu']:
-            if self.server_type not in server_type_list:
+            if self.server_type not in sig_server_type_list:
                 log('server_type not populated for ' + self.type)
                 exit(1)
 
-        # server_type_list:['httpserver1', 'httpserver2', 'httpserver12', 'bkupserver1', 'bkupserver2', 'bkupserver12']
         if self.type == 'dr':
             if self.server_type == 'httpserver1':
                 self.ap_dr_instantiation = self.ap_dr_instantiation_http1
@@ -2427,9 +2595,12 @@ class SigVnfArtsGenerator(object):
 
         log('instantiation json for ' + self.type + ' created completed.')
 
-    # get the sc count of provided workbook
-    # return: the row of sc vm_count, the vm_count value
     def get_sc_count(self, workbook):
+        """
+        get the sc count of provided workbook
+        :param workbook: workbook to to used
+        :return: the row of sc vm_count, the vm_count value
+        """
         log('In Func: ' + sys._getframe().f_code.co_name)
         wb = load_workbook(workbook, keep_vba=True)
         sh = wb['DP']
@@ -2460,8 +2631,12 @@ class SigVnfArtsGenerator(object):
 
         return (row_vm_count, sc_count)
 
-    # set the sc count of provided workbook
     def set_sc_count(self, workbook, sc_count=5):
+        """
+        Set the sc count of provided workbook
+        :param workbook: workbook to be modified
+        :param sc_count: SC VM pair count, default to 5
+        """
         log('In Func: ' + sys._getframe().f_code.co_name)
         row_vm_count, initial_sc_count = self.get_sc_count(workbook)
 
@@ -2476,8 +2651,11 @@ class SigVnfArtsGenerator(object):
 
         log('Successfully set sc count to: ' + str(sc_count))
 
-    # get initial sc value
     def get_initial_sc_value(self):
+        """
+        get initial sc value
+        :return: initial_sc_count
+        """
         log('In Func: ' + sys._getframe().f_code.co_name)
         os.chdir(sig_arts_dir)
         if not os.path.exists(self.sig_dif_name):
@@ -2492,8 +2670,10 @@ class SigVnfArtsGenerator(object):
 
         return int(initial_sc_count)
 
-    # update DIF using updated sc value
     def gen_dif_updated_sc_value(self, sc_count=5):
+        """
+        update DIF using updated sc value
+        """
         log('In Func: ' + sys._getframe().f_code.co_name)
         os.chdir(sig_arts_dir)
 
@@ -2510,8 +2690,11 @@ class SigVnfArtsGenerator(object):
 
         self.set_sc_count(workbook, sc_count)
 
-    # prep arts for instantiation, dr,
     def prep_arts(self):
+        """
+        prep arts for instantiation, dr, cssu, su
+        su doesn't need json file
+        """
         log('In Func: ' + sys._getframe().f_code.co_name)
         # su doesn't need json file, only vnf pkg needed
         if self.type == 'su':
@@ -2525,19 +2708,19 @@ class SigVnfArtsGenerator(object):
             self.ship_bulkconf_zip()
 
 def sigvnf_GenArtsInstantiation():
-    sigArts = SigVnfArtsGenerator(type='instantiation', rel=default_rel)
+    sigArts = SigVnfArtsGenerator(type='instantiation', rel=sig_default_rel)
     sigArts.prep_arts()
 
 def sigvnf_GenArtsDR():
-    sigArts = SigVnfArtsGenerator(type='dr', rel=default_rel, server_type='httpserver12')
+    sigArts = SigVnfArtsGenerator(type='dr', rel=sig_default_rel, server_type='httpserver12')
     sigArts.prep_arts()
 
 def sigvnf_GenArtsSU():
-    sigArts = SigVnfArtsGenerator(type='su', rel=toload_rel)
+    sigArts = SigVnfArtsGenerator(type='su', rel=sig_toload_rel)
     sigArts.prep_arts()
 
 def sigvnf_GenArtsCSSU():
-    sigArts = SigVnfArtsGenerator(type='cssu', rel=toload_rel)
+    sigArts = SigVnfArtsGenerator(type='cssu', rel=sig_toload_rel)
     sigArts.prep_arts()
 
 def sigvnf_GenArts():
@@ -2548,150 +2731,136 @@ def sigvnf_GenArts():
 
 ######################################################################
 # Artifact generator for media plane
-media_dif_name = 'user-input-openstack-R20.2-sbgw01.xlsx'
-media_su_dif_name = 'user-input-openstack-R20.2-sbgw01.xlsx'
 
-# mediavnf_extension_file         = media_data_dir + r'\Nokia_media_MGW.extensions.json'
-# mediavnf_instantiate_file       = media_data_dir + r'\Nokia_media_MGW.instantiate.json'
-# mediavnf_dr_extension_file      = media_data_dir + r'\DR.extensions.json'
-# mediavnf_dr_instantiate_file    = media_data_dir + r'\DR.instantiate.json'
-
-# working_dir = r'D:\Programs\JetBrains\PycharmProjects\py37projects\lcm_auto_cbam_restful'
-# sig_data_dir = working_dir + r'\data\sig-plane'
-# media_data_dir = working_dir + r'\data\media-plane'
-# sig_arts_dir = working_dir + r'\data\sig-plane-arts'
-# media_arts_dir = working_dir + r'\data\media-plane-arts'
-# log_file = working_dir + r'\sbclcm_auto.log'
-
-def run_mmyact():
-    try:
-        client = paramiko.SSHClient()
-        client.load_system_host_keys()
-        client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-        client.connect(hostname='135.251.49.19', username='test', password='initial')
-        with SSHClientInteraction(client, timeout=10, buffer_size=10240, display=True) as interact:
-            ## login yact server
-            PROMPT = '.*[test@ngnsvr10 ~].*'
-            interact.expect(PROMPT)
-            ## cd to yact dir
-            cmd = 'cd ' + '/home/test/shawnx/20.2/'
-            interact.send(cmd)
-            PROMPT = '.*test@ngnsvr10.*'
-            interact.expect(PROMPT)
-            ## run mmyact
-            cmd = '/home/test/bin/mmyact -u user-input-openstack-R20.2-sbgw01.xlsx'
-            interact.send(cmd)
-            PROMPT = '.*#?.*'
-            interact.expect(PROMPT)
-            ## send 1
-            cmd = '1'
-            interact.send(cmd)
-            PROMPT = '.*choice a new path.*'
-            interact.expect(PROMPT)
-            ## choice a new path
-            cmd = 'y'
-            interact.send(cmd)
-            PROMPT = '.*#?.*'
-            interact.expect(PROMPT)
-            ## choose 1 Public Official Versions
-            cmd = '1'
-            interact.send(cmd)
-            PROMPT = '.*#?.*'
-            interact.expect(PROMPT)
-            ## parser out version
-            cmd_output = interact.current_output_clean
-            tmp_list = cmd_output.split()
-            print(tmp_list)
-            data = None
-            version = 'ap100012'
-            for ldata in tmp_list:
-                if version in ldata:
-                    data = ldata
-            if data == None:
-                print('Not find ' + version)
-                return
-            idx = tmp_list.index(data)
-            cmd = tmp_list[idx - 1].split(')')[0]
-            interact.send(cmd)
-            PROMPT = '.*choice a new dif template.*'
-            interact.expect(PROMPT)
-            ##
-            cmd = 'y'
-            interact.send(cmd)
-            PROMPT = '.*#?.*'
-            interact.expect(PROMPT, timeout=120)
-            ##
-            cmd = '2'
-            interact.send(cmd)
-            PROMPT = '.*#?.*'
-            interact.expect(PROMPT)
-            ##
-            # cmd = self.openrc_file
-            cmd = '/home/test/shawnx/20.2/cb0078sa.v2'
-            interact.send(cmd)
-            PROMPT = '.*specific VNFD name.*'
-            interact.expect(PROMPT)
-            ##
-            cmd = 'n'
-            interact.send(cmd)
-            PROMPT = '.*input the specific name.*'
-            interact.expect(PROMPT, timeout=10)
-            ##
-            # cmd = self.media_ne_name
-            cmd = 'sbgw01'
-            interact.send(cmd)
-            PROMPT = '.*test@ngnsvr10.*'
-            interact.expect(PROMPT, timeout=10)
-            cmd_output = interact.current_output_clean
-            print(cmd_output)
-            ##
-            cmd = 'exit'
-            interact.send(cmd)
-            interact.expect()
-    except Exception:
-        traceback.print_exc()
-    finally:
-        try:
-            client.close()
-        except Exception:
-            pass
+# def run_mmyact():
+#     try:
+#         client = paramiko.SSHClient()
+#         client.load_system_host_keys()
+#         client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+#         client.connect(hostname='135.251.49.19', username='test', password='initial')
+#         with SSHClientInteraction(client, timeout=10, buffer_size=10240, display=True) as interact:
+#             ## login yact server
+#             PROMPT = '.*[test@ngnsvr10 ~].*'
+#             interact.expect(PROMPT)
+#             ## cd to yact dir
+#             cmd = 'cd ' + '/home/test/shawnx/20.2/'
+#             interact.send(cmd)
+#             PROMPT = '.*test@ngnsvr10.*'
+#             interact.expect(PROMPT)
+#             ## run mmyact
+#             cmd = '/home/test/bin/mmyact -u user-input-openstack-R20.2-sbgw01.xlsx'
+#             interact.send(cmd)
+#             PROMPT = '.*#?.*'
+#             interact.expect(PROMPT)
+#             ## send 1
+#             cmd = '1'
+#             interact.send(cmd)
+#             PROMPT = '.*choice a new path.*'
+#             interact.expect(PROMPT)
+#             ## choice a new path
+#             cmd = 'y'
+#             interact.send(cmd)
+#             PROMPT = '.*#?.*'
+#             interact.expect(PROMPT)
+#             ## choose 1 Public Official Versions
+#             cmd = '1'
+#             interact.send(cmd)
+#             PROMPT = '.*#?.*'
+#             interact.expect(PROMPT)
+#             ## parser out version
+#             cmd_output = interact.current_output_clean
+#             tmp_list = cmd_output.split()
+#             print(tmp_list)
+#             data = None
+#             version = 'ap100012'
+#             for ldata in tmp_list:
+#                 if version in ldata:
+#                     data = ldata
+#             if data == None:
+#                 print('Not find ' + version)
+#                 return
+#             idx = tmp_list.index(data)
+#             cmd = tmp_list[idx - 1].split(')')[0]
+#             interact.send(cmd)
+#             PROMPT = '.*choice a new dif template.*'
+#             interact.expect(PROMPT)
+#             ##
+#             cmd = 'y'
+#             interact.send(cmd)
+#             PROMPT = '.*#?.*'
+#             interact.expect(PROMPT, timeout=120)
+#             ##
+#             cmd = '2'
+#             interact.send(cmd)
+#             PROMPT = '.*#?.*'
+#             interact.expect(PROMPT)
+#             ##
+#             # cmd = self.openrc_file
+#             cmd = '/home/test/shawnx/20.2/cb0078sa.v2'
+#             interact.send(cmd)
+#             PROMPT = '.*specific VNFD name.*'
+#             interact.expect(PROMPT)
+#             ##
+#             cmd = 'n'
+#             interact.send(cmd)
+#             PROMPT = '.*input the specific name.*'
+#             interact.expect(PROMPT, timeout=10)
+#             ##
+#             # cmd = self.media_ne_name
+#             cmd = 'sbgw01'
+#             interact.send(cmd)
+#             PROMPT = '.*test@ngnsvr10.*'
+#             interact.expect(PROMPT, timeout=10)
+#             cmd_output = interact.current_output_clean
+#             print(cmd_output)
+#             ##
+#             cmd = 'exit'
+#             interact.send(cmd)
+#             interact.expect()
+#     except Exception:
+#         traceback.print_exc()
+#     finally:
+#         try:
+#             client.close()
+#         except Exception:
+#             pass
 
 class MediaVnfArtsGenerator(object):
-    def __init__(self, type='instantiation', version=mediaVersion):
+    def __init__(self, type='instantiation', version=''):
         self.type = type
         self.version = version
-        self.arts_type = ['instantiation', 'su', 'dr']
-        self.yact_server_ip = '135.251.49.19'
-        self.yact_user = 'test'
-        self.yact_passwd = 'initial'
-        self.yact_dir = '/home/test/shawnx/20.2/'
+        self.arts_type = media_arts_type
+        self.yact_server_ip = media_yact_server_ip
+        self.yact_user = media_yact_user
+        self.yact_passwd = media_yact_passwd
+        self.yact_dir = media_yact_dir
         self.media_dif_name = media_dif_name
         self.media_su_dif_name = media_su_dif_name
-        self.media_ne_name = 'sbgw01'
+        self.media_ne_name = media_vnf_name
         self.mmyact_cmd = '/home/test/bin/mmyact -u ' + media_dif_name
-        self.media_vnfpkg_name = 'Nokia_media_MGW_VNF_Package.zip'
-        self.media_su_vnfpkg_name = 'Nokia_media_MGW_VNF_Package-SU.zip'
-        self.extension_json_file = 'Nokia_media_MGW.extensions.json'
-        self.dr_extension_json_file = 'DR.extensions.json'
-        self.instantiation_json_file = 'Nokia_media_MGW.instantiate.json'
-        self.dr_instantiation_json_file = 'DR.instantiate.json'
-        self.os_passwd = 'LabAcc0unt'
-        self.openrc_file = self.yact_dir + 'cb0078sa.v2'
-        self.backup_server_ip = '100.69.127.146'
-        self.backup_server_login = 'root'
-        self.backup_server_passwd = 'newsys'
-        self.backup_server_dir = '/root/lcm-data/httpserver/sbclcm-auto/'
-        self.backup_file_name = 'BACKUP_C.ZIP'
-        self.ssh_type = 'passwd'
+        self.media_vnfpkg_name = media_vnfpkg_name
+        self.media_su_vnfpkg_name = media_su_vnfpkg_name
+        self.extension_json_file = media_extension_json_file
+        self.dr_extension_json_file = media_dr_extension_json_file
+        self.instantiation_json_file = media_instantiation_json_file
+        self.dr_instantiation_json_file = media_dr_instantiation_json_file
+        self.os_passwd = os_passwd
+        self.openrc_file = media_openrc_file
+        self.backup_server_ip = backup_server_ip
+        self.backup_server_login = backup_server_login
+        self.backup_server_passwd = backup_server_passwd
+        self.backup_server_dir = cbackup_server_dir
+        self.backup_file_name = media_backup_file_name
+        self.ssh_type = ssh_type
         self.backup_file = self.backup_server_dir + self.backup_file_name
-        self.local_backup_dir = 'backup'
+        self.local_backup_dir = media_local_backup_dir
         self.ap_instantiation = {
-            "inject_well_known_temp_key": "yes",
-            "Scripturl": "http://100.69.127.146/sbclcm-auto/bulk.zip"
+            "inject_well_known_temp_key": media_inject_well_known_temp_key,
+            "Scripturl": media_script_url
         }
         self.ap_dr_instantiation = {
-            "inject_well_known_temp_key": "yes",
-            "Scripturl": "http://100.69.127.146/sbclcm-auto/BACKUP_C.ZIP"
+            "inject_well_known_temp_key": media_inject_well_known_temp_key,
+            "Scripturl": media_backup_url
         }
 
     def ship_uif(self):
@@ -3041,7 +3210,7 @@ class LcmTestDriver(object):
         log('In Func: ' + sys._getframe().f_code.co_name)
         self.setup_sigDriver()
         # setup pubkey before backup
-        self.sigDriver.prep_bkserver_pubkey()
+        # self.sigDriver.prep_bkserver_pubkey()
         self.sigDriver.rm_existing_raw_zip(sshtype='passwd')
         for ap in [
             self.sigDriver.additinalParams_Backup_Local,
@@ -3066,7 +3235,7 @@ class LcmTestDriver(object):
     def sigvnf_Backup_Remote1(self):
         log('In Func: ' + sys._getframe().f_code.co_name)
         self.setup_sigDriver()
-        self.sigDriver.prep_bkserver_pubkey()
+        # self.sigDriver.prep_bkserver_pubkey()
         self.sigDriver.rm_existing_raw_zip(sshtype='passwd')
         self.sigDriver.custom_backup(self.sigDriver.additinalParams_Backup_Remote_1)
         self.sigDriver.check_opstatus(operation='OTHER', operationName='custom:backup', timeout=20)
@@ -3075,7 +3244,7 @@ class LcmTestDriver(object):
     def sigvnf_Backup_Remote2(self):
         log('In Func: ' + sys._getframe().f_code.co_name)
         self.setup_sigDriver()
-        self.sigDriver.prep_bkserver_pubkey()
+        # self.sigDriver.prep_bkserver_pubkey()
         self.sigDriver.rm_existing_raw_zip(sshtype='passwd')
         self.sigDriver.custom_backup(self.sigDriver.additinalParams_Backup_Remote_2)
         self.sigDriver.check_opstatus(operation='OTHER', operationName='custom:backup', timeout=20)
@@ -3084,7 +3253,7 @@ class LcmTestDriver(object):
     def sigvnf_Backup_Remote12(self):
         log('In Func: ' + sys._getframe().f_code.co_name)
         self.setup_sigDriver()
-        self.sigDriver.prep_bkserver_pubkey()
+        # self.sigDriver.prep_bkserver_pubkey()
         self.sigDriver.rm_existing_raw_zip(sshtype='passwd')
         self.sigDriver.custom_backup(self.sigDriver.additinalParams_Backup_Remote_12)
         self.sigDriver.check_opstatus(operation='OTHER', operationName='custom:backup', timeout=20)
@@ -3221,7 +3390,7 @@ class LcmTestDriver(object):
     # rel is current release
     # 6 server_type for DR: httpserver1, httpserver2, httpserver12
     #               bkupserver1, bkupserver2, bkupserver12
-    def sigvnf_GenArts4DR(self, rel=default_rel, server_type='httpserver12'):
+    def sigvnf_GenArts4DR(self, rel='', server_type='httpserver12'):
         log('In Func: ' + sys._getframe().f_code.co_name)
         self.setup_sigDriver()
         current_count, max_count = self.sigDriver.get_scale_status()
@@ -3230,7 +3399,7 @@ class LcmTestDriver(object):
         sigArts.prep_arts()
 
     # rel is TO load release
-    def sigvnf_GenArts4SU(self, rel=toload_rel):
+    def sigvnf_GenArts4SU(self, rel=''):
         log('In Func: ' + sys._getframe().f_code.co_name)
         self.setup_sigDriver()
         current_count, max_count = self.sigDriver.get_scale_status()
@@ -3239,7 +3408,7 @@ class LcmTestDriver(object):
         sigArts.prep_arts()
 
     # rel is TO load release
-    def sigvnf_GenArts4CSSU(self, rel=toload_rel, server_type='httpserver1'):
+    def sigvnf_GenArts4CSSU(self, rel='', server_type='httpserver1'):
         log('In Func: ' + sys._getframe().f_code.co_name)
         self.setup_sigDriver()
         current_count, max_count = self.sigDriver.get_scale_status()
@@ -3248,7 +3417,7 @@ class LcmTestDriver(object):
         sigArts.prep_arts()
 
     # this is test for artifact generation for su, dr, cssu
-    def sigvnf_GenArtsTests(self, rel=default_rel):
+    def sigvnf_GenArtsTests(self, rel=''):
         log('In Func: ' + sys._getframe().f_code.co_name)
         self.setup_sigDriver()
         log('Generate DIF for Instantiation')
@@ -3260,11 +3429,11 @@ class LcmTestDriver(object):
         sigArts.gen_dif_updated_sc_value(sc_count=current_count)
         sigArts.prep_arts()
         log('Generate DIF for SU')
-        sigArts = SigVnfArtsGenerator(type='su', rel=toload_rel)
+        sigArts = SigVnfArtsGenerator(type='su', rel=sig_toload_rel)
         sigArts.gen_dif_updated_sc_value(sc_count=current_count)
         sigArts.prep_arts()
         log('Generate DIF for CSSU')
-        sigArts = SigVnfArtsGenerator(type='cssu', rel=toload_rel)
+        sigArts = SigVnfArtsGenerator(type='cssu', rel=sig_toload_rel)
         sigArts.gen_dif_updated_sc_value(sc_count=current_count)
         sigArts.prep_arts()
 
@@ -3575,7 +3744,7 @@ class LcmTestDriver(object):
         self.sigvnf_Heal_Multiple()
         self.sigvnf_Backup()
         self.sigvnf_DBRestore()
-        self.sigvnf_GenArts4DR(rel=default_rel)
+        self.sigvnf_GenArts4DR(rel=sig_default_rel)
         self.sigvnf_tests_td()
         sigvnf_UploadVnfpkg(swVersion=sigVersion, type='dr')
         setup_vnfdIds()
@@ -3708,7 +3877,7 @@ class LcmTestDriver(object):
 
     def sigvnf_tests_dr(self, server_type='httpserver12'):
         self.sigvnf_Backup_Remote_Creds1()
-        self.sigvnf_GenArts4DR(rel=default_rel, server_type=server_type)
+        self.sigvnf_GenArts4DR(rel=sig_default_rel, server_type=server_type)
         self.sigvnf_tests_td()
         sigvnf_UploadVnfpkg(swVersion=sigVersion, type='dr')
         setup_vnfdIds()
@@ -3718,7 +3887,7 @@ class LcmTestDriver(object):
 
     def sigvnf_tests_cssu(self, server_type='httpserver1'):
         # self.sigvnf_Backup_Remote_Creds1()
-        self.sigvnf_GenArts4CSSU(rel=toload_rel, server_type=server_type)
+        self.sigvnf_GenArts4CSSU(rel=sig_toload_rel, server_type=server_type)
         self.sigvnf_tests_ua_td()
         sigvnf_UploadVnfpkg(swVersion=sigVersion_SU, type='cssu')
         setup_vnfdIds()
@@ -3727,7 +3896,7 @@ class LcmTestDriver(object):
         self.sigvnf_tests_modify_da()
 
     def sigvnf_tests_su(self):
-        self.sigvnf_GenArts4SU(rel=toload_rel)
+        self.sigvnf_GenArts4SU(rel=sig_toload_rel)
         sigvnf_UploadVnfpkg(swVersion=sigVersion_SU, type='su')
         setup_vnfdIds()
         self.sigvnf_tests_chgpkvern(sig_vnfdId_SU)
@@ -4005,7 +4174,7 @@ def TS_sigvnf_tests_sh():
 #     lcmDriver.sigvnf_tests_dr()
 
 def TS_sigvnf_tests_dr():
-    for server_type in server_type_list:
+    for server_type in sig_server_type_list:
         lcmDriver = LcmTestDriver(sig_vnfdId)
         lcmDriver.sigvnf_tests_dr(server_type=server_type)
 
@@ -4356,19 +4525,6 @@ def setup_vnfdIds():
     global media_vnfdId
     global sig_vnfdId_SU
     global media_vnfdId_SU
-    global sigVersion
-    global sigVersion_SU
-    global mediaVersion
-    global mediaVersion_SU
-
-    # sig_vnfdId = ''
-    # media_vnfdId = ''
-    # sig_vnfdId_SU = ''
-    # media_vnfdId_SU = ''
-    # sigVersion = '37.28.06'
-    # sigVersion_SU = '37.28.06.0020'
-    # mediaVersion = 'an100052'
-    # mediaVersion_SU = 'an100053'
 
     vnfpkgs = VnfPkgs()
     vnfpkgs.get_vnfpkgs()
@@ -4406,7 +4562,6 @@ def setup_vnfdIds():
                 log('Currently supported vnfProductName: SBC or SBC-media.')
                 exit(1)
 
-
 ########################################################################################################################
 # Main
 # Some functions:
@@ -4424,6 +4579,8 @@ if __name__ == '__main__':
 
     setup_logging()
 
+    setup_globals()
+
     setup_vnfdIds()
 
     ##################################
@@ -4432,7 +4589,7 @@ if __name__ == '__main__':
     # sigvnf_GenArts()
     # sigvnf_GenArtsInstantiation()
     # sigvnf_GenArtsDR()
-    sigvnf_GenArtsSU()
+    # sigvnf_GenArtsSU()
     # sigvnf_GenArtsCSSU()
 
     # TS_sigvnf_tests_td()
@@ -4447,7 +4604,7 @@ if __name__ == '__main__':
     # TS_sigvnf_tests_td_toload()
     # TS_sigvnf_tests_su()
 
-    # TS_sigvnf_tests_scale2max()
+    TS_sigvnf_tests_scale2max()
     # TS_sigvnf_tests_scale2init()
     # TS_sigvnf_tests_scale_outin()
 
@@ -4525,10 +4682,3 @@ if __name__ == '__main__':
     # TS_medvnf_tests_issu_rollback()
     # TS_medvnf_tests_nssu_rollback()
     # TS_medvnf_tests_cib_issu_rollback()
-
-
-
-
-
-
-

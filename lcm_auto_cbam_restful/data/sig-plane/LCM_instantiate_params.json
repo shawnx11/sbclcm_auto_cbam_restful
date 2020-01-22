@@ -732,87 +732,87 @@
     "upgrade_file": "",
     "upgrade_server_credentials": ""
   },
-  "grantlessMode": true,
+  "grantlessMode": false,
   "softwareImages": [
     {
       "vnfdSoftwareImageId": "bgc_a",
       "vimConnectionId": "vim_id",
-      "vimSoftwareImageId": "nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2"
+      "vimSoftwareImageId": "nokia-SBC_sig-RHEL7-R37.34.06.x86_64-33.qcow2"
     },
     {
       "vnfdSoftwareImageId": "bgc_b",
       "vimConnectionId": "vim_id",
-      "vimSoftwareImageId": "nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2"
+      "vimSoftwareImageId": "nokia-SBC_sig-RHEL7-R37.34.06.x86_64-33.qcow2"
     },
     {
       "vnfdSoftwareImageId": "fw_a",
       "vimConnectionId": "vim_id",
-      "vimSoftwareImageId": "nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2"
+      "vimSoftwareImageId": "nokia-SBC_sig-RHEL7-R37.34.06.x86_64-33.qcow2"
     },
     {
       "vnfdSoftwareImageId": "fw_b",
       "vimConnectionId": "vim_id",
-      "vimSoftwareImageId": "nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2"
+      "vimSoftwareImageId": "nokia-SBC_sig-RHEL7-R37.34.06.x86_64-33.qcow2"
     },
     {
       "vnfdSoftwareImageId": "oam_a",
       "vimConnectionId": "vim_id",
-      "vimSoftwareImageId": "nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2"
+      "vimSoftwareImageId": "nokia-SBC_sig-RHEL7-R37.34.06.x86_64-33.qcow2"
     },
     {
       "vnfdSoftwareImageId": "oam_b",
       "vimConnectionId": "vim_id",
-      "vimSoftwareImageId": "nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2"
+      "vimSoftwareImageId": "nokia-SBC_sig-RHEL7-R37.34.06.x86_64-33.qcow2"
     },
     {
       "vnfdSoftwareImageId": "cfed_a",
       "vimConnectionId": "vim_id",
-      "vimSoftwareImageId": "nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2"
+      "vimSoftwareImageId": "nokia-SBC_sig-RHEL7-R37.34.06.x86_64-33.qcow2"
     },
     {
       "vnfdSoftwareImageId": "cfed_b",
       "vimConnectionId": "vim_id",
-      "vimSoftwareImageId": "nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2"
+      "vimSoftwareImageId": "nokia-SBC_sig-RHEL7-R37.34.06.x86_64-33.qcow2"
     },
     {
       "vnfdSoftwareImageId": "dfed_a",
       "vimConnectionId": "vim_id",
-      "vimSoftwareImageId": "nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2"
+      "vimSoftwareImageId": "nokia-SBC_sig-RHEL7-R37.34.06.x86_64-33.qcow2"
     },
     {
       "vnfdSoftwareImageId": "dfed_b",
       "vimConnectionId": "vim_id",
-      "vimSoftwareImageId": "nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2"
+      "vimSoftwareImageId": "nokia-SBC_sig-RHEL7-R37.34.06.x86_64-33.qcow2"
     },
     {
       "vnfdSoftwareImageId": "pfw_a",
       "vimConnectionId": "vim_id",
-      "vimSoftwareImageId": "nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2"
+      "vimSoftwareImageId": "nokia-SBC_sig-RHEL7-R37.34.06.x86_64-33.qcow2"
     },
     {
       "vnfdSoftwareImageId": "pfw_b",
       "vimConnectionId": "vim_id",
-      "vimSoftwareImageId": "nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2"
+      "vimSoftwareImageId": "nokia-SBC_sig-RHEL7-R37.34.06.x86_64-33.qcow2"
     },
     {
       "vnfdSoftwareImageId": "sc_a",
       "vimConnectionId": "vim_id",
-      "vimSoftwareImageId": "nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2"
+      "vimSoftwareImageId": "nokia-SBC_sig-RHEL7-R37.34.06.x86_64-33.qcow2"
     },
     {
       "vnfdSoftwareImageId": "sc_b",
       "vimConnectionId": "vim_id",
-      "vimSoftwareImageId": "nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2"
+      "vimSoftwareImageId": "nokia-SBC_sig-RHEL7-R37.34.06.x86_64-33.qcow2"
     },
     {
       "vnfdSoftwareImageId": "ccf_a",
       "vimConnectionId": "vim_id",
-      "vimSoftwareImageId": "nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2"
+      "vimSoftwareImageId": "nokia-SBC_sig-RHEL7-R37.34.06.x86_64-33.qcow2"
     },
     {
       "vnfdSoftwareImageId": "ccf_b",
       "vimConnectionId": "vim_id",
-      "vimSoftwareImageId": "nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2"
+      "vimSoftwareImageId": "nokia-SBC_sig-RHEL7-R37.34.06.x86_64-33.qcow2"
     }
   ],
   "extManagedVirtualLinks": [],

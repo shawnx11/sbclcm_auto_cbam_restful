@@ -1,18 +1,228 @@
-version: '6'
+version: 1.0
 
 common:
-  cbam_url: &cbam_url 'https://100.69.127.147'
-  client_id: &client_id 'cbam_rest'
-  client_secret: &client_secret '26fe9a4a-5836-42a1-9ef5-fb0404675d60'
-  gui_client_id: &gui_client_id 'lcm'
-  gui_client_passwd: &gui_client_passwd '-Assured11'
+  working_dir: &working_dir 'D:\Programs\JetBrains\PycharmProjects\py37projects\lcm_auto_cbam_restful'
+  sig_data_dir:
+    - *working_dir
+    - '\data\sig-plane'
+  media_data_dir:
+    - *working_dir
+    - '\data\media-plane'
+  sig_arts_dir:
+    - *working_dir
+    - '\data\sig-plane-arts'
+  media_arts_dir:
+    - *working_dir
+    - '\data\media-plane-arts'
+  log_file:
+    - *working_dir
+    - '\sbclcm_auto.log'
+
+  cbam_url: &cbam_url https://100.69.127.147
+  client_id: &client_id cbam_rest
+  client_secret: &client_secret 26fe9a4a-5836-42a1-9ef5-fb0404675d60
+
+  gui_client_id: &gui_client_id lcm
+  gui_client_passwd: &gui_client_passwd -Assured11
+
   proxies: &proxies
-    http: 'cnproxy.int.nokia-sbell.com:8080'
-    https: 'cnproxy.int.nokia-sbell.com:8080'
+    http: cnproxy.int.nokia-sbell.com:8080
+    https: cnproxy.int.nokia-sbell.com:8080
+
+  vnflcm_base_path: &vnflcm_base_path https://100.69.127.147/vnflcm/v1
+  vnfpkgm_base_path: &vnfpkgm_base_path https://100.69.127.147/vnfpkgm/v1
+
+  operationState_list:
+    - STARTING
+    - FAILED
+    - ROLLED_BACK
+    - PROCESSING
+    - COMPLETED
+
+  operation_list:
+    - MODIFY_INFO
+    - INSTANTIATE
+    - TERMINATE
+    - SCALE
+    - HEAL
+    - OTHER
+
+  requests_types:
+    - GET
+    - POST
+    - DELETE
+    - PATCH
+
+  requests_retcode:
+    - 200
+    - 201
+    - 202
+    - 203
+    - 204
+
+  os_project_id: 60b448d9e5c846ee922ca5d4fb94fe4e
+  os_project_name: CB0078
+  os_user_domain_name: Default
+  os_username: cb0078sa
+  os_passwd: &os_passwd LabAcc0unt
+  os_region_name: regionOne
+  os_interface: public
+  os_identity_api_version: 3
+  os_cacert: NokiaCA.pem
+
+  sigVersion: &sigVersion 37.34.06
+  sigVersion_SU: &sigVersion_SU 37.34.06.0020
+  mediaVersion: &mediaVersion ap100016
+  mediaVersion_SU: &mediaVersion_SU ap100018
+
+  vnf_type_list:
+    - sig
+    - media
+
+  sig_vnfpkg_name_baseload: &sig_vnfpkg_name_baseload Nokia_sig_SBC-VNF_Package.zip
+  sig_vnfpkg_name_drbaseload: &sig_vnfpkg_name_drbaseload Nokia_sig_SBC-VNF_Package-DR.zip
+  sig_vnfpkg_name_sutoload: &sig_vnfpkg_name_sutoload Nokia_sig_SBC-VNF_Package-SUToLoad.zip
+  sig_vnfpkg_name_cssutoload: &sig_vnfpkg_name_cssutoload Nokia_sig_SBC-VNF_Package-CSSUToLoad.zip
+
+  sig_vnfpkg_supported_type:
+    - instantiation
+    - su
+    - dr
+    - cssu
+
+  media_vnfpkg_name_baseload: Nokia_media_MGW_VNF_Package.zip
+  media_vnfpkg_name_sutoload: Nokia_media_MGW_VNF_Package-SUToLoad.zip
+
+  media_vnfpkg_supported_type:
+    - instantiation
+    - su
+
+  wkk: wkk.pem
+
+  ssh_type: passwd
+
+  backup_server_ip: 10.75.44.7
+  backup_server_login: root
+  backup_server_passwd: newsys
+  backup_server_dir: /var/www/html/sbclcm-auto/
+  backup_server1: centos@10.75.44.7:/var/www/html/sbclcm-auto/
+  backup_server2: centos@10.75.44.7:/var/www/html/sbclcm-auto/
+  backup_server_creds: &backup_server_creds '-----BEGIN RSA PRIVATE KEY-----\nMIIEowIBAAKCAQEAvX/4YeeQcBqR2sjW18T8WbiAVdnVIs4ZNNlTEG+Ps6OFeQFm\nUBwXvtqbetitEhAAU2OT4ivuh+B20KM/WHM6r57URA1qgNK8Sk9tLUiZRvMDkDR8\nWpAEQSw0fvkO91J93q9Siu3h2uhiKtB1ARESb5DcayttXg0fr9U5hmT/mD5MJ/nC\npfE5ByuHzmWSJo9Vya+YM0UBZnja38vhfc8mAeJ0pxQVxkoL4KzYF2JJAqIzH9tw\nkJLfZbNlxQtOKRCSRWtdcCHckfS0/BISf9f0jdG9h15q3vvKc0j+dXCJny5jfgCc\nHl2+e4RYK3evvJPWQNSZ/+iMZqn1SyligpbKXQIDAQABAoIBABtfsAach73Z6LXd\nC0Px/a4MO+Wq6OH1Oajrt9cI9o4xkedP73KlDD0SoSEWybFxRErHeKZUSEmygBdV\nbaIeSxzxaaJG+dqQFoj5fkDrWtDn69zZ6BjA8wxjEVZCLgpGDU6srtTI1jZkGUIs\nCKrVx378QwrsJAlRBgHFYGDsmAtqvLetbMm272K/hz2e4jxMf08LcDx1fUgDO+hD\naMjzVmbIYNbFftLQD/yG+DgtvP7f728yoG8gNXC0shPqetHtfnwCbJ3H1ju9svGW\nDFYzrBwZZZMY0nTAWjY/DXSS1ORrq7LXSIPKf/3kobfMU67ugeC6NrEsncdIKvIE\n/yVKTrUCgYEA4iMKFeRdIWjzijg3Iie6k09vduTH+nsELDKjzHqcyPmEBisidFQA\nFMjJO8+jh+KKusqYEDp1l4qHLbtN1hatKZV6PwfcmPITA+uczZa9Z3YAKsI1GAOi\n0GUmjmoElOGc1I+k55fWAt48hWRoPd4vrlGaAw8otIdiSXHdpwdb3rsCgYEA1oZa\nH7R4j757Ny47NHIPsXsfZwyD2TTU+oOIDOPvBWN6GuU70N5ZW21529mwLKbr5e2H\n9ofMhSJQkXlg6e6F5wmj7Q0n+mGNoPeNoq7bRB1gHelODs4vAnnVNz2vCGt0uqSd\n+UoemidWKm8RFNAG8yS9uoQrk7sZpA5MYHrJBccCgYBELqxrzV8HI83Kbwiwk6n9\noIXLI0/ohg7MBLi+fnmnXxQfiAHrcShVG/UQw5pa7kNF7q/KtNWfy3TWpRLi6hNr\n5lXli0lIFDUHiZLNqhWRjFKgkc3QX8hHbTgi2HRpL11J+cWOzokIdFlrHssPXF6k\nAJafNYLga7GG034xTla04QKBgAK5Meu1HtK0WFwa+iVwTUKzjXKBdisLwKhtgwym\n2CH5YVN2FYxRRlEi0qk32kS22cfRfChlEPOfu+Yc5F4T6R9FwA8CW7+R/XpNqj6m\neaIjvVSj4ZnOhEpDwbEx10cEFjdIX7kKd9j9JtrjDhR1j6EGlmIHy4XUmj66771J\n0cOBAoGBAJyXMkKKbsSGDGYoyzazVjLYzIqmC2tOnYkHHl3heEZN/LkphPuLdbcj\n2pk2wlqskZ2LQxnylJDgIIA6rJBoLvBj5Xo+9EN7uidHHv+8JGBy4FPcDNl2O5RR\nLbiaAVSQNQNm+hku9e0XH0+YFrCP+0Q8D9DGYzhupslAzJEyoz3R\n-----END RSA PRIVATE KEY-----'
+
+  backup_server_login_pubkey: centos
+  local_private_key: 'C:\Users\shawnx\.ssh\id_rsa'
+
+  backup_server_login_passwd: root
+  backup_server_passwd_passwd: newsys
+
 
 sig_plane:
-  vnf_name: 'sbclcm03'
+  sig_vnf_name: sbclcm03
+  sig_oam_vip: 100.69.127.135
+  sig_oama_ip: 100.69.127.133
+  sig_oamb_ip: 100.69.127.134
+  sig_oam_login: root
+  sig_oam_passwd: newsys
+
+  sig_default_rel: R20.2
+  sig_toload_rel: R20.2
+
+  sig_arts_type:
+    - instantiation
+    - su
+    - dr
+    - cssu
+
+  sig_yact_server_ip: 135.252.41.216
+  sig_yact_user: yact-user
+  sig_yact_passwd: 123456
+  sig_yact_dir: /home/yact-user/shawnx/20.2/
+
+  sig_dif_name: SBC-signaling_R20.2.xlsm
+  sig_dr_dif_name: SBC-signaling_R20.2-dr.xlsm
+  sig_su_dif_name: SBC-signaling_R20.2-su.xlsm
+  sig_cssu_dif_name: SBC-signaling_R20.2-cssu.xlsm
+
+  sig_vnfpkg_name: *sig_vnfpkg_name_baseload
+  sig_dr_vnfpkg_name: *sig_vnfpkg_name_drbaseload
+  sig_su_vnfpkg_name: *sig_vnfpkg_name_sutoload
+  sig_cssu_vnfpkg_name: *sig_vnfpkg_name_cssutoload
+
+  sig_server_type_list:
+    - httpserver1
+    - httpserver2
+    - httpserver12
+    - bkupserver1
+    - bkupserver2
+    - bkupserver12
+
+  sig_instantiation_json_file: LCM_instantiate_params.json
+  sig_dr_instantiation_json_file: dr_LCM_instantiate_params.json
+  sig_cssu_instantiation_json_file: cssu_LCM_instantiate_params.json
+
+  sig_bulk_conf_url: http://10.75.44.7/sbclcm-auto/bulkconf_artifacts.zip
+  sig_backup_file1_http: http://10.75.44.7/sbclcm-auto/backup.zip
+  sig_backup_file2_http: http://10.75.44.7/sbclcm-auto/backup.zip
+  sig_backup_file1_creds: centos@10.75.44.7:/var/www/html/sbclcm-auto/backup.zip
+  sig_backup_file2_creds: centos@10.75.44.7:/var/www/html/sbclcm-auto/backup.zip
+  sig_upgrade_file_http: http://10.75.44.7/sbclcm-auto/cssu_archive.zip
+  sig_upgrade_file_creds: centos@10.75.44.7:/var/www/html/sbclcm-auto/cssu_archive.zip
+
+  sig_fixed_scm_ip: 100.69.127.150,100.69.127.151
+  sig_restore_media_plane: ALL
+  sig_backup_zip: &sig_backup_zip backup.zip
+  sig_cssu_zip: cssu_archive.zip
+
+  sig_backup_file_name: *sig_backup_zip
+  sig_local_backup_dir: backup
+
+  sig_su_deft_url: http://10.75.44.7/deftC_R37.28.XX_R37.34.XX.zip
+  sig_su_deft_key: 11058
+  sig_su_to_image: nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2
+  sig_su_to_version: R37.34.06.0020
 
 
 media_plane:
-  vnf_name: 'sbgw01'
+  media_vnf_name: sbgw01
+  media_scma_ip: 100.69.127.150
+  media_scmb_ip: 100.69.127.151
+  media_scm_vip: 100.69.127.152
+
+  media_dif_name: user-input-openstack-R20.2-sbgw01.xlsx
+  media_su_dif_name: user-input-openstack-R20.2-sbgw01.xlsx
+
+  media_arts_type:
+    - instantiation
+    - su
+    - dr
+  media_yact_server_ip: 135.251.49.19
+  media_yact_user: test
+  media_yact_passwd: initial
+  media_yact_dir: /home/test/shawnx/20.2/
+
+  media_inject_well_known_temp_key: 'yes'
+  media_script_url: http://10.75.44.7/sbclcm-auto/bulk.zip
+
+  media_vnfpkg_name: Nokia_media_MGW_VNF_Package.zip
+  media_su_vnfpkg_name: Nokia_media_MGW_VNF_Package-SU.zip
+
+  media_extension_json_file: Nokia_media_MGW.extensions.json
+  media_dr_extension_json_file: DR.extensions.json
+  media_instantiation_json_file: Nokia_media_MGW.instantiate.json
+  media_dr_instantiation_json_file: DR.instantiate.json
+
+  media_openrc_file: /home/test/shawnx/20.2/cb0078sa.v2
+  media_backup_file_name: &media_backup_file_name BACKUP_C.ZIP
+
+  media_local_backup_dir: backup
+
+  media_backup_zip: *media_backup_file_name
+  media_lcm_user: cloud-user
+  media_appl_user: diag
+  media_appl_passwd: -assured
+
+  # SU related
+  media_su_to_image: nokia-mgw-rhel7.7-3.10.0-1062.4.1.ap100018.x86_64.qcow2
+  media_backup_url: http://10.75.44.7/sbclcm-auto/BACKUP_C.ZIP
+
+
