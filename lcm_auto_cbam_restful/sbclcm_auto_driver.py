@@ -3744,6 +3744,7 @@ class LcmTestDriver(object):
         self.sigvnf_ConnectSbcMediaVnf()
         self.sigvnf_DisconnectSbcMediaVnf()
         self.sigvnf_ConnectSbcMediaVnf()
+        self.sigvnf_ScaleOutToMax()
         self.sigvnf_Scale_OutIn()
         self.sigvnf_ScaleOutToMax()
         self.sigvnf_Heal_Single()
@@ -3934,6 +3935,44 @@ class LcmTestDriver(object):
     '''
     Media VNF
     '''
+    def medvnf_tests_alpha(self):
+        self.medvnf_tests_cib()
+        self.medvnf_tests_bkup()
+        self.medvnf_tests_scale_out_pim()
+        self.medvnf_tests_scale_in_pim()
+        self.medvnf_tests_scale_out_mcm()
+        self.medvnf_tests_scale_in_mcm()
+        self.medvnf_tests_heals_pim()
+        self.medvnf_tests_heals_mcm()
+        self.medvnf_tests_heals_scm()
+        self.medvnf_tests_br()
+
+    def medvnf_tests_beta(self):
+        self.medvnf_tests_cib()
+        self.medvnf_tests_bkup()
+        self.medvnf_tests_scale2max_pim()
+        self.medvnf_tests_scale2max_mcm()
+        self.medvnf_tests_scale2min_pim()
+        self.medvnf_tests_scale2min_mcm()
+        self.medvnf_tests_heals_all()
+        self.medvnf_tests_healm()
+        self.medvnf_tests_br()
+
+    def medvnf_tests_gamma(self):
+        self.medvnf_tests_cib()
+        self.medvnf_tests_bkup()
+        self.medvnf_tests_scale2max_pim()
+        self.medvnf_tests_scale2max_mcm()
+        self.medvnf_tests_scale2min_pim()
+        self.medvnf_tests_scale2min_mcm()
+        self.medvnf_tests_scale2max_pim()
+        self.medvnf_tests_scale2max_mcm()
+        self.medvnf_tests_heals_all()
+        self.medvnf_tests_healm()
+        self.medvnf_tests_br()
+        self.medvnf_tests_dr()
+        self.medvnf_tests_td()
+
     def medvnf_tests_ci(self):
         self.medvnf_CreateInstantiate()
 
@@ -3970,6 +4009,20 @@ class LcmTestDriver(object):
         self.medvnf_ScaleInToInit(aspectId='pimAspect')
 
     def medvnf_tests_scale2min_mcm(self):
+        self.medvnf_ScaleInToInit(aspectId='mcmAspect')
+
+    def medvnf_tests_scaleOutIn_pim(self):
+        self.medvnf_ScaleOutToMax(aspectId='pimAspect')
+        self.medvnf_ScaleInToInit(aspectId='pimAspect')
+
+    def medvnf_tests_scaleOutIn_mcm(self):
+        self.medvnf_ScaleOutToMax(aspectId='mcmAspect')
+        self.medvnf_ScaleInToInit(aspectId='mcmAspect')
+
+    def medvnf_tests_scaleOutIn_pim_mcm(self):
+        self.medvnf_ScaleOutToMax(aspectId='pimAspect')
+        self.medvnf_ScaleOutToMax(aspectId='mcmAspect')
+        self.medvnf_ScaleInToInit(aspectId='pimAspect')
         self.medvnf_ScaleInToInit(aspectId='mcmAspect')
 
     def medvnf_tests_heals_pim(self):
@@ -4038,6 +4091,183 @@ class LcmTestDriver(object):
 
 '''
 Upper caller Test Suite
+'''
+'''
+SBC Test Suite
+'''
+def TS_sbcvnf_tests_alpha():
+    TS_medvnf_tests_alpha()
+    TS_sigvnf_tests_alpha()
+
+def TS_sbcvnf_tests_beta():
+    TS_medvnf_tests_beta()
+    TS_sigvnf_tests_beta()
+
+def TS_sbcvnf_tests_gamma():
+    TS_medvnf_tests_gamma()
+    TS_sigvnf_tests_gamma()
+
+def TS_sbcvnf_tests_ts01():
+    """
+    This test suite focuses on backup, restore and DR.
+    This test suite covers following scenarios:
+    1. signaling plane and media plane instantiation
+    2. signaling plane connection to media plane
+    3. media plane scale-out of PIM to max
+    4. media plane scale-out of MCM to max
+    5. signaling plane scale-out of SC to max
+    6. signaling plane backup
+    7. media plane backup
+    8. signaling plane DB restore
+    9. media plane restore
+    10. signaling plane DR
+    11. media plane DR
+    """
+    TS_medvnf_tests_ci()
+    TS_sigvnf_tests_cimcb()
+    TS_medvnf_tests_scale_out_all()
+    TS_sigvnf_tests_scale2max()
+    TS_sigvnf_tests_br()
+    TS_medvnf_tests_br()
+    TS_sigvnf_tests_dr_http1()
+    TS_medvnf_tests_dr()
+
+def TS_sbcvnf_tests_ts02():
+    """
+    This test suite focuses on scale, healing.
+    This test suite covers following scenarios:
+    1. signaling plane and media plane instantiation
+    2. signaling plane connection to media plane
+    3. media plane scale-out of PIM to max
+    4. media plane scale-out of MCM to max
+    5. media plane scale-in of PIM to min
+    6. media plane scale-in of MCM to min
+    7. signaling plane scale-out of SC to max
+    8. signaling plane scale-in of SC to min
+    9. media plane scale-out of PIM to max
+    10. media plane scale-out of MCM to max
+    11. signaling plane scale-out of SC to max
+    12. media plane single VM healing
+    13. media plane multiple VM healing
+    14. signaling plane single VM healing
+    15. signaling plane multiple VM healing
+    16. signaling plane terminate and delete
+    17. media plane terminate and delete
+    """
+    TS_medvnf_tests_ci()
+    TS_sigvnf_tests_cimcb()
+    TS_medvnf_tests_scale_out_all()
+    TS_medvnf_tests_scale_in_all()
+    TS_sigvnf_tests_scale2max()
+    TS_sigvnf_tests_scale2init()
+    TS_medvnf_tests_scale_out_all()
+    TS_sigvnf_tests_scale2max()
+    TS_medvnf_tests_heals_all()
+    TS_medvnf_tests_healm()
+    TS_sigvnf_tests_heal_s()
+    TS_sigvnf_tests_heal_m()
+    TS_sigvnf_tests_td()
+    TS_medvnf_tests_td()
+
+def TS_sbcvnf_tests_ts03():
+    """
+    This test suite focuses on SU.
+    This test suite covers following scenarios:
+    1. signaling plane and media plane instantiation
+    2. signaling plane connection to media plane
+    3. media plane scale-out of PIM to max
+    4. media plane scale-out of MCM to max
+    5. signaling plane scale-out of SC to max
+    6. media plane ISSU
+    7. media plane rollback
+    8. media plane NSSU
+    9. media plane rollback
+    10. signaling plane SU
+    11. signaling plane terminate and delete
+    12. media plane terminate and delete
+    """
+    TS_medvnf_tests_ci()
+    TS_sigvnf_tests_cimcb()
+    TS_medvnf_tests_scale_out_all()
+    TS_sigvnf_tests_scale2max()
+    TS_medvnf_tests_issu_rollback()
+    TS_medvnf_tests_nssu_rollback()
+    TS_sigvnf_tests_su()
+    TS_sigvnf_tests_td()
+    TS_medvnf_tests_td()
+
+def TS_sbcvnf_tests_ts04():
+    """
+    This test suite focuses on SU and CSSU.
+    This test suite covers following scenarios:
+    1. signaling plane and media plane instantiation
+    2. signaling plane connection to media plane
+    3. media plane scale-out of PIM to max
+    4. media plane scale-out of MCM to max
+    5. signaling plane scale-out of SC to max
+    6. media plane ISSU
+    7. media plane rollback
+    8. media plane NSSU
+    9. media plane rollback
+    10. signaling plane CSSU
+    11. signaling plane terminate and delete
+    12. media plane terminate and delete
+    """
+    TS_medvnf_tests_ci()
+    TS_sigvnf_tests_cimcb()
+    TS_medvnf_tests_scale_out_all()
+    TS_sigvnf_tests_scale2max()
+    TS_medvnf_tests_issu_rollback()
+    TS_medvnf_tests_nssu_rollback()
+    TS_sigvnf_tests_cssu_creds_1()
+    TS_sigvnf_tests_td()
+    TS_medvnf_tests_td()
+
+def TS_sbcvnf_tests_ts05():
+    """
+    This test suite focuses on SU and LCM operations after SU.
+    This test suite covers following scenarios:
+    1. signaling plane and media plane instantiation
+    2. signaling plane connection to media plane
+    3. media plane scale-out of PIM to max
+    4. media plane scale-out of MCM to max
+    5. signaling plane scale-out of SC to max
+    6. media plane ISSU
+    7. signaling plane SU
+    8. media plane scale-in of PIM to min
+    9. media plane scale-in of MCM to min
+    10. media plane scale-out of PIM to max
+    11. media plane scale-out of MCM to max
+    12. signaling plane scale-in of SC to min
+    13. signaling plane scale-out of SC to max
+    14. media plane backup
+    15. media plane restore
+    16. signaling plane backup
+    17. signaling plane restore
+    18. media plane multiple VM healing
+    19. Sigaling plane multiple VM healing
+    20. signaling plane terminate and delete
+    21. media plane terminate and delete
+    """
+    TS_medvnf_tests_ci()
+    TS_sigvnf_tests_cimcb()
+    TS_medvnf_tests_scale_out_all()
+    TS_sigvnf_tests_scale2max()
+    TS_medvnf_tests_issu()
+    TS_sigvnf_tests_su()
+    TS_medvnf_tests_scale_in_all_toload()
+    TS_medvnf_tests_scale_out_all_toload()
+    TS_sigvnf_tests_scale2min_toload()
+    TS_sigvnf_tests_scale2max_toload()
+    TS_medvnf_tests_br_toload()
+    TS_sigvnf_tests_br_toload()
+    TS_medvnf_tests_healm_toload()
+    TS_sigvnf_tests_heal_m_toload()
+    TS_sigvnf_tests_td_toload()
+    TS_medvnf_tests_td_toload()
+
+'''
+Sig Test Suite
 '''
 def TS_sigvnf_tests_alpha():
     sigvnf_GenArtsInstantiation()
@@ -4113,12 +4343,20 @@ def TS_sigvnf_tests_br():
     lcmDriver = LcmTestDriver(sig_vnfdId)
     lcmDriver.sigvnf_tests_br()
 
+def TS_sigvnf_tests_br_toload():
+    lcmDriver = LcmTestDriver(sig_vnfdId_SU)
+    lcmDriver.sigvnf_tests_br()
+
 def TS_sigvnf_tests_heal():
     lcmDriver = LcmTestDriver(sig_vnfdId)
     lcmDriver.sigvnf_tests_heal()
 
 def TS_sigvnf_tests_heal_m():
     lcmDriver = LcmTestDriver(sig_vnfdId)
+    lcmDriver.sigvnf_tests_healm()
+
+def TS_sigvnf_tests_heal_m_toload():
+    lcmDriver = LcmTestDriver(sig_vnfdId_SU)
     lcmDriver.sigvnf_tests_healm()
 
 def TS_sigvnf_tests_heal_s():
@@ -4155,6 +4393,10 @@ def TS_sigvnf_tests_scale2max_toload():
     
 def TS_sigvnf_tests_scale2init():
     lcmDriver = LcmTestDriver(sig_vnfdId)
+    lcmDriver.sigvnf_tests_scale2init()
+
+def TS_sigvnf_tests_scale2init_toload():
+    lcmDriver = LcmTestDriver(sig_vnfdId_SU)
     lcmDriver.sigvnf_tests_scale2init()
 
 def TS_sigvnf_tests_sh():
@@ -4295,6 +4537,27 @@ def TS_sigvnf_tests_cims_su():
     lcmDriver = LcmTestDriver(sig_vnfdId)
     lcmDriver.sigvnf_tests_su()
 
+'''
+Media Test Suite
+'''
+def TS_medvnf_tests_alpha():
+    mediavnf_UploadVnfpkg(swVersion=mediaVersion, type='instantiation')
+    setup_vnfdIds()
+    lcmDriver = LcmTestDriver(media_vnfdId)
+    lcmDriver.medvnf_tests_alpha()
+
+def TS_medvnf_tests_beta():
+    mediavnf_UploadVnfpkg(swVersion=mediaVersion, type='instantiation')
+    setup_vnfdIds()
+    lcmDriver = LcmTestDriver(media_vnfdId)
+    lcmDriver.medvnf_tests_beta()
+
+def TS_medvnf_tests_gamma():
+    mediavnf_UploadVnfpkg(swVersion=mediaVersion, type='instantiation')
+    setup_vnfdIds()
+    lcmDriver = LcmTestDriver(media_vnfdId)
+    lcmDriver.medvnf_tests_gamma()
+
 def TS_medvnf_tests_getvnf():
     lcmDriver = LcmTestDriver(media_vnfdId)
     lcmDriver.setup_medDriver()
@@ -4303,6 +4566,10 @@ def TS_medvnf_tests_getvnf():
 
 def TS_medvnf_tests_td():
     lcmDriver = LcmTestDriver(media_vnfdId)
+    lcmDriver.medvnf_tests_td()
+
+def TS_medvnf_tests_td_toload():
+    lcmDriver = LcmTestDriver(media_vnfdId_SU)
     lcmDriver.medvnf_tests_td()
 
 def TS_medvnf_tests_ci():
@@ -4371,10 +4638,24 @@ def TS_medvnf_tests_scale_out_all():
     lcmDriver.medvnf_tests_scale2max_pim()
     lcmDriver.medvnf_tests_scale2max_mcm()
 
+def TS_medvnf_tests_scale_out_all_toload():
+    lcmDriver = LcmTestDriver(media_vnfdId_SU)
+    lcmDriver.medvnf_tests_scale2max_pim()
+    lcmDriver.medvnf_tests_scale2max_mcm()
+
 def TS_medvnf_tests_scale_in_all():
     lcmDriver = LcmTestDriver(media_vnfdId)
     lcmDriver.medvnf_tests_scale2min_pim()
     lcmDriver.medvnf_tests_scale2min_mcm()
+
+def TS_medvnf_tests_scale_in_all_toload():
+    lcmDriver = LcmTestDriver(media_vnfdId_SU)
+    lcmDriver.medvnf_tests_scale2min_pim()
+    lcmDriver.medvnf_tests_scale2min_mcm()
+
+def TS_medvnf_tests_scale_out_in_all():
+    lcmDriver = LcmTestDriver(media_vnfdId)
+    lcmDriver.medvnf_tests_scaleOutIn_pim_mcm()
 
 def TS_medvnf_tests_heals_pim():
     lcmDriver = LcmTestDriver(media_vnfdId)
@@ -4396,6 +4677,10 @@ def TS_medvnf_tests_healm():
     lcmDriver = LcmTestDriver(media_vnfdId)
     lcmDriver.medvnf_tests_healm()
 
+def TS_medvnf_tests_healm_toload():
+    lcmDriver = LcmTestDriver(media_vnfdId_SU)
+    lcmDriver.medvnf_tests_healm()
+
 def TS_medvnf_tests_restore():
     lcmDriver = LcmTestDriver(media_vnfdId)
     lcmDriver.medvnf_tests_restore()
@@ -4404,8 +4689,16 @@ def TS_medvnf_tests_br():
     lcmDriver = LcmTestDriver(media_vnfdId)
     lcmDriver.medvnf_tests_br()
 
+def TS_medvnf_tests_br_toload():
+    lcmDriver = LcmTestDriver(media_vnfdId_SU)
+    lcmDriver.medvnf_tests_br()
+
 def TS_medvnf_tests_dr():
     lcmDriver = LcmTestDriver(media_vnfdId)
+    lcmDriver.medvnf_tests_dr()
+
+def TS_medvnf_tests_dr_toload():
+    lcmDriver = LcmTestDriver(media_vnfdId_SU)
     lcmDriver.medvnf_tests_dr()
 
 # def TS_medvnf_tests_post_dr():
@@ -4622,7 +4915,7 @@ def run_ts():
     # TS_sigvnf_tests_scale2init()
     # TS_sigvnf_tests_scale_outin()
 
-    TS_sigvnf_tests_alpha()
+    # TS_sigvnf_tests_alpha()
 
     # TS_sigvnf_tests_beta()
 
@@ -4638,7 +4931,7 @@ def run_ts():
     # TS_sigvnf_tests_heal_s_r_mt()
     #
     # TS_sigvnf_tests_bkup()
-    # TS_sigvnf_tests_br()
+    TS_sigvnf_tests_br()
 
     # TS_sigvnf_tests_dr()
     # TS_sigvnf_tests_dr_http12()

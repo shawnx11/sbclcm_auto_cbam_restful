@@ -88,10 +88,13 @@ To-do:
 5. load shipping, upload
 6. re-org globals                       - done
 7. change README to MD format
+8. add sbc test suites
+9. Sig DB restore from local oam
 
 ##############################################
 TODO:
 1. data visualization
 2. containerlization
 3. sig plane support api v3
+4. Should it support TS resume?
 
