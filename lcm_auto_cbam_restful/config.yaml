@@ -176,11 +176,15 @@ sig_plane:
   sig_backup_file_name: *sig_backup_zip
   sig_local_backup_dir: backup
 
-  sig_su_deft_url: http://10.75.44.7/deftC_R37.28.XX_R37.34.XX.zip
-  sig_su_deft_key: 11058
-  sig_su_to_image: nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2
-  sig_su_to_version: R37.34.06.0020
+#  sig_su_deft_url: http://10.75.44.7/deftC_R37.28.XX_R37.34.XX.zip
+#  sig_su_deft_key: 11058
+#  sig_su_to_image: nokia-SBC_sig-RHEL7-R37.34.06.x86_64-bld1.qcow2
+#  sig_su_to_version: R37.34.06
 
+  sig_su_deft_url: http://10.75.44.7/deft_R37.34.XX_R37.34.XX.zip
+  sig_su_deft_key: 11111
+  sig_su_to_image: nokia-SBC_sig-RHEL7-R37.34.06.0020.x86_64.qcow2
+  sig_su_to_version: R37.34.06.0020
 
 media_plane:
   media_vnf_name: sbgw01
