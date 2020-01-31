@@ -25790,3 +25790,59 @@ Success!
 2020-01-31 11:08:37,679 INFO:root:expect_code: 200
 2020-01-31 11:08:40,557 INFO:root:SBC VNF INSTANTIATE  PROCESSING
 2020-01-31 11:08:40,557 INFO:root:Wait for 60 secs...
+2020-01-31 11:09:40,558 INFO:root:In Func:send_request
+2020-01-31 11:09:40,562 INFO:root:type: GET
+2020-01-31 11:09:40,562 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-31 11:09:40,562 INFO:root:data: {}
+2020-01-31 11:09:40,562 INFO:root:expect_code: 200
+2020-01-31 11:09:43,392 INFO:root:SBC VNF INSTANTIATE  PROCESSING
+2020-01-31 11:09:43,392 INFO:root:Wait for 60 secs...
+2020-01-31 11:10:43,393 INFO:root:In Func:send_request
+2020-01-31 11:10:43,394 INFO:root:type: GET
+2020-01-31 11:10:43,395 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-31 11:10:43,395 INFO:root:data: {}
+2020-01-31 11:10:43,395 INFO:root:expect_code: 200
+2020-01-31 11:10:46,319 INFO:root:SBC VNF INSTANTIATE  PROCESSING
+2020-01-31 11:10:46,319 INFO:root:Wait for 60 secs...
+2020-01-31 11:11:46,331 INFO:root:In Func:send_request
+2020-01-31 11:11:46,331 INFO:root:type: GET
+2020-01-31 11:11:46,331 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-31 11:11:46,331 INFO:root:data: {}
+2020-01-31 11:11:46,331 INFO:root:expect_code: 200
+2020-01-31 11:11:49,214 INFO:root:SBC VNF INSTANTIATE  PROCESSING
+2020-01-31 11:11:49,214 INFO:root:Wait for 60 secs...
+2020-01-31 11:12:49,229 INFO:root:In Func:send_request
+2020-01-31 11:12:49,229 INFO:root:type: GET
+2020-01-31 11:12:49,229 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-31 11:12:49,229 INFO:root:data: {}
+2020-01-31 11:12:49,229 INFO:root:expect_code: 200
+2020-01-31 11:12:52,132 INFO:root:SBC VNF INSTANTIATE  PROCESSING
+2020-01-31 11:12:52,132 INFO:root:Wait for 60 secs...
+2020-01-31 11:13:52,143 INFO:root:In Func:send_request
+2020-01-31 11:13:52,143 INFO:root:type: GET
+2020-01-31 11:13:52,143 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-31 11:13:52,143 INFO:root:data: {}
+2020-01-31 11:13:52,143 INFO:root:expect_code: 200
+2020-01-31 11:13:54,981 INFO:root:SBC VNF INSTANTIATE  PROCESSING
+2020-01-31 11:13:54,981 INFO:root:Wait for 60 secs...
+2020-01-31 11:14:54,988 INFO:root:In Func:send_request
+2020-01-31 11:14:54,988 INFO:root:type: GET
+2020-01-31 11:14:54,988 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-31 11:14:54,988 INFO:root:data: {}
+2020-01-31 11:14:54,988 INFO:root:expect_code: 200
+2020-01-31 11:14:57,759 INFO:root:SBC VNF INSTANTIATE  PROCESSING
+2020-01-31 11:14:57,759 INFO:root:Wait for 60 secs...
+2020-01-31 11:15:57,763 INFO:root:In Func:send_request
+2020-01-31 11:15:57,763 INFO:root:type: GET
+2020-01-31 11:15:57,763 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-31 11:15:57,763 INFO:root:data: {}
+2020-01-31 11:15:57,763 INFO:root:expect_code: 200
+2020-01-31 11:16:00,581 INFO:root:SBC VNF INSTANTIATE  PROCESSING
+2020-01-31 11:16:00,581 INFO:root:Wait for 60 secs...
+2020-01-31 11:17:00,592 INFO:root:In Func:send_request
+2020-01-31 11:17:00,592 INFO:root:type: GET
+2020-01-31 11:17:00,592 INFO:root:url: https://100.69.127.147/vnflcm/v1/vnf_lcm_op_occs
+2020-01-31 11:17:00,592 INFO:root:data: {}
+2020-01-31 11:17:00,592 INFO:root:expect_code: 200
+2020-01-31 11:17:03,586 INFO:root:SBC VNF INSTANTIATE  PROCESSING
+2020-01-31 11:17:03,586 INFO:root:Wait for 60 secs...
