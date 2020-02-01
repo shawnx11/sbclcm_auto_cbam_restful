@@ -1,13 +1,11 @@
-##############################################
-Pre-steps:
+# Pre-Steps
 1. create one user on CBAM for rest api calls
+2. setup orchvm, http server, backup server
 
-##############################################
-v1:
+# v1
 1. minimal prototype                    - done
 
-##############################################
-v2:
+# v2
 1. Upload VNF Package                   - done
 2. Create, Instantiate                  - done
 3. Disable auto_backup, auto_scale      - done
@@ -26,17 +24,13 @@ v2:
 16. Upgrade archive                     - done
 17. CSSU                                - done
 
-##############################################
-v3:
-To-do:
+# v3
 1. class re-design                      - done
 2. add LcmTestDriver class              - done
 3. re-org globals                       - done
 4. add TS                               - done
 
-##############################################
-v4:
-To-do:
+# v4
 1. uniform request sender               - done
 2. timeout and retries of requests      - done
 3. SU To load artifact generation       - done
@@ -48,15 +42,11 @@ To-do:
 9. get initial sc count before scale    - done
 10. gen artifacts after sc scale        - done
 
-##############################################
-v5:
-To-do:
+# v5
 1. add more TS scenarios                - done
 2. 6 DRs scenarios                      - done
 
-##############################################
-v6:
-To-do:
+# v6
 1. media plane support
     - instantiation                     - done
     - backup                            - done
@@ -70,17 +60,15 @@ To-do:
     - rollback                          - done
 2. change to pl043                      - done
 3. class re-org                         - done
-    SBCVnf
-        --> SigVnf
-        --> MediaVnf
-    SBCVnfLcmTestDriver
-        --> SigVnfLcmTestDriver
-        --> MediaVnfLcmTestDriver
+    - SBCVnf
+        - SigVnf
+        - MediaVnf
+    - SBCVnfLcmTestDriver
+        - SigVnfLcmTestDriver
+        - MediaVnfLcmTestDriver
 4. add class LcmUtils                   - done
 
-##############################################
-v7:
-To-do:
+# v7
 1. add cancel
 2. media plane su->cancel->backout
 3. media artifact generator
@@ -91,8 +79,7 @@ To-do:
 8. add sbc test suites
 9. Sig DB restore from local oam
 
-##############################################
-TODO:
+# TODO
 1. data visualization
 2. containerlization
 3. sig plane support api v3

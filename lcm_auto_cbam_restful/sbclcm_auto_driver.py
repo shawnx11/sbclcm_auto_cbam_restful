@@ -4881,14 +4881,21 @@ def setup_vnfdIds():
                 log('Currently supported vnfProductName: SBC or SBC-media.')
                 exit(1)
 
+
 '''
 Run various Test Suites
 '''
 def run_ts():
     '''
     This is the upper caller and control for various test suilts
-    Sig plane and media plane have different test suilts
+    Sig plane and media plane have different test suilts,
+    and sbcvnf test suites are for combination of sig and media plane
     '''
+
+    '''
+    Following are for sbc (sig + media) VNFs tests
+    '''
+    TS_sbcvnf_tests_ts02()
 
     '''
     Following are for sig VNF tests
@@ -4931,7 +4938,7 @@ def run_ts():
     # TS_sigvnf_tests_heal_s_r_mt()
     #
     # TS_sigvnf_tests_bkup()
-    TS_sigvnf_tests_br()
+    # TS_sigvnf_tests_br()
 
     # TS_sigvnf_tests_dr()
     # TS_sigvnf_tests_dr_http12()
